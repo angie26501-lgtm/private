@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta name="googlebot" content="noindex, nofollow, noarchive">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>勇者排行榜｜101夜傳承秘境</title>
+<style>
+:root{--gold:#e9a92a;--gold2:#ffd982;--ink:#f6ead0;--mute:#c9bd9d}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;padding:24px 16px 40px;font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;
+  background:radial-gradient(ellipse at 50% -10%,#3a3f8f,#1b2150 40%,#0b0f2a 85%);color:var(--ink)}
+.wrap{max-width:560px;margin:0 auto}
+.top{text-align:center;margin-bottom:16px}
+.num{font-weight:900;font-size:48px;line-height:1;color:var(--gold);letter-spacing:-1px}
+h1{font-family:"Noto Serif TC","PMingLiU",serif;font-size:24px;margin:6px 0 4px;color:var(--gold2)}
+.sub{color:var(--mute);font-size:14px}
+.card{border:2px solid var(--gold);border-radius:18px;padding:16px 14px;background:linear-gradient(180deg,#2a2440,#141030)}
+.tabs{display:flex;gap:8px;justify-content:center;margin-bottom:10px}
+.tab{border:1.5px solid var(--gold);background:transparent;color:var(--gold2);border-radius:99px;padding:8px 16px;font-size:15px;cursor:pointer}
+.tab.on{background:linear-gradient(180deg,#ffe08a,#e9a92a);color:#2b2316;font-weight:700}
+.info{text-align:center;color:var(--mute);font-size:13px;margin-bottom:8px}
+.r{display:flex;align-items:center;gap:10px;padding:10px 6px;border-bottom:1px dashed rgba(240,200,90,.25)}
+.r:last-child{border-bottom:0}
+.rk{width:34px;text-align:center;font-size:18px;font-weight:800;color:var(--gold2)}
+.nk{flex:1;min-width:0}.nk b{display:block;font-size:16px}.nk small{color:#b9ad8e;font-size:12.5px}
+.sc{color:var(--gold2);font-weight:700;white-space:nowrap}
+.msg{text-align:center;padding:24px 8px;color:var(--mute)}
+.acts{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:16px}
+.btn{display:inline-block;border:1.5px solid var(--gold);border-radius:99px;padding:10px 18px;color:var(--gold2);text-decoration:none;font-size:15px;background:transparent;cursor:pointer}
+.btn.main{background:linear-gradient(180deg,#ffe08a,#e9a92a);color:#2b2316;font-weight:700}
+.note{text-align:center;color:#9f9479;font-size:12px;margin-top:14px;line-height:1.6}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top">
+    <div class="num">101</div>
+    <h1>🏆 勇者排行榜</h1>
+    <div class="sub">101夜傳承秘境｜比金幣、比擊敗數，看誰是傳承之王</div>
+  </div>
+  <div class="card">
+    <div class="tabs"><button class="tab on" data-v="total">👑 總榜</button><button class="tab" data-v="weekly">📅 本週榜</button></div>
+    <div class="info" id="info">讀取中…</div>
+    <div id="list"><div class="msg">讀取中…</div></div>
+  </div>
+  <div class="acts">
+    <a class="btn main" href="./">🪔 進入秘境闖關（需通行碼）</a>
+    <button class="btn" id="re" type="button">🔄 重新整理</button>
+  </div>
+  <div class="note">排行榜只顯示暱稱與分數，不收集任何個人資料。<br>通行碼請向芸琪索取：LINE@ <a href="https://lin.ee/oOvyuwU" style="color:#ffd982">財顧芸官方帳號</a> 或 0918-800-852</div>
+</div>
+<script>
+const LB_URL = "https://script.google.com/macros/s/AKfycbx6zk3N_hDk9X9xZX9NYmK3fIfXPN1pNiIaD7yOaw8xOUvW_WJV1tUH6q5w9BNjF4Sr/exec";
+let D = null, view = "total";
+const esc = s => String(s == null ? "" : s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const medal = r => r === 1 ? "🥇" : r === 2 ? "🥈" : r === 3 ? "🥉" : r;
+let pid = ""; try { pid = (JSON.parse(localStorage.getItem("yun101_game_all") || "{}").pid) || ""; } catch (e) {}
+function draw() {
+  if (!D) return;
+  const arr = D[view] || [];
+  document.getElementById("info").textContent = `目前共有 ${D.players || 0} 位勇者參戰` + (view === "weekly" ? `・本週從 ${D.week} 起算（每週一重新起跑）` : "");
+  document.getElementById("list").innerHTML = arr.length ? arr.map(r => `
+    <div class="r"><span class="rk">${medal(r.rank)}</span>
+      <span class="nk"><b>${esc(r.nick)}</b><small>${esc(r.title || "")}・擊敗 ${r.won}・🔥${r.streak}</small></span>
+      <span class="sc">🪙${view === "total" ? r.gold : r.week}</span></div>`).join("")
+    : '<div class="msg">這個榜還沒有人，快進入秘境搶第一！</div>';
+}
+function load() {
+  document.getElementById("list").innerHTML = '<div class="msg">讀取中…</div>';
+  const t = new Promise((_, r) => setTimeout(() => r(new Error("timeout")), 10000));
+  Promise.race([fetch(LB_URL + "?id=" + encodeURIComponent(pid)).then(r => r.json()), t])
+    .then(d => { D = d; draw(); })
+    .catch(() => { document.getElementById("info").textContent = ""; document.getElementById("list").innerHTML = '<div class="msg">排行榜暫時連不上，請稍後按「重新整理」。</div>'; });
+}
+document.querySelectorAll(".tab").forEach(b => b.onclick = () => {
+  document.querySelectorAll(".tab").forEach(x => x.classList.toggle("on", x === b)); view = b.dataset.v; draw();
+});
+document.getElementById("re").onclick = load;
+load();
+</script>
+</body>
+</html>
