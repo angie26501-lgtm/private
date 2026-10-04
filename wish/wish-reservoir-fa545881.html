@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW"><head><meta charset="utf-8"><meta name="googlebot" content="noindex, nofollow, noarchive">
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>【客戶版】財顧芸｜大小水庫時間軸｜WISH</title>
+<style>
+:root{--ink:#1f2d33;--sub:#5b6b72;--line:#d5dfe2;--paper:#f6f9f9;--card:#ffffff;
+ --deep:#1d5a6e;--water:#3f8fa6;--mist:#dcebef;--amber:#b7791f;--amberbg:#fbf3e4;
+ --gold:#c9a445;--green:#2f6b52;--red:#8f4a38}
+*{box-sizing:border-box}html,body{margin:0;padding:0}
+body{background:#eef4f5;color:var(--ink);font:16px/1.8 "Microsoft JhengHei","Noto Sans TC","PingFang TC",sans-serif;-webkit-text-size-adjust:100%}
+.wrap{max-width:980px;margin:0 auto;padding:30px 18px 60px}
+.hd{background:var(--card);border-radius:12px;padding:26px 28px 22px;border-top:5px solid var(--deep);
+ box-shadow:0 2px 14px rgba(29,90,110,.09)}
+.hd .k{font-size:12.5px;letter-spacing:.22em;color:var(--amber);font-weight:700}
+.hd h1{margin:8px 0 0;font-size:27px;line-height:1.35;color:var(--deep)}
+.hd .sb{margin:6px 0 0;font-size:16px;color:var(--water);font-weight:700}
+.hd .mt{display:flex;flex-wrap:wrap;gap:5px 22px;margin-top:15px;padding-top:13px;
+ border-top:1px solid var(--line);font-size:13px;color:var(--sub)}.hd .mt b{color:var(--deep)}
+h2{font-size:21px;color:var(--deep);margin:36px 0 8px;padding-left:13px;border-left:5px solid var(--amber);line-height:1.5}
+h3{font-size:17.5px;color:var(--deep);margin:26px 0 6px}
+.small{font-size:13px;color:var(--sub)}
+.lead{font-size:16.5px;margin:12px 0}
+.note{background:var(--amberbg);border-radius:8px;padding:12px 16px;font-size:14.5px;
+ margin:12px 0;color:#5a4012;line-height:1.85}
+.note b{color:#7a5410}
+.note.d{background:var(--paper);border:1px solid var(--line);color:var(--ink);border-left:5px solid var(--deep)}
+.note.d b{color:var(--deep)}
+.note.r{background:#fbeeea;border-left:5px solid var(--red);color:#5c2f23}.note.r b{color:var(--red)}
+.note.g{background:#ecf4ef;border-left:5px solid var(--green);color:#24503f}.note.g b{color:var(--green)}
+.edu{margin:8px 0 0!important}
+.edu a{display:inline-block;font-size:13.8px;color:var(--deep);font-weight:700;
+ background:var(--mist);border-radius:8px;padding:5px 11px;margin:4px 5px 0 0;text-decoration:none}
+.edu a:hover{background:#c7e0e8}
+.edu a:focus-visible{outline:3px solid var(--amber);outline-offset:2px}
+
+/* 水庫卡 */
+.res{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:14px 0;align-items:start}
+.rescard{background:var(--card);border:1px solid var(--line);border-top:5px solid var(--deep);
+ border-radius:10px;padding:13px;cursor:pointer;position:relative}
+.rescard.sm{border-top-color:var(--water)}.rescard.b2{border-top-color:#2d7489}
+.rescard.lv{border-top-color:var(--green)}.rescard.b1{border-top-color:var(--gold)}
+.rescard:hover,.rescard:focus-visible{box-shadow:0 8px 22px rgba(29,90,110,.16);border-color:var(--deep)}
+.rescard:focus-visible{outline:3px solid var(--amber);outline-offset:2px}
+.rescard .rn{display:inline-block;font-size:12.5px;font-weight:700;color:#fff;background:var(--deep);
+ border-radius:12px;padding:0 10px;margin-bottom:6px}
+.rescard.sm .rn{background:var(--water)}.rescard.b2 .rn{background:#2d7489}
+.rescard.lv .rn{background:var(--green)}.rescard.b1 .rn{background:var(--gold)}
+.rescard b{display:block;color:var(--deep);font-size:15.5px;line-height:1.5}
+.rescard .amt{font-size:19px;font-weight:800;color:var(--deep);margin-top:3px}
+.rescard .amt i{font-style:normal;font-size:12.5px;color:var(--sub);font-weight:600;margin-left:4px}
+.rescard p{margin:5px 0 0;font-size:13.8px;color:var(--sub);line-height:1.75}
+.rescard .more{display:block;margin-top:8px;font-size:13px;font-weight:700;color:var(--deep);opacity:.6}
+.rescard:hover .more,.rescard.open .more{opacity:1}
+.rtip{margin-top:10px;background:#12343f;color:#fff;border-radius:11px;padding:13px 15px;
+ text-align:left;display:none}
+.rescard.open .rtip{display:block}
+.rtip b{display:block;color:#ffd98a;font-size:14.5px;margin-bottom:8px}
+.rtip ul{margin:0;padding:0;list-style:none}
+.rtip li{font-size:13.2px;line-height:1.65;margin:0 0 7px;display:flex;gap:8px}
+.rtip li i{flex:none;width:58px;font-style:normal;color:#9fd0dd;font-size:12.2px}
+.rtip .tipgo{display:block;margin-top:3px;padding-top:8px;border-top:1px solid rgba(255,255,255,.22);
+ font-size:12.2px;color:#ffd98a;font-weight:700}
+
+/* 階段 */
+.phases{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin:14px 0}
+.ph{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:12px 14px;font-size:14px;line-height:1.8}
+.ph strong{display:block;color:var(--deep);font-size:15.5px;margin-bottom:4px}
+.ph strong i{font-style:normal;color:var(--amber)}
+
+/* 時間軸 */
+.tl{background:var(--card);border-radius:10px;padding:12px 10px 16px;margin:16px 0;border:1px solid var(--line)}
+.tlbar{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:8px;margin:0 4px 6px}
+.tlbar .lb{font-size:13.5px;color:var(--sub);font-weight:700}
+.tlbar .seg button{font-size:13.5px;padding:4px 13px;border-radius:14px;border:1px solid var(--line);
+ background:#fff;color:var(--deep);cursor:pointer;font-family:inherit;font-weight:700;margin-left:5px}
+.tlbar .seg button[aria-pressed=true]{background:var(--deep);border-color:var(--deep);color:#fff}
+.zoombtn{font-size:13px;padding:4px 12px;border-radius:14px;border:1px solid var(--deep);
+ background:#fff;color:var(--deep);cursor:pointer;font-family:inherit}
+.zoombtn[aria-pressed=true]{background:var(--deep);color:#fff}
+.tlscroll{overflow-x:auto;-webkit-overflow-scrolling:touch;border-radius:8px}
+.tlscroll svg{display:block;width:100%;height:auto}
+.tlscroll.zoom svg{width:1280px;max-width:none}
+.tlscroll:focus-visible{outline:3px solid var(--amber)}
+.slider{display:flex;align-items:center;gap:12px;margin:6px 6px 10px;padding:8px 12px;
+ background:var(--paper);border:1px solid var(--line);border-radius:10px}
+.slider input{flex:1;accent-color:var(--deep);height:28px}
+.agebig{font-family:"Noto Serif TC","Songti TC",serif;font-size:26px;color:var(--deep);min-width:80px;text-align:right}
+.panes{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin-top:10px}
+.pane{background:var(--paper);border-radius:8px;padding:10px 12px;font-size:13.5px;color:var(--sub)}
+.pane b{display:block;font-size:17.5px;color:var(--deep);margin-top:2px}
+.pane .phase{font-size:12.5px;color:var(--amber);font-weight:700}
+.cfnow{margin:10px 6px 0;padding:9px 13px;border-left:4px solid var(--deep);background:var(--paper);
+ border-radius:0 8px 8px 0;font-size:14.5px;line-height:1.85}.cfnow b{color:var(--deep)}
+.cflegend,.goals{margin:10px 6px 4px;padding:10px 13px;background:var(--paper);border-radius:8px;border:1px solid var(--line)}
+.goals-title{color:var(--deep);font-weight:700;cursor:pointer;font-size:14.5px}
+.lg{display:flex;gap:10px;align-items:flex-start;font-size:14px;margin:7px 0;line-height:1.8}
+.lb2{flex:none;width:24px;height:24px;border-radius:50%;color:#fff;font-weight:700;display:flex;
+ align-items:center;justify-content:center;font-size:13px;margin-top:3px}
+.goal{display:flex;gap:10px;align-items:flex-start;font-size:14px;margin:7px 0;line-height:1.8}
+.gage{flex:none;background:var(--amber);color:#fff;border-radius:12px;padding:1px 11px;font-weight:700;
+ font-size:13px;margin-top:3px;white-space:nowrap}
+.gage.r{background:var(--red)}.gage.g{background:var(--green)}
+.ft{margin-top:42px;padding-top:16px;border-top:1px solid var(--line);font-size:13px;color:var(--sub);line-height:2}
+.ft b{color:var(--deep)}
+#gate{position:fixed;inset:0;background:var(--deep);display:flex;align-items:center;justify-content:center;z-index:99}
+#gate .bx{background:var(--card);border-radius:14px;padding:30px 32px;max-width:350px;width:88%;text-align:center}
+#gate h3{margin:0 0 6px;color:var(--deep);font-size:18px}#gate p{margin:0 0 14px;font-size:14px;color:var(--sub)}
+#gate input{width:100%;padding:11px;font-size:19px;text-align:center;border:2px solid var(--line);
+ border-radius:8px;font-family:inherit;letter-spacing:.3em}
+#gate button{margin-top:11px;width:100%;padding:11px;background:var(--deep);color:#fff;border:0;
+ border-radius:8px;font-size:16px;font-weight:700;cursor:pointer;font-family:inherit}
+#gate .er{color:var(--red);font-size:13px;margin-top:8px;min-height:18px}
+@media(max-width:860px){.res{grid-template-columns:1fr 1fr}.panes{grid-template-columns:1fr 1fr}}
+@media(max-width:620px){.wrap{padding:18px 12px 44px}.hd h1{font-size:22px}h2{font-size:19px}
+ .res,.phases,.panes{grid-template-columns:1fr}.agebig{font-size:22px;min-width:66px}}
+@media print{#gate{display:none!important}body{background:#fff}.tlscroll{overflow:visible}
+ .tlscroll.zoom svg{width:100%}.rtip{display:block!important}}
+</style></head><body>
+<div id="gate"><div class="bx"><h3>財顧芸｜大小水庫時間軸</h3><p>WISH 先生專屬・請輸入通行碼</p>
+<input id="pw" type="password" inputmode="numeric" autocomplete="off">
+<button type="button" id="go">開啟</button><div class="er" id="er"></div></div></div>
+<div class="wrap">
+
+<div class="hd"><div class="k">《財顧芸｜人生財務設計藍圖報告書》節錄</div>
+<h1>大小水庫時間軸</h1>
+<div class="sb">三座水庫、一道活水，誰先動、誰後動</div>
+<div class="mt"><span>客戶　<b>WISH 先生</b>　65 歲 → 100 歲</span>
+<span>基準　<b>115 年 9 月 30 日</b></span>
+<span>製表　<b>115 年 10 月 4 日</b></span>
+<span>顧問　<b>陳芸琪 Angie Chen</b></span></div></div>
+
+<h2>三、大小水庫時間軸</h2>
+
+<div class="note"><b>在看水庫之前，先看一個觀念：一次一起來。</b><br>
+大部分人存錢是「一次一個、慢慢來」——先繳房貸、再買保障、有餘力再投資，
+輪到退休金的時候人已經六十幾歲了，中間全是斷點。
+所以這份規劃讓您的<b>四件事同時開始</b>：保障、預備金、小水庫、大水庫。
+金額可以小，但每一條線都先跑起來，不斷點。
+<p class="edu"><a href="https://angie26501-lgtm.github.io/plan-qfel8283/%E8%B2%A1%E5%95%86%E5%B0%8F%E6%95%99%E5%AE%A4-%E5%90%8C%E6%99%82%E9%85%8D%E7%BD%AE.html" target="_blank" rel="noopener">📘 延伸閱讀：財商小教室｜有錢人的金錢藍圖：重要的目標，一起來 →</a><br><a href="https://angie26501-lgtm.github.io/plan-qfel8283/%E8%B2%A1%E5%95%86%E5%B0%8F%E6%95%99%E5%AE%A4-%E9%A6%96%E9%87%8D%E8%B3%87%E7%94%A2%E9%85%8D%E7%BD%AE.html" target="_blank" rel="noopener">📘 延伸閱讀：財商小教室｜為什麼首重資產配置？ →</a></p></div>
+
+<p class="lead">您手上有<b>一道活水</b>和<b>三座水庫</b>：活水是月退俸，大水庫1 是安達，大水庫2 是凱基，小水庫是存款桶。
+四個各有各的工作，下面一個一個說。</p>
+
+<div class="res">
+<div class="rescard lv" role="button" tabindex="0" aria-expanded="false">
+<span class="rn">活水源</span><b>月退俸</b>
+<div class="amt">559,956<i>元／年</i></div>
+<p>合庫新制＋郵局舊制，合計每月 46,663 元。終身給付、不受市場影響。</p>
+<span class="more">點一下看細節 →</span>
+<div class="rtip"><b>月退俸 559,956／年</b><ul>
+<li><i>組成</i>合庫新制 41,418／月＋郵局舊制 5,245／月</li>
+<li><i>性質</i>終身給付，不因市場波動或長壽而中斷</li>
+<li><i>定位</i>整張藍圖的地基，水庫只補不足的部分</li>
+<li><i>稅負</i>115 年度綜所稅試算為 0 元（未達課稅門檻）</li></ul>
+<span class="tipgo">詳見報告書第 02 章 →</span></div></div>
+
+<div class="rescard b1" role="button" tabindex="0" aria-expanded="false">
+<span class="rn">大水庫1</span><b>安達　天生贏家Plus變額年金</b>
+<div class="amt">3,913,057<i>元</i></div>
+<p>月繳 23,000 元，保單年度 9 期滿。71 歲是年金給付開始年齡，屆時可選擇領年金或轉移。</p>
+<span class="more">點一下看細節 →</span>
+<div class="rtip"><b>安達 天生贏家Plus變額年金</b><ul>
+<li><i>投入方式</i>62 歲投保，月繳 23,000，繳費年期 9 年</li>
+<li><i>目前進度</i>保單年度 4，帳戶價值 3,913,057</li>
+<li><i>費用</i>第 5 保單年度起管理費固定 1,200 元／年</li>
+<li><i>年金化</i>年金給付開始年齡 71 歲，可於期限前依保單約定選擇</li>
+<li><i>開閘順序</i>三桶之中<b>最後才動</b></li></ul>
+<span class="tipgo">費用與給付條件請參閱保單條款 →</span></div></div>
+
+<div class="rescard b2" role="button" tabindex="0" aria-expanded="false">
+<span class="rn">大水庫2</span><b>凱基　一生傳富變額年金</b>
+<div class="amt">2,000,000<i>元・躉繳</i></div>
+<p>115 年 10 月 2 日自存款撥出、一次投入。80 歲年金化，是安達 71 歲那個決策點的承接工具。</p>
+<span class="more">點一下看細節 →</span>
+<div class="rtip"><b>凱基 一生傳富變額年金</b><ul>
+<li><i>投入方式</i>65 歲躉繳 200 萬，之後不用再繳</li>
+<li><i>費用</i>前三年按帳戶價值計收，合計約 18.8 萬；第 4 年起每年 1,200 元</li>
+<li><i>年增率</i>前三年 1.7～2.0%，第 4 年起回到約 4.95%</li>
+<li><i>年金化</i>80 歲，與安達相隔九年</li>
+<li><i>設立用意</i>分散單一機構集中度風險；醫療照護要用錢時有專屬的地方可以動</li></ul>
+<span class="tipgo">費用與給付條件請參閱保單條款 →</span></div></div>
+
+<div class="rescard sm" role="button" tabindex="0" aria-expanded="false">
+<span class="rn">小水庫</span><b>存款桶</b>
+<div class="amt">1,178,272<i>元</i></div>
+<p>撥出 200 萬到凱基後的餘額。隨時可取用，也是唯一能立刻調度的一桶，所以第一個動它。</p>
+<span class="more">點一下看細節 →</span>
+<div class="rtip"><b>存款桶</b><ul>
+<li><i>撥出前</i>3,178,272 元，相當於 21.7 個月家庭總支出</li>
+<li><i>撥出後</i>1,178,272 元，約 8 個月，緊急預備金水位仍充足</li>
+<li><i>利率</i>約 1.5%，低於通膨假設 2%——放著不動實質購買力逐年遞減</li>
+<li><i>開閘順序</i>三桶之中<b>第一個動</b></li></ul>
+<span class="tipgo">詳見報告書第 03 章 →</span></div></div>
+</div>
+
+<div class="phases">
+<div class="ph"><strong>62～70 歲｜<i>蓄水</i></strong>
+安達每月扣 23,000 元，保單年度 1～9。這幾年帳面好看、手頭最緊——錢是從左邊口袋移到右邊口袋，不是花掉了。
+這段期間同時是<b>保障補強的窗口</b>，不是花錢的窗口。</div>
+<div class="ph"><strong>65～72 歲｜<i>養水</i></strong>
+月退俸與補教收入兩筆疊在一起，大部分人只有一筆。凱基 200 萬在 65 歲進場，三座水庫同時長大。
+<b>所有要加碼的事，都該排在這幾年做完。</b></div>
+<div class="ph"><strong>71 歲起｜<i>幫自己加薪</i></strong>
+安達 71 歲、凱基 80 歲，兩段式年金化、相隔九年。到了各自的時點，帳戶餘額轉為按月給付，或轉移到另一桶繼續累積。
+<b>用前面養起來的水，換成往後每個月進來的錢。</b></div>
+</div>
+
+<div class="tl" id="plan-timeline">
+<div class="tlbar">
+<span class="lb">補教做到<span class="seg">
+<button type="button" data-to="70" aria-pressed="false">70 歲</button>
+<button type="button" data-to="72" aria-pressed="true">72 歲</button></span></span>
+<span class="small">← 左右滑動，看完整時間軸 →</span>
+<button type="button" id="zoomBtn" class="zoombtn" aria-pressed="false">放大檢視</button>
+</div>
+
+<div class="tlscroll" id="tlscroll" tabindex="0" aria-label="水位時間軸，可左右捲動">
+<svg id="chart" viewBox="0 0 700 426" role="img" aria-label="三座水庫水位隨年齡變化"></svg></div>
+
+<div class="slider"><label for="age" class="small">拖拉看年齡</label>
+<input id="age" type="range" min="65" max="100" value="72"><span class="agebig" id="ageTxt">72 歲</span></div>
+
+<div class="tlscroll" id="tlscroll2" aria-label="年度現金流，可左右捲動">
+<svg id="chart2" viewBox="0 426 700 234" role="img" aria-label="年度收入與支出"></svg></div>
+
+<div class="cfnow" id="cfTxt"></div>
+
+<div class="panes">
+<div class="pane"><div class="phase" id="phA"></div>這一年收進來<b id="pInc"></b></div>
+<div class="pane"><div class="phase" id="phB"></div>這一年花出去<b id="pExp"></b></div>
+<div class="pane"><div class="phase" id="phC"></div>小水庫（存款）<b id="pDep"></b></div>
+<div class="pane"><div class="phase" id="phD"></div>資產合計<b id="pTot"></b></div>
+</div>
+<div class="panes" style="margin-top:9px">
+<div class="pane">大水庫2（凱基）年末<b id="pKg"></b></div>
+<div class="pane">大水庫1（安達）年末<b id="pAb"></b></div>
+</div>
+
+<div class="cflegend">
+<div class="goals-title" style="margin-bottom:4px">現金流註記（這條線為什麼這樣走）</div>
+<div class="lg"><span class="lb2" style="background:#2f6b52">A</span><span>
+<b>月退俸 559,956／年，終身。</b>不會因為市場、也不會因為活太久而中斷，是唯一不用擔心的收入。</span></div>
+<div class="lg"><span class="lb2" style="background:#4e8f6e">B</span><span>
+<b>補教收入 1,404,000／年，至 70 或 72 歲止。</b>這是養水期的主角，也是退場那一年收入斷崖的原因。</span></div>
+<div class="lg"><span class="lb2" style="background:#c9a445">C</span><span>
+<b>存進安達 276,000／年，至繳費期滿。</b>這筆是<b>存錢不是花錢</b>——從左邊口袋移到右邊口袋，
+但在手頭上確實少了 23,000／月。</span></div>
+<div class="lg"><span class="lb2" style="background:#1d5a6e">D</span><span>
+<b>房貸繳至 81 歲、子女相關支出至 83 歲。</b>每月 37,415 元，81 歲後每年少 448,980 元，這也是放水速度在那之後趨緩的原因。</span></div>
+</div>
+
+<div class="goals">
+<div class="goals-title" style="margin-bottom:4px">關鍵年</div>
+<div class="goal"><span class="gage r">2027/01/02</span><span>
+<b>住院實支實付的投保期限。</b>這是整張時間表上<b>唯一有期限的一件事</b>，過了就不再受理新投保。</span></div>
+<div class="goal"><span class="gage">68 歲</span><span>
+<b>重新評估補教退場年齡。</b>用當時的實際數字重算再決定，不必今天定案。</span></div>
+<div class="goal"><span class="gage">70 歲</span><span>
+<b>安達繳費期滿。</b>每年少付 27.6 萬元，手頭立刻鬆開。</span></div>
+<div class="goal"><span class="gage">71 歲</span><span>
+<b>安達年金給付開始年齡。</b>兩條路：開始領年金，或把部位轉移到凱基繼續累積。
+年金給付開始年齡可於期限前依保單約定選擇。</span></div>
+<div class="goal"><span class="gage">80 歲</span><span>
+<b>凱基年金化。</b>第二段加薪，與安達相隔九年。</span></div>
+<div class="goal"><span class="gage g">81 歲</span><span>
+<b>房貸繳清。</b>一年再省 44.9 萬元，放水速度立刻減半。</span></div>
+</div>
+
+<div class="cfnow" id="sum"></div>
+
+<p class="small" style="margin:10px 6px 0">
+上圖由下往上堆疊三座水庫：藍色是小水庫（存款）、深藍是大水庫2（凱基）、金色是大水庫1（安達），
+最上面那條深色線是三桶加起來的資產合計。左邊綠底是養水區，右邊黃底是放水區。
+下圖是每一年收進來與花出去的對照。
+安達與凱基的年金化時點尚未在圖上轉列，兩桶均以持續累積呈現。</p>
+</div>
+
+<div class="note"><b>這張模擬圖是試算結果，僅供參考。</b><br>
+圖上的水位高低、開閘順序與年度收支，都是依本報告書的試算假設推算出來的，
+<b>不是保證數值，也不是承諾</b>。實際結果會隨投資市場報酬、物價水準、身體狀況、
+補教工作狀況與家庭照護需求而變動，可能優於、也可能劣於圖上所示。
+<br><br>
+<b>所以我們採滾動式檢視。</b>每年的周年檢視，都會以<b>當年的實際數字</b>重新試算一次，
+把新拿到的資料放進去、把假設修正回實際，而不是今天算完就擺著不動。
+幾個已經排定的檢視時點：<b>68 歲</b>重新評估補教退場年齡、
+<b>70 歲</b>決定安達的年金給付時點、<b>屆齡退休或家庭狀況有重大變動時</b>隨時提前檢視。
+<br><br>
+換句話說，這張圖的用途<b>不是預測未來，是幫您看清楚現在的選擇會把路帶往哪個方向</b>。
+方向看清楚了，每年再依當時的實際需求調整一次，就不會走偏。</div>
+
+<div class="note d"><b>【財顧芸觀察】</b>
+這張圖最違反直覺的地方是：<b>您的資產到補教退場那一年都還在長大</b>。
+不是因為報酬多好，是因為這幾年「月退俸＋補教收入」兩筆收入疊在一起，而大部分人只有一筆。
+所以問題從來不是錢夠不夠，而是<b>這幾年有沒有把該做的事做完</b>——
+保障補強、傳承安排、長照準備，都該排在水位還在上升的時候。</div>
+
+<div class="note r"><b>【風險提醒】</b>
+三座水庫的開閘順序是<b>依規劃設定的順序，不是保證</b>。
+實際動用順序會受醫療與照護需求影響——若照護需求提前發生，順序可能被迫改變。
+另外，<b>安達 71 歲、凱基 80 歲的年金化時點，尚未在逐年試算中轉列</b>，
+目前兩桶均以持續累積呈現，將於下次周年檢視依保單條款調整。</div>
+
+<div class="note g"><b>【建議方向】</b>
+① <b>2027/01/02 之前</b>完成住院實支實付的可保性評估與投保決定——這是唯一有期限的事。<br>
+② <b>68 歲</b>依實際數字重新評估補教退場年齡，不必現在決定。<br>
+③ <b>70 歲那一年</b>決定安達走哪一條路：開始領年金，或轉移到凱基。
+判斷依據是當年的身體狀況、補教是否已退場、配偶照護需求是否浮現。</div>
+
+<div class="ft">
+<b>文件來源</b>　《周年檢視報告書》馥芸 115/09 版、安達人壽簽收回條、凱基人壽建議書（20260923）。<br>
+<b>試算假設</b>　安達與凱基報酬率 5%、存款利率 1.5%、通膨 2%，<b>均為試算假設，非保證數值</b>；
+房貸利率 2.18% 為實際貸款條件。75 歲起生活支出以 85% 計列。
+每年已預留新增保障保費空間（編列基準 75,000 元／年，計至 80 歲）。<br>
+<b>各項保單之費用、給付條件與相關約定，請參閱各該保單條款內容。</b><br><br>
+陳芸琪 Angie Chen｜馥芸財富學苑　執業顧問・公勝財富管理顧問公司　資深顧問
+</div>
+</div>
+<script>var DATA={"70":{"r":[[65,1330165,2034194,4384710,7749069,1963956,1829737,134219],[66,1459902,2071485,4879946,8411333,1963956,1854171,109785],[67,1571951,2112022,5399943,9083916,1963956,1873806,90150],[68,1665729,2216391,5945939,9828059,1963956,1893758,70198],[69,1740574,2325978,6519237,10585789,1963956,1914096,49860],[70,2072891,2441045,6845198,11359134,1963956,1657748,306208],[71,984553,2561865,7187459,10733877,559956,1679387,-1119431],[72,0,2547074,7546832,10093906,559956,1700929,-1140973],[73,0,1510352,7924173,9434525,559956,1722800,-1162844],[74,0,399527,8320382,8719909,559956,1745066,-1185110],[75,0,0,8120625,8120625,559956,1594003,-1034047],[76,0,0,7492778,7492778,559956,1593835,-1033879],[77,0,0,6869907,6869907,559956,1557466,-997510],[78,0,0,6195505,6195505,559956,1577853,-1017897],[79,0,0,5466594,5466594,559956,1598643,-1038687],[80,0,0,4680005,4680005,559956,1619874,-1059918],[81,0,0,4135462,4135462,559956,1338500,-778544],[82,0,0,3762931,3762931,559956,1139259,-579303],[83,0,0,3349498,3349498,559956,1161536,-601580],[84,0,0,2918112,2918112,559956,1158818,-598862],[85,0,0,2441980,2441980,559956,1181994,-622038],[86,0,0,1918401,1918401,559956,1205634,-645678],[87,0,0,1344530,1344530,559956,1229746,-669790],[88,0,0,717371,717371,559956,1254341,-694385],[89,0,0,33768,33768,559956,1279428,-719472],[90,0,0,0,0,559956,1305017,-745061],[91,0,0,0,0,559956,1331117,-771161],[92,0,0,0,0,559956,1357739,-797783],[93,0,0,0,0,559956,1384894,-824938],[94,0,0,0,0,559956,1412592,-852636],[95,0,0,0,0,559956,1440844,-880888],[96,0,0,0,0,559956,1469661,-909705],[97,0,0,0,0,559956,1499054,-939098],[98,0,0,0,0,559956,1529035,-969079],[99,0,0,0,0,559956,1559616,-999660],[100,0,0,0,0,559956,1590808,-1030852]],"fd":71,"fk":72,"fa":75,"zero":90,"pk":11359134,"pka":70},"72":{"r":[[65,1330165,2034194,4384710,7749069,1963956,1829737,134219],[66,1459902,2071485,4879946,8411333,1963956,1854171,109785],[67,1571951,2112022,5399943,9083916,1963956,1873806,90150],[68,1665729,2216391,5945939,9828059,1963956,1893758,70198],[69,1740574,2325978,6519237,10585789,1963956,1914096,49860],[70,2072891,2441045,6845198,11359134,1963956,1657748,306208],[71,2388553,2561865,7187459,12137877,1963956,1679387,284569],[72,2687408,2688726,7546832,12922966,1963956,1700929,263027],[73,1564876,2821930,7924173,12310979,559956,1722800,-1162844],[74,403239,2961794,8320382,11685415,559956,1745066,-1185110],[75,0,2483892,8736401,11220293,559956,1594003,-1034047],[76,0,1572976,9173221,10746197,559956,1593835,-1033879],[77,0,652882,9631882,10284764,559956,1557466,-997510],[78,0,0,9779873,9779873,559956,1577853,-1017897],[79,0,0,9230180,9230180,559956,1598643,-1038687],[80,0,0,8631771,8631771,559956,1619874,-1059918],[81,0,0,8284816,8284816,559956,1338500,-778544],[82,0,0,8119753,8119753,559956,1139259,-579303],[83,0,0,7924161,7924161,559956,1161536,-601580],[84,0,0,7721508,7721508,559956,1158818,-598862],[85,0,0,7485545,7485545,559956,1181994,-622038],[86,0,0,7214145,7214145,559956,1205634,-645678],[87,0,0,6905062,6905062,559956,1229746,-669790],[88,0,0,6555929,6555929,559956,1254341,-694385],[89,0,0,6164254,6164254,559956,1279428,-719472],[90,0,0,5727406,5727406,559956,1305017,-745061],[91,0,0,5242615,5242615,559956,1331117,-771161],[92,0,0,4706962,4706962,559956,1357739,-797783],[93,0,0,4117372,4117372,559956,1384894,-824938],[94,0,0,3470604,3470604,559956,1412592,-852636],[95,0,0,2763247,2763247,559956,1440844,-880888],[96,0,0,1991704,1991704,559956,1469661,-909705],[97,0,0,1152191,1152191,559956,1499054,-939098],[98,0,0,240722,240722,559956,1529035,-969079],[99,0,0,0,0,559956,1559616,-999660],[100,0,0,0,0,559956,1590808,-1030852]],"fd":73,"fk":75,"fa":78,"zero":99,"pk":12922966,"pka":72}};</script>
+<script>
+(function(){
+ function d(i){return document.getElementById(i);}
+ var K="wish-res-unlock";
+ try{if(localStorage.getItem(K)==="1") d("gate").style.display="none";}catch(e){}
+ d("go").onclick=function(){
+  if(d("pw").value.trim()==="0702"){try{localStorage.setItem(K,"1");}catch(e){}
+   d("gate").style.display="none"; draw();}
+  else d("er").textContent="通行碼不正確";};
+ d("pw").addEventListener("keydown",function(e){if(e.key==="Enter")d("go").click();});
+ try{d("pw").focus();}catch(e){}
+
+ /* 水庫卡：點一下展開 */
+ [].forEach.call(document.querySelectorAll(".rescard"),function(c){
+  function t(){var on=c.classList.toggle("open");
+   c.setAttribute("aria-expanded",on?"true":"false");
+   c.querySelector(".more").textContent=on?"收起來 ↑":"點一下看細節 →";}
+  c.addEventListener("click",t);
+  c.addEventListener("keydown",function(e){
+   if(e.key==="Enter"||e.key===" "){e.preventDefault();t();}});});
+
+ var TO="72", AGE=72, KT="wish-res-to";
+ try{var s=localStorage.getItem(KT); if(s==="70"||s==="72") TO=s;}catch(e){}
+
+ var W=700,A0=65,A1=100,PL=54,PR=18;
+ function X(a){return PL+(a-A0)/(A1-A0)*(W-PL-PR);}
+ function nm(v){return (v<0?"−":"")+Math.abs(Math.round(v)).toLocaleString("en-US");}
+ function wan(v){return Math.round(v/10000);}
+ function row(a){var R=DATA[TO].r; for(var i=0;i<R.length;i++) if(R[i][0]===a) return R[i]; return R[0];}
+ /* 整齊的刻度級距（1/1.5/2/2.5/3/4/5/6/8/10 × 10^k） */
+ function step(v){
+  var p=Math.pow(10,Math.floor(Math.log(v)/Math.LN10)), m=v/p,
+      L=[1,1.5,2,2.5,3,4,5,6,8,10], i=0;
+  while(i<L.length-1&&L[i]<m) i++;
+  return L[i]*p;}
+ function ticks(mx,n){var st=step(mx/n),o=[];for(var v=0;v<=mx+1;v+=st)o.push(v);return o;}
+ /* 標籤不重疊的列配置 */
+ function rowsAlloc(items,gap){
+  var ends=[],out=[];
+  items.forEach(function(it){
+   var w=it.w, left=it.anchor==="end"?it.x-w:it.x, right=left+w, r=0;
+   while(r<ends.length&&ends[r]>left-gap) r++;
+   ends[r]=right; out.push(r);});
+  return out;}
+
+ /* ── 上圖：水位 ── */
+ function draw1(){
+  var D=DATA[TO],R=D.r,mx=D.pk*1.1,T=50,B=296;
+  function Y(v){return B-(v/mx)*(B-T);}
+  var o='<defs>'
+   +'<linearGradient id="gS" x1="0" y1="0" x2="0" y2="1">'
+   +'<stop offset="0" stop-color="#63b0c4"/><stop offset="1" stop-color="#3f8fa6"/></linearGradient>'
+   +'<linearGradient id="gK" x1="0" y1="0" x2="0" y2="1">'
+   +'<stop offset="0" stop-color="#2d7a93"/><stop offset="1" stop-color="#174b5c"/></linearGradient>'
+   +'<linearGradient id="gA" x1="0" y1="0" x2="0" y2="1">'
+   +'<stop offset="0" stop-color="#e0c475"/><stop offset="1" stop-color="#bf9735"/></linearGradient>'
+   +'</defs>';
+  /* 養水／放水底色 */
+  var xs=X(A0),xm=X(+TO+0.5),xe=X(A1);
+  o+='<rect x="'+xs+'" y="'+T+'" width="'+(xm-xs)+'" height="'+(B-T)+'" fill="#eef5f1"/>';
+  o+='<rect x="'+xm+'" y="'+T+'" width="'+(xe-xm)+'" height="'+(B-T)+'" fill="#fcf6ea"/>';
+  o+='<line x1="'+xm+'" y1="'+T+'" x2="'+xm+'" y2="'+B+'" stroke="#2f6b52" stroke-width="1.5" stroke-dasharray="5 4" opacity=".5"/>';
+  function pill(x,y,txt,col,anchor){
+   var w=txt.length*11.7+17, lx=(anchor==="end")?x-w:x;
+   return '<rect x="'+lx+'" y="'+(y-11)+'" width="'+w+'" height="21" rx="10.5" fill="'+col+'"/>'
+    +'<text x="'+(lx+w/2)+'" y="'+(y+4)+'" font-size="12" font-weight="700" fill="#fff" text-anchor="middle">'+txt+'</text>';}
+  o+=pill(xs+7,T-13,'養水','#2f6b52','start');
+  o+=pill(xm+7,T-13,'放水','#b7791f','start');
+  /* 格線 */
+  ticks(mx,4).forEach(function(v){var y=Y(v);
+   o+='<line x1="'+PL+'" y1="'+y+'" x2="'+(W-PR)+'" y2="'+y+'" stroke="#c9d7da" stroke-width=".8" stroke-dasharray="2 5"/>';
+   o+='<text x="'+(PL-7)+'" y="'+(y+3.5)+'" font-size="10" fill="#7d8c92" text-anchor="end">'+wan(v)+'</text>';});
+  o+='<text x="'+(PL-7)+'" y="'+(T-6)+'" font-size="9.5" fill="#9aa8ad" text-anchor="end">萬元</text>';
+  /* 堆疊面積 */
+  function area(idx,fill,edge){
+   var up="",dn="";
+   for(var i=0;i<R.length;i++){
+    var lo=0,hi=0;
+    for(var k=1;k<idx;k++) lo+=R[i][k];
+    for(var k=1;k<=idx;k++) hi+=R[i][k];
+    up+=(i?" L":"M")+X(R[i][0]).toFixed(1)+" "+Y(hi).toFixed(1);
+    dn=" L"+X(R[i][0]).toFixed(1)+" "+Y(lo).toFixed(1)+dn;}
+   return '<path d="'+up+dn+' Z" fill="'+fill+'"/>'
+    +'<path d="'+up+'" fill="none" stroke="'+edge+'" stroke-width="1" opacity=".55"/>';}
+  o+=area(1,"url(#gS)","#2b7187")+area(2,"url(#gK)","#0f3d4c")+area(3,"url(#gA)","#a07d22");
+  var ln="";for(var i=0;i<R.length;i++) ln+=(i?" L":"M")+X(R[i][0]).toFixed(1)+" "+Y(R[i][4]).toFixed(1);
+  o+='<path d="'+ln+'" fill="none" stroke="#0f3d4c" stroke-width="2.2" stroke-linejoin="round"/>';
+  /* 內嵌圖例 */
+  var lg=[["#3f8fa6","存款"],["#1d5a6e","凱基"],["#c9a445","安達"]], lx=W-PR;
+  lg.forEach(function(g,i){
+   var bx=lx-72-i*72;
+   o+='<rect x="'+bx+'" y="'+(T-21)+'" width="11" height="11" rx="2.5" fill="'+g[0]+'"/>'
+    +'<text x="'+(bx+16)+'" y="'+(T-11.5)+'" font-size="11.5" fill="#44565c" font-weight="700">'+g[1]+'</text>';});
+  /* 座標軸 */
+  o+='<line x1="'+PL+'" y1="'+B+'" x2="'+(W-PR)+'" y2="'+B+'" stroke="#1d5a6e" stroke-width="1.4"/>';
+  for(var a=A0;a<=A1;a+=5){
+   o+='<line x1="'+X(a)+'" y1="'+B+'" x2="'+X(a)+'" y2="'+(B+4)+'" stroke="#1d5a6e" stroke-width="1.2"/>';
+   o+='<text x="'+X(a)+'" y="'+(B+17)+'" font-size="11" fill="#44565c" text-anchor="middle" font-weight="700">'+a+'</text>';}
+  o+='<text x="'+(W-PR)+'" y="'+(B+30)+'" font-size="10" fill="#9aa8ad" text-anchor="end">歲</text>';
+  /* 事件：膠囊標記 */
+  var EV=[[65,'★ 退休・凱基進場','#8f4a38'],[70,'安達繳費期滿','#1d5a6e'],
+          [71,'安達年金給付開始','#b7791f'],[+TO,TO+' 歲補教退場','#2f6b52'],
+          [80,'凱基年金化','#b7791f'],[81,'房貸繳清','#1d5a6e']];
+  if(D.zero) EV.push([D.zero,D.zero+' 歲資金用盡','#8f4a38']);
+  EV.sort(function(p,q){return p[0]-q[0];});
+  var items=EV.map(function(e){
+   var x=X(e[0]), anc=(x>W*0.74)?'end':'start';
+   return {x:x+(anc==='end'?-8:8), w:e[1].length*11.7+17, anchor:anc};});
+  var rw=rowsAlloc(items,8);
+  EV.forEach(function(e,i){
+   var x=X(e[0]), y=324+rw[i]*26, it=items[i];
+   o+='<line x1="'+x+'" y1="'+T+'" x2="'+x+'" y2="'+(y-10)+'" stroke="'+e[2]+'" stroke-width="1" stroke-dasharray="2 4" opacity=".5"/>';
+   o+='<circle cx="'+x+'" cy="'+(y-1)+'" r="3.2" fill="'+e[2]+'"/>';
+   o+=pill(it.x,y,e[1],e[2],it.anchor);});
+  /* 峰值（獨立 g，游標靠近時隱藏） */
+  var pb=peakBox();
+  o+='<g id="pk1">'
+   +'<line x1="'+X(D.pka)+'" y1="'+Y(D.pk)+'" x2="'+(pb.x<X(D.pka)?pb.x+pb.w:pb.x)+'" y2="'+(pb.y+10)+'" stroke="#0f3d4c" stroke-width="1" opacity=".5"/>'
+   +'<rect x="'+pb.x+'" y="'+pb.y+'" width="'+pb.w+'" height="21" rx="6" fill="#fff" fill-opacity=".96" stroke="#0f3d4c" stroke-width="1.1"/>'
+   +'<text x="'+(pb.x+pb.w/2)+'" y="'+(pb.y+14.5)+'" font-size="11.5" font-weight="700" fill="#0f3d4c" text-anchor="middle">'+pb.t+'</text>'
+   +'</g>';
+  o+='<circle cx="'+X(D.pka)+'" cy="'+Y(D.pk)+'" r="4.5" fill="#fff" stroke="#0f3d4c" stroke-width="2.5"/>';
+  o+='<g id="cg1"></g>';
+  d("chart").innerHTML=o;
+ }
+
+ /* ── 下圖：年度現金流 ── */
+ function draw2(){
+  var R=DATA[TO].r,T=456,B=598;
+  var mx=0; R.forEach(function(r){mx=Math.max(mx,r[5],r[6]);}); mx*=1.1;
+  function Y(v){return B-(v/mx)*(B-T);}
+  var bw=Math.max(2.4,(W-PL-PR)/(A1-A0+1)*0.36);
+  var o='<text x="'+PL+'" y="442" font-size="12.5" font-weight="700" fill="#1d5a6e">年度現金流</text>';
+  [['#5d9c7c','收進來',0],['#c07f70','花出去',1]].forEach(function(g){
+   var bx=PL+78+g[2]*78;
+   o+='<rect x="'+bx+'" y="433" width="11" height="11" rx="2.5" fill="'+g[0]+'"/>'
+    +'<text x="'+(bx+16)+'" y="442.5" font-size="11.5" fill="#44565c" font-weight="700">'+g[1]+'</text>';});
+  ticks(mx,3).forEach(function(v){var y=Y(v);
+   o+='<line x1="'+PL+'" y1="'+y+'" x2="'+(W-PR)+'" y2="'+y+'" stroke="#c9d7da" stroke-width=".8" stroke-dasharray="2 5"/>';
+   o+='<text x="'+(PL-7)+'" y="'+(y+3.5)+'" font-size="10" fill="#7d8c92" text-anchor="end">'+wan(v)+'</text>';});
+  o+='<text x="'+(PL-7)+'" y="'+(T-4)+'" font-size="9.5" fill="#9aa8ad" text-anchor="end">萬元</text>';
+  var xm=X(+TO+0.5);
+  o+='<rect x="'+xm+'" y="'+T+'" width="'+(X(A1)-xm)+'" height="'+(B-T)+'" fill="#fcf6ea"/>';
+  R.forEach(function(r){
+   var x=X(r[0]);
+   o+='<rect x="'+(x-bw-0.5).toFixed(1)+'" y="'+Y(r[5]).toFixed(1)+'" width="'+bw.toFixed(1)+'" height="'+(B-Y(r[5])).toFixed(1)+'" rx="1.4" fill="#5d9c7c"/>';
+   o+='<rect x="'+(x+0.5).toFixed(1)+'" y="'+Y(r[6]).toFixed(1)+'" width="'+bw.toFixed(1)+'" height="'+(B-Y(r[6])).toFixed(1)+'" rx="1.4" fill="#c07f70"/>';});
+  o+='<line x1="'+PL+'" y1="'+B+'" x2="'+(W-PR)+'" y2="'+B+'" stroke="#1d5a6e" stroke-width="1.4"/>';
+  for(var a=A0;a<=A1;a+=5){
+   o+='<line x1="'+X(a)+'" y1="'+B+'" x2="'+X(a)+'" y2="'+(B+4)+'" stroke="#1d5a6e" stroke-width="1.2"/>';
+   o+='<text x="'+X(a)+'" y="'+(B+17)+'" font-size="11" fill="#44565c" text-anchor="middle" font-weight="700">'+a+'</text>';}
+  o+='<text x="'+PL+'" y="632" font-size="11" fill="#7d8c92">收進來＝月退俸＋補教收入　·　花出去＝生活費＋固定支出＋房貸＋保費＋存進安達</text>';
+  o+='<text x="'+(W-PR)+'" y="632" font-size="10.5" fill="#a6968a" text-anchor="end" font-weight="700">※ 試算模擬・非保證數值</text>';
+  o+='<g id="cg2"></g>';
+  d("chart2").innerHTML=o;
+ }
+
+ function w1(v){return (v/10000).toFixed(1)+' 萬';}
+ function note(a,r){
+  var D=DATA[TO];
+  if(a===65) return ['退休・凱基 200 萬進場','#8f4a38'];
+  if(a===70) return ['安達繳費期滿','#1d5a6e'];
+  if(a===71) return ['安達年金給付開始年齡','#b7791f'];
+  if(a===+TO) return ['補教退場','#2f6b52'];
+  if(a===80) return ['凱基年金化','#b7791f'];
+  if(a===81) return ['房貸繳清','#1d5a6e'];
+  if(D.zero&&a>=D.zero) return ['水庫見底，僅餘月退俸','#8f4a38'];
+  if(r[7]>=0) return ['養水中，不動水庫','#2f6b52'];
+  if(r[1]>0) return ['放水中・動小水庫','#3f8fa6'];
+  if(r[2]>0) return ['放水中・動凱基','#1d5a6e'];
+  return ['放水中・動安達','#b7791f'];
+ }
+ function peakBox(){
+  var D=DATA[TO],mx=D.pk*1.1,T=50,B=296;
+  var yy=B-(D.pk/mx)*(B-T);
+  var t='最高 '+D.pka+' 歲 '+wan(D.pk)+' 萬', w=t.length*8.6+14;
+  var x=X(D.pka)+12; if(x+w>W-PR-2) x=X(D.pka)-w-12;
+  if(x<PL+3) x=PL+3;
+  return {x:x,y:yy+13,w:w,t:t};
+ }
+ function cursor1(){
+  var g=d("cg1"); if(!g) return;
+  var D=DATA[TO],r=row(AGE),mx=D.pk*1.1,T=50,B=296;
+  function Y(v){return B-(v/mx)*(B-T);}
+  var x=X(AGE), cy=Y(r[4]), nt=note(AGE,r);
+  var BW=144, BH=100, bx=x+13, by=Math.max(T+4,Math.min(cy-BH/2,B-BH-30));
+  if(bx+BW>W-PR-2) bx=x-BW-13;
+  var o='<line x1="'+x+'" y1="'+T+'" x2="'+x+'" y2="'+(B+4)+'" stroke="#8f4a38" stroke-width="1.4" stroke-dasharray="4 3" opacity=".85"/>'
+   +'<circle cx="'+x+'" cy="'+cy+'" r="5.5" fill="#8f4a38" stroke="#fff" stroke-width="2.2"/>'
+   +'<rect x="'+bx+'" y="'+by+'" width="'+BW+'" height="'+BH+'" rx="8" fill="#12343f" fill-opacity=".95"/>'
+   +'<text x="'+(bx+11)+'" y="'+(by+20)+'" font-size="13.5" font-weight="800" fill="#ffd98a">'+AGE+' 歲</text>'
+   +'<text x="'+(bx+BW-11)+'" y="'+(by+20)+'" font-size="11" fill="'+(AGE<=+TO?'#8fd3ad':'#f0c475')+'" text-anchor="end" font-weight="700">'+(AGE<=+TO?'養水':'放水')+'</text>'
+   +'<line x1="'+(bx+10)+'" y1="'+(by+27)+'" x2="'+(bx+BW-10)+'" y2="'+(by+27)+'" stroke="#2f5e6c"/>';
+  [['安達',r[3],'#c9a445'],['凱基',r[2],'#4a93ab'],['存款',r[1],'#7fc3d6']].forEach(function(it,i){
+   var y=by+43+i*15;
+   o+='<rect x="'+(bx+11)+'" y="'+(y-7.5)+'" width="8" height="8" rx="2" fill="'+it[2]+'"/>'
+    +'<text x="'+(bx+24)+'" y="'+y+'" font-size="11" fill="#cfe4ea">'+it[0]+'</text>'
+    +'<text x="'+(bx+BW-11)+'" y="'+y+'" font-size="11" fill="#fff" text-anchor="end" font-weight="700">'+w1(it[1])+'</text>';});
+  o+='<line x1="'+(bx+10)+'" y1="'+(by+80)+'" x2="'+(bx+BW-10)+'" y2="'+(by+80)+'" stroke="#2f5e6c"/>'
+   +'<text x="'+(bx+11)+'" y="'+(by+93)+'" font-size="11" fill="#cfe4ea">合計</text>'
+   +'<text x="'+(bx+BW-11)+'" y="'+(by+93)+'" font-size="12.5" fill="#ffd98a" text-anchor="end" font-weight="800">'+w1(r[4])+'</text>';
+  var tw=nt[0].length*11.7+17, tx=x+10; if(tx+tw>W-PR-2) tx=x-tw-10;
+  o+='<rect x="'+tx+'" y="'+(B-25)+'" width="'+tw+'" height="20" rx="10" fill="'+nt[1]+'"/>'
+   +'<text x="'+(tx+tw/2)+'" y="'+(B-11)+'" font-size="11.5" font-weight="700" fill="#fff" text-anchor="middle">'+nt[0]+'</text>';
+  g.innerHTML=o;
+  var pk=d("pk1");
+  if(pk){
+   var pb=peakBox(), hit=!(bx>pb.x+pb.w||bx+BW<pb.x||by>pb.y+21||by+BH<pb.y);
+   pk.style.display=hit?"none":"";
+  }
+ }
+ function cursor2(){
+  var g=d("cg2"); if(!g) return;
+  var R=DATA[TO].r,r=row(AGE),T=456,B=598,mx=0;
+  R.forEach(function(q){mx=Math.max(mx,q[5],q[6]);}); mx*=1.1;
+  function Y(v){return B-(v/mx)*(B-T);}
+  var x=X(AGE), BW=134, BH=58, bx=x+13, by=T+4;
+  if(bx+BW>W-PR-2) bx=x-BW-13;
+  var o='<line x1="'+x+'" y1="'+T+'" x2="'+x+'" y2="'+(B+4)+'" stroke="#8f4a38" stroke-width="1.4" stroke-dasharray="4 3" opacity=".85"/>'
+   +'<circle cx="'+x+'" cy="'+Y(r[5])+'" r="3.6" fill="#5d9c7c" stroke="#fff" stroke-width="1.6"/>'
+   +'<circle cx="'+x+'" cy="'+Y(r[6])+'" r="3.6" fill="#c07f70" stroke="#fff" stroke-width="1.6"/>'
+   +'<rect x="'+bx+'" y="'+by+'" width="'+BW+'" height="'+BH+'" rx="8" fill="#12343f" fill-opacity=".95"/>';
+  [['收進來',r[5],'#5d9c7c'],['花出去',r[6],'#c07f70']].forEach(function(it,i){
+   var y=by+19+i*15;
+   o+='<rect x="'+(bx+11)+'" y="'+(y-7.5)+'" width="8" height="8" rx="2" fill="'+it[2]+'"/>'
+    +'<text x="'+(bx+24)+'" y="'+y+'" font-size="11" fill="#cfe4ea">'+it[0]+'</text>'
+    +'<text x="'+(bx+BW-11)+'" y="'+y+'" font-size="11" fill="#fff" text-anchor="end" font-weight="700">'+w1(it[1])+'</text>';});
+  o+='<line x1="'+(bx+10)+'" y1="'+(by+41)+'" x2="'+(bx+BW-10)+'" y2="'+(by+41)+'" stroke="#2f5e6c"/>'
+   +'<text x="'+(bx+11)+'" y="'+(by+53)+'" font-size="11" fill="#cfe4ea">一年剩下</text>'
+   +'<text x="'+(bx+BW-11)+'" y="'+(by+53)+'" font-size="12" fill="'+(r[7]>=0?'#8fd3ad':'#f0a090')+'" text-anchor="end" font-weight="800">'
+   +(r[7]>=0?'＋':'−')+w1(Math.abs(r[7]))+'</text>';
+  g.innerHTML=o;
+ }
+ function panes(){
+  var r=row(AGE),D=DATA[TO];
+  d("ageTxt").textContent=AGE+" 歲";
+  d("pInc").textContent=nm(r[5]); d("pExp").textContent=nm(r[6]);
+  d("pDep").textContent=nm(r[1]); d("pKg").textContent=nm(r[2]);
+  d("pAb").textContent=nm(r[3]); d("pTot").textContent=nm(r[4]);
+  var ph = (AGE<=+TO) ? "養水期" : "放水期";
+  d("phA").textContent=ph; d("phB").textContent=ph;
+  d("phC").textContent=ph; d("phD").textContent=ph;
+  var t="";
+  if(r[7]>=0) t='這一年<b>收進來比花出去多 '+nm(r[7])+' 元</b>，三座水庫都還在長大，不用動用任何一桶。';
+  else{
+   var who=[];
+   if(r[1]<=0&&r[2]<=0) who.push("安達");
+   else if(r[1]<=0) who.push("凱基");
+   else who.push("小水庫（存款）");
+   t='這一年<b>差 '+nm(-r[7])+' 元</b>，要開閘放水——目前動到的是 <b>'+who[0]+'</b>。';
+  }
+  if(AGE===65) t+=' 這一年公職退休、月退俸開始給付，同時從存款撥出 200 萬到凱基。';
+  if(AGE===70) t+=' 安達繳費期滿，每年少付 27.6 萬元。';
+  if(AGE===71) t+=' <b>安達的年金給付開始年齡</b>——兩條路：開始領年金，或轉移到凱基繼續累積。';
+  if(AGE===+TO) t+=' <b>補教退場那一年</b>，收入從 196 萬降到 56 萬。';
+  if(AGE===80) t+=' <b>凱基年金化</b>，第二段加薪。';
+  if(AGE===81) t+=' 房貸繳清，一年再省 44.9 萬元。';
+  if(D.zero&&AGE>=D.zero) t=' <b>'+D.zero+' 歲之後水庫見底</b>，僅餘月退俸 559,956 元／年，以及未計入的自用不動產。';
+  d("cfTxt").innerHTML=t;
+  cursor1(); cursor2();
+ }
+ function draw(){draw1();draw2();panes();
+  var D=DATA[TO];
+  d("sum").innerHTML='補教做到 <b>'+TO+' 歲</b>　·　水位最高點 <b>'+D.pka+' 歲</b>，'
+   +'資產合計 <b>'+nm(D.pk)+' 元</b>　·　開閘順序：小水庫（<b>'+D.fd+' 歲</b>）→ 凱基（<b>'+D.fk
+   +' 歲</b>）→ 安達（<b>'+D.fa+' 歲</b>）　·　資金可支應至 <b>'+D.zero+' 歲</b>。';}
+
+ var sl=d("age");
+ sl.addEventListener("input",function(){AGE=+sl.value;panes();});
+ [].forEach.call(document.querySelectorAll("[data-to]"),function(b){
+  b.onclick=function(){
+   TO=b.getAttribute("data-to");
+   [].forEach.call(document.querySelectorAll("[data-to]"),function(o){
+    o.setAttribute("aria-pressed",o===b?"true":"false");});
+   try{localStorage.setItem(KT,TO);}catch(e){}
+   draw();};});
+ [].forEach.call(document.querySelectorAll("[data-to]"),function(o){
+  o.setAttribute("aria-pressed",o.getAttribute("data-to")===TO?"true":"false");});
+ var zb=d("zoomBtn");
+ zb.onclick=function(){
+  var on=d("tlscroll").classList.toggle("zoom");
+  d("tlscroll2").classList.toggle("zoom",on);
+  zb.setAttribute("aria-pressed",on?"true":"false");
+  zb.textContent=on?"縮回整張":"放大檢視";};
+ draw();
+})();
+</script>
+</body></html>
