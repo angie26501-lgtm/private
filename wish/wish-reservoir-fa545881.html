@@ -86,6 +86,17 @@ h3{font-size:17.5px;color:var(--deep);margin:26px 0 6px}
  background:var(--paper);border:1px solid var(--line);border-radius:10px}
 .slider input{flex:1;accent-color:var(--deep);height:28px}
 .agebig{font-family:"Noto Serif TC","Songti TC",serif;font-size:26px;color:var(--deep);min-width:80px;text-align:right}
+.agemark{position:sticky;top:0;z-index:12;display:flex;align-items:baseline;gap:14px;
+ flex-wrap:wrap;margin:12px 6px 0;padding:10px 15px;border-radius:10px;
+ background:var(--deep);color:#fff;box-shadow:0 5px 14px -9px rgba(10,40,50,.65)}
+.agemark .a{font-family:"Noto Serif TC","Songti TC",serif;font-size:22px;
+ font-weight:700;letter-spacing:.02em;line-height:1.3}
+.agemark .y{font-size:13.5px;opacity:.85;letter-spacing:.02em}
+.agemark .k{font-size:13px;opacity:.8}
+.agemark .p{margin-left:auto;font-size:13px;font-weight:700;
+ background:rgba(255,255,255,.2);border-radius:7px;padding:3px 12px;letter-spacing:.05em}
+@media(max-width:560px){.agemark{gap:9px}.agemark .p{margin-left:0}}
+@media print{.agemark{position:static}}
 .panes{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin-top:10px}
 .pane{background:var(--paper);border-radius:8px;padding:10px 12px;font-size:13.5px;color:var(--sub)}
 .pane b{display:block;font-size:17.5px;color:var(--deep);margin-top:2px}
@@ -163,7 +174,6 @@ h3{font-size:17.5px;color:var(--deep);margin:26px 0 6px}
 <div class="rtip"><b>安達 天生贏家Plus變額年金</b><ul>
 <li><i>投入方式</i>62 歲投保，月繳 23,000，繳費年期 9 年</li>
 <li><i>目前進度</i>保單年度 4，帳戶價值 3,913,057</li>
-<li><i>費用</i>第 5 保單年度起管理費固定 1,200 元／年</li>
 <li><i>年金化</i>年金給付開始年齡 71 歲，可於期限前依保單約定選擇</li>
 <li><i>開閘順序</i>三桶之中<b>最後才動</b></li></ul>
 <span class="tipgo">費用與給付條件請參閱保單條款 →</span></div></div>
@@ -175,8 +185,7 @@ h3{font-size:17.5px;color:var(--deep);margin:26px 0 6px}
 <span class="more">點一下看細節 →</span>
 <div class="rtip"><b>凱基 一生傳富變額年金</b><ul>
 <li><i>投入方式</i>65 歲躉繳 200 萬，之後不用再繳</li>
-<li><i>費用</i>前三年按帳戶價值計收，合計約 18.8 萬；第 4 年起每年 1,200 元</li>
-<li><i>年增率</i>前三年 1.7～2.0%，第 4 年起回到約 4.95%</li>
+<li><i>目前進度</i>115 年 10 月 2 日投入，帳戶價值 2,000,000</li>
 <li><i>年金化</i>80 歲，與安達相隔九年</li>
 <li><i>設立用意</i>分散單一機構集中度風險；醫療照護要用錢時有專屬的地方可以動</li></ul>
 <span class="tipgo">費用與給付條件請參閱保單條款 →</span></div></div>
@@ -224,6 +233,7 @@ h3{font-size:17.5px;color:var(--deep);margin:26px 0 6px}
 <div class="tlscroll" id="tlscroll2" aria-label="年度現金流，可左右捲動">
 <svg id="chart2" viewBox="0 426 700 234" role="img" aria-label="年度收入與支出"></svg></div>
 
+<div class="agemark"><span class="a" id="amA">72 歲</span><span class="y" id="amY">民國 122 年</span><span class="k" id="amK"></span><span class="p" id="amP">養水期</span></div>
 <div class="cfnow" id="cfTxt"></div>
 
 <div class="panes">
@@ -308,7 +318,6 @@ h3{font-size:17.5px;color:var(--deep);margin:26px 0 6px}
 判斷依據是當年的身體狀況、補教是否已退場、配偶照護需求是否浮現。</div>
 
 <div class="ft">
-<b>文件來源</b>　《周年檢視報告書》馥芸 115/09 版、安達人壽簽收回條、凱基人壽建議書（20260923）。<br>
 <b>試算假設</b>　安達與凱基報酬率 5%、存款利率 1.5%、通膨 2%，<b>均為試算假設，非保證數值</b>；
 房貸利率 2.18% 為實際貸款條件。75 歲起生活支出以 85% 計列。
 每年已預留新增保障保費空間（編列基準 75,000 元／年，計至 80 歲）。<br>
@@ -557,6 +566,18 @@ h3{font-size:17.5px;color:var(--deep);margin:26px 0 6px}
   d("pDep").textContent=nm(r[1]); d("pKg").textContent=nm(r[2]);
   d("pAb").textContent=nm(r[3]); d("pTot").textContent=nm(r[4]);
   var ph = (AGE<=+TO) ? "養水期" : "放水期";
+  d("amA").textContent=AGE+" 歲";
+  d("amY").textContent="民國 "+(115+AGE-65)+" 年";
+  d("amP").textContent=ph;
+  var mk="";
+  if(AGE===65) mk="公職退休．月退俸起算";
+  else if(AGE===70) mk="安達繳費期滿";
+  else if(AGE===71) mk="安達年金給付開始年齡";
+  else if(AGE===+TO) mk="補教退場";
+  else if(AGE===80) mk="凱基年金化";
+  else if(AGE===81) mk="房貸繳清";
+  else if(D.zero&&AGE===D.zero) mk="水庫見底";
+  d("amK").textContent = mk ? "· "+mk : "";
   d("phA").textContent=ph; d("phB").textContent=ph;
   d("phC").textContent=ph; d("phD").textContent=ph;
   var t="";
