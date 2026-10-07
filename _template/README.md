@@ -12,3 +12,8 @@
 新版範本請另開資料夾（例：_template/v4.13/），並更新下方「最新版」。
 
 最新版：v4.13
+
+## index-flow/（2026/10/07 新增，母指令 v3.6 §7-1）
+- 網路版總目錄「觀看流程版」範例（小安・全虛構）：`index-flow/index.html`；設定檔 `index-flow/config-example.json`。
+- 一案 2 份以上報告時用 `python3 tools/index_flow.py 設定.json {代號}/index.html` 產生（版型取自 WISH 定稿）。
+- 新案底稿：以最新上架案解密後為底（見 tools/README.md）；v4.13 為備援。

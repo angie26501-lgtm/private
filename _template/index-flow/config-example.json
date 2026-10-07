@@ -1,0 +1,21 @@
+{
+  "name": "小安",
+  "date": "2026/10/07（民國115年）",
+  "base_url": "https://angie26501-lgtm.github.io/private/xiaoan/",
+  "total_time": "30 分鐘",
+  "reports": [
+    {"icon": "🛡", "short": "保障現況分析", "title": "保障現況分析（保戶版）", "file": "xiaoan-review.html",
+     "one_line": "保障夠不夠：四大支柱達成率與 80 歲後", "look": "P3 保障分析、P5 繳費時間", "note": "開啟時需輸入通行碼；本人與家人保障、保單明細、繳費月份。"},
+    {"icon": "📋", "short": "方案第二頁", "title": "方案說明：可以這樣選", "file": "xiaoan-plans.html",
+     "one_line": "想再往下規劃時，各方案內容與怎麼選", "look": "選讀", "note": "免通行碼；各方案內容與「不確定選哪一個」對照表。"},
+    {"icon": "📄", "short": "健診分析規劃書 PDF", "title": "附件：健診分析規劃書（PDF）", "file": "xiaoan-cloud-pdf.html",
+     "one_line": "保單健診系統產出的原始報告", "look": "選讀・下載留存", "note": "開啟時需輸入通行碼（客戶本人）；可下載或列印。"}
+  ],
+  "steps": [
+    {"title": "🛡 保障現況分析・P1～P2", "goal": "先知道這份在看什麼", "time": "約 5 分", "desc": "規劃方向、服務立場、數字標籤怎麼讀。", "file": "xiaoan-review.html", "button": "打開保障現況分析 ↗"},
+    {"title": "🛡 保障現況分析・P3～P5", "goal": "看保障夠不夠", "time": "約 15 分", "desc": "四大支柱圓環（現在／80 歲後）→ 保單明細 → 家人保障 → 繳費月份。", "file": "xiaoan-review.html", "button": "同一份，往後翻 ↗"},
+    {"title": "📄 健診分析規劃書（PDF）", "goal": "原始報告留存", "time": "選讀", "optional": true, "desc": "保單健診系統產出的原始報告；保障現況分析依這份整理。", "file": "xiaoan-cloud-pdf.html", "button": "打開 PDF 下載頁 ↗"},
+    {"title": "💬 有問題或保單異動", "goal": "告訴芸琪", "time": "約 3 分", "desc": "用 P4 的「保單異動通報」產生文字，貼到 LINE 傳給芸琪。", "file": "https://lin.ee/TTQDQIA", "button": "LINE 芸琪 ↗"},
+    {"title": "📅 下次檢視", "goal": "一起更新進度", "desc": "明年保單周年日前後，芸琪會再約您一起看。"}
+  ]
+}

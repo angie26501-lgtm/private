@@ -42,8 +42,10 @@ def check_dir(d: Path) -> list[str]:
         s = p.read_text(encoding="utf-8", errors="ignore")
         if "noindex" not in s:
             errs.append(f"{rel}：缺少 noindex meta")
-        if re.search(r"通行碼備註|🔑", s):
+        if re.search(r"通行碼備註", s):
             errs.append(f"{rel}：含通行碼備註（本機版總目錄或內部版？）")
+        if re.search(r"\b[a-z]{2,8}(adv|adm)\d{4}\b|\bcoach20\d\d[a-z]?\b", visible_text(s)):
+            errs.append(f"{rel}：畫面出現疑似通行碼／管理者密碼")
         for w in TEMPLATE_LEFTOVER:
             if w in s:
                 errs.append(f"{rel}：有範本殘留「{w}」")

@@ -1,0 +1,43 @@
+<style>
+:root{--gold:#FFC850;--gold2:#E9A92A;--brown:#8B6F4E;--brown2:#5E4A33;--th:#FFD98A;--c1:#FFEFD2;--cell:#EEF1EC;
+--blue:#1E6FB8;--red:#A3182A;--ok:#2e8b57;--ng:#b3261e;--ink:#2d2a26;--muted:#6f6a62;--z:1}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:#efe9df;color:var(--ink);font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;font-size:15.5px;line-height:1.75}
+button{font-family:inherit}
+a{color:var(--blue)}
+/* gate */
+#gate{position:fixed;inset:0;background:linear-gradient(135deg,#8B6F4E,#5E4A33);display:flex;align-items:center;justify-content:center;padding:16px;z-index:9999}
+.gcard{background:#fff;border-top:8px solid var(--gold);border-radius:14px;max-width:400px;width:100%;padding:28px 26px;box-shadow:0 12px 40px rgba(0,0,0,.3)}
+.gcard h1{font-size:20px;margin:0 0 4px;color:var(--brown2)}
+.gcard .gs{color:var(--muted);font-size:14px;margin-bottom:16px}
+.gcard .row{display:flex;gap:8px}
+.gcard input[type=password],.gcard input[type=text]{flex:1;font-size:16px;padding:10px 12px;border:1.5px solid #d8cdb9;border-radius:8px;min-width:0}
+.gcard .eye{border:1.5px solid #d8cdb9;background:#faf6ee;border-radius:8px;padding:0 10px;cursor:pointer}
+.gcard .go{margin-top:12px;width:100%;background:var(--gold2);color:#fff;border:0;border-radius:8px;padding:11px;font-size:16px;font-weight:700;cursor:pointer}
+.gcard label{display:flex;gap:6px;align-items:center;font-size:14px;margin-top:10px;color:var(--brown2)}
+.gcons{margin-top:12px;border-top:1px dashed #e0d5c0;padding-top:10px}
+.gc-h{font-weight:700;color:var(--brown2);font-size:14.5px;margin-bottom:6px}
+.gc-box{max-height:150px;overflow-y:auto;background:#faf6ee;border:1px solid #eadfcb;border-radius:8px;padding:8px 10px;font-size:12.5px;line-height:1.7;color:#4a453e}
+.gcard label.gc-ok{align-items:flex-start;font-size:13.5px;margin-top:8px}.gc-ok input{margin-top:4px}
+.gcard{max-height:calc(100vh - 32px);overflow-y:auto}
+.gcard .err{color:var(--ng);font-size:14px;min-height:20px;margin-top:6px}
+.demo{background:#fff3cd;color:#7a5a00;border-bottom:1px solid #f1d58a;font-size:13px;text-align:center;padding:5px 10px}
+.gcard .tip{font-size:12.5px;color:var(--muted);background:#f6f2ea;border-radius:8px;padding:8px 10px;margin-top:10px}
+</style>
+
+<div id="gate"><div class="gcard">
+<h1>__TITLE__</h1><div class="gs">__NAME__　專屬｜保戶版</div>
+<div id="gform"><div class="row"><input id="gpw" type="password" placeholder="請輸入通行碼" aria-label="通行碼" autocomplete="off" onkeydown="if(event.key==='Enter'){event.preventDefault();__gTry()}">
+<button type="button" class="eye" id="geye" aria-label="顯示或隱藏通行碼" onclick="var i=document.getElementById('gpw');i.type=i.type==='password'?'text':'password'">👁</button></div>
+<div class="gask">💬 通行碼請向芸琪索取：<a href="https://lin.ee/TTQDQIA" target="_blank" rel="noopener">LINE@ 小綠芽</a>　或　<a href="tel:0918800852">0918-800-852</a></div><label><input type="checkbox" id="grem" checked> 在這台裝置記住 30 天</label><div class="gcons"><div class="gc-h">🔒 個人資料保護告知</div>
+<div class="gc-box">本網頁內容由財顧芸 陳芸琪（以下稱「本顧問」）依您提供的保單資料整理。依《個人資料保護法》第 8 條，向您說明：<br>
+<b>1. 蒐集目的：</b>保險經紀業務、保單健診與財務規劃諮詢、客戶服務（保單查詢、到期通知、理賠協助）。<br>
+<b>2. 個資類別：</b>姓名、聯絡方式、保單內容（保險公司、保額、保費、要保人／被保險人／受益人等）及家庭成員資料。<br>
+<b>3. 利用期間、地區、對象及方式：</b>於服務存續期間及法令規定的保存期間內，在臺灣地區，由本顧問及您同意委託的保險公司，以紙本或電子方式處理與利用。本網頁以化名及遮蔽方式呈現。🔒 為了解閱讀情形，開啟時會記錄開啟時間與裝置類型，不記錄任何報告內容。<br>
+<b>4. 您的權利：</b>您可隨時向本顧問請求查詢、閱覽、製給複本、補充或更正、停止蒐集處理利用或刪除您的個資（電話 0918-800-852 或 LINE@）。<br>
+<b>5. 不提供的影響：</b>您可自由選擇是否提供個資；若不提供，可能無法完成保單檢視與相關服務。</div>
+<label class="gc-ok"><input type="checkbox" id="gcons"> 我已閱讀並同意上述個人資料蒐集、處理及利用說明</label></div>
+<button class="go" type="button" onclick="__gTry()">進入</button><div class="err" id="gerr"></div></div>
+<div class="tip">提醒：LINE 內建瀏覽器可能無法記住登入，建議點右上角「⋯」改用 Safari／Chrome 開啟。</div>
+</div></div>

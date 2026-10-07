@@ -1,0 +1,26 @@
+<script>(function(){try{var q=location.search;if(/[?&]me=1/.test(q))localStorage.setItem("wlog-off","1");if(/[?&]me=0/.test(q))localStorage.removeItem("wlog-off")}catch(e){}window.__wlog=function(){try{if(localStorage.getItem("wlog-off"))return}catch(e){}try{var k="wlog-sent-"+"__LOGNAME__";if(sessionStorage.getItem(k))return;sessionStorage.setItem(k,"1")}catch(e){}var f=new FormData();f.append('entry.1183086817',"__LOGNAME__");f.append('entry.314599190',window.__wRole||"記住登入");f.append('entry.303487797',/Mobi|Android|iPhone|iPad/i.test(navigator.userAgent)?"手機／平板":"電腦");try{fetch('https://docs.google.com/forms/d/e/1FAIpQLScsbFjxA4qPQIVlTv6wMG2FkMbswCnc6ox-a_w0j_lzAIJjbQ/formResponse',{method:"POST",mode:"no-cors",body:f}).catch(function(){})}catch(e){}}})();</script><script>(function(){var E=__PAYLOAD__,K="__KEY__";
+function b64(s){var r=atob(s),u=new Uint8Array(r.length);for(var i=0;i<r.length;i++)u[i]=r.charCodeAt(i);return u}
+function bs(u){var s='';for(var i=0;i<u.length;i++)s+=String.fromCharCode(u[i]);return btoa(s)}
+async function decWith(raw){window.__ck=raw.length>32?raw.slice(32):null;var k=await crypto.subtle.importKey('raw',raw.slice(0,32),{name:'AES-GCM'},false,['decrypt']);
+var pt=await crypto.subtle.decrypt({name:'AES-GCM',iv:b64(E.i)},k,b64(E.c));return new TextDecoder().decode(pt)}
+async function dekFromPw(pw){var bk=await crypto.subtle.importKey('raw',new TextEncoder().encode(pw),'PBKDF2',false,['deriveBits']);
+for(var j=0;j<E.k.length;j++){var sl=E.k[j];try{var bits=await crypto.subtle.deriveBits({name:'PBKDF2',salt:b64(sl.s),iterations:E.n,hash:'SHA-256'},bk,256);
+var kk=await crypto.subtle.importKey('raw',new Uint8Array(bits),{name:'AES-GCM'},false,['decrypt']);
+var d=await crypto.subtle.decrypt({name:'AES-GCM',iv:b64(sl.i)},kk,b64(sl.c));window.__wRole=(j===0?"客戶":(j===1?"教練一":(j===2?"教練二":"其他")));try{localStorage.setItem("wish-role",window.__wRole)}catch(e){}return new Uint8Array(d)}catch(e){}}
+throw new Error('bad')}
+function err(t){var e=document.getElementById('gerr');if(e)e.textContent=t}
+window.__cb=function(){setTimeout(function(){try{var r=window.__wRole;if(!r){try{r=localStorage.getItem("wish-role")}catch(e){}}if(!r||r.indexOf("教練")!==0||document.getElementById("coachnote"))return;var d=document.createElement("div");d.id="coachnote";d.setAttribute("role","note");d.style.cssText="position:fixed;left:50%;bottom:10px;transform:translateX(-50%);z-index:2147483000;max-width:min(680px,calc(100vw - 24px));background:#7a2e1f;color:#fff;font:600 13.5px/1.55 \"Noto Sans TC\",\"PingFang TC\",\"Microsoft JhengHei\",sans-serif;padding:8px 14px;border-radius:10px;box-shadow:0 4px 16px rgba(0,0,0,.25);text-align:center";d.textContent="🔒 教練觀摩版｜本內容僅供執案顧問諮詢使用，未經同意請勿轉傳分享。";document.body.appendChild(d)}catch(e){}},400)};function show(html){try{window.__cb&&window.__cb()}catch(e){}try{window.__wlog&&window.__wlog()}catch(e){}var t=document.createElement('div');t.innerHTML=html;var sc=[].slice.call(t.querySelectorAll('script'));sc.forEach(function(s){s.remove()});
+var gate=document.getElementById('gate');while(t.firstChild)document.body.appendChild(t.firstChild);
+sc.forEach(function(s){var n=document.createElement('script');n.textContent=s.textContent;document.body.appendChild(n)});
+gate.style.display='none';var app=document.getElementById('app');app.hidden=false;app.style.display='';
+try{if(window.__onUnlock)window.__onUnlock('')}catch(e){console.error(e)}}
+function ready(fn){if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',fn);else setTimeout(fn,0)}
+if(!(window.crypto&&crypto.subtle)){ready(function(){err('此瀏覽器不支援安全解密，請改用 Safari／Chrome 最新版開啟。')})}
+ready(function(){try{var s=JSON.parse(localStorage.getItem(K)||'null');if(s&&s.k&&s.exp>Date.now()){decWith(b64(s.k)).then(show).catch(function(){try{localStorage.removeItem(K)}catch(e){}})}}catch(e){}});
+var busy=false;
+window.__gTry=async function(){if(busy)return;var cs=document.getElementById('gcons');if(cs&&!cs.checked){err('請先閱讀並勾選同意「個人資料保護告知」。');return}
+var pw=document.getElementById('gpw').value.replace(/\s+/g,'');if(!pw){err('請輸入通行碼。');return}
+busy=true;err('驗證中…');try{var dek=await dekFromPw(pw);var h=await decWith(dek);err('');try{if(document.getElementById('grem').checked)localStorage.setItem(K,JSON.stringify({k:bs(dek),exp:Date.now()+30*864e5}))}catch(e){}
+show(h)}catch(e){err('通行碼不正確，請再試一次。')}busy=false};
+window.__logout=function(){try{localStorage.removeItem(K)}catch(e){}location.reload()};
+})();</script></body></html>
