@@ -462,10 +462,10 @@ var pt=await crypto.subtle.decrypt({name:'AES-GCM',iv:b64(E.i)},k,b64(E.c));retu
 async function dekFromPw(pw){var bk=await crypto.subtle.importKey('raw',new TextEncoder().encode(pw),'PBKDF2',false,['deriveBits']);
 for(var j=0;j<E.k.length;j++){var sl=E.k[j];try{var bits=await crypto.subtle.deriveBits({name:'PBKDF2',salt:b64(sl.s),iterations:E.n,hash:'SHA-256'},bk,256);
 var kk=await crypto.subtle.importKey('raw',new Uint8Array(bits),{name:'AES-GCM'},false,['decrypt']);
-var d=await crypto.subtle.decrypt({name:'AES-GCM',iv:b64(sl.i)},kk,b64(sl.c));window.__wRole=(j===0?"客戶":(j===1?"教練一":(j===2?"教練二":"其他")));return new Uint8Array(d)}catch(e){}}
+var d=await crypto.subtle.decrypt({name:'AES-GCM',iv:b64(sl.i)},kk,b64(sl.c));window.__wRole=(j===0?"客戶":(j===1?"教練一":(j===2?"教練二":"其他")));try{localStorage.setItem("wish-role",window.__wRole)}catch(e){}return new Uint8Array(d)}catch(e){}}
 throw new Error('bad')}
 function err(t){var e=document.getElementById('gerr');if(e)e.textContent=t}
-function show(html){try{window.__wlog&&window.__wlog()}catch(e){}var t=document.createElement('div');t.innerHTML=html;var sc=[].slice.call(t.querySelectorAll('script'));sc.forEach(function(s){s.remove()});
+window.__cb=function(){setTimeout(function(){try{var r=window.__wRole;if(!r){try{r=localStorage.getItem("wish-role")}catch(e){}}if(!r||r.indexOf("教練")!==0||document.getElementById("coachnote"))return;var d=document.createElement("div");d.id="coachnote";d.setAttribute("role","note");d.style.cssText="position:fixed;left:50%;bottom:10px;transform:translateX(-50%);z-index:2147483000;max-width:min(680px,calc(100vw - 24px));background:#7a2e1f;color:#fff;font:600 13.5px/1.55 \"Noto Sans TC\",\"PingFang TC\",\"Microsoft JhengHei\",sans-serif;padding:8px 14px;border-radius:10px;box-shadow:0 4px 16px rgba(0,0,0,.25);text-align:center";d.textContent="🔒 教練觀摩版｜本內容僅供執案顧問諮詢使用，未經同意請勿轉傳分享。";document.body.appendChild(d)}catch(e){}},400)};function show(html){try{window.__cb&&window.__cb()}catch(e){}try{window.__wlog&&window.__wlog()}catch(e){}var t=document.createElement('div');t.innerHTML=html;var sc=[].slice.call(t.querySelectorAll('script'));sc.forEach(function(s){s.remove()});
 var gate=document.getElementById('gate');while(t.firstChild)document.body.appendChild(t.firstChild);
 sc.forEach(function(s){var n=document.createElement('script');n.textContent=s.textContent;document.body.appendChild(n)});
 gate.style.display='none';var app=document.getElementById('app');app.hidden=false;app.style.display='';
