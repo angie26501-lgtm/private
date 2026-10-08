@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="zh-Hant-TW"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow,noarchive">
+<title>WISH 先生｜報告書使用體驗問卷</title>
+<style>
+:root{--g:#2f4a2c;--g2:#4d6b3c;--gold:#b5832a;--ink:#26302a;--sub:#5d675f;--line:#e2d9c3;--card:#fffdf7;--bg:#f4efe2;--blue:#1E6FB8}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;font-size:17px;line-height:1.75}
+.band{background:var(--g);color:#fff;font-size:13.5px;padding:7px 14px}
+.wrap{max-width:760px;margin:0 auto;padding:16px 14px 60px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin-bottom:14px;box-shadow:0 2px 8px rgba(0,0,0,.05)}
+h1{font-size:25px;color:var(--g);margin:0 0 4px}.lead{color:var(--sub);font-size:15.5px;margin:0}
+.q{margin:0 0 4px;font-weight:800;color:var(--g);font-size:17.5px}.q small{font-weight:400;color:var(--sub);font-size:14px;margin-left:4px}
+.no{display:inline-flex;width:28px;height:28px;border-radius:50%;background:var(--gold);color:#fff;align-items:center;justify-content:center;font-size:15px;margin-right:8px}
+.opts{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.opts label{display:inline-flex;align-items:center;gap:6px;border:1.5px solid #cfc4a8;background:#fff;border-radius:999px;padding:8px 14px;cursor:pointer;font-size:16px;user-select:none}
+.opts input{position:absolute;opacity:0;pointer-events:none}
+.opts label.on{background:var(--g2);border-color:var(--g2);color:#fff}
+.stars{display:flex;gap:6px;margin-top:6px}.stars button{font-size:34px;line-height:1;background:none;border:0;cursor:pointer;color:#d9cfb6;padding:0 2px}.stars button.on{color:#e0a21a}
+.nps{display:grid;grid-template-columns:repeat(11,1fr);gap:4px;margin-top:8px}.nps button{font:inherit;font-size:15px;border:1.5px solid #cfc4a8;background:#fff;border-radius:8px;padding:8px 0;cursor:pointer}.nps button.on{background:var(--g2);color:#fff;border-color:var(--g2)}
+.npsl{display:flex;justify-content:space-between;font-size:13px;color:var(--sub);margin-top:2px}
+textarea{width:100%;min-height:110px;font:inherit;font-size:16px;border:1.5px solid #cfc4a8;border-radius:10px;padding:10px;margin-top:8px;background:#fff}
+.btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
+.btn{font:inherit;font-size:17px;font-weight:800;border:0;border-radius:12px;padding:12px 20px;cursor:pointer;text-decoration:none;display:inline-block}
+.btn.pri{background:var(--gold);color:#fff}.btn.line{background:#06A34A;color:#fff}.btn.ghost{background:#fff;color:var(--g);border:1.5px solid var(--g)}
+#out{display:none;white-space:pre-wrap;background:#fff;border:1.5px dashed var(--gold);border-radius:10px;padding:12px;font-size:15px;margin-top:10px}
+.msg{color:#1F6B46;font-weight:700;margin-top:8px;min-height:1.5em}
+.prog{height:8px;background:#e9e1cc;border-radius:99px;overflow:hidden;margin:10px 0 0}.prog i{display:block;height:100%;width:0;background:var(--g2);transition:width .3s}
+.back{display:inline-block;margin-top:4px;color:var(--blue);font-weight:700;text-decoration:none}
+.sig{font-size:14px;color:var(--sub);line-height:1.7;margin-top:6px}
+@media(max-width:520px){.card{padding:16px 14px}.nps{grid-template-columns:repeat(6,1fr)}h1{font-size:22px}}
+</style></head><body>
+<div class="band">WISH 先生｜報告書使用體驗問卷　約 3 分鐘</div>
+<div class="wrap">
+<div class="card"><h1>📝 這套報告書，您用起來順手嗎？</h1>
+<p class="lead">您的回饋會用來調整下一次報告書的呈現方式，讓內容更容易看懂。題目都是點選，最後按「整理成文字」，用 LINE 傳給芸琪就完成了。內容只存在這台裝置，不會自動傳送。</p>
+<div class="prog"><i id="pg"></i></div>
+<a class="back" href="index.html">← 回報告總目錄</a></div>
+
+<div class="card"><p class="q"><span class="no">1</span>您用哪一種裝置看報告？<small>可複選</small></p><div class="opts" data-k="dev" data-m="1" data-o="手機|平板|電腦|請家人幫忙開"></div></div>
+<div class="card"><p class="q"><span class="no">2</span>輸入通行碼、打開報告，順利嗎？</p><div class="opts" data-k="open" data-o="很順利|有點卡，但打得開|打不開，需要協助"></div></div>
+<div class="card"><p class="q"><span class="no">3</span>您看了哪幾份？<small>可複選</small></p><div class="opts" data-k="read" data-m="1" data-o="規劃前現況檢視|附件一 周年檢視報告書|附件二 大小水庫時間軸|附件三 藍圖報告書|附件四 保障現況分析|附件五 逐年試算明細|附件六 一頁式匯整表"></div></div>
+<div class="card"><p class="q"><span class="no">4</span>整體來說，好不好懂？</p><div class="stars" id="st"></div><div class="npsl"><span>很難懂</span><span>非常清楚</span></div></div>
+<div class="card"><p class="q"><span class="no">5</span>字的大小</p><div class="opts" data-k="font" data-o="太小|剛好|太大"></div></div>
+<div class="card"><p class="q"><span class="no">6</span>每份報告開頭的「導覽說明」對您有幫助嗎？</p><div class="opts" data-k="tour" data-o="很有幫助|普通|步驟太多，會擋住畫面|沒有注意到"></div></div>
+<div class="card"><p class="q"><span class="no">7</span>哪一份對您最有幫助？</p><div class="opts" data-k="best" data-o="規劃前現況檢視|周年檢視報告書|大小水庫時間軸|藍圖報告書|保障現況分析|逐年試算明細|一頁式匯整表"></div></div>
+<div class="card"><p class="q"><span class="no">8</span>看的時候，哪些地方比較卡？<small>可複選</small></p><div class="opts" data-k="hard" data-m="1" data-o="專有名詞看不懂|數字太多|圖表看不懂|份數太多，不知道先看哪份|看完找不到回總目錄|頁數太長|都還好"></div></div>
+<div class="card"><p class="q"><span class="no">9</span>下次您希望用什麼方式看報告？<small>可複選</small></p><div class="opts" data-k="fmt" data-m="1" data-o="網頁（像這次）|PDF 檔|印成紙本|見面時當面講解|LINE 傳重點就好"></div></div>
+<div class="card"><p class="q"><span class="no">10</span>您會推薦朋友也做一份這樣的報告嗎？<small>0 不會，10 一定會</small></p><div class="nps" id="nps"></div><div class="npsl"><span>不會推薦</span><span>一定會推薦</span></div></div>
+<div class="card"><p class="q"><span class="no">11</span>想對芸琪說的話、希望改進的地方<small>選填</small></p><textarea id="memo" placeholder="例如：保單那份希望字再大一點；想多知道傳承的做法……"></textarea></div>
+
+<div class="card"><div class="btns"><button class="btn pri" id="mk">📋 整理成文字</button><button class="btn ghost" id="clr">清除重填</button></div>
+<div id="out"></div><div class="btns" id="send" style="display:none"><button class="btn ghost" id="cp">複製文字</button><a class="btn line" id="ln" target="_blank" rel="noopener">💬 用 LINE 傳給芸琪</a></div>
+<div class="msg" id="msg"></div>
+<div class="sig">顧問 陳芸琪 Angie Chen／財顧芸<br>家族傳承生活顧問・人生財務設計顧問｜AI 賦能應用</div></div>
+</div>
+<script>(function(){var K="wish-survey-v1",S={};try{S=JSON.parse(localStorage.getItem(K)||"{}")||{}}catch(e){S={}}
+function save(){try{localStorage.setItem(K,JSON.stringify(S))}catch(e){}prog()}
+var groups=[].slice.call(document.querySelectorAll(".opts"));
+groups.forEach(function(g){var k=g.dataset.k,m=!!g.dataset.m;g.dataset.o.split("|").forEach(function(o){var l=document.createElement("label");l.innerHTML='<input type="'+(m?"checkbox":"radio")+'" name="'+k+'">'+o;var on=m?((S[k]||[]).indexOf(o)>-1):S[k]===o;if(on)l.classList.add("on");
+ l.onclick=function(e){e.preventDefault();if(m){var a=S[k]||[];var i=a.indexOf(o);if(i>-1)a.splice(i,1);else a.push(o);S[k]=a;l.classList.toggle("on")}else{S[k]=S[k]===o?null:o;[].forEach.call(g.children,function(x){x.classList.remove("on")});if(S[k])l.classList.add("on")}save()};g.appendChild(l)})});
+var st=document.getElementById("st");for(var i=1;i<=5;i++)(function(i){var b=document.createElement("button");b.type="button";b.textContent="★";b.setAttribute("aria-label",i+" 顆星");b.onclick=function(){S.star=i;drawS();save()};st.appendChild(b)})(i);
+function drawS(){[].forEach.call(st.children,function(b,i){b.classList.toggle("on",S.star>i)})}drawS();
+var np=document.getElementById("nps");for(var n=0;n<=10;n++)(function(j){var b=document.createElement("button");b.type="button";b.textContent=j;b.onclick=function(){S.nps=j;drawN();save()};np.appendChild(b)})(n);
+function drawN(){[].forEach.call(np.children,function(b,i){b.classList.toggle("on",S.nps===i)})}drawN();
+var memo=document.getElementById("memo");memo.value=S.memo||"";memo.oninput=function(){S.memo=memo.value;save()};
+function prog(){var keys=["dev","open","read","star","font","tour","best","hard","fmt","nps"],n=0;keys.forEach(function(k){var v=S[k];if(v!==undefined&&v!==null&&!(Array.isArray(v)&&!v.length))n++});document.getElementById("pg").style.width=(n/keys.length*100)+"%"}prog();
+function j(v){return Array.isArray(v)?(v.length?v.join("、"):"（未填）"):(v===undefined||v===null||v===""?"（未填）":v)}
+document.getElementById("mk").onclick=function(){var t="【報告書使用體驗問卷｜WISH】\n1. 裝置："+j(S.dev)+"\n2. 打開報告："+j(S.open)+"\n3. 看了："+j(S.read)+"\n4. 好不好懂："+(S.star?S.star+" / 5 顆星":"（未填）")+"\n5. 字的大小："+j(S.font)+"\n6. 導覽說明："+j(S.tour)+"\n7. 最有幫助："+j(S.best)+"\n8. 比較卡的地方："+j(S.hard)+"\n9. 下次希望："+j(S.fmt)+"\n10. 推薦意願："+(S.nps===undefined||S.nps===null?"（未填）":S.nps+" / 10")+"\n11. 想說的話："+(S.memo&&S.memo.trim()?S.memo.trim():"（無）");
+ var o=document.getElementById("out");o.textContent=t;o.style.display="block";document.getElementById("send").style.display="flex";document.getElementById("ln").href="https://line.me/R/share?text="+encodeURIComponent(t);document.getElementById("msg").textContent="✅ 已整理好，按「用 LINE 傳給芸琪」即可。"};
+document.getElementById("cp").onclick=function(){var t=document.getElementById("out").textContent;var done=function(){document.getElementById("msg").textContent="✅ 已複製，貼到芸琪的 LINE 就完成了。"};try{navigator.clipboard.writeText(t).then(done,function(){prompt("請長按全選後複製：",t)})}catch(e){prompt("請長按全選後複製：",t)}};
+document.getElementById("clr").onclick=function(){if(!confirm("確定要清除重填嗎？"))return;S={};save();location.reload()};
+})();</script>
+</body></html>
