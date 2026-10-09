@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="zh-Hant-TW"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow,noarchive">
+<title>保障現況分析｜使用體驗問卷</title>
+<style>
+:root{--gold:#E9A92A;--brown:#8B6F4E;--brown2:#5E4A33;--blue:#1E6FB8;--ink:#2d2a26;--sub:#6f6a62;--line:#e6dcc8;--cream:#FFF7E6;--bg:#efe9df}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;font-size:17px;line-height:1.75}
+.band{position:sticky;top:0;z-index:5;background:#2e8b57;color:#fff;font-size:13.5px;padding:7px 14px}
+.band .prog{height:6px;background:rgba(255,255,255,.3);border-radius:99px;overflow:hidden;margin-top:5px}.band .prog i{display:block;height:100%;width:0;background:#FFC850;transition:width .3s}
+.wrap{max-width:760px;margin:0 auto;padding:16px 14px 60px}
+.card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin-bottom:14px;box-shadow:0 2px 8px rgba(94,74,51,.07)}
+h1{font-size:24px;color:var(--blue);margin:0 0 6px;letter-spacing:.04em}.lead{color:var(--sub);font-size:15.5px;margin:0}
+h2{font-size:15px;color:#fff;background:var(--brown);display:inline-block;border-radius:999px;padding:2px 14px;margin:8px 0 10px}
+.q{margin:0 0 4px;font-weight:800;color:var(--brown2);font-size:17px}.q small{font-weight:400;color:var(--sub);font-size:14px;margin-left:4px}
+.no{display:inline-flex;width:28px;height:28px;border-radius:50%;background:var(--gold);color:#fff;align-items:center;justify-content:center;font-size:15px;margin-right:8px}
+.opts{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.opts label{display:inline-flex;align-items:center;border:1.5px solid #cfc4a8;background:#fff;border-radius:999px;padding:8px 14px;cursor:pointer;font-size:16px;user-select:none}
+.opts input{position:absolute;opacity:0;pointer-events:none}
+.opts label.on{background:var(--brown2);border-color:var(--brown2);color:#fff}
+.stars{display:flex;gap:6px;margin-top:6px}.stars button{font-size:34px;line-height:1;background:none;border:0;cursor:pointer;color:#d9cfb6;padding:0 2px}.stars button.on{color:#e0a21a}
+.scale{display:grid;grid-template-columns:repeat(11,1fr);gap:4px;margin-top:8px}.scale button{font:inherit;font-size:15px;border:1.5px solid #cfc4a8;background:#fff;border-radius:8px;padding:8px 0;cursor:pointer}.scale button.on{background:var(--brown2);color:#fff;border-color:var(--brown2)}
+.lbl{display:flex;justify-content:space-between;font-size:13px;color:var(--sub);margin-top:2px}
+textarea,input[type=text]{width:100%;font:inherit;font-size:16px;border:1.5px solid #cfc4a8;border-radius:10px;padding:10px;margin-top:8px;background:#fff}
+textarea{min-height:100px}
+.btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
+.btn{font:inherit;font-size:17px;font-weight:800;border:0;border-radius:12px;padding:12px 20px;cursor:pointer;text-decoration:none;display:inline-block}
+.btn.line{background:#06C755;color:#fff}.btn.ghost{background:#fff;color:var(--brown2);border:1.5px solid var(--brown2)}
+#out{display:none;white-space:pre-wrap;background:var(--cream);border:1.5px dashed var(--gold);border-radius:10px;padding:12px;font-size:15px;margin-top:10px}
+.msg{color:#1F6B46;font-weight:700;margin-top:8px;min-height:1.5em}
+.thanks{background:#F3FCF6;border:2px solid #06C755;border-radius:12px;padding:12px 14px;margin-top:10px;display:none}
+.thanks a{color:var(--blue);font-weight:700}
+.sig{font-size:13.5px;color:var(--sub);margin-top:10px}
+@media(max-width:520px){.card{padding:16px 14px}.scale{grid-template-columns:repeat(6,1fr)}h1{font-size:21px}}
+</style></head><body>
+<div class="band">財顧芸｜保障現況分析・使用體驗問卷　約 3 分鐘<div class="prog"><i id="pg"></i></div></div>
+<div class="wrap">
+<div class="card"><h1>📝 這份保單報告書，您看得懂嗎？</h1>
+<p class="lead">謝謝您花時間看完報告。您的回饋會用來調整下一次的報告書，讓內容更好懂。題目都是點選，最後按「用 LINE 傳給芸琪」就完成了。內容只存在這台裝置，不會自動傳送。</p></div>
+
+<h2>一、打開與閱讀</h2>
+<div class="card"><p class="q"><span class="no">1</span>您用哪一種裝置看報告？<small>可複選</small></p><div class="opts" data-k="dev" data-m="1" data-o="手機|平板|電腦|請家人幫忙開"></div></div>
+<div class="card"><p class="q"><span class="no">2</span>輸入通行碼、打開報告，順利嗎？</p><div class="opts" data-k="open" data-o="很順利|有點卡，但打得開|打不開，需要協助"></div></div>
+<div class="card"><p class="q"><span class="no">3</span>您看了報告的哪些部分？<small>可複選</small></p><div class="opts" data-k="read" data-m="1" data-o="保障圖（達成率）|保障分析|保單明細|家人的保單|儲蓄與解約金|繳費月份|方案第二頁"></div></div>
+<div class="card"><p class="q"><span class="no">4</span>整體來說，好不好懂？</p><div class="stars" id="st"></div><div class="lbl"><span>很難懂</span><span>非常清楚</span></div></div>
+<div class="card"><p class="q"><span class="no">5</span>哪一部分對您最有幫助？</p><div class="opts" data-k="best" data-o="保障圖（一眼看到缺口）|保障分析|保單明細整理|繳費月份|儲蓄與解約金|方案說明"></div></div>
+<div class="card"><p class="q"><span class="no">6</span>看的時候，哪些地方比較卡？<small>可複選</small></p><div class="opts" data-k="hard" data-m="1" data-o="專有名詞看不懂|達成率的意思不清楚|數字太多|字太小|頁數太長|不知道下一步做什麼|都還好"></div></div>
+
+<h2>二、看完之後</h2>
+<div class="card"><p class="q"><span class="no">7</span>看完後，您對自己的保障是不是更清楚了？</p><div class="opts" data-k="clear" data-o="清楚很多|有比較清楚|差不多|還是不太清楚"></div></div>
+<div class="card"><p class="q"><span class="no">8</span>您最想先處理哪一塊？<small>可複選</small></p><div class="opts" data-k="focus" data-m="1" data-o="醫療|重大疾病／癌症|失能與長照|身故（家人生活費）|退休準備|保費預算|家人的保單|先不處理"></div></div>
+<div class="card"><p class="q"><span class="no">9</span>接下來，您想怎麼做？</p><div class="opts" data-k="next" data-o="想約 30 分鐘聽芸琪解說|想做規劃建議，排出先後順序|想要一整年有人照看（年度顧問）|想先整理每月收支（記帳陪跑／工作坊）|先自己想想，有需要再聯絡"></div></div>
+
+<h2>三、給芸琪的話</h2>
+<div class="card"><p class="q"><span class="no">10</span>您會推薦家人朋友也做一份嗎？<small>0 不會，10 一定會</small></p><div class="scale" id="nps"></div><div class="lbl"><span>不會推薦</span><span>一定會推薦</span></div></div>
+<div class="card"><p class="q"><span class="no">11</span>想對芸琪說的話、希望改進的地方<small>選填</small></p><textarea id="memo" placeholder="例如：保障圖很清楚；希望字再大一點；想多知道長照怎麼準備……"></textarea></div>
+<div class="card"><p class="q"><span class="no">12</span>您的回饋，可以分享給其他人參考嗎？</p><div class="opts" data-k="share" data-o="可以，不寫名字|可以，寫姓氏（例：王小姐）|不要公開，只給芸琪參考"></div>
+<p class="q" style="margin-top:12px">您的稱呼<small>選填，方便芸琪回覆</small></p><input type="text" id="nm" placeholder="例如：王小姐"></div>
+
+<div class="card"><div class="btns"><button class="btn line" id="send">💬 用 LINE 傳給芸琪</button><button class="btn ghost" id="cp">複製文字</button><button class="btn ghost" id="clr">清除重填</button></div>
+<div class="msg" id="msg"></div><div id="out"></div>
+<div class="thanks" id="ty">🙏 謝謝您的回饋！芸琪會親自看每一則。<span id="tyNext"></span></div>
+<div class="sig">財顧芸 陳芸琪｜資深顧問｜MDRT（2024–2025）｜RFC｜RFP｜RFA</div></div>
+</div>
+<script>(function(){
+var C=(new URLSearchParams(location.search).get('c')||'').replace(/[^a-z0-9_-]/gi,'').slice(0,20);
+var K="policy-survey-v1-"+(C||"x"),S={};try{S=JSON.parse(localStorage.getItem(K)||"{}")||{}}catch(e){S={}}
+function save(){try{localStorage.setItem(K,JSON.stringify(S))}catch(e){}prog()}
+[].forEach.call(document.querySelectorAll(".opts"),function(g){var k=g.dataset.k,m=!!g.dataset.m;g.dataset.o.split("|").forEach(function(o){var l=document.createElement("label");l.innerHTML='<input type="'+(m?"checkbox":"radio")+'" name="'+k+'">'+o;if(m?((S[k]||[]).indexOf(o)>-1):S[k]===o)l.classList.add("on");
+ l.onclick=function(e){e.preventDefault();if(m){var a=S[k]||[],i=a.indexOf(o);if(i>-1)a.splice(i,1);else a.push(o);S[k]=a;l.classList.toggle("on")}else{S[k]=S[k]===o?null:o;[].forEach.call(g.children,function(x){x.classList.remove("on")});if(S[k])l.classList.add("on")}save()};g.appendChild(l)})});
+var st=document.getElementById("st");for(var a=1;a<=5;a++)(function(i){var b=document.createElement("button");b.type="button";b.textContent="★";b.setAttribute("aria-label",i+" 顆星");b.onclick=function(){S.star=i;drawS();save()};st.appendChild(b)})(a);
+function drawS(){[].forEach.call(st.children,function(b,i){b.classList.toggle("on",S.star>i)})}drawS();
+var np=document.getElementById("nps");for(var n=0;n<=10;n++)(function(i){var b=document.createElement("button");b.type="button";b.textContent=i;b.onclick=function(){S.nps=i;drawN();save()};np.appendChild(b)})(n);
+function drawN(){[].forEach.call(np.children,function(b,i){b.classList.toggle("on",S.nps===i)})}drawN();
+var memo=document.getElementById("memo"),nm=document.getElementById("nm");memo.value=S.memo||"";nm.value=S.nm||"";
+memo.oninput=function(){S.memo=memo.value;save()};nm.oninput=function(){S.nm=nm.value;save()};
+var KEYS=["dev","open","read","star","best","hard","clear","focus","next","nps","share"];
+function filled(v){return v!==undefined&&v!==null&&v!==""&&!(Array.isArray(v)&&!v.length)}
+function prog(){var c=0;KEYS.forEach(function(k){if(filled(S[k]))c++});document.getElementById("pg").style.width=(c/KEYS.length*100)+"%"}prog();
+function v(x){return filled(x)?(Array.isArray(x)?x.join("、"):x):"（未填）"}
+function text(){return "【保單報告書使用體驗問卷】"+(C?"｜"+C:"")+"\n稱呼："+(S.nm&&S.nm.trim()?S.nm.trim():"（未填）")+
+"\n1. 裝置："+v(S.dev)+"\n2. 打開報告："+v(S.open)+"\n3. 看了："+v(S.read)+"\n4. 好不好懂："+(S.star?S.star+" / 5 顆星":"（未填）")+
+"\n5. 最有幫助："+v(S.best)+"\n6. 比較卡的地方："+v(S.hard)+"\n7. 看完更清楚嗎："+v(S.clear)+"\n8. 最想先處理："+v(S.focus)+
+"\n9. 接下來想："+v(S.next)+"\n10. 推薦意願："+(filled(S.nps)?S.nps+" / 10":"（未填）")+"\n11. 想說的話："+(S.memo&&S.memo.trim()?S.memo.trim():"（無）")+"\n12. 可否分享："+v(S.share)}
+function show(t){var o=document.getElementById("out");o.textContent=t;o.style.display="block";var ty=document.getElementById("ty");ty.style.display="block";
+ var nx=document.getElementById("tyNext");nx.innerHTML=(S.next&&/約 30 分鐘|規劃建議|年度顧問|記帳|工作坊/.test(S.next))?'<br>您勾選了「'+S.next+'」，芸琪收到後會主動和您約時間。':''}
+document.getElementById("send").onclick=function(){if(!filled(S.star)&&!filled(S.next)){alert("請至少填第 4 題或第 9 題再送出，謝謝！");return}
+ var t=text(),url="https://line.me/R/oaMessage/@qpk4617k/?"+encodeURIComponent(t);try{navigator.clipboard.writeText(t)}catch(e){}show(t);
+ document.getElementById("msg").textContent="✅ 已打開芸琪的 LINE，問卷內容已帶入對話框，按送出就完成了。";
+ if(/Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent)){location.href=url;return}var w=window.open(url,"_blank");if(!w)location.href=url};
+document.getElementById("cp").onclick=function(){var t=text();show(t);var done=function(){document.getElementById("msg").textContent="✅ 已複製，貼到芸琪的 LINE 就完成了。"};try{navigator.clipboard.writeText(t).then(done,function(){prompt("請長按全選後複製：",t)})}catch(e){prompt("請長按全選後複製：",t)}};
+document.getElementById("clr").onclick=function(){if(!confirm("確定要清除重填嗎？"))return;S={};save();location.reload()};
+})();</script>
+</body></html>
