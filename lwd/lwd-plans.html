@@ -37,48 +37,191 @@ td b{color:var(--blue)}
 @media (max-width:760px){.page{padding:18px 14px 22px}.grid{grid-template-columns:1fr}h1{font-size:20px}
  table,tbody,tr,td{display:block;width:100%}thead{display:none}tr{margin-bottom:8px;border-radius:10px;overflow:hidden}}
 @media print{body>*{display:none!important}body:after{content:"本頁為線上閱讀版，不提供列印。如有額外需求，請洽顧問 陳芸琪。";display:block;padding:40mm 20mm;font-size:16pt;text-align:center;color:#5E4A33}}
-</style></head><body>
-<div class="vband"><span>財顧芸｜馥芸財富學苑｜方案說明（第二頁）</span><span>v1.10・2026/10/09（民國115年）</span></div>
+
+.journey{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:12px 0 4px;counter-reset:j}
+.js{position:relative;border-radius:10px;padding:9px 10px 9px 12px;font-size:13.5px;line-height:1.5;background:#f6f3ec;border:1.5px solid #e6dcc8}
+.js b{display:block;font-size:14.5px;color:var(--brown2)}.js small{color:var(--muted);font-size:12px}
+.js.done{background:#EEF7EF;border-color:#b8dcc0}.js.done b{color:#2e7d4f}
+.js.next{background:#FFF6E0;border:2px solid var(--gold2);box-shadow:0 2px 10px rgba(233,169,42,.25)}
+.js.next:after{content:"下一步";position:absolute;top:-10px;right:8px;background:#A3182A;color:#fff;font-size:11.5px;border-radius:8px;padding:0 7px}
+.pick{background:#fff;border:1.5px dashed #d9c9a6;border-radius:12px;padding:12px 14px;margin:8px 0}
+.pick .qs{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+.pick button{font:inherit;font-size:14.5px;border:1.5px solid #cfc4a8;background:#fff;border-radius:999px;padding:7px 14px;cursor:pointer;color:var(--ink)}
+.pick button.on{background:var(--brown2);border-color:var(--brown2);color:#fff}
+#pickOut{display:none;margin-top:10px;background:#FFF7E6;border-left:5px solid var(--gold2);border-radius:8px;padding:9px 12px;font-size:14.5px}
+#pickOut a{color:var(--blue);font-weight:700}
+.card.hl{animation:hl 1.6s ease 2;border-color:var(--gold2)}@keyframes hl{50%{box-shadow:0 0 0 5px rgba(233,169,42,.45)}}
+.addrow{display:flex;flex-wrap:wrap;gap:6px;margin:0 16px 14px}
+.addbtn{font:inherit;font-size:13.5px;font-weight:700;border:1.5px solid var(--brown);background:#fff;color:var(--brown2);border-radius:8px;padding:6px 10px;cursor:pointer}
+.addbtn.in{background:var(--brown2);color:#fff;border-color:var(--brown2)}
+details.adv{border:1.5px solid #e6dcc8;border-radius:12px;margin:14px 0 0;background:#fff}
+details.adv>summary{cursor:pointer;padding:11px 16px;font-weight:700;color:var(--brown2);list-style:none}
+details.adv>summary::-webkit-details-marker{display:none}details.adv>summary:before{content:"▸ ";color:var(--gold2)}details.adv[open]>summary:before{content:"▾ "}
+.adv .grid{margin:0 12px 12px}
+.card,details.adv{scroll-margin-top:48px}
+.c5{background:#2e8b57}.c6{background:#5b4a7a}
+.faq details{border-bottom:1px dashed #e0d5c0;padding:6px 2px}.faq summary{cursor:pointer;font-weight:700;color:var(--brown2);font-size:14.5px}.faq p{font-size:14px;margin:6px 0 4px;color:#4a453e}
+.btn2{display:inline-block;font:inherit;font-weight:700;border-radius:22px;padding:9px 18px;margin:6px 6px 0 0;cursor:pointer;border:2px solid var(--brown2);background:#fff;color:var(--brown2)}
+#cartBtn{position:fixed;right:14px;bottom:14px;z-index:90;background:var(--brown2);color:#fff;border:0;border-radius:999px;padding:11px 16px;font:inherit;font-weight:800;font-size:15px;box-shadow:0 4px 14px rgba(0,0,0,.3);cursor:pointer}
+#cartBtn .n{display:inline-block;min-width:22px;background:var(--gold);color:var(--brown2);border-radius:999px;padding:0 6px;margin-left:4px}
+#cartBtn.bump{animation:bump .35s}@keyframes bump{50%{transform:scale(1.12)}}
+#cartPanel{position:fixed;right:12px;bottom:68px;z-index:95;width:390px;max-width:calc(100vw - 16px);max-height:calc(100vh - 90px);background:#fff;border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,.35);border-top:6px solid var(--gold);display:none;flex-direction:column}
+#cartPanel.show{display:flex}
+#cartPanel .hd{background:var(--brown2);color:#fff;padding:8px 12px;display:flex;justify-content:space-between;align-items:center;font-weight:700}
+#cartPanel .hd button{background:transparent;border:1px solid rgba(255,255,255,.5);color:#fff;border-radius:4px;cursor:pointer;font-size:15px}
+#cartPanel .bd{padding:8px 12px;overflow:auto;flex:1;font-size:14px}
+.ci{display:flex;gap:8px;align-items:flex-start;padding:6px 0;border-bottom:1px dashed #eee}.ci .nm{flex:1}.ci .nm small{display:block;color:var(--muted);font-size:12px}
+.ci .pr{font-weight:800;white-space:nowrap}.ci .rm{border:none;background:none;color:#c0392b;cursor:pointer;font-size:15px}
+.ci .qty{font-size:12px;color:var(--muted);margin-top:3px}.ci .qty input{width:60px;font-size:14px}
+.tip{background:#fff6d6;border:1px solid #f1d58a;border-radius:6px;padding:6px 8px;margin:6px 0;font-size:13px}
+.tot{display:flex;justify-content:space-between;font-weight:800;font-size:16px;padding:8px 0;border-top:2px solid var(--gold2);margin-top:6px}
+.ofm label{display:block;font-size:13px;color:var(--muted);margin-top:6px}.ofm input,.ofm select,.ofm textarea{width:100%;font:inherit;font-size:15px;border:1px solid #cfc4a8;border-radius:6px;padding:6px 8px}
+.ofm input.err{border-color:#c0392b;background:#fff4f2}
+.obtn{display:block;width:100%;font:inherit;font-weight:800;font-size:15.5px;border:0;border-radius:10px;padding:10px;margin-top:8px;cursor:pointer}
+.obtn.line{background:#06C755;color:#fff}.obtn.cp{background:#fff;border:1.5px solid var(--brown2);color:var(--brown2)}
+#oMsg{font-size:13px;color:#1F6B46;font-weight:700;min-height:1.3em;margin-top:6px}
+@media (max-width:760px){.journey{grid-template-columns:1fr 1fr}#cartBtn{right:8px;bottom:8px;font-size:14px}}
+</style></head>
+<body>
+<div class="vband"><span>財顧芸｜馥芸財富學苑｜方案說明（第二頁）</span><span>v1.11・2026/10/09（民國115年）</span></div>
 <main><section class="page">
 <div class="phead"><span class="arrow"></span><span class="bar"></span></div>
 <h1>可以這樣選：各方案內容</h1>
 <p class="lead">「保單自己盤點懶人包」與「保單現況盤點」為保戶已享有的服務；「風險需求問診・規劃建議」保戶享有標配服務，並享模組升級。</p>
 
-<h2>建議先從這裡開始</h2>
+<h2>您走到哪一步了</h2>
+<div class="journey">
+<div class="js done"><b>✅ 懶人包</b><small>自己看懂保單重點（已享有）</small></div>
+<div class="js done"><b>✅ 現況盤點</b><small>就是您手上這份報告（已享有）</small></div>
+<div class="js next"><b>③ 規劃建議</b><small>缺口先補哪一個、預算怎麼排</small></div>
+<div class="js"><b>④ 年度顧問</b><small>一整年有人固定照看</small></div>
+</div>
+<p class="small">每一步都可以停下來，看完再決定要不要往下走。</p>
+
+<h2>30 秒找方向</h2>
+<div class="pick"><b>看完報告，您現在最在意哪一件事？</b>
+<div class="qs">
+<button type="button" data-c="c1">缺口很多，不知道先補哪一個</button>
+<button type="button" data-c="c2">希望全家一整年都有人照看</button>
+<button type="button" data-c="c3">想先弄清楚每月能撥多少錢</button>
+<button type="button" data-c="c4">想先看懂自家財務體質</button>
+<button type="button" data-c="adv">退休安養、家族傳承</button>
+</div>
+<div id="pickOut"></div></div>
+
+<h2>各方案內容</h2>
 <div class="grid">
-<div class="card"><div class="ch c1"><div class="n">風險需求問診・規劃建議<span class="rec">建議先從這裡開始</span></div><div class="k">想把缺口排出優先順序、知道預算怎麼配</div></div>
+<div class="card" id="c1"><div class="ch c1"><div class="n">風險需求問診・規劃建議<span class="rec">建議先從這裡開始</span></div><div class="k">想把缺口排出優先順序、知道預算怎麼配</div></div>
 <div class="price"><div><span>個人</span><b>12,800 元</b></div><div><span>家庭</span><b>18,800 元</b></div></div>
 <ul><li>含本次現況盤點</li><li>60～90 分鐘需求問診</li><li>優先順序建議書（書面）</li><li>調整後保障有什麼不同、保費怎麼變，一次比給您看</li><li>30 天內 2 次追問</li></ul>
-<div class="fit">適合：想知道保障缺口「先補哪一個、補多少」。</div></div>
+<div class="fit">適合：想知道保障缺口「先補哪一個、補多少」。</div>
+<div class="addrow" data-g="plan"></div></div>
 
-<div class="card"><div class="ch c2"><div class="n">幸福財務年度顧問</div><div class="k">想要一整年有人陪著看、有事可以找</div></div>
+<div class="card" id="c2"><div class="ch c2"><div class="n">幸福財務年度顧問</div><div class="k">想要一整年有人陪著看、有事可以找</div></div>
 <div class="price"><div><span>個人</span><b>39,600 元</b></div><div><span>家庭</span><b>59,400 元</b></div></div>
 <ul><li>金錢整理工作坊實體課（送財務健康報告）＋規劃建議</li><li>人生財富藍圖：目標優先順序、財務模型試算</li><li>一整年的記帳陪跑</li><li>年中檢視＋隔年周年檢視</li><li>理賠時協助整理文件、順利送件；預約優先安排</li><li>學苑課程與活動享年度顧問專屬優惠</li><li>個人版加送家人 1 位現況盤點</li></ul>
-<div class="fit">適合：希望全家的保單、收支、理賠、周年檢視，一整年都有人固定照看。</div></div>
+<div class="fit">適合：希望全家的保單、收支、理賠、周年檢視，一整年都有人固定照看。</div>
+<div class="addrow" data-g="year"></div></div>
 
-<div class="card"><div class="ch c3"><div class="n">家庭記帳陪跑</div><div class="k">想先把每月收支整理清楚，再談保障預算</div></div>
+<div class="card" id="c3"><div class="ch c3"><div class="n">家庭記帳陪跑</div><div class="k">想先把每月收支整理清楚，再談保障預算</div></div>
 <div class="price"><div><span>個人</span><b>1,500 元／月</b></div><div><span>家庭</span><b>1,800 元／月</b></div></div>
-<ul><li>最少 3 個月；首次體驗 3 個月 3,600 元（個人，限一次）</li><li>續約季付 4,200、年付 15,000（個人）；家庭季付／年付請洽顧問</li><li>每月檢視收支，找出可運用的保障與退休預算</li></ul>
-<div class="fit">適合：想把每月可運用的預算，安排到保障與退休準備。想先看懂自家的財務體質，可參加「金錢整理工作坊」3,600 元，送您一份財務健康報告。</div></div>
+<ul><li>🌱 首次體驗 3 個月 3,600 元（個人，每人限一次）</li><li>體驗期滿續約：季付 4,200、年付 15,000（個人）；家庭季付／年付歡迎私訊詢問</li><li>每月檢視收支，找出可運用的保障與退休預算</li></ul>
+<div class="fit">適合：想把每月可運用的預算，安排到保障與退休準備。</div>
+<div class="addrow" data-g="acc"></div></div>
 
-<div class="card"><div class="ch c4"><div class="n">馥芸財富學苑課程</div><div class="k">想自己學會看保單、做家庭財務規劃</div></div>
+<div class="card" id="c4"><div class="ch c4"><div class="n">馥芸財富學苑課程</div><div class="k">想自己學會看保單、做家庭財務規劃</div></div>
 <div class="price"><div><span>金錢整理工作坊</span><b>3,600 元／人</b></div></div>
 <ul><li>第一堂課：金錢整理工作坊（實體課・預約制），帶著自己的數字來，把收支和家底整理清楚</li><li>🎁 送一份財務健康報告（價值 8,800）</li><li>看懂保單與理賠重點、家庭現金流與退休規劃：即將推出</li></ul>
-<div class="fit">工作坊時間、地點另行公告，歡迎私訊芸琪預約；其他課程請留意學苑開課公告。</div></div>
+<div class="fit">工作坊時間、地點另行公告，歡迎私訊芸琪預約。年度顧問已包含。</div>
+<div class="addrow" data-g="health"></div></div>
 </div>
 
-<h2>不確定選哪一個？</h2>
-<table><thead><tr><th>如果您最在意…</th><th>建議從這裡開始</th></tr></thead><tbody>
-<tr><td>缺口很多，不知道先補哪一個</td><td><b>風險需求問診・規劃建議</b></td></tr>
-<tr><td>希望全家的保單、理賠、周年檢視都有人固定照看</td><td><b>幸福財務年度顧問</b></td></tr>
-<tr><td>想先弄清楚每月能撥多少錢給保障與退休</td><td><b>家庭記帳陪跑</b></td></tr>
-<tr><td>想先看懂自家的財務體質，自己學會整理</td><td><b>馥芸財富學苑課程（從金錢整理工作坊開始）</b></td></tr>
-</tbody></table>
+<details class="adv" id="adv"><summary>還有進階規劃：退休安養、家族傳承</summary>
+<div class="grid">
+<div class="card"><div class="ch c5"><div class="n">安心樂活規劃</div><div class="k">退休與安養，先想好、先安排</div></div>
+<div class="price"><div><span>個人</span><b>36,000 元</b></div><div><span>家庭</span><b>50,000 元</b></div></div>
+<ul><li>財務健康報告＋風險需求問診・規劃建議</li><li>安養財務評估：照護費用估算與事前計畫</li><li>一年期執行輔導：安養照護與其他財務目標</li><li>意定監護、安養信託：協助媒合轉介專業窗口</li></ul>
+<div class="fit">已是年度顧問：加購 18,000 元（個人）／25,000 元（家庭）。家庭方案以本人及配偶為限。</div>
+<div class="addrow" data-g="ret"></div></div>
+<div class="card"><div class="ch c6"><div class="n">財富傳承規劃</div><div class="k">把愛和資產，好好交到下一代手上</div></div>
+<div class="price"><div><span>個人</span><b>98,000 元起</b></div><div><span>家庭</span><b>148,000 元起</b></div></div>
+<ul><li>年度顧問全部內容＋安養財務評估</li><li>傳承深度會談、資訊彙整、家族繼承系統表</li><li>預留稅源的保障需求評估</li><li>遺贈稅試算、節稅、信託、遺囑：協助媒合轉介專業窗口</li><li>一年期執行輔導</li></ul>
+<div class="fit">實際費用依家庭成員、資產種類與傳承架構複雜度評估後報價。</div>
+<div class="addrow" data-g="leg"></div></div>
+</div></details>
+
+<h2>常見問題</h2>
+<div class="faq">
+<details><summary>保險公司的保單健診不是免費的嗎？</summary><p>保險公司的健診多半只看自家的保單。芸琪會把您在不同公司的保單放在同一張表上一起看，再依您家裡的狀況排出先後順序。</p></details>
+<details><summary>規劃建議會推薦我買什麼商品嗎？</summary><p>芸琪給您的是「先處理哪一項、預算怎麼排」，並把每個選項的好處與代價說清楚；最後怎麼做，由您決定。</p></details>
+<details><summary>父母的保單也想一起看，怎麼算？</summary><p>家庭方案是本人、配偶及未成年且無獨立經濟來源之子女；父母、成年子女另算一個家庭，可以另外選個人或家庭方案。年度顧問個人版另加送 1 位家人現況盤點。</p></details>
+<details><summary>記帳陪跑的體驗價怎麼用？</summary><p>第一次加入可選「3 個月 3,600 元」，每人限用一次；體驗期滿想繼續，再依季付或年付續約。</p></details>
+<details><summary>保單超過 15 張怎麼算？</summary><p>15 張以內不另收費；第 16 張起每張加 300 元，例如 20 張加 1,500 元。規劃建議、年度顧問、安心樂活、財富傳承都適用。</p></details>
+<details><summary>怎麼付款？</summary><p>送出訂購單後，芸琪會先和您確認內容，再提供 ATM 轉帳資訊。</p></details>
+</div>
 
 <div class="cta"><h3>先預約 30 分鐘，一起看您的報告</h3>
 <p style="margin:0">解說已包含在本次現況盤點服務中；聽完再決定要不要往下走。</p>
-<a class="lb-btn" href="https://lin.ee/TTQDQIA" target="_blank" rel="noopener">👉 找芸琪一起看</a></div>
+<a class="lb-btn" href="https://lin.ee/TTQDQIA" target="_blank" rel="noopener">👉 找芸琪一起看</a> <button type="button" class="btn2" onclick="cartToggle(true)">🛒 打開訂購單</button></div>
 
-<div class="note">金額單位：新台幣元。家庭方案：本人、配偶及未成年且無獨立經濟來源之子女，算一個家庭；父母、成年子女另算一個家庭。保單張數：15 張以內不另收費，第 16 張起每張加 300 元。進階規劃：安心樂活規劃 36,000 起、財富傳承規劃 98,000 起，細節請私訊財顧芸。資產配置、投資、信託、稅務等需求，協助媒合轉介專業窗口，費用由窗口另計。以上為顧問服務費，不含保險或其他金融商品保費。方案內容為財務整理與教育用途，不保證投資報酬與財務成果；價格以財顧芸最新公告為準。服務內容與費用以正式服務說明為準；付費諮詢服務不推薦個別基金、股票或 ETF。</div>
+<div class="note">金額單位：新台幣元。家庭方案：本人、配偶及未成年且無獨立經濟來源之子女，算一個家庭；父母、成年子女另算一個家庭。保單張數：15 張以內不另收費，第 16 張起每張加 300 元。資產配置、投資、信託、稅務等需求，協助媒合轉介專業窗口，費用由窗口另計。以上為顧問服務費，不含保險或其他金融商品保費。方案內容為財務整理與教育用途，不保證投資報酬與財務成果；價格以財顧芸最新公告為準。服務內容與費用以正式服務說明為準；付費諮詢服務不推薦個別基金、股票或 ETF。訂購單合計為參考金額，以芸琪確認為準。</div>
 <p class="small">財顧芸 陳芸琪｜資深顧問｜MDRT（2024–2025）｜RFC｜RFP｜RFA</p>
-</section></main></body></html>
+</section></main>
+
+<button id="cartBtn" type="button" onclick="cartToggle()">🛒 訂購單<span class="n" id="cartN">0</span></button>
+<div id="cartPanel" role="dialog" aria-label="訂購單"><div class="hd"><span>🛒 我的訂購單</span><button type="button" onclick="cartToggle(false)">✕</button></div>
+<div class="bd"><div id="cartBody"></div><div class="tot"><span>合計（參考）</span><span id="cartTot">0 元</span></div>
+<div class="ofm"><label>您的稱呼 *<input id="oName" placeholder="例如：王先生"></label>
+<label>方便聯絡的時段<select id="oTime"><option>都可以</option><option>平日白天</option><option>平日晚上</option><option>週末</option></select></label>
+<label>想補充的話（選填）<textarea id="oNote" rows="2" placeholder="例如：想先聊聊父母的保單"></textarea></label></div>
+<button type="button" class="obtn line" onclick="sendOrder()">📩 複製訂購單，打開 LINE 傳給芸琪</button>
+<button type="button" class="obtn cp" onclick="cartCopy()">只複製文字</button>
+<div id="oMsg"></div>
+<div class="small">送出後芸琪會先確認內容，再提供付款資訊。</div></div></div>
+
+<script>
+var PROD={plan:[{id:'plan_p',nm:'風險需求問診・規劃建議',v:'個人',p:12800,x:1},{id:'plan_f',nm:'風險需求問診・規劃建議',v:'家庭',p:18800,x:1}],
+year:[{id:'year_p',nm:'幸福財務年度顧問',v:'個人',p:39600,x:1},{id:'year_f',nm:'幸福財務年度顧問',v:'家庭',p:59400,x:1}],
+acc:[{id:'acc_t',nm:'家庭記帳陪跑',v:'首次體驗 3 個月（個人）',p:3600},{id:'acc_q',nm:'家庭記帳陪跑',v:'季付（個人）',p:4200},{id:'acc_y',nm:'家庭記帳陪跑',v:'年付（個人）',p:15000},{id:'acc_f',nm:'家庭記帳陪跑',v:'家庭 月付 × 3 個月',p:5400}],
+health:[{id:'health',nm:'金錢整理工作坊',v:'實體課（送財務健康報告）',p:3600}],
+ret:[{id:'ret_p',nm:'安心樂活規劃',v:'個人',p:36000,x:1},{id:'ret_f',nm:'安心樂活規劃',v:'家庭',p:50000,x:1},{id:'ret_ap',nm:'安心樂活規劃',v:'年度顧問加購（個人）',p:18000},{id:'ret_af',nm:'安心樂活規劃',v:'年度顧問加購（家庭）',p:25000}],
+leg:[{id:'leg_p',nm:'財富傳承規劃',v:'個人（起）',p:98000,x:1},{id:'leg_f',nm:'財富傳承規劃',v:'家庭（起）',p:148000,x:1}]};
+var OPT={},CART={},LINEURL='https://lin.ee/TTQDQIA';
+Object.keys(PROD).forEach(function(g){PROD[g].forEach(function(o){o.g=g;OPT[o.id]=o})});
+function f(n){return n.toLocaleString('en-US')}
+function addOn(id){var n=CART[id].x||0;return n>15?(n-15)*300:0}
+function lineP(id){var o=OPT[id];return o.p+(o.x?addOn(id):0)}
+function has(g){return Object.keys(CART).some(function(k){return OPT[k].g===g})}
+function cartAdd(id){var g=OPT[id].g;if(CART[id])delete CART[id];else{Object.keys(CART).forEach(function(k){if(OPT[k].g===g)delete CART[k]});CART[id]={x:0}}render();var b=document.getElementById('cartBtn');b.classList.remove('bump');void b.offsetWidth;b.classList.add('bump')}
+function ex(id,v){CART[id].x=Math.max(0,parseInt(v,10)||0);render()}
+function tips(){var t=[];
+ if(has('year')&&has('health'))t.push('年度顧問已包含金錢整理工作坊與財務健康報告，不用另外加選。');
+ if(has('year')&&(has('plan')||has('acc')))t.push('年度顧問已包含「規劃建議」與「全年記帳陪跑」，不用另外加選。');
+ if(has('leg')&&(has('year')||has('ret')))t.push('財富傳承規劃已包含年度顧問內容與安養財務評估，可以不用另外加選。');
+ if(has('ret')&&has('plan'))t.push('安心樂活規劃已包含規劃建議，可以不用另外加選。');
+ if(has('plan')&&!has('year'))t.push('想要一整年都有人照看？年度顧問已包含規劃建議，也可以直接選年度顧問。');
+ return t}
+function render(){var ids=Object.keys(CART),tot=0,h='';
+ ids.forEach(function(id){var o=OPT[id],p=lineP(id);tot+=p;
+  h+='<div class="ci"><div class="nm">'+o.nm+'<small>'+o.v+'</small>'+(o.x?'<div class="qty">保單張數：<input type="number" min="0" max="300" inputmode="numeric" value="'+(CART[id].x||'')+'" placeholder="15" onchange="ex(\''+id+'\',this.value)"> 張'+(addOn(id)?'（加 '+f(addOn(id))+'）':'（15 張以內不加價）')+'</div>':'')+'</div><div class="pr">'+f(p)+'</div><button class="rm" type="button" title="移除" onclick="cartAdd(\''+id+'\')">✕</button></div>'});
+ if(!ids.length)h='<div class="small" style="padding:8px 0">還沒有選擇方案。在方案卡下方點「☐」加入。</div>';
+ tips().forEach(function(t){h+='<div class="tip">💡 '+t+'</div>'});
+ document.getElementById('cartBody').innerHTML=h;document.getElementById('cartTot').textContent=f(tot)+' 元';document.getElementById('cartN').textContent=ids.length;
+ document.querySelectorAll('.addbtn').forEach(function(b){var on=!!CART[b.dataset.id];b.classList.toggle('in',on);b.textContent=(on?'☑ ':'☐ ')+b.dataset.lb})}
+function cartToggle(on){document.getElementById('cartPanel').classList.toggle('show',on===undefined?!document.getElementById('cartPanel').classList.contains('show'):on)}
+function cartText(){var ids=Object.keys(CART),tot=0,nm=document.getElementById('oName').value.trim(),tm=document.getElementById('oTime').value,nt=document.getElementById('oNote').value.trim();
+ var t='【訂購單｜財顧芸】\n稱呼：'+(nm||'（未填）')+'\n方便聯絡：'+tm+'\n\n我想訂購：\n';
+ ids.forEach(function(id){var o=OPT[id],p=lineP(id);tot+=p;t+='・'+o.nm+'｜'+o.v+(o.x&&CART[id].x?'（保單 '+CART[id].x+' 張）':'')+'　'+f(p)+' 元\n'});
+ return t+'合計（參考）：'+f(tot)+' 元'+(nt?'\n\n補充：'+nt:'')+'\n\n（請芸琪確認內容與付款方式，謝謝！）'}
+function copyT(t,done){try{navigator.clipboard.writeText(t).then(done,function(){prompt('請長按全選後複製：',t);done()})}catch(e){prompt('請長按全選後複製：',t);done()}}
+function sendOrder(){if(!Object.keys(CART).length){alert('請先選擇想訂購的方案');return}var n=document.getElementById('oName');if(!n.value.trim()){n.classList.add('err');n.focus();alert('請填寫您的稱呼，方便芸琪回覆您');return}n.classList.remove('err');
+ var w=window.open(LINEURL,'_blank');copyT(cartText(),function(){document.getElementById('oMsg').textContent='✅ 訂購單已複製，在 LINE 對話框貼上送出就完成了。'});if(!w)location.href=LINEURL}
+function cartCopy(){if(!Object.keys(CART).length){alert('請先選擇想訂購的方案');return}copyT(cartText(),function(){document.getElementById('oMsg').textContent='✅ 已複製，可以貼到 LINE 傳給芸琪。'})}
+document.querySelectorAll('.addrow').forEach(function(r){var l=document.createElement('span');l.className='small';l.style.alignSelf='center';l.textContent='加入訂購單：';r.appendChild(l);PROD[r.dataset.g].forEach(function(o){var b=document.createElement('button');b.type='button';b.className='addbtn';b.dataset.id=o.id;b.dataset.lb=o.v+' '+f(o.p);b.onclick=function(){cartAdd(o.id)};r.appendChild(b)})});
+var PK={c1:['風險需求問診・規劃建議','把缺口排出先後順序，知道預算先放哪裡。'],c2:['幸福財務年度顧問','規劃建議、記帳陪跑、年中與周年檢視、理賠協助，一整年都有人照看。'],c3:['家庭記帳陪跑','先用首次體驗 3 個月 3,600 元，把每月收支理清楚。'],c4:['金錢整理工作坊','3,600 元的實體課，送一份財務健康報告，看懂自家財務體質。'],adv:['安心樂活規劃／財富傳承規劃','退休安養與家族傳承，從需求會談開始。']};
+document.querySelectorAll('.pick button').forEach(function(b){b.onclick=function(){document.querySelectorAll('.pick button').forEach(function(x){x.classList.toggle('on',x===b)});var c=b.dataset.c,k=PK[c],o=document.getElementById('pickOut');
+ o.innerHTML='建議從 <b>'+k[0]+'</b> 開始：'+k[1]+' <a href="#'+c+'" data-go="'+c+'">看這個方案 ↓</a>';o.style.display='block';
+ o.querySelector('a').onclick=function(e){e.preventDefault();var el=document.getElementById(c);if(c==='adv')el.open=true;el.scrollIntoView({behavior:'smooth',block:'start'});el.classList.remove('hl');void el.offsetWidth;el.classList.add('hl')}}});
+render();
+</script>
+</body></html>
