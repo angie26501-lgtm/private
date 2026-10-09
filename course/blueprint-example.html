@@ -1,0 +1,134 @@
+<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex, nofollow">
+<title>財顧芸｜規劃範例：三個水庫＋一個水桶</title><style>
+:root{--brown:#5E4A33;--gold:#E9A92A;--green:#2e8b57;--blue:#1E6FB8;--red:#A3182A;--muted:#6f6a62;--cream:#FFFBF1}
+*{box-sizing:border-box}body{margin:0;background:#F6F1E7;color:#2d2a26;font:15px/1.7 "Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif}
+.band{background:var(--green);color:#fff;font-size:13px;padding:6px 16px}
+main{max-width:920px;margin:0 auto;padding:16px 16px 40px}
+h1{color:var(--brown);font-size:23px;margin:6px 0 2px}.sub{color:var(--muted);font-size:13.5px}
+.card{background:#fff;border-radius:14px;padding:14px 16px;margin:14px 0;box-shadow:0 1px 4px rgba(0,0,0,.06)}
+h2{font-size:18px;color:var(--brown);margin:0 0 6px}h2 .n{display:inline-block;background:var(--gold);color:#fff;border-radius:50%;width:26px;height:26px;text-align:center;line-height:26px;font-size:14px;margin-right:6px}
+.q{margin:10px 0}.q label.t{display:block;font-weight:700;font-size:14.5px}.q small{color:var(--muted);font-size:12.5px;display:block}
+.q input[type=number],.q select{width:100%;max-width:320px;font-size:16px;padding:8px 10px;border:1.5px solid #d8cdb9;border-radius:8px;background:#fff}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:4px 18px}
+.pol{display:flex;gap:10px;align-items:flex-start;border:1.5px solid #eadfca;border-radius:12px;padding:10px 12px;margin:8px 0;background:var(--cream);cursor:pointer}
+.pol input{margin-top:5px;transform:scale(1.25)}.pol b{display:block}.pol small{display:block;color:var(--brown)}.pol em{display:block;font-style:normal;font-size:13px;color:var(--muted)}
+.pol.off{opacity:.6;cursor:default}
+.chips{display:flex;flex-wrap:wrap;gap:6px}.chips label{border:1.5px solid #d8cdb9;border-radius:999px;padding:4px 12px;font-size:14px;cursor:pointer;background:#fff}
+.chips input{margin-right:4px}
+.res{display:grid;grid-template-columns:1fr 1fr;gap:10px}.box{border-radius:12px;padding:12px;background:var(--cream);border:1.5px solid #eadfca}
+.box h3{margin:0 0 4px;font-size:15px;color:var(--brown)}.big{font-size:26px;font-weight:800}.keep .big{color:var(--green)}.sur .big{color:var(--blue)}
+table.t{width:100%;border-collapse:collapse;font-size:13.5px;margin-top:8px}table.t th,table.t td{border:1px solid #eadfca;padding:5px 6px;text-align:right}table.t th:first-child,table.t td:first-child{text-align:left}
+table.t thead th{background:#FFE7A8;color:var(--brown)}
+.alloc{display:flex;height:34px;border-radius:10px;overflow:hidden;margin:8px 0;font-size:12px;color:#fff;text-align:center}.alloc div{display:flex;align-items:center;justify-content:center;overflow:hidden;white-space:nowrap}
+.legend div{font-size:14px;margin:3px 0}.legend i{display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:6px;vertical-align:-1px}
+.hint{font-size:13px;color:var(--muted)}.warn{border:1.5px solid var(--red);color:var(--red);border-radius:10px;padding:8px 12px;font-size:13.5px;margin-top:12px}
+.empty{color:var(--muted);font-size:14px;padding:8px 0}
+.btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px}.btn{border:0;border-radius:10px;padding:10px 16px;font-size:15px;font-weight:700;cursor:pointer;text-decoration:none;display:inline-block}
+.btn.copy{background:var(--gold);color:#fff}.btn.line{background:#06C755;color:#fff}
+svg text{font-size:11px;fill:#6f6a62}
+.why{display:grid;grid-template-columns:1fr 1fr;gap:10px}.why div{border-left:5px solid #E9A92A;background:#FFFBF1;border-radius:10px;padding:8px 12px}.why b{display:block;color:#5E4A33}.why span{font-size:13.5px;color:#6f6a62}
+@media (max-width:760px){.why{grid-template-columns:1fr}}
+.plans{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:8px 0}.pl{border:1.5px solid #eadfca;border-radius:12px;padding:10px 12px;background:#fff}.pl b{display:block;color:#5E4A33}.pl span{font-size:13.5px;color:#6f6a62}.pl.rec{border-color:#E9A92A;background:#FFF8E6;box-shadow:0 0 0 2px #FFE1A0}.pl.rec b:after{content:"  ⭐ 建議先看";color:#b37400;font-size:12.5px}
+@media (max-width:760px){.plans{grid-template-columns:1fr}}
+.sign{text-align:center;font-size:13px;color:var(--muted);margin-top:18px}
+@media (max-width:760px){.grid2,.res{grid-template-columns:1fr}.big{font-size:22px}}
+.who{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:8px 0}.who div{background:#F6F2EA;border-radius:10px;padding:8px 10px}.who b{display:block;color:#5E4A33}.who span{font-size:13px;color:#6f6a62}
+.ch3{margin:18px 0 6px;color:#1F4E5F;font-size:17px}.small2{font-size:13px;color:#6f6a62;margin:8px 0}
+.ba{border:1px solid #e3ddd2;border-radius:14px;padding:12px 14px;margin:10px 0;background:#fff}.ba-h{display:flex;align-items:center;gap:8px;flex-wrap:wrap}.ba-h b{font-size:16px;color:#1F4E5F}.ba-h small{color:#8a8278;font-size:12.5px}.ba-n{display:inline-flex;width:24px;height:24px;border-radius:50%;background:#1F4E5F;color:#fff;align-items:center;justify-content:center;font-size:13px;font-weight:700}
+.ba-g{display:grid;grid-template-columns:1fr 36px 1fr;align-items:center;gap:6px;margin:10px 0}.ba-b,.ba-a{border-radius:12px;padding:10px;text-align:center}.ba-b{background:#F3F1EE}.ba-a{background:#EAF3F6;border:1px solid #cfe2ea}.ba-b small,.ba-a small{display:block;font-size:12px;color:#8a8278}.ba-a small{color:#1F4E5F;font-weight:700}.ba-b b,.ba-a b{display:block;font-size:30px;color:#9a9288;line-height:1.3}.ba-a b{color:#1F4E5F}.ba-b i,.ba-a i{font-style:normal;font-size:14px;margin-left:2px}.ba-b span,.ba-a span{font-size:12.5px;color:#6f6a62}.ba-ar{text-align:center;color:#3B8FA6;font-size:22px}
+.cbar{position:relative;display:flex;height:22px;border-radius:6px;overflow:visible;background:#EEF1F2;font-size:11.5px;color:#fff;font-weight:700}.cbar div{display:flex;align-items:center;justify-content:center;white-space:nowrap;overflow:hidden}.cbar div:first-child{border-radius:6px 0 0 6px}.redl{position:absolute;top:-3px;bottom:-3px;width:2px;background:#C0392B}
+.ba-r{text-align:right;font-size:12px;color:#C0392B;margin-top:3px}.ba-t{display:inline-block;margin-top:8px;background:#FFF1D6;color:#7a5410;border-radius:999px;padding:3px 12px;font-size:13px;font-weight:700}
+.tw2{overflow-x:auto;margin:10px 0}.ct td,.ct th{text-align:left!important;font-size:13.5px}.ct td:first-child{white-space:nowrap;color:#5E4A33}.ct td b{color:#1F4E5F}
+.roll{display:grid;grid-template-columns:repeat(7,1fr);gap:0;margin:12px 0;position:relative}.roll:before{content:"";position:absolute;left:4%;right:4%;top:15px;height:3px;background:#cfe2ea}.rn{position:relative;text-align:center;padding:0 4px}.rn b{display:inline-block;background:#fff;border:2px solid #3B8FA6;color:#1F4E5F;border-radius:999px;padding:3px 8px;font-size:13px;position:relative}.rn.on b{background:#C9973B;border-color:#C9973B;color:#fff}.rn span{display:block;font-weight:700;font-size:12.5px;color:#1F4E5F;margin-top:6px}.rn em{display:block;font-style:normal;font-size:12px;color:#6f6a62;margin-top:3px;line-height:1.45}
+.roll-q{background:#EAF3F6;border-radius:10px;padding:10px 14px;margin:8px 0}.roll-q b{display:block;color:#1F4E5F}.roll-q span{font-size:13.5px;color:#4a4640}
+.lnk{display:flex;flex-direction:column;gap:6px;margin:10px 0}.lnk a{display:block;background:#F6F2EA;border-left:4px solid #C9973B;border-radius:8px;padding:8px 12px;color:#5E4A33;text-decoration:none;font-weight:700;font-size:14px}.lnk a:hover{background:#FFF1D6}
+@media (max-width:760px){.who{grid-template-columns:1fr 1fr}.roll{grid-template-columns:1fr;gap:8px}.roll:before{left:22px;right:auto;top:6px;bottom:6px;width:3px;height:auto}.rn{display:grid;grid-template-columns:70px 1fr;text-align:left;align-items:start;gap:2px 8px}.rn b{grid-row:span 2;text-align:center}.rn span{margin-top:0}.ba-b b,.ba-a b{font-size:24px}.ba-g{grid-template-columns:1fr 24px 1fr}}
+.prd{margin:0 0 12px;background:#FFFBF1;border:1px solid #f1d9a6;border-radius:12px;padding:8px 12px}.prd summary{cursor:pointer;color:#5E4A33}.prt td:first-child,.prt th:first-child{text-align:left!important}.prt tr.sum td{font-weight:700;background:#FFF1D6}
+.rd{margin-top:10px;border-top:1px dashed #eadfca;padding-top:10px}.rd>b{color:#5E4A33}.rd-g{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:6px}.rd-g small{display:block;color:#8a8278;font-size:12.5px;margin-bottom:4px}.rd-g a{display:block;background:#F6F2EA;border-left:4px solid #C9973B;border-radius:8px;padding:7px 10px;margin:6px 0;color:#5E4A33;text-decoration:none;font-weight:700;font-size:14px}.rd-g a:hover{background:#FFF1D6}.rd-g em{font-style:normal;font-size:12px;background:#fff;border-radius:999px;padding:1px 8px;margin-right:6px;color:#8a5a00}.rd-g a span{display:block;font-weight:400;font-size:12px;color:#8a8278;margin-top:2px}
+@media (max-width:760px){.rd-g{grid-template-columns:1fr}}
+.gd-fab{position:fixed;right:16px;bottom:16px;z-index:90;border:0;border-radius:999px;background:#1F4E5F;color:#fff;font-weight:700;font-size:14.5px;padding:10px 16px;box-shadow:0 6px 18px rgba(0,0,0,.2);cursor:pointer}
+.gd-box{position:fixed;right:16px;bottom:70px;z-index:91;width:340px;max-width:calc(100vw - 32px);background:#fff;border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,.25);border-top:5px solid #E9A92A;overflow:hidden}
+.gd-h{display:flex;align-items:center;gap:8px;padding:10px 12px 4px}.gd-h b{color:#5E4A33;font-size:16px;flex:1}.gd-h span{font-size:12px;color:#8a8278}.gd-x{border:0;background:none;font-size:16px;cursor:pointer;color:#8a8278}
+.gd-b{padding:4px 14px 10px;font-size:14px;color:#4a4640;line-height:1.6}.gd-f{display:flex;justify-content:space-between;padding:8px 12px 12px;gap:8px}.gd-f button{border:1.5px solid #8B6F4E;background:#fff;color:#5E4A33;border-radius:999px;padding:6px 16px;font-size:14px;cursor:pointer}.gd-f button:disabled{opacity:.35}.gd-f .gd-nx{background:#E9A92A;border-color:#E9A92A;color:#fff;font-weight:700}
+.gd-on{outline:3px solid #E9A92A;outline-offset:4px;border-radius:14px;scroll-margin-top:16px;transition:outline-color .3s}
+@media (max-width:760px){.gd-box{left:12px;right:12px;width:auto;max-width:none;bottom:66px}.gd-fab{right:12px;bottom:12px}}
+@media print{.gd-fab,.gd-box{display:none!important}}
+.rs-top{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}.rs-top div{background:#EAF3F6;border-radius:10px;padding:10px;text-align:center}.rs-top b{display:block;color:#1F4E5F;font-size:17px}.rs-top span{font-size:12.5px;color:#6f6a62}
+.rs-flow{text-align:center;font-size:12.5px;color:#8a8278;margin:6px 0;border-top:1px solid #e3ddd2;line-height:0}.rs-flow span{background:#fff;padding:0 10px}
+.rs{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:14px}.rc{border:1px solid #dfe7ea;border-radius:12px;overflow:hidden;background:#fff;display:flex;flex-direction:column}
+.rc-h{background:var(--rc);color:#fff;padding:6px 10px}.rc-h small{display:block;font-size:11.5px;opacity:.85}.rc-h b{font-size:16px}.rc-s{background:var(--rb);font-size:12.5px;text-align:center;padding:4px;color:#4a4640}
+.vs{width:100%;max-width:170px;display:block;margin:6px auto 0}.rc-b{padding:6px 10px;flex:1}.rc-b>small{color:#8a8278;font-size:12px}.rc-b>b{display:block;font-size:17px;color:#3d3a36;border-bottom:1px dashed #e3ddd2;padding-bottom:4px}.rc-l{font-size:12.5px;color:var(--rc);font-weight:700;margin:4px 0}.rc-d{font-size:12.5px;color:#6f6a62;line-height:1.5}.rc-d span{color:#8a8278}
+.rc-f{margin:8px 10px 10px;background:var(--rc);color:#fff;border-radius:8px;text-align:center;font-size:13px;font-weight:700;padding:6px}
+.rs-bot{display:grid;grid-template-columns:3fr 1fr;gap:10px;margin-top:10px}.rs-bot>div{border-radius:10px;padding:10px 12px}.rs-b1{background:#E3EEF2}.rs-b2{background:#FFF6E3}.rs-bot b{display:block;color:#1F4E5F}.rs-b2 b{color:#7a5410}.rs-bot span{font-size:13px;color:#6f6a62}
+.card2{margin-top:18px;border-top:2px solid #eadfca;padding-top:6px}.sc-chips{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:8px 0}.sc-chips span{font-size:13px;color:#6f6a62}.sc-chips button{border:1.5px solid #1F6F8B;background:#fff;color:#1F4E5F;border-radius:999px;padding:6px 14px;font-size:14px;cursor:pointer}.sc-chips button.on{background:#1F6F8B;color:#fff}
+.sc3{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:10px 0}.sc{border:1.5px solid #e3ddd2;border-top:5px solid var(--sc);border-radius:12px;padding:10px 12px;background:#fff}.sc.best{background:#F1F8FA;box-shadow:0 0 0 2px #1F6F8B33}.sc>b{display:block;color:#3d3a36}.sc>small{font-size:12px;color:#8a8278}.sc-k{font-size:12.5px;color:#6f6a62;margin-top:6px}.sc-v{font-size:22px;font-weight:700;color:var(--sc)}.sc-v2{font-size:17px;font-weight:700;color:#3d3a36}.sc-n{font-size:12.5px;color:var(--sc);margin-top:4px}
+.amp{background:linear-gradient(90deg,#FFF4DC,#FFFBF1);border-left:5px solid #E9A92A;border-radius:10px;padding:10px 14px;margin:10px 0}.amp>b{display:block;color:#7a5410;font-size:16px}.amp span{font-size:14.5px;color:#4a4640}.amp span b{color:#B0571A}
+.bp{background:#13394A;color:#eef5f8;border-radius:14px;padding:14px 18px;margin-top:12px}.bp h3{margin:0 0 6px;color:#FFD98A}.bp ul{margin:4px 0 8px;padding-left:20px}.bp li{margin:3px 0;font-size:14px}.bp p{font-size:14px;margin:6px 0}.bp b{color:#FFD98A}
+@media (max-width:760px){.rs{grid-template-columns:1fr 1fr}.rs-bot,.sc3{grid-template-columns:1fr}}
+@media (max-width:420px){.rs{grid-template-columns:1fr 1fr;gap:8px}.rc-h b{font-size:14.5px}.rc-b>b{font-size:15px}}
+.retw{display:flex;align-items:center;gap:8px}.retw input{flex:1}.retu{color:#5E4A33;font-weight:700}.retc{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:8px 0 2px;font-size:13px;color:#6f6a62}.retc button{border:1px solid #E9A92A;background:#FFF8E6;color:#5E4A33;border-radius:999px;padding:4px 12px;font-size:13.5px;cursor:pointer}.retc button.on{background:#E9A92A;color:#fff}
+</style>
+<style>.hero{background:linear-gradient(135deg,#13394A,#1F6F8B);color:#fff;border-radius:16px;padding:18px 20px;margin:14px 0}.hero h1{margin:0 0 6px;font-size:24px;color:#FFD98A}.hero p{margin:4px 0;font-size:15px;opacity:.95}
+.next{background:#fff;border-radius:16px;padding:16px 18px;margin:14px 0;box-shadow:0 2px 10px rgba(94,74,51,.1)}.next h2{margin:0 0 6px;color:#5E4A33}.nx{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:8px}.nx a{display:block;text-decoration:none;border-radius:12px;padding:10px 12px;color:#fff}.nx a b{display:block;font-size:15.5px}.nx a span{font-size:13px;opacity:.92}
+.n1{background:#1F6F8B}.n2{background:#C9973B}.n3{background:#06C755}@media (max-width:760px){.nx{grid-template-columns:1fr}.hero h1{font-size:20px}}
+.vb{background:#2e8b57;color:#fff;font-size:13px;padding:6px 16px}</style></head><body>
+<div class="vb">財顧芸｜規劃範例 v1.0・2026/10/10（民國115年）</div>
+<main>
+<div class="hero"><h1>同樣的收入，讓每一筆錢都有工作</h1><p>這是一份「規劃前 vs 規劃後」的範例：不換工作、不多賺錢，只是把現金與每月結餘分進三個水庫＋一個水桶，並且每年滾動檢視。</p><p>看完範例，想知道<b>您自己的水庫要多大、什麼時候放水</b>，可以從下方開始。</p></div>
+<div class="card" id="case"><h2>📖 36 歲的小宇，怎麼讓每一筆錢都有工作</h2>
+<p class="hint">改編情境：人物、職業與數字皆為示意；這裡只列規劃方向與效益，不列商品內容；數字為試算示意，非保證。</p>
+<div class="who"><div><b>小宇・36 歲</b><span>三代同住、和太太財務各自管理；房貸 300 多萬</span></div><div><b>手上現金 50 萬</b><span>全部放活存，沒有分用途</span></div><div><b>每月結餘 2 萬</b><span>用多少算多少，沒有固定去處</span></div><div><b>心裡想的事</b><span>帶太太去日本；讓錢動起來；退休後有穩定的錢可以用</span></div></div>
+
+<h3 class="ch3">① 規劃：三個水庫＋一個水桶</h3>
+<div class="rs-top"><div><b>手上現金 50 萬</b><span>30 萬注入大水庫 1；20 萬做緊急預備金</span></div><div><b>每月結餘 2 萬</b><span>1 萬注大水庫 2、5,000 小水庫、5,000 水桶</span></div></div>
+<div class="rs-flow"><span>水往下分流，進到四個地方</span></div><div class="rs"><div class="rc" style="--rc:#1F6F8B;--rb:#EEF6F9"><div class="rc-h"><small>大水庫 1</small><b>累積水庫</b></div><div class="rc-s">一次注入 30 萬</div><svg class="vs" viewBox="0 0 160 130"><rect x="72" y="2" width="16" height="18" rx="4" fill="#9cc7d6"/><circle cx="80" cy="23" r="2.5" fill="#1F6F8B"/><polygon points="22.0,26.0 138.0,26.0 114,112 46,112" fill="#1F6F8B" opacity=".8"/><line x1="22" y1="26" x2="138" y2="26" stroke="#1F6F8B" stroke-width="1.5" stroke-dasharray="5 4"/><polygon points="22,26 138,26 114,112 46,112" fill="none" stroke="#1F6F8B" stroke-width="2.2"/><line x1="40" y1="122" x2="120" y2="122" stroke="#C9973B" stroke-width="3"/></svg><div class="rc-b"><small>目前水位</small><b>已注滿 30 萬</b><div class="rc-d">放著讓它長大，退休時再用</div></div><div class="rc-f">放著不動<br>退休用</div></div><div class="rc" style="--rc:#1F5F7A;--rb:#EEF6F9"><div class="rc-h"><small>大水庫 2</small><b>加薪水庫</b></div><div class="rc-s">每年定額注入・共 8 年</div><svg class="vs" viewBox="0 0 160 130"><rect x="72" y="2" width="16" height="18" rx="4" fill="#9cc7d6"/><circle cx="80" cy="23" r="2.5" fill="#1F5F7A"/><polygon points="43.0,101.2 117.0,101.2 114,112 46,112" fill="#1F5F7A" opacity=".8"/><line x1="22" y1="26" x2="138" y2="26" stroke="#1F5F7A" stroke-width="1.5" stroke-dasharray="5 4"/><polygon points="22,26 138,26 114,112 46,112" fill="none" stroke="#1F5F7A" stroke-width="2.2"/><line x1="40" y1="122" x2="120" y2="122" stroke="#C9973B" stroke-width="3"/></svg><div class="rc-b"><small>目前水位</small><b>第 1 年／共 8 年</b><div class="rc-d">8 年注滿，65 歲起每年幫自己加薪</div></div><div class="rc-f">放著不動<br>65 歲起放水</div></div><div class="rc" style="--rc:#2F8C87;--rb:#EEF8F6"><div class="rc-h"><small>小水庫</small><b>成長水庫</b></div><div class="rc-s">每月 5,000</div><svg class="vs" viewBox="0 0 160 130"><rect x="72" y="2" width="16" height="18" rx="4" fill="#9cc7d6"/><circle cx="80" cy="23" r="2.5" fill="#2F8C87"/><polygon points="44.1,105.1 115.9,105.1 114,112 46,112" fill="#2F8C87" opacity=".8"/><line x1="22" y1="26" x2="138" y2="26" stroke="#2F8C87" stroke-width="1.5" stroke-dasharray="5 4"/><polygon points="22,26 138,26 114,112 46,112" fill="none" stroke="#2F8C87" stroke-width="2.2"/><line x1="40" y1="122" x2="120" y2="122" stroke="#C9973B" stroke-width="3"/></svg><div class="rc-b"><small>目前水位</small><b>剛開始，持續上升</b><div class="rc-d">中期成長資金，同時兼顧家庭保障</div></div><div class="rc-f">中期<br>有彈性</div></div><div class="rc" style="--rc:#B07A2A;--rb:#FFF8EA"><div class="rc-h"><small>水桶</small><b>彈性資金</b></div><div class="rc-s">每月 5,000・隨時可提</div><svg class="vs" viewBox="0 0 160 130"><ellipse cx="80" cy="28" rx="40" ry="9" fill="#fff" stroke="#B07A2A" stroke-width="2"/><circle cx="80" cy="16" r="3" fill="#B07A2A"/><polygon points="49.4,109.6 110.6,109.6 110,118 50,118" fill="#B07A2A" opacity=".75"/><polygon points="44,34 116,34 110,118 50,118" fill="none" stroke="#B07A2A" stroke-width="2"/><line x1="40" y1="126" x2="120" y2="126" stroke="#B07A2A" stroke-width="3" opacity=".6"/></svg><div class="rc-b"><small>目前水位</small><b>剛開始裝</b><div class="rc-d">先存日本旅遊 10 萬（約 20 個月），用完繼續裝醫療預備金 30 萬</div></div><div class="rc-f">近期想做的事<br>不必動水庫</div></div></div>
+<div class="rs-bot"><div class="rs-b1"><b>三個水庫 → 退休那天才放水</b><span>現階段放著不動、讓它長大；65 歲起變成每個月進來的現金流。</span></div><div class="rs-b2"><b>水桶 → 隨時可提</b><span>近期想做的事用這桶，不必去動水庫。</span></div></div>
+<p class="small2">急用時先動預備金，另外有周轉的安排，不必急著解約，長期的水庫可以繼續長大。</p>
+
+<h3 class="ch3">② 規劃效益：規劃前 vs 規劃後</h3>
+<p class="hint">同樣的收入、同樣的 50 萬，只是讓每一筆錢有了工作。</p>
+<div class="ba"><div class="ba-h"><span class="ba-n">1</span><b>專款準備金</b><small>緊急預備金＋日本旅遊＋醫療預備金</small></div>
+<div class="ba-g"><div class="ba-b"><small>規劃前</small><b>0<i>元</i></b><span>50 萬躺在活存，沒有分用途</span></div><div class="ba-ar">➜</div><div class="ba-a"><small>規劃後</small><b>60<i>萬</i></b><span>三筆錢，各有各的名字</span></div></div>
+<div class="cbar"><div style="flex:0 0 33.3%;background:#1F5F7A">緊急 20 萬</div><div style="flex:0 0 16.7%;background:#3B8FA6">旅遊 10 萬</div><div style="flex:0 0 50.0%;background:#8CC0CF">醫療 30 萬</div></div><div class="ba-t">錢沒有變多，但每一筆都知道自己要做什麼</div></div>
+<div class="ba"><div class="ba-h"><span class="ba-n">2</span><b>46 歲前的身故保障</b><small>對應房貸 300 多萬</small></div>
+<div class="ba-g"><div class="ba-b"><small>規劃前</small><b>200<i>萬</i></b><span>低於房貸，差額要家裡扛</span></div><div class="ba-ar">➜</div><div class="ba-a"><small>規劃後</small><b>320<i>萬</i></b><span>超過房貸線，而且不必多繳</span></div></div>
+<div class="cbar"><div style="flex:0 0 55.6%;background:#1F5F7A">原有保障 200 萬</div><div style="flex:0 0 33.3%;background:#3B8FA6">規劃後增加 120 萬</div><i class="redl" style="left:83.3%"></i></div><div class="ba-r">↑ 紅線＝房貸約 300 萬</div>
+<p class="small2">同一筆錢<b>同時兼顧保障與累積</b>，不另外增加每月支出；46 歲前回頭檢視房貸與保障，接得上下一段。</p><div class="ba-t">多出 120 萬保障，每月支出不增加</div></div>
+<div class="ba"><div class="ba-h"><span class="ba-n">3</span><b>65 歲起每月可以用的錢</b><small>不含勞保、勞退</small></div>
+<div class="ba-g"><div class="ba-b"><small>規劃前</small><b>0<i>元</i></b><span>沒有確定的退休收入</span></div><div class="ba-ar">➜</div><div class="ba-a"><small>規劃後</small><b>16,945<i>～27,842</i></b><span>保守到樂觀，非保證</span></div></div>
+<div class="cbar"><div style="flex:0 0 18.8%;background:#1F5F7A">保守</div><div style="flex:0 0 12.1%;background:#3B8FA6">到樂觀</div><i class="redl" style="left:98.7%"></i></div><div class="ba-r">↑ 紅線＝目標約 88,792 元（現在的 5 萬，換算到 65 歲）</div>
+<p class="small2">這是<b>這次規劃自己做出來的</b>：退休那天起，水庫每年放水幫自己加薪。距離目標的部分，接下來每年檢視時再補。</p><div class="ba-t">規劃前這一格是 0，現在它會自己長出來</div></div>
+<div class="tw2"><table class="t ct"><thead><tr><th>面向</th><th>規劃前</th><th>規劃後</th></tr></thead><tbody>
+<tr><td>每月結餘 2 萬</td><td>用多少算多少，沒有固定去處</td><td><b>1.5 萬進水庫，5,000 依序存三個目標</b></td></tr>
+<tr><td>現金 50 萬</td><td>全部放活存不動</td><td><b>30 萬注入大水庫 1＋緊急預備金 20 萬</b></td></tr>
+<tr><td>日本旅遊</td><td>沒有專款，出發時間不確定</td><td><b>目標 10 萬，約 20 個月存到</b></td></tr>
+<tr><td>醫療</td><td>保不到，生病得動存款</td><td><b>先有緊急預備金，約 5 年補齊醫療預備金 30 萬</b></td></tr>
+<tr><td>房貸保障</td><td>保障 200 萬，低於房貸</td><td><b>46 歲前約 320 萬，超過房貸線</b></td></tr>
+<tr><td>65 歲以後</td><td>沒有確定的退休收入</td><td><b>水庫每年幫自己加薪；清楚知道還差多少</b></td></tr>
+<tr><td>需要用錢時</td><td>解約或動用全部存款</td><td><b>先動預備金，另有周轉安排，不必急著解約</b></td></tr></tbody></table></div>
+
+<h3 class="ch3">③ 滾動式檢視：每年回頭看一次，水位隨人生調整</h3>
+<p class="hint">規劃不是一次做完。每年周年檢視，看水位、調閘門；人生有大事（結婚生子、換工作、市場大跌）就提前檢視。</p>
+<div class="roll">
+<div class="rn"><b>36 歲</b><span>起點</span><em>分流開始：預備金到位、三個水庫開始注水</em></div>
+<div class="rn"><b>38 歲</b><span>水桶第 1 個目標</span><em>日本旅遊 10 萬存到，水桶接著裝醫療預備金</em></div>
+<div class="rn"><b>41 歲</b><span>水桶裝滿</span><em>醫療預備金 30 萬補齊；多出的結餘要不要加碼小水庫？</em></div>
+<div class="rn"><b>43 歲</b><span>加薪水庫注滿</span><em>每年多出的結餘，重新分配到下一個目標</em></div>
+<div class="rn"><b>46 歲</b><span>保障檢視點</span><em>房貸還多少？保障缺口重算</em></div>
+<div class="rn"><b>55 歲</b><span>成長水庫停止注水</span><em>退休前 10 年，調整成較穩的配置</em></div>
+<div class="rn on"><b>65 歲</b><span>開閘放水</span><em>水庫開始放水幫自己加薪，銜接勞保、勞退</em></div>
+</div>
+<div class="roll-q"><b>每年檢視都會問這 4 題：</b><span>① 水位到了嗎？　② 人生目標有沒有變？　③ 市場與利率變了，閘門要不要調？　④ 保障跟得上家庭責任嗎？</span></div>
+<div class="amp"><b>🔆 這就是規劃的放大效益</b><span>錢沒有變多，但同一筆錢同時做到保障、存目標、累積退休金；而且每一年都知道自己在哪裡、還差多少。<b>您的水庫要多大、什麼時候放水，芸琪幫您算成專屬藍圖。</b></span></div>
+<div class="lnk"><a href="https://angie26501-lgtm.github.io/plan-qfel8283/%E8%B2%A1%E5%95%86%E5%B0%8F%E6%95%99%E5%AE%A4-%E9%A6%96%E9%87%8D%E8%B3%87%E7%94%A2%E9%85%8D%E7%BD%AE.html" target="_blank" rel="noopener">為什麼理財第一步是「首重資產配置」？ →</a><a href="https://angie26501-lgtm.github.io/plan-qfel8283/%E8%B2%A1%E5%95%86%E5%B0%8F%E6%95%99%E5%AE%A4-%E9%9C%80%E8%A6%81%E7%94%A8%E9%8C%A2%E5%85%88%E5%BE%9E%E9%A0%90%E5%82%99%E9%87%91%E9%96%8B%E5%A7%8B.html" target="_blank" rel="noopener">需要用錢時，為什麼先從預備金開始？ →</a></div>
+<div class="btns"><a class="btn line" href="https://lin.ee/oOvyuwU" target="_blank" rel="noopener">💬 我也想要一張這樣的藍圖</a></div>
+<p class="small2">效益示意依試算假設整理（通膨 2%、假設報酬率 0%～6%），非保證結果；實際工具依個人需求與風險屬性規劃，含投資或外幣的部分有市場與匯率風險。</p></div>
+
+<div class="card"><div class="rd" style="border-top:0;margin-top:0;padding-top:0"><b>📖 延伸閱讀｜財商觀念</b><div class="rd-g"><div><small>財商小教室</small><a href="https://angie26501-lgtm.github.io/plan-qfel8283/%E8%B2%A1%E5%95%86%E5%B0%8F%E6%95%99%E5%AE%A4-%E5%90%8C%E6%99%82%E9%85%8D%E7%BD%AE.html" target="_blank" rel="noopener"><em>先讀</em>有錢人的金錢藍圖：重要的目標，一起來 →<span>對應 ① 同時配置</span></a><a href="https://angie26501-lgtm.github.io/plan-qfel8283/%E8%B2%A1%E5%95%86%E5%B0%8F%E6%95%99%E5%AE%A4-%E9%A6%96%E9%87%8D%E8%B3%87%E7%94%A2%E9%85%8D%E7%BD%AE.html" target="_blank" rel="noopener"><em>第 1 課</em>為什麼理財第一步是「首重資產配置」？ →<span>對應 ④ 各就各位</span></a><a href="https://angie26501-lgtm.github.io/plan-qfel8283/%E8%B2%A1%E5%95%86%E5%B0%8F%E6%95%99%E5%AE%A4-%E9%9C%80%E8%A6%81%E7%94%A8%E9%8C%A2%E5%85%88%E5%BE%9E%E9%A0%90%E5%82%99%E9%87%91%E9%96%8B%E5%A7%8B.html" target="_blank" rel="noopener"><em>第 2 課</em>需要用錢時，為什麼先從預備金開始？ →<span>對應 ③ 水桶先用</span></a><a href="https://angie26501-lgtm.github.io/plan-qfel8283/%E8%B2%A1%E5%95%86%E5%B0%8F%E6%95%99%E5%AE%A4-%E4%BF%9D%E5%96%AE%E8%B2%B8%E6%AC%BE.html" target="_blank" rel="noopener"><em>第 3 課</em>短期要用錢，為什麼可以考慮保單貸款？ →<span>解約前先看</span></a></div><div><small>財顧芸文章（allfreedom.info）</small><a href="https://www.allfreedom.info/retirement-asset-structure.html" target="_blank" rel="noopener"><em>退休</em>有一種人，帳戶裡有錢，卻比沒有錢的人更不安心 →</a><a href="https://www.allfreedom.info/legacy-family-conversation.html" target="_blank" rel="noopener"><em>傳承</em>傳承怎麼開始？先把愛與重要資料說清楚 →</a><a href="https://www.allfreedom.info/fee-based-financial-advisor-value.html" target="_blank" rel="noopener"><em>顧問</em>收費財務顧問的價值｜有人陪您把家庭財務整理清楚 →</a></div></div></div></div>
+<div class="next" id="next"><h2>🧭 換您了：三種開始的方式</h2><p class="hint">範例是別人的數字；您的保單、存款、收支不同，水庫的大小與放水時間也會不同。</p>
+<div class="nx"><a class="n1" href="https://lin.ee/oOvyuwU" target="_blank" rel="noopener"><b>💰 我有保單現價、存款</b><span>請芸琪開通「現有資源試算」，3 分鐘看出您的三個水庫</span></a>
+<a class="n2" href="https://angie26501-lgtm.github.io/private/course/service.html" target="_blank" rel="noopener"><b>📋 看服務方案與費用</b><span>保單檢視、規劃建議、年度顧問陪跑，依需要選擇</span></a>
+<a class="n3" href="https://lin.ee/oOvyuwU" target="_blank" rel="noopener"><b>💬 先聊聊，幫我盤點</b><span>不確定有哪些資源？把資料一起整理，再算資源怎麼分配</span></a></div></div>
+<div class="warn">⚠️ 本頁為情境範例，數字為試算示意，非保證結果，不構成個別投資、保險、法律或稅務建議。</div>
+<div class="sign">財顧芸 陳芸琪｜資深顧問｜MDRT（2024–2025）｜RFC｜RFP｜RFA｜0918-800-852<br>🤖 本範例透過 AI 賦能應用整理，經顧問逐項核對</div>
+</main></body></html>
