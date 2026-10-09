@@ -175,7 +175,7 @@ details.adv>summary::-webkit-details-marker{display:none}details.adv>summary:bef
 <div class="ofm"><label>您的稱呼 *<input id="oName" placeholder="例如：王先生"></label>
 <label>方便聯絡的時段<select id="oTime"><option>都可以</option><option>平日白天</option><option>平日晚上</option><option>週末</option></select></label>
 <label>想補充的話（選填）<textarea id="oNote" rows="2" placeholder="例如：想先聊聊父母的保單"></textarea></label></div>
-<button type="button" class="obtn line" onclick="sendOrder()">📩 複製訂購單，打開 LINE 傳給芸琪</button>
+<button type="button" class="obtn line" onclick="sendOrder()">📩 用 LINE 送出訂購單給芸琪</button>
 <button type="button" class="obtn cp" onclick="cartCopy()">只複製文字</button>
 <div id="oMsg"></div>
 <div class="small">送出後芸琪會先確認內容，再提供付款資訊。</div></div></div>
@@ -212,7 +212,7 @@ function cartText(){var ids=Object.keys(CART),tot=0,nm=document.getElementById('
  return t+'合計（參考）：'+f(tot)+' 元'+(nt?'\n\n補充：'+nt:'')+'\n\n（請芸琪確認內容與付款方式，謝謝！）'}
 function copyT(t,done){try{navigator.clipboard.writeText(t).then(done,function(){prompt('請長按全選後複製：',t);done()})}catch(e){prompt('請長按全選後複製：',t);done()}}
 function sendOrder(){if(!Object.keys(CART).length){alert('請先選擇想訂購的方案');return}var n=document.getElementById('oName');if(!n.value.trim()){n.classList.add('err');n.focus();alert('請填寫您的稱呼，方便芸琪回覆您');return}n.classList.remove('err');
- var w=window.open(LINEURL,'_blank');copyT(cartText(),function(){document.getElementById('oMsg').textContent='✅ 訂購單已複製，在 LINE 對話框貼上送出就完成了。'});if(!w)location.href=LINEURL}
+ var t=cartText(),url='https://line.me/R/oaMessage/@qpk4617k/?'+encodeURIComponent(t);try{navigator.clipboard.writeText(t)}catch(e){}document.getElementById('oMsg').textContent='✅ 已打開芸琪的 LINE，訂購內容已帶入對話框，按送出就完成了（也已複製一份備用）。';if(/Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent)){location.href=url;return}var w=window.open(url,'_blank');if(!w)location.href=url}
 function cartCopy(){if(!Object.keys(CART).length){alert('請先選擇想訂購的方案');return}copyT(cartText(),function(){document.getElementById('oMsg').textContent='✅ 已複製，可以貼到 LINE 傳給芸琪。'})}
 document.querySelectorAll('.addrow[data-g]').forEach(function(r){var l=document.createElement('span');l.className='small';l.style.alignSelf='center';l.textContent='加入訂購單：';r.appendChild(l);PROD[r.dataset.g].forEach(function(o){var b=document.createElement('button');b.type='button';b.className='addbtn';b.dataset.id=o.id;b.dataset.lb=o.v+' '+f(o.p);b.onclick=function(){cartAdd(o.id)};r.appendChild(b)})});
 var PK={c1:['風險需求問診・規劃建議','把缺口排出先後順序，知道預算先放哪裡。'],c2:['幸福財務年度顧問','規劃建議、記帳陪跑、年中與周年檢視、理賠協助，一整年都有人照看。'],c3:['家庭記帳陪跑','先用首次體驗 3 個月 3,600 元，把每月收支理清楚。'],c4:['金錢整理工作坊','3,600 元的實體課，送一份財務健康報告，看懂自家財務體質。'],adv:['安心樂活規劃／財富傳承規劃','退休安養與家族傳承，先約一次會談，依您家的狀況另外報價。']};
