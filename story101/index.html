@@ -304,6 +304,10 @@ button{font-family:inherit;cursor:pointer}
 .svc2 .svcl{display:inline-block;margin:8px 0 0}
 @media(max-width:520px){.svg3{grid-template-columns:1fr}.svc2{text-align:left}}
 .nicknag{background:#fde2df;color:#7a1f1f;border-radius:10px;padding:8px 10px;font-size:14px;margin:8px 0;line-height:1.6}
+.evproof{margin:12px 0 4px;padding:10px 12px;border-radius:12px;background:linear-gradient(135deg,rgba(217,58,58,.22),rgba(233,169,42,.14));border:1.5px dashed #ffd982;display:flex;flex-wrap:wrap;gap:6px 16px;align-items:center;font-size:14.5px}
+.evproof b{color:#ffe9a8;font-size:16px}.evproof .pt{color:#ffd982;font-weight:800}.evproof .tm{color:#c9bd9d;font-size:12.5px}
+.evproof .btn{padding:6px 14px;font-size:14px;margin-left:auto}
+@media(max-width:520px){.evproof .btn{margin-left:0}}
 .fold{margin:0 0 14px;border:1px solid #5b4a2a;border-radius:14px;background:linear-gradient(135deg,#2a2440,#1d1a33)}
 .fold>summary{list-style:none;cursor:pointer;padding:14px 44px 14px 16px;font-weight:700;color:#ffd982;font-size:15.5px;position:relative;line-height:1.5}
 .fold>summary::-webkit-details-marker{display:none}
@@ -2793,6 +2797,7 @@ function renderHome(){
         <div class="stats"><span><b>${n}</b>/ ${SERIES.total} 擊敗</span><span>🪙<b>${S.gold}</b></span><span>🔥<b>${S.streak}</b>天</span></div>
       </div>
       <div class="xpbar"><i style="width:${Math.round(n/SERIES.total*100)}%"></i></div>
+      ${evPhase()!=="before" ? evProofHTML() : ""}
       <div class="titles">${RANKS.slice(1).map(([k,l])=>`<span class="tt ${n>=k?'on':''}">${n>=k?'👑':'🔒'} ${l}・${k}</span>`).join("")}</div>
       <div class="acts">
         <button class="btn" onclick="rubLamp()">🪔 擦神燈・幫我選一關</button>
@@ -3495,6 +3500,26 @@ function yunBookSend(id){
     "（來自 101夜傳承秘境網站）"].filter(Boolean).join("\n");
   const url = "https://line.me/R/oaMessage/" + encodeURIComponent(OA_ID) + "/?" + encodeURIComponent(t);
   const go2 = ()=>{ window.open(url, "_blank", "noopener"); toast("已帶入 LINE，按「傳送」就完成預約 📨"); };
+  if(navigator.clipboard){ navigator.clipboard.writeText(t).then(go2).catch(go2); } else go2();
+}
+
+/* ===== 📸 活動成績憑證（可截圖舉證，或一鍵傳 LINE@ 回報） ===== */
+function evNow(){ const d=new Date(); return (d.getMonth()+1)+"/"+d.getDate()+" "+String(d.getHours()).padStart(2,"0")+":"+String(d.getMinutes()).padStart(2,"0"); }
+function evProofHTML(){
+  const sc = evRecalc();
+  return `<div class="evproof"><span>🎁 <b>雙十傳承盃</b></span><span>暱稱：<b>${esc(S.nick||"（未設定）")}</b></span><span>活動積分：<span class="pt">${sc}</span></span><span>活動擊敗：<b>${Object.keys(S.ev.won).length}</b></span><span>參賽序號：<b>${evCode()}</b></span><span class="tm">截至 ${evNow()}</span><button class="btn" onclick="evReport()">📨 回報成績給財顧芸</button></div>`;
+}
+function evReport(){
+  const t = ["【雙十傳承盃・成績回報】",
+    "暱稱：" + (S.nick||"（未設定）"),
+    "活動積分：" + evRecalc() + " 分",
+    "活動擊敗：" + Object.keys(S.ev.won).length + " 隻",
+    "闖關天數：" + S.ev.days.length + " 天",
+    "參賽序號：" + evCode(),
+    "回報時間：" + evNow(),
+    "（來自 101夜傳承秘境網站）"].join("\n");
+  const url = "https://line.me/R/oaMessage/" + encodeURIComponent(OA_ID) + "/?" + encodeURIComponent(t);
+  const go2 = ()=>{ window.open(url, "_blank", "noopener"); toast("成績已帶入 LINE，也可以把這一區截圖一起傳給財顧芸 📸"); };
   if(navigator.clipboard){ navigator.clipboard.writeText(t).then(go2).catch(go2); } else go2();
 }
 
