@@ -303,6 +303,7 @@ button{font-family:inherit;cursor:pointer}
 .sv3:hover{background:rgba(233,169,42,.22);border-color:#e9a92a}
 .svc2 .svcl{display:inline-block;margin:8px 0 0}
 @media(max-width:520px){.svg3{grid-template-columns:1fr}.svc2{text-align:left}}
+.nicknag{background:#fde2df;color:#7a1f1f;border-radius:10px;padding:8px 10px;font-size:14px;margin:8px 0;line-height:1.6}
 .fold{margin:0 0 14px;border:1px solid #5b4a2a;border-radius:14px;background:linear-gradient(135deg,#2a2440,#1d1a33)}
 .fold>summary{list-style:none;cursor:pointer;padding:14px 44px 14px 16px;font-weight:700;color:#ffd982;font-size:15.5px;position:relative;line-height:1.5}
 .fold>summary::-webkit-details-marker{display:none}
@@ -3344,6 +3345,7 @@ function evCardHTML(){
     <div class="evp">活動期間累積「活動積分」，<b>前 ${EVENT.top} 名</b>隨機抽出 <b>${EVENT.draw} 名</b>，送 <b>${EVENT.prize}</b>！</div>
     ${PRIZE_HTML}
     <div class="evst">${cd}</div>
+    ${ph==="on" && !S.nick ? `<div class="nicknag">⚠️ 尚未設定暱稱：分數只存在這台裝置，<b>不會上排行榜、無法抽獎</b>。請按下方「✏️ 設定暱稱參賽」。</div>` : ""}
     ${ph!=="before"?`<div class="evst">我的活動積分 <b>${sc}</b> 分${LB&&LB.myEvent?`・活動榜第 <b>${LB.myEvent}</b> 名`:""}${ph==="on"?`・還有 ${left} 間石室可計分`:""}</div>`:""}
     <div class="acts" style="margin-top:10px">
       ${ph==="on"?`<button class="btn" onclick="nextBattle()">⚔️ 開始打怪拿積分</button>`:""}
@@ -3713,7 +3715,12 @@ function lbAfterWin(){
   const box = document.getElementById("lootLB");
   if(!LB_URL){ box.innerHTML = ""; return; }
   if(S.nick) lbShowRank(box);
-  else box.innerHTML = '<button class="btn ghost" onclick="setNick(true).then(ok=>{ if(ok) lbShowRank(document.getElementById(\'lootLB\')); })">🏆 設定暱稱、看我的排名</button>';
+  else {
+    box.innerHTML = `<div class="nicknag">${evOn()?"⚠️ 還沒設定暱稱：你的活動積分<b>不會上排行榜</b>，也<b>無法參加抽獎</b>！":"🏆 設定暱稱，就能登上排行榜"}</div><button class="btn" onclick="setNick(true).then(ok=>{ if(ok) lbShowRank(document.getElementById('lootLB')); })">✏️ 立即設定暱稱上榜</button>`;
+    /* 活動期間第一次得分、還沒有暱稱：自動跳出暱稱設定（每台裝置只自動問一次） */
+    let asked=false; try{ asked = localStorage.getItem("yun101_nickasked")==="1"; }catch(_){}
+    if(evOn() && !asked){ try{ localStorage.setItem("yun101_nickasked","1"); }catch(_){} setTimeout(()=>setNick(true).then(ok=>{ if(ok) lbShowRank(document.getElementById('lootLB')); }), 1600); }
+  }
 }
 function openLB(){
   document.getElementById("lb").classList.add("show");
