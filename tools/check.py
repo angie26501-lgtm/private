@@ -13,7 +13,7 @@ ALLOWED_EXT = {".html", ".txt", ".css", ".js", ".png", ".jpg", ".jpeg", ".svg", 
 BAD_NAME = re.compile(r"(內部|核對|本機|adv|printable|build|\.pdf$|\.py$|\.xlsx?$|\.zip$|\.docx?$)", re.I)
 TEMPLATE_LEFTOVER = ["小安", "小晴", "xiaoan", "全虛構", "示範案例"]
 ID_NO = re.compile(r"\b[A-Z][12]\d{8}\b")          # 身分證字號
-PHONE = re.compile(r"09\d{2}-?\d{3}-?\d{3}")
+PHONE = re.compile(r"(?<!\d)09\d{2}-?\d{3}-?\d{3}(?!\d)")  # 前後不可接數字，避免誤判網址裡的長串數字
 ADVISOR_PHONE = {"0918800852"}
 # 公開網站（不含任何客戶資料，經負責人同意免通行碼）：只略過「必須加密」與「明文長度」兩項，其餘檢查照跑
 PUBLIC_OK = {"story101"}  # 101夜傳承秘境：2026/10/10 起公開
