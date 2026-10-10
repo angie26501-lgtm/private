@@ -296,6 +296,13 @@ button{font-family:inherit;cursor:pointer}
 .svcc{text-decoration:none}.svcl{font-size:13.5px;color:#ffd982;text-decoration:underline;margin-left:6px}
 .svcc:hover{background:#e9a92a;color:#2b2316}
 @media(max-width:520px){.svc{justify-content:center}}
+.svc2{margin:10px 0 2px}.svc2 .svch{font-size:14px;color:#ffd982;font-weight:700;margin-bottom:6px}
+.svg3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.sv3{display:block;text-decoration:none;border:1px solid #6a5a35;background:rgba(233,169,42,.10);border-radius:12px;padding:8px 10px;color:#f6ead0}
+.sv3 b{display:block;color:#ffd982;font-size:15px}.sv3 small{display:block;font-size:12.5px;line-height:1.45;color:#e8dcc0;margin-top:2px}
+.sv3:hover{background:rgba(233,169,42,.22);border-color:#e9a92a}
+.svc2 .svcl{display:inline-block;margin:8px 0 0}
+@media(max-width:520px){.svg3{grid-template-columns:1fr}.svc2{text-align:left}}
 .fold{margin:0 0 14px;border:1px solid #5b4a2a;border-radius:14px;background:linear-gradient(135deg,#2a2440,#1d1a33)}
 .fold>summary{list-style:none;cursor:pointer;padding:14px 44px 14px 16px;font-weight:700;color:#ffd982;font-size:15.5px;position:relative;line-height:1.5}
 .fold>summary::-webkit-details-marker{display:none}
@@ -2736,15 +2743,20 @@ function renderHome(){
       <div>
         <div class="k2">網 站 製 作 人</div>
         <h3>陳芸琪 Angie</h3>
-        <div class="ttl">財顧芸｜家族傳承生活顧問・幸福財務領航員・AI 財務建築師</div>
+        <div class="ttl">財顧芸｜家族傳承生活顧問・幸福財務領航員</div>
         <ul>
           <li>馥芸財富學苑 創辦人・公勝財富管理顧問 資深顧問</li>
           <li>18 年財務規劃經驗；MDRT（2024–2025）・RFC・RFP・RFA</li>
           <li>專長：財務規劃、退休、稅務與傳承規劃、AI 賦能應用</li>
         </ul>
-        <div class="svc"><span class="svch">🧩 服務項目</span>${PLAN5.map(x=>`<a class="svcc" href="https://www.allfreedom.info/about-angie-profile.html" target="_blank" rel="noopener">${x.ic} ${x.t}</a>`).join("")}
-          <a class="svcl" href="https://www.allfreedom.info/about-angie-profile.html" target="_blank" rel="noopener">📋 看服務項目介紹 ›</a><a class="svcl" href="https://www.allfreedom.info/consultation.html#bookingForm" target="_blank" rel="noopener">📝 填寫預約諮詢單 ›</a></div>
-        <div class="acts" style="margin-top:10px"><a class="btn" href="https://allfreedom.info" target="_blank" rel="noopener">🌐 關於財顧芸</a><a class="btn ghost" href="https://lin.ee/oOvyuwU" target="_blank" rel="noopener">💬 財顧芸官方 LINE</a></div>
+        <div class="svc2"><div class="svch">🧩 服務項目</div>
+          <div class="svg3">
+            <a class="sv3" href="https://www.allfreedom.info/fee-based-financial-advisor-value.html#service-options" target="_blank" rel="noopener"><b>單次財務諮詢</b><small>有一個明確問題，想先釐清選項</small></a>
+            <a class="sv3" href="https://www.allfreedom.info/fee-based-financial-advisor-value.html#service-options" target="_blank" rel="noopener"><b>專案財務規劃</b><small>一起整理退休、保險、資產與家庭責任</small></a>
+            <a class="sv3" href="https://www.allfreedom.info/fee-based-financial-advisor-value.html#service-options" target="_blank" rel="noopener"><b>年度陪跑顧問</b><small>人生與家庭正在變化，需要持續討論</small></a>
+          </div>
+          <a class="svcl" href="https://www.allfreedom.info/about-angie-profile.html" target="_blank" rel="noopener">📋 看服務項目介紹 ›</a></div>
+        <div class="acts" style="margin-top:10px"><a class="btn" href="https://www.allfreedom.info/consultation.html#bookingForm" target="_blank" rel="noopener">📝 填寫預約諮詢單</a><a class="btn ghost" href="https://lin.ee/oOvyuwU" target="_blank" rel="noopener">💬 財顧芸官方 LINE</a><a class="btn ghost" href="https://allfreedom.info/" target="_blank" rel="noopener">🌐 關於財顧芸</a></div>
       </div>
     </section>
     </div>
