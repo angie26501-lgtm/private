@@ -3596,7 +3596,51 @@ function lineShare(text, url){
 }
 function fileWarn(){ if(location.protocol==="file:"){ toast("網站上架後，分享連結才能讓別人開啟喔"); return true; } return false; }
 function shareCase(id){ const c = byId(id); if(fileWarn()) return; lineShare(`這個傳承故事你一定要看：「${c.title}」`, caseUrl(id)); }
-function shareSite(){ if(fileWarn()) return; lineShare(`我在「101夜傳承秘境」已經打倒 ${S.won.length} 隻傳承地雷怪！你也來挑戰看看：`, caseUrl("")); }
+/* ===== 📤 邀請家人朋友：選文案 → 複製文案＋連結／只複製連結／LINE／FB／其他 ===== */
+const SITE_URL = "https://angie26501-lgtm.github.io/private/story101/";
+function inviteTexts(){
+  const n = S.won.length, sc = (typeof evRecalc==="function") ? evRecalc() : 0;
+  return [
+    ["🎁 雙十活動版", `🇹🇼 雙十傳承盃開跑！\n我在「101夜傳承秘境」打傳承地雷怪${n?`，已經打倒 ${n} 隻`:""}${sc?`、活動積分 ${sc} 分`:""}！\n讀真實傳承故事、答對題就能打怪，10/10～11/10 17:00 活動期間，前 10 名抽 3 名送好禮。\n免通行碼，點開就能玩 👇\n${SITE_URL}`],
+    ["👨‍👩‍👧 家人關心版", `這個網站把 101 個真實傳承故事做成打怪遊戲，很好懂。\n房子過戶、遺囑、保險受益人……很多我們家也遇得到的事。\n有空一起玩玩看，順便聊聊我們家的狀況 💛\n${SITE_URL}`],
+    ["⚔️ 挑戰朋友版", `我在「101夜傳承秘境」打倒 ${n} 隻傳承地雷怪了，你敢來挑戰嗎？😎\n一題一隻怪，看誰先登上排行榜！\n${SITE_URL}`]
+  ];
+}
+let inviteIdx = 0;
+function shareSite(){
+  setNdHead("📤 邀請家人朋友一起闖關","選一段文案，複製或直接分享");
+  const T = inviteTexts();
+  document.getElementById("ndBody").innerHTML = `
+    <div class="ndg" style="grid-template-columns:repeat(auto-fill,minmax(140px,1fr))">${T.map((t,i)=>`<label class="ndc"><input type="radio" name="ivt" ${i===inviteIdx?"checked":""} onchange="inviteIdx=${i};document.getElementById('ivTxt').value=inviteTexts()[${i}][1]"> ${t[0]}</label>`).join("")}</div>
+    <div class="ndq">分享文案（可以自己修改）</div>
+    <textarea id="ivTxt" style="min-height:150px">${esc(T[inviteIdx][1])}</textarea>
+    <div class="acts" style="justify-content:center;margin-top:10px">
+      <button class="btn" onclick="ivCopy(true)">📋 複製文案＋連結</button>
+      <button class="btn ghost" onclick="ivCopy(false)">🔗 只複製連結</button>
+    </div>
+    <div class="acts" style="justify-content:center">
+      <button class="btn ghost" onclick="ivLine()">💬 分享到 LINE</button>
+      <button class="btn ghost" onclick="ivFb()">📘 分享到 Facebook</button>
+      ${navigator.share?'<button class="btn ghost" onclick="ivMore()">📤 其他 App</button>':''}
+    </div>
+    <p class="cknote" style="text-align:center">複製後到 LINE、FB、群組貼上即可；網站免通行碼，點開就能玩。</p>`;
+  document.getElementById("need").classList.add("show");
+  const bx=document.querySelector("#need .box"); if(bx) bx.scrollTop=0;
+}
+function ivText(){ return (document.getElementById("ivTxt").value||"").trim(); }
+function ivCopy(all){
+  const t = all ? ivText() : SITE_URL;
+  const ok = ()=>toast(all ? "文案和連結已複製，到 LINE／FB 貼上就好 📋" : "連結已複製 🔗");
+  if(navigator.clipboard){ navigator.clipboard.writeText(t).then(ok).catch(()=>showCopy("請長按複製", t)); } else showCopy("請長按複製", t);
+}
+function ivLine(){ const t = ivText(); window.open("https://line.me/R/share?text=" + encodeURIComponent(t), "_blank", "noopener"); }
+function ivFb(){
+  const t = ivText();
+  if(navigator.clipboard) navigator.clipboard.writeText(t).catch(()=>{});
+  toast("文案已複製，在 FB 視窗貼上當貼文內容 📘");
+  window.open("https://www.facebook.com/sharer/sharer.php?u=" + encodeURIComponent(SITE_URL), "_blank", "noopener");
+}
+function ivMore(){ navigator.share({title:"101夜傳承秘境", text:ivText()}).catch(()=>{}); }
 function copyLink(id){
   const u = caseUrl(id);
   const done = ()=>toast("已複製連結 🔗");
