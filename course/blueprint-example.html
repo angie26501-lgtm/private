@@ -39,7 +39,7 @@ svg text{font-size:11px;fill:#6f6a62}
 .cbar{position:relative;display:flex;height:22px;border-radius:6px;overflow:visible;background:#EEF1F2;font-size:11.5px;color:#fff;font-weight:700}.cbar div{display:flex;align-items:center;justify-content:center;white-space:nowrap;overflow:hidden}.cbar div:first-child{border-radius:6px 0 0 6px}.redl{position:absolute;top:-3px;bottom:-3px;width:2px;background:#C0392B}
 .ba-r{text-align:right;font-size:12px;color:#C0392B;margin-top:3px}.ba-t{display:inline-block;margin-top:8px;background:#FFF1D6;color:#7a5410;border-radius:999px;padding:3px 12px;font-size:13px;font-weight:700}
 .tw2{overflow-x:auto;margin:10px 0}.ct td,.ct th{text-align:left!important;font-size:13.5px}.ct td:first-child{white-space:nowrap;color:#5E4A33}.ct td b{color:#1F4E5F}
-.roll{display:grid;grid-template-columns:repeat(7,1fr);gap:0;margin:12px 0;position:relative}.roll:before{content:"";position:absolute;left:4%;right:4%;top:15px;height:3px;background:#cfe2ea}.rn{position:relative;text-align:center;padding:0 4px}.rn b{display:inline-block;background:#fff;border:2px solid #3B8FA6;color:#1F4E5F;border-radius:999px;padding:3px 8px;font-size:13px;position:relative}.rn.on b{background:#C9973B;border-color:#C9973B;color:#fff}.rn span{display:block;font-weight:700;font-size:12.5px;color:#1F4E5F;margin-top:6px}.rn em{display:block;font-style:normal;font-size:12px;color:#6f6a62;margin-top:3px;line-height:1.45}
+.roll{display:grid;grid-template-columns:repeat(8,1fr);gap:0;margin:12px 0;position:relative}.roll:before{content:"";position:absolute;left:4%;right:4%;top:15px;height:3px;background:#cfe2ea}.rn{position:relative;text-align:center;padding:0 4px}.rn b{display:inline-block;background:#fff;border:2px solid #3B8FA6;color:#1F4E5F;border-radius:999px;padding:3px 8px;font-size:13px;position:relative}.rn.on b{background:#C9973B;border-color:#C9973B;color:#fff}.rn span{display:block;font-weight:700;font-size:12.5px;color:#1F4E5F;margin-top:6px}.rn em{display:block;font-style:normal;font-size:12px;color:#6f6a62;margin-top:3px;line-height:1.45}
 .roll-q{background:#EAF3F6;border-radius:10px;padding:10px 14px;margin:8px 0}.roll-q b{display:block;color:#1F4E5F}.roll-q span{font-size:13.5px;color:#4a4640}
 .lnk{display:flex;flex-direction:column;gap:6px;margin:10px 0}.lnk a{display:block;background:#F6F2EA;border-left:4px solid #C9973B;border-radius:8px;padding:8px 12px;color:#5E4A33;text-decoration:none;font-weight:700;font-size:14px}.lnk a:hover{background:#FFF1D6}
 @media (max-width:760px){.who{grid-template-columns:1fr 1fr}.roll{grid-template-columns:1fr;gap:8px}.roll:before{left:22px;right:auto;top:6px;bottom:6px;width:3px;height:auto}.rn{display:grid;grid-template-columns:70px 1fr;text-align:left;align-items:start;gap:2px 8px}.rn b{grid-row:span 2;text-align:center}.rn span{margin-top:0}.ba-b b,.ba-a b{font-size:24px}.ba-g{grid-template-columns:1fr 24px 1fr}}
@@ -54,6 +54,10 @@ svg text{font-size:11px;fill:#6f6a62}
 @media (max-width:760px){.gd-box{left:12px;right:12px;width:auto;max-width:none;bottom:66px}.gd-fab{right:12px;bottom:12px}}
 @media print{.gd-fab,.gd-box{display:none!important}}
 .tw{position:relative}
+.pen{background:#F1F8FA;border:1px solid #cfe2ea;border-radius:12px;padding:10px 14px;margin:8px 0}.pen>b{display:block;color:#1F4E5F;margin-bottom:4px}.pen-r{display:flex;justify-content:space-between;gap:10px;border-bottom:1px dashed #cfe2ea;padding:4px 0;font-size:14px}.pen-r b{color:#1F4E5F;white-space:nowrap}.pen-r.sum b{color:#1F6F8B;font-size:16px}.pen-r.gap{border-bottom:0}.pen-r.gap b{color:#B0571A}.pen small,.curve>small{display:block;font-size:12.5px;color:#6f6a62;margin-top:6px}
+.curve{background:#F3F8EE;border-left:5px solid #2e8b57;border-radius:12px;padding:10px 14px;margin:12px 0}.curve>b{display:block;color:#245c3c;font-size:16px}.cv3{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:8px}.cv3 div{background:#fff;border-radius:10px;padding:8px 10px}.cv3 b{display:block;color:#245c3c;font-size:14px}.cv3 span{font-size:13px;color:#4a4640}
+.rn.on2 b{background:#2e8b57;border-color:#2e8b57;color:#fff}
+@media (max-width:760px){.cv3{grid-template-columns:1fr}}
 .goal{display:flex;flex-wrap:wrap;align-items:center;gap:4px 10px;background:#FFF8E6;border:1px dashed #E9A92A;border-radius:10px;padding:8px 12px;margin:10px 0 2px;font-size:13.5px;color:#4a4640}.goal>b{color:#7a5410}.goal span b{color:#B0571A;font-size:15px}.goal .gar{color:#C9973B;font-weight:700}
 .tie{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin:2px 0 8px;font-size:13px}.tie small{color:#8a8278;font-size:12.5px;margin-right:2px}
 .tie a{display:inline-flex;align-items:center;background:#FFF8E6;border:1px solid #f1d9a6;border-radius:999px;padding:3px 10px;color:#5E4A33;text-decoration:none;font-weight:700;font-size:13px}.tie a:hover{background:#FFF1D6}.tie a:after{content:" →";font-weight:400;margin-left:2px}
@@ -80,12 +84,12 @@ svg text{font-size:11px;fill:#6f6a62}
 .next{background:#fff;border-radius:16px;padding:16px 18px;margin:14px 0;box-shadow:0 2px 10px rgba(94,74,51,.1)}.next h2{margin:0 0 6px;color:#5E4A33}.nx{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:8px}.nx a{display:block;text-decoration:none;border-radius:12px;padding:10px 12px;color:#fff}.nx a b{display:block;font-size:15.5px}.nx a span{font-size:13px;opacity:.92}
 .n1{background:#1F6F8B}.n2{background:#C9973B}.n3{background:#06C755}@media (max-width:760px){.nx{grid-template-columns:1fr}.hero h1{font-size:20px}}
 .vb{background:#2e8b57;color:#fff;font-size:13px;padding:6px 16px}</style></head><body>
-<div class="vb">財顧芸｜規劃範例 v1.4・2026/10/10（民國115年）</div>
+<div class="vb">財顧芸｜規劃範例 v1.5・2026/10/10（民國115年）</div>
 <main>
 <div class="hero" id="g-hero"><h1>同樣的收入，讓每一筆錢都有工作</h1><p>這是一份「規劃前 vs 規劃後」的範例：不換工作、不多賺錢，只是把現金與每月結餘分進三個水庫＋一個水桶，並且每年滾動檢視。</p><p>看完範例，想知道<b>您自己的水庫要多大、什麼時候放水</b>，可以從下方開始。</p></div>
 <div class="card" id="case"><h2>📖 36 歲的小宇，怎麼讓每一筆錢都有工作</h2>
 <p class="hint">改編情境：人物與數字皆為示意；這裡只列規劃方向與效益，不列商品內容；數字為試算示意，非保證。</p>
-<div class="who"><div><b>小宇・36 歲</b><span>現役軍人；三代同住、和太太財務各自管理；房貸 300 多萬</span></div><div><b>手上現金 50 萬</b><span>全部放活存，沒有分用途</span></div><div><b>每月結餘 2 萬</b><span>用多少算多少，沒有固定去處</span></div><div><b>心裡想的事</b><span>帶太太去韓國；讓錢動起來；65 歲退休後，每月有 5 萬可以用</span></div></div>
+<div class="who"><div><b>小宇・36 歲</b><span>現役軍人，8 年後（44 歲）服役滿 20 年退役；三代同住、和太太財務各自管理；房貸 300 多萬</span></div><div><b>手上現金 50 萬</b><span>全部放活存，沒有分用途</span></div><div><b>每月結餘 2 萬</b><span>用多少算多少，沒有固定去處</span></div><div><b>心裡想的事</b><span>帶太太去韓國；退役後開啟人生第二曲線；65 歲起每月有 5 萬可以用</span></div></div>
 
 <div class="tw"><h3 class="ch3">① 規劃：三個水庫＋一個水桶</h3><aside class="tie"><small>📖 這段的財商觀念</small><a href="https://angie26501-lgtm.github.io/plan-qfel8283/%E8%B2%A1%E5%95%86%E5%B0%8F%E6%95%99%E5%AE%A4-%E5%90%8C%E6%99%82%E9%85%8D%E7%BD%AE.html" target="_blank" rel="noopener"><em>先讀</em>重要的目標，一起來</a><a href="https://angie26501-lgtm.github.io/plan-qfel8283/%E8%B2%A1%E5%95%86%E5%B0%8F%E6%95%99%E5%AE%A4-%E9%A6%96%E9%87%8D%E8%B3%87%E7%94%A2%E9%85%8D%E7%BD%AE.html" target="_blank" rel="noopener"><em>第 1 課</em>為什麼首重資產配置？</a></aside></div>
 <div class="rs-top"><div><b>手上現金 50 萬</b><span>30 萬注入大水庫 1；20 萬做緊急預備金</span></div><div><b>每月結餘 2 萬</b><span>1 萬注大水庫 2、5,000 小水庫、5,000 水桶</span></div></div>
@@ -102,17 +106,30 @@ svg text{font-size:11px;fill:#6f6a62}
 <div class="ba-g"><div class="ba-b"><small>規劃前</small><b>200<i>萬</i></b><span>低於房貸，差額要家裡扛</span></div><div class="ba-ar">➜</div><div class="ba-a"><small>規劃後</small><b>320<i>萬</i></b><span>超過房貸線，而且不必多繳</span></div></div>
 <div class="cbar"><div style="flex:0 0 55.6%;background:#1F5F7A">原有保障 200 萬</div><div style="flex:0 0 33.3%;background:#3B8FA6">規劃後增加 120 萬</div><i class="redl" style="left:83.3%"></i></div><div class="ba-r">↑ 紅線＝房貸約 300 萬</div>
 <p class="small2">同一筆錢<b>同時兼顧保障與累積</b>，不另外增加每月支出；46 歲前回頭檢視房貸與保障，接得上下一段。</p><div class="ba-t">多出 120 萬保障，每月支出不增加</div></div>
-<div class="ba"><div class="tw"><div class="ba-h"><span class="ba-n">3</span><b>65 歲起每月可以用的錢</b><small>不含軍人退休俸</small></div><div class="goal"><b>🎯 退休目標</b><span>65 歲起每月 <b>5 萬</b>（以現在的物價）</span><span class="gar">→</span><span>通膨 2%、29 年後，同樣的生活約需每月 <b>88,792 元</b>（約 8.9 萬）</span></div><aside class="tie tie-ba"><small>📖 這段的財商觀念</small><a href="https://www.allfreedom.info/retirement-asset-structure.html" target="_blank" rel="noopener"><em>退休</em>帳戶有錢，卻更不安心？</a></aside></div>
+<div class="ba"><div class="tw"><div class="ba-h"><span class="ba-n">3</span><b>65 歲起每月可以用的錢</b><small>規劃後數字不含軍人退休俸，下方合併計算</small></div><div class="goal"><b>🎯 退休目標</b><span>65 歲起每月 <b>5 萬</b>（以現在的物價）</span><span class="gar">→</span><span>通膨 2%、29 年後，同樣的生活約需每月 <b>88,792 元</b>（約 8.9 萬）</span></div><aside class="tie tie-ba"><small>📖 這段的財商觀念</small><a href="https://www.allfreedom.info/retirement-asset-structure.html" target="_blank" rel="noopener"><em>退休</em>帳戶有錢，卻更不安心？</a></aside></div>
 <div class="ba-g"><div class="ba-b"><small>規劃前</small><b>0<i>元</i></b><span>沒有確定的退休收入</span></div><div class="ba-ar">➜</div><div class="ba-a"><small>規劃後</small><b>16,945<i>～27,842</i></b><span>保守到樂觀，非保證</span></div></div>
 <div class="cbar"><div style="flex:0 0 18.8%;background:#1F5F7A">保守</div><div style="flex:0 0 12.1%;background:#3B8FA6">到樂觀</div><i class="redl" style="left:98.7%"></i></div><div class="ba-r">↑ 紅線＝退休目標每月約 88,792 元（現在的 5 萬，依通膨 2% 換算到 65 歲）</div>
-<p class="small2">這是<b>這次規劃自己做出來的</b>：退休那天起，水庫每年放水幫自己加薪。距離目標的部分，接下來每年檢視時再補。</p><div class="ba-t">規劃前這一格是 0，現在它會自己長出來</div></div>
+<p class="small2">這是<b>這次規劃自己做出來的</b>：退休那天起，水庫每年放水幫自己加薪。</p>
+<div class="pen"><b>🎖️ 再加上 44 歲起的軍人退休俸（月退俸）</b>
+<div class="pen-r"><span>規劃做出來的</span><b>16,945～27,842</b></div>
+<div class="pen-r"><span>＋ 月退俸（44 歲起終身領）</span><b>約 29,238</b></div>
+<div class="pen-r sum"><span>＝ 65 歲起每月合計</span><b>約 46,183～57,080</b></div>
+<div class="pen-r gap"><span>距離目標 88,792 還差</span><b>約 31,712～42,609</b></div>
+<small>月退俸依「本俸 26,580 × 2 × 俸率 55%（服役滿 20 年）」推算，實際以人事單位正式試算為準；月退俸若未隨物價調整，購買力會逐年縮水，所以把它當紅利，不當地基。</small></div>
+<div class="ba-t">規劃前這一格是 0，現在它會自己長出來</div></div>
+<div class="curve" id="g-curve"><b>🌱 人生第二曲線：44 歲退役，不是退休</b>
+<div class="cv3"><div><b>① 月退俸先存一部分</b><span>44～65 歲共 21 年，每月約 2.9 萬提前入帳；這段若存下一部分，65 歲時的水庫會再長大。</span></div>
+<div><b>② 第二份工作接上勞保、勞退</b><span>轉任民間後開始累積勞保老年年金與勞退個人專戶，是退休俸之外的另一條路。</span></div>
+<div><b>③ 退役前一年重新規劃</b><span>第二份收入多少、要不要延後退休、結餘怎麼分流，43 歲時一起重算藍圖。</span></div></div>
+<small>距離目標的 3～4 萬，就是交給第二曲線慢慢補上的空間；這一段先不算進上面的數字，留作往上的彈性。</small></div>
 <div class="tw2"><table class="t ct"><thead><tr><th>面向</th><th>規劃前</th><th>規劃後</th></tr></thead><tbody>
 <tr><td>每月結餘 2 萬</td><td>用多少算多少，沒有固定去處</td><td><b>1.5 萬進水庫，5,000 依序存三個目標</b></td></tr>
 <tr><td>現金 50 萬</td><td>全部放活存不動</td><td><b>30 萬注入大水庫 1＋緊急預備金 20 萬</b></td></tr>
 <tr><td>韓國旅遊</td><td>沒有專款，出發時間不確定</td><td><b>目標 10 萬，約 20 個月存到</b></td></tr>
 <tr><td>醫療</td><td>保不到，生病得動存款</td><td><b>先有緊急預備金，約 5 年補齊醫療預備金 30 萬</b></td></tr>
 <tr><td>房貸保障</td><td>保障 200 萬，低於房貸</td><td><b>46 歲前約 320 萬，超過房貸線</b></td></tr>
-<tr><td>65 歲以後</td><td>目標每月 5 萬（約等於退休時 8.9 萬），沒有確定的退休收入</td><td><b>水庫每年幫自己加薪；清楚知道還差多少</b></td></tr>
+<tr><td>44 歲退役後</td><td>有月退俸，但沒有想過怎麼安排</td><td><b>月退俸先存一部分＋第二份工作接上勞保、勞退</b></td></tr>
+<tr><td>65 歲以後</td><td>目標每月 5 萬（約等於退休時 8.9 萬），只靠月退俸約 2.9 萬</td><td><b>水庫加薪＋月退俸，每月約 4.6～5.7 萬；清楚知道還差多少</b></td></tr>
 <tr><td>需要用錢時</td><td>解約或動用全部存款</td><td><b>先動預備金，另有周轉安排，不必急著解約</b></td></tr></tbody></table></div>
 
 <div class="tw"><h3 class="ch3">③ 滾動式檢視：每年回頭看一次，水位隨人生調整</h3><aside class="tie"><small>📖 這段的財商觀念</small><a href="https://www.allfreedom.info/fee-based-financial-advisor-value.html" target="_blank" rel="noopener"><em>顧問</em>有人陪您把家庭財務整理清楚</a><a href="https://www.allfreedom.info/legacy-family-conversation.html" target="_blank" rel="noopener"><em>傳承</em>先把愛與重要資料說清楚</a></aside></div>
@@ -121,10 +138,11 @@ svg text{font-size:11px;fill:#6f6a62}
 <div class="rn"><b>36 歲</b><span>起點</span><em>分流開始：預備金到位、三個水庫開始注水</em></div>
 <div class="rn"><b>38 歲</b><span>水桶第 1 個目標</span><em>韓國旅遊 10 萬存到，水桶接著裝醫療預備金</em></div>
 <div class="rn"><b>41 歲</b><span>水桶裝滿</span><em>醫療預備金 30 萬補齊；多出的結餘要不要加碼小水庫？</em></div>
-<div class="rn"><b>43 歲</b><span>加薪水庫注滿</span><em>每年多出的結餘，重新分配到下一個目標</em></div>
+<div class="rn"><b>43 歲</b><span>加薪水庫注滿</span><em>退役前一年，重算第二曲線的藍圖</em></div>
+<div class="rn on2"><b>44 歲</b><span>退役・第二曲線</span><em>服役滿 20 年，開始領月退俸；第二份工作起跑</em></div>
 <div class="rn"><b>46 歲</b><span>保障檢視點</span><em>房貸還多少？保障缺口重算</em></div>
 <div class="rn"><b>55 歲</b><span>成長水庫停止注水</span><em>退休前 10 年，調整成較穩的配置</em></div>
-<div class="rn on"><b>65 歲</b><span>開閘放水</span><em>水庫開始放水幫自己加薪，銜接軍人退休俸</em></div>
+<div class="rn on"><b>65 歲</b><span>開閘放水</span><em>水庫開始放水幫自己加薪，銜接軍人退休俸與第二份工作的勞保、勞退</em></div>
 </div>
 <div class="roll-q"><b>每年檢視都會問這 4 題：</b><span>① 水位到了嗎？　② 人生目標有沒有變？　③ 市場與利率變了，閘門要不要調？　④ 保障跟得上家庭責任嗎？</span></div>
 <div class="amp"><b>🔆 這就是規劃的放大效益</b><span>錢沒有變多，但同一筆錢同時做到保障、存目標、累積退休金；而且每一年都知道自己在哪裡、還差多少。<b>您的水庫要多大、什麼時候放水，芸琪幫您算成專屬藍圖。</b></span></div>
@@ -146,8 +164,9 @@ var GD=[
  ['👋 歡迎','這是一份「規劃前 vs 規劃後」的範例，約 3 分鐘看完。跟著下一步，帶您看懂每一區在說什麼。','#g-hero'],
  ['🙋 小宇的起點','先看他的處境：手上 50 萬、每月結餘 2 萬、房貸 300 多萬，還有想完成的心願。','#case .who'],
  ['💧 三個水庫＋一個水桶','同一筆錢分流到四個地方：近期要用的放水桶，退休要用的放水庫慢慢長大。深色是目前水位。','#case .rs'],
- ['📈 規劃前 vs 規劃後','三張對照卡：專款準備金、房貸保障、65 歲起每月可用的錢。錢沒有變多，但每一筆都有了工作。','#case .ba'],
+ ['📈 規劃前 vs 規劃後','三張對照卡：專款準備金、房貸保障、65 歲起每月可用的錢（含月退俸）。錢沒有變多，但每一筆都有了工作。','#case .ba'],
  ['🎯 退休目標','65 歲起每月 5 萬（現在的物價）；依通膨 2% 換算到 65 歲，約需每月 88,792 元。紅線就是這個目標。','#case .goal'],
+ ['🌱 人生第二曲線','44 歲退役開始領月退俸，加上第二份工作接上勞保、勞退；距離目標的部分，交給第二曲線慢慢補。','#g-curve'],
  ['📋 七個面向對照','一張表看懂規劃前後的差別：結餘、現金、旅遊、醫療、保障、退休、急用。','#case .tw2'],
  ['🔁 滾動式檢視','規劃不是一次做完。每年回頭看水位，人生有大事就提前檢視，4 個問題每年都問。','#case .roll'],
  ['🔆 放大效益','同一筆錢同時做到保障、存目標、累積退休金，而且每一年都知道還差多少。','#case .amp'],
@@ -162,4 +181,7 @@ function gdOpen(i){GI=i||0;$('gdBox').hidden=false;gdShow()}
 function gdGo(d){if(GI+d>=GD.length){gdClose();return}GI=Math.max(0,GI+d);gdShow()}
 function gdClose(){$('gdBox').hidden=true;document.querySelectorAll('.gd-on').forEach(function(e){e.classList.remove('gd-on')});try{localStorage.setItem('bp-ex-gd','1')}catch(e){}}
 (function(){var seen=null;try{seen=localStorage.getItem('bp-ex-gd')}catch(e){}if(!seen)setTimeout(function(){gdOpen(0)},700)})();
-</script></body></html>
+</script><!--nocopy:v1--><style>body.nocp{-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}body.nocp input,body.nocp textarea,body.nocp [contenteditable]{-webkit-user-select:text;user-select:text}</style><script>(function(){var d=document;function ok(t){t=t&&t.closest?t:(t&&t.parentElement);return t&&t.closest&&t.closest('input,textarea,select,[contenteditable],[data-allow-copy]')}
+function on(){d.body&&d.body.classList.add('nocp')}if(d.body)on();else d.addEventListener('DOMContentLoaded',on);
+['contextmenu','copy','cut','dragstart','selectstart'].forEach(function(t){d.addEventListener(t,function(e){if(!ok(e.target))e.preventDefault()},true)});
+d.addEventListener('keydown',function(e){var k=(e.key||'').toLowerCase(),m=e.ctrlKey||e.metaKey;if(ok(e.target)&&!e.shiftKey)return;if((m&&['c','x','a','s','u'].indexOf(k)>-1)||k=='f12'||(m&&e.shiftKey&&['i','j','c'].indexOf(k)>-1))e.preventDefault()},true)})();</script></body></html>
