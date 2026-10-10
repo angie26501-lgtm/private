@@ -2838,7 +2838,7 @@ function renderHome(){
     <div class="kwtip">💡 多個關鍵字用空白分開＝同時符合（例：房子 贈與）；會自動找同義詞（房子＝房屋、不動產、土地…）；也可輸入石室編號，如 S1-005。${keyword?`<b>　找到 ${CASES.filter(c=>(bookF==="全部"||c.id.startsWith(bookF))&&(filter==="全部"||c.cat===filter)&&kwMatch(c)).length} 間</b>`:""}</div>
     <div class="grid">${(groups+locked) || '<div class="sect-s">找不到符合的石室，換個關鍵字試試。</div>'}</div>
   </main>
-  <footer>101夜傳承秘境｜${BOOKS.filter(b=>!b.soon).map(b=>b.name).join("・")}・講師 賴雅津・製作 陳芸琪（財顧芸）｜<a href="https://allfreedom.info" target="_blank" rel="noopener" style="color:inherit">allfreedom.info</a><br>內容經賴雅津老師同意，依課程內容改寫；案例人物已去識別化。<br>本網站為案例教育用途，實際規劃請洽專業顧問。</footer>`;
+  <footer>101夜傳承秘境｜${BOOKS.filter(b=>!b.soon).map(b=>b.name).join("・")}・講師 賴雅津・製作 陳芸琪（財顧芸）｜<a href="https://allfreedom.info" target="_blank" rel="noopener" style="color:inherit">allfreedom.info</a><br>內容經賴雅津老師同意，依課程內容已部分改寫；案例人物已去識別化。<br>本網站為案例教育用途，實際規劃請洽專業顧問。</footer>`;
 }
 function roomHTML(c){
   if(c.locked) return `<div class="room locked"><div class="no">第 ${c.n} 間${isBoss(c.n)?" ・BOSS":""}</div><div style="font-size:26px">🔒</div><div style="font-size:12px">封印中</div></div>`;
@@ -2908,7 +2908,7 @@ function renderBattle(id){
     <div class="roller"></div>
     <div class="scroll" id="scr">
       <h1>${esc(c.title)}</h1>
-      <div class="srcline">📚 來源：賴雅津老師《101個財富傳承故事・${bookOf(c).name}》${esc(c.src)}<br>經雅津老師同意，依課程內容改寫；人物已去識別化。</div>
+      <div class="srcline">📚 來源：賴雅津老師《101個財富傳承故事・${bookOf(c).name}》${esc(c.src)}<br>經雅津老師同意，依課程內容已部分改寫；人物已去識別化。</div>
       <div class="meta">
         <div><b>地雷分類</b>${esc(c.cat)}</div>
         <div><b>危險等級</b>${"🔥".repeat(c.risk)}</div>
