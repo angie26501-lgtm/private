@@ -15,6 +15,8 @@ TEMPLATE_LEFTOVER = ["小安", "小晴", "xiaoan", "全虛構", "示範案例"]
 ID_NO = re.compile(r"\b[A-Z][12]\d{8}\b")          # 身分證字號
 PHONE = re.compile(r"09\d{2}-?\d{3}-?\d{3}")
 ADVISOR_PHONE = {"0918800852"}
+# 公開網站（不含任何客戶資料，經負責人同意免通行碼）：只略過「必須加密」與「明文長度」兩項，其餘檢查照跑
+PUBLIC_OK = {"story101"}  # 101夜傳承秘境：2026/10/10 起公開
 
 
 def visible_text(html: str) -> str:
@@ -60,9 +62,9 @@ def check_dir(d: Path) -> list[str]:
             errs.append(f"{rel}：報告書內容未加密（找不到 AES-GCM），不可上傳")
         # 任何頁面的明文都不該多到像一份報告（加密頁的通行碼頁、目錄頁、方案頁都很短）
         limit = 400 if is_report else 1500
-        if len(visible_text(s).split()) > limit:
+        if code not in PUBLIC_OK and len(visible_text(s).split()) > limit:
             errs.append(f"{rel}：明文內容偏多，請確認報告內容已加密")
-    if not any("AES-GCM" in p.read_text(encoding="utf-8", errors="ignore")
+    if code not in PUBLIC_OK and not any("AES-GCM" in p.read_text(encoding="utf-8", errors="ignore")
                for p in files if p.suffix.lower() == ".html"):
         errs.append(f"{code}/：找不到加密的報告書")
     return errs
