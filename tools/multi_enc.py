@@ -64,7 +64,7 @@ def main():
     ap.add_argument("--ck", help="§30 客戶專屬金鑰檔")
     a = ap.parse_args()
     pws = [re.sub(r"\s+", "", p) for p in a.pws]
-    if any(len(p) < 6 for p in pws):
+    if any(len(p) < 6 for p in pws if p != "Wader"):  # 顧問夥伴固定碼 Wader（10/10 顧問指定）例外
         sys.exit("❌ 通行碼至少 6 碼")
     head, gate, payload = split(Path(a.src).read_text(encoding="utf-8"))
     ck = Path(a.ck).read_bytes() if a.ck else None
