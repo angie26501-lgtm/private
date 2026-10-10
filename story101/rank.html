@@ -81,7 +81,7 @@ function draw() {
     document.getElementById("list").innerHTML = (D.event && D.event.length) ? D.event.map(r => `
     <div class="r"><span class="rk">${medal(r.rank)}</span>
       <span class="nk"><b>${esc(r.nick)}</b><small>活動擊敗 ${r.evWon}${r.rank <= 10 ? "・🎟️ 抽獎資格" : ""}</small></span>
-      <span class="sc">🎁${r.ev}</span></div>`).join("") : '<div class="msg">10/10 開跑，第一名等你來搶！</div>';
+      <span class="sc">🎁${r.ev}</span></div>`).join("") : '<div class="msg">活動進行中，第一名等你來搶！打倒一隻怪就能上榜。</div>';
     return;
   }
   document.getElementById("info").textContent = `目前共有 ${D.players || 0} 位勇者參戰` + (view === "weekly" ? `・本週從 ${D.week} 起算（每週一重新起跑）` : "");
