@@ -106,3 +106,22 @@ def apply(pay, notes, anchors, admin_html, pw):
     enc = enc_notes({"notes": notes, "admin": admin_html}, pw)
     pay = CSS + pay + MODAL + JS.replace('__ADV__', json.dumps(enc))
     return pay
+
+
+def strip(pay):
+    """§35 底稿用：把已套過 apply() 的線上報告內容還原成無筆記層的 payload（之後再用新案的筆記與管理者密碼重新 apply）。"""
+    import re
+    if pay.startswith(CSS):
+        pay = pay[len(CSS):]
+    i = pay.rfind(MODAL)
+    if i > 0:
+        pay = pay[:i]
+    pay = re.sub(r'<button type="button" class="advdot no-print"[^>]*>📝</button>', '', pay)
+    pay = pay.replace('<div class="admzone no-print"><button class="admbtn" type="button" onclick="__admOpen()">🔒 管理者</button><div id="adm-box"></div></div>', '')
+    tb_new = ('<div class="toolbar no-print"><select id="adv-menu" onchange="__advGo(this.value)" aria-label="顧問筆記選單"></select>'
+              '<button class="advbtn" id="adv-tg" onclick="__advToggle()">📝 顧問版</button>'
+              '<button onclick="__advPrint()">🔒 列印</button><button onclick="__logout()">登出</button></div>')
+    pay = pay.replace(tb_new, '<div class="toolbar no-print"><button onclick="__logout()">登出</button></div>')
+    for k in ['advdot', 'adm-box', '__ADV__', 'adv-modal']:
+        assert k not in pay, ('筆記層未清乾淨', k)
+    return pay

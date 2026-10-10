@@ -6,7 +6,7 @@
     from review_kit import *
 以「最新上架案」解密後的內容為底稿（§0 底稿選擇），只替換客戶資料區塊：
 - donut()/card()：P3 與家人頁四大支柱卡（計算式、80 歲後說明收合）
-- rows()/tbody_replace()：P4／家人明細主表＋附約展開（不列給付重點）
+- rows()/tbody_replace()：P4／家人明細主表＋附約展開（不列給付重點）；季繳／月繳保單在 dict 加 pm='季繳'
 - tour_resize()：§31 導覽視窗調整大小
 - cloud_link()：§30 雲華陀連結，回傳 (payload, ck)；ck 交給 multi_enc.py --ck
 """
@@ -49,7 +49,7 @@ def rows(pols):
                       for a, b, c, d, e, f in p['riders'])
         out += (f'<tr><td class="c"><button class="pm" data-t="{k}" aria-label="展開附約">＋</button></td><td class="c">{p["n"]}</td>'
                 f'<td>{p["co"]}</td><td class="mh">{p["no"]}</td><td class="mh">{p["ph"]}</td><td class="mh">{p["d"]}</td>'
-                f'<td class="mh c">{p["age"]}</td><td class="mh">年繳</td><td class="mh">{p["day"]}</td><td class="r"><b>{fmt(p["fee"])}</b></td>'
+                f'<td class="mh c">{p["age"]}</td><td class="mh">{p.get("pm", "年繳")}</td><td class="mh">{p["day"]}</td><td class="r"><b>{fmt(p["fee"])}</b></td>'
                 f'<td><span class="stp">正常</span><details class="dd stdd"><summary>說明</summary>{st}</details></td></tr>'
                 f'<tr class="xrow" data-x="{k}"><td colspan="11" class="sub"><table class="t2"><thead><tr><th>類型</th><th>商品名稱</th>'
                 f'<th>繳費年期</th><th>保障年期</th><th>保額</th><th>保費</th></tr></thead><tbody>{sub}</tbody></table></td></tr>')
