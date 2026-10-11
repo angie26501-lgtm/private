@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="zh-Hant-TW"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>客製化報告加購單｜財顧芸</title>
+<meta name="description" content="規劃建議或年度顧問之外，可依需要加購的客製化報告與互動工具。">
+<style>
+:root{--nv:#16324F;--gd:#B8894A;--gd2:#E7C892;--cr:#FBF8F2;--ln:#E6DDCC;--ink:#2B2B2B;--mut:#7D776D;--ok:#1D5A6E;--okb:#DCEAEE;--rd:#9E3B2F}
+*{box-sizing:border-box}
+body{margin:0;background:#F3EEE5;color:var(--ink);font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;line-height:1.65}
+.wrap{max-width:980px;margin:0 auto;padding:0 16px 120px}
+.sf{font-family:"Noto Serif TC","Songti TC","PMingLiU",serif}
+header{background:linear-gradient(180deg,#FBF8F2,#F3EEE5);padding:28px 16px 18px;position:relative;overflow:hidden}
+header .in{max-width:980px;margin:0 auto;position:relative}
+header svg.mt{position:absolute;right:-20px;top:-10px;width:380px;opacity:.55}
+.back{position:absolute;right:0;top:4px;font-size:13px;color:var(--nv);text-decoration:none;font-weight:700;background:#fff;border:1px solid var(--ln);border-radius:999px;padding:3px 12px;z-index:2}
+.brand{font-weight:800;color:var(--nv);letter-spacing:.14em;font-size:15px}.brand small{display:block;font-size:10px;color:var(--gd);letter-spacing:.24em;font-weight:600}
+h1{margin:16px 0 6px;font-size:34px;color:var(--nv);line-height:1.2}
+h1 i{display:inline-block;width:2px;height:28px;background:var(--gd);margin:0 12px;vertical-align:-4px}
+.lead{font-size:15px;color:#4a4a4a;max-width:640px}
+.stance{margin:16px 0 4px;background:#fff;border:1px solid var(--ln);border-left:4px solid var(--gd);border-radius:10px;padding:12px 16px;font-size:14px}
+.stance b{color:var(--nv)}
+h2{font-size:20px;color:var(--nv);margin:28px 0 4px}h2 small{font-size:13px;color:var(--mut);font-weight:400;margin-left:6px}
+.base{display:grid;grid-template-columns:auto 1fr;gap:14px;align-items:center;background:var(--nv);color:#fff;border-radius:14px;padding:16px 18px;margin-top:10px}
+.base .ic{width:52px;height:52px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#E7C892,#B8894A 70%);display:flex;align-items:center;justify-content:center;font-size:24px}
+.base b{font-size:17px}.base p{margin:2px 0 0;font-size:13.5px;color:#cfdbe7}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:12px}
+.it{position:relative;background:#fff;border:1.5px solid var(--ln);border-radius:14px;padding:14px 16px 12px;cursor:pointer;transition:border-color .15s,box-shadow .15s;display:flex;flex-direction:column}
+.it:hover{border-color:var(--gd2)}
+.it.on{border-color:var(--gd);box-shadow:0 0 0 3px rgba(184,137,74,.18)}
+.it .top{display:flex;align-items:center;gap:10px}
+.it .ic{flex:none;width:40px;height:40px;border-radius:50%;background:#F5EBDA;display:flex;align-items:center;justify-content:center;font-size:19px}
+.it .no{font-size:11px;letter-spacing:.2em;color:var(--gd);font-weight:700}
+.it h3{margin:0;font-size:16px;color:var(--nv)}
+.it .ck{margin-left:auto;width:24px;height:24px;border-radius:7px;border:2px solid #cbbfa9;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:900;font-size:14px;flex:none}
+.it.on .ck{background:var(--gd);border-color:var(--gd)}
+.it .q{font-size:13.5px;color:#444;margin:8px 0 6px}
+.it ul{margin:0 0 8px;padding-left:18px;font-size:13px;color:#555}.it li{margin:2px 0}
+.it .ft{margin-top:auto;display:flex;align-items:baseline;gap:8px;border-top:1px dashed var(--ln);padding-top:8px}
+.it .pr{font-size:22px;font-weight:900;color:var(--nv);font-variant-numeric:tabular-nums}
+.it .pr small{font-size:12px;font-weight:600;color:var(--mut)}
+.it .qt{margin-left:auto;display:flex;align-items:center;gap:6px;font-size:13px;color:#555}.it .qt button{width:30px;height:30px;border-radius:8px;border:1px solid #cbbfa9;background:#fff;font-size:16px;font-weight:800;color:var(--nv);cursor:pointer}.it .qt b{min-width:16px;text-align:center;font-size:15px;color:var(--nv)}
+.it .fit{margin-left:auto;font-size:11.5px;background:var(--okb);color:var(--ok);border-radius:6px;padding:1px 8px;font-weight:700;white-space:nowrap}
+.it .fit.free{background:#EFE7D8;color:#6b5636}
+.it.inc{cursor:default;background:#FBF8F2}.it.inc .ck{display:none}
+.bund{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:12px}
+.bd{background:#fff;border:1.5px solid var(--ln);border-radius:14px;padding:14px 16px;cursor:pointer;position:relative}
+.bd.on{border-color:var(--nv);box-shadow:0 0 0 3px rgba(22,50,79,.15)}
+.bd .tg{position:absolute;top:-10px;right:12px;background:var(--rd);color:#fff;font-size:11.5px;font-weight:700;border-radius:999px;padding:1px 10px}
+.bd h3{margin:0;font-size:16px;color:var(--nv)}
+.bd p{margin:4px 0 8px;font-size:13px;color:#555}
+.bd .pr{font-size:24px;font-weight:900;color:var(--nv)}.bd .pr s{font-size:13px;color:#a09a90;font-weight:400;margin-left:6px}
+.bd .sv{font-size:12px;color:var(--ok);font-weight:700}
+.bd button{margin-top:8px;width:100%;border:1px solid var(--nv);background:#fff;color:var(--nv);border-radius:8px;padding:6px;font-weight:700;cursor:pointer;font-size:14px}
+.bd.on button{background:var(--nv);color:#fff}
+.rules{background:#fff;border:1px solid var(--ln);border-radius:12px;padding:12px 16px;margin-top:12px;font-size:13.5px}
+.rules li{margin:4px 0}
+.refs{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:12px}.refs a{display:flex;flex-direction:column;gap:4px;background:#fff;border:1px solid var(--ln);border-radius:12px;padding:12px 14px;text-decoration:none;color:var(--ink)}.refs a:hover{border-color:var(--gd)}.refs b{color:var(--nv);font-size:15px}.refs span{font-size:13px;color:#555}.refs em{font-style:normal;margin-top:auto;font-size:13.5px;font-weight:700;color:var(--gd)}
+@media(max-width:760px){.refs{grid-template-columns:1fr}}
+.faq details{background:#fff;border:1px solid var(--ln);border-radius:10px;padding:10px 14px;margin:8px 0}
+.faq summary{cursor:pointer;font-weight:700;color:var(--nv)}
+.faq p{margin:6px 0 0;font-size:14px;color:#444}
+/* cart */
+.bar{position:fixed;left:0;right:0;bottom:0;background:var(--nv);color:#fff;z-index:9;box-shadow:0 -4px 16px rgba(0,0,0,.15)}
+.bar .in{max-width:980px;margin:0 auto;padding:10px 16px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.bar .sum{font-size:14px}.bar .sum b{font-size:22px;color:var(--gd2);margin-left:4px}
+.bar .sum s{color:#9fb3c8;margin-left:6px;font-size:13px}
+.bar .sum em{font-style:normal;font-size:12px;color:#9fe0c4;margin-left:6px}
+.bar button{margin-left:auto;border:0;background:var(--gd);color:#fff;font-weight:800;border-radius:10px;padding:10px 18px;font-size:15px;cursor:pointer}
+.pnl{display:none;position:fixed;inset:0;background:rgba(10,20,35,.45);z-index:10;align-items:flex-end;justify-content:center}
+.pnl.open{display:flex}
+.pnl .box{background:#fff;width:100%;max-width:560px;border-radius:18px 18px 0 0;padding:18px 18px 22px;max-height:88vh;overflow:auto}
+.pnl h3{margin:0 0 8px;color:var(--nv)}
+.pnl table{width:100%;border-collapse:collapse;font-size:14px}.pnl td{padding:6px 2px;border-bottom:1px solid #eee}.pnl td:last-child{text-align:right;font-variant-numeric:tabular-nums}
+.pnl .tot td{font-weight:900;color:var(--nv);font-size:16px;border-bottom:0}
+.pnl label{display:block;font-size:13px;color:#555;margin-top:10px}
+.pnl input,.pnl select,.pnl textarea{width:100%;font:inherit;padding:8px 10px;border:1px solid #d8cfbf;border-radius:8px;margin-top:3px}
+.pnl .row{display:flex;gap:10px;margin-top:14px}
+.pnl .row button{flex:1;border:0;border-radius:10px;padding:11px;font-weight:800;font-size:15px;cursor:pointer}
+.go{background:#06C755;color:#fff}.cp{background:#EFE7D8;color:#5E4A33}
+.x{float:right;border:0;background:none;font-size:22px;cursor:pointer;color:#888}
+.mem{display:flex;align-items:center;gap:8px;font-size:14px;margin-top:10px;background:var(--cr);border-radius:8px;padding:8px 10px}
+.mem input{width:auto;margin:0}
+footer{text-align:center;font-size:12.5px;color:var(--mut);margin-top:34px}
+.toast{position:fixed;left:50%;bottom:90px;transform:translateX(-50%);background:#333;color:#fff;border-radius:8px;padding:8px 14px;font-size:14px;display:none;z-index:20}
+@media(max-width:760px){.grid,.bund{grid-template-columns:1fr}h1{font-size:26px}h1 i{height:22px;margin:0 8px}header svg.mt{width:240px}}
+</style></head><body>
+<header><div class="in">
+<svg class="mt" viewBox="0 0 360 120" preserveAspectRatio="none"><path d="M0 120 L70 62 L110 84 L170 30 L230 76 L270 52 L360 96 L360 120Z" fill="#E9E4DA"/><path d="M60 120 L140 74 L190 92 L250 58 L320 92 L360 80 L360 120Z" fill="#F1EDE5"/></svg>
+<div class="brand">財顧芸｜馥芸財富學苑<small>FUYUN WEALTH ACADEMY</small></div><a class="back" href="service.html">← 看完整服務說明</a>
+<h1 class="sf">客製化報告<i></i>加購單</h1>
+<div class="lead">規劃完成後，想把結果看得更清楚、更方便跟家人說明？以下報告與互動工具，可依需要單項加購，或選擇組合方案。</div>
+<div class="stance">💬 <b>先把話說在前面：</b>每一份加購報告，都是用您家的真實數字客製製作，並由芸琪逐項核對；不是套版。需要什麼再加什麼，不需要的不用買。</div>
+</div></header>
+
+<div class="wrap">
+<h2>基本報告<small>購買規劃建議或年度顧問即包含</small></h2>
+<div class="base"><div class="ic">📋</div><div><b>規劃前現況檢視（主報告）</b><p>家裡的錢、保單、支出現在是什麼樣子；已經決定了什麼、接下來做什麼。含報告總目錄與觀看流程導覽。</p></div></div>
+
+<h2>單項加購<small>點卡片即可加入</small></h2>
+<div class="grid" id="items"></div>
+
+<h2>組合方案<small>選一個組合，比單買划算</small></h2>
+<div class="bund" id="bunds"></div>
+
+<div class="rules"><b>加購說明</b><ul>
+<li>加購報告需以「風險需求問診・規劃建議」或「幸福財務年度顧問」的資料為基礎製作。</li>
+<li><b>幸福財務年度顧問會員</b>：單項加購享 8 折（組合方案不再折扣）。</li>
+<li><b>隔年更新</b>：已購買的報告，隔年依新數字更新，以原價 5 折計。</li>
+<li>製作時間：資料齊全後約 7～14 個工作天；所有報告皆以加密網頁交付，可加書籤、可列印。</li>
+<li>報告內試算為依假設條件推估之結果，非保證數值。</li>
+</ul></div>
+
+<h2>服務項目參考<small>還沒有規劃建議或年度顧問？先從這裡看</small></h2>
+<div class="refs"><a href="service.html" target="_blank" rel="noopener"><b>📘 完整服務說明</b><span>保單盤點 3,600 起・規劃建議 12,800 起・年度顧問 39,600 起</span><em>看完整服務說明 →</em></a>
+<a href="money-workshop.html" target="_blank" rel="noopener"><b>🧭 金錢整理工作坊</b><span>實體課 3,600／人，送財務健康報告</span><em>看工作坊介紹 →</em></a>
+<a href="https://lin.ee/N0W2zsz" target="_blank" rel="noopener"><b>💬 不確定怎麼選？</b><span>預約諮詢 30 分鐘 2,000 元，30 天內購買可全額折抵</span><em>LINE 預約會談 →</em></a></div>
+<h2>常見問題</h2>
+<div class="faq">
+<details><summary>我只做了保單現況盤點，可以加購嗎？</summary><p>可以加購「保障現況分析（保戶版）」。其他報告需要收支、資產與退休目標等資料，建議先升級規劃建議，已付金額可依升級辦法折抵。</p></details>
+<details><summary>哪一個最推薦先加？</summary><p>想知道「錢夠不夠用到老」，先選「周年檢視報告書」或「退休安心組」；想跟家人說明，選「A4 一頁式匯整 PDF 表」最快。</p></details>
+<details><summary>報告會不會推薦商品？</summary><p>不會。報告的目的是把現況與選擇說清楚；之後要不要調整、找誰辦理，由您決定。</p></details>
+<details><summary>付款方式？</summary><p>ATM 轉帳，送出加購單後，芸琪會用 LINE 回覆帳號與製作時程。</p></details>
+</div>
+<footer>財顧芸 陳芸琪｜資深顧問｜MDRT（2024–2025）｜RFC｜RFP｜RFA｜0918-800-852<br>金額單位：新台幣（元）。本頁為服務說明，不構成投資建議或商品要約。</footer>
+</div>
+
+<div class="bar"><div class="in"><div class="sum">已選 <span id="cnt">0</span> 項・合計<b id="tot">0</b><s id="orig"></s><em id="sav"></em></div><button id="open">查看加購單 →</button></div></div>
+
+<div class="pnl" id="pnl"><div class="box"><button class="x" id="cls">×</button><h3>🛒 我的加購單</h3>
+<table id="lst"></table>
+<label class="mem"><input type="checkbox" id="mem"> 我是幸福財務年度顧問會員（單項 8 折）</label>
+<label>稱呼<input id="nm" placeholder="例：王小姐"></label>
+<label>方便聯絡的時段<select id="tm"><option>平日白天</option><option>平日晚上</option><option>週末</option><option>都可以</option></select></label>
+<label>補充說明（選填）<textarea id="nt" rows="2" placeholder="例：想先看水庫時間軸的範例"></textarea></label>
+<div class="row"><button class="go" id="send">送到 LINE 給芸琪</button><button class="cp" id="copy">複製文字</button></div>
+</div></div>
+<div class="toast" id="toast"></div>
+
+<script>
+var ITEMS=[
+{id:'annual',no:'附件一',ic:'📈',nm:'周年檢視報告書',q:'錢可以用到幾歲？每年回頭看一次。',li:['財務指標（流量、存量）四大看點','退休年齡、照護情境壓力測試','A4 熟齡大字版，可列印裝訂'],p:8800},
+{id:'res',no:'附件二',ic:'💧',nm:'大小水庫時間軸',q:'哪一年先動哪一桶錢？',li:['月退俸＋多座水庫互動圖','拖拉年齡、切換退場年齡','一眼看出水位何時偏低'],p:3600},
+{id:'deck',no:'附件三',ic:'📊',nm:'人生財務設計藍圖簡報',q:'想跟家人一起看、一起討論。',li:['簡報式翻頁，適合全家說明','家庭關係圖、目標與規劃重點','手機、電視投影都好看'],p:6600},
+{id:'cover',no:'附件四',ic:'🛡',nm:'保障現況分析（保戶版）',q:'保障夠不夠？規劃前後差在哪？',li:['各保單、附約逐項明細','規劃前後保障對照','繳費月份一覽'],p:3600},
+{id:'yearly',no:'附件五',ic:'🧮',nm:'逐年試算明細（PDF）',q:'每一年的收支和年末存款是多少？',li:['逐年收入、支出、年末資產','可對照不同退場年齡','PDF 檔，以份數計價（每一種情境一份）'],p:2400,unit:'份'},
+{id:'onepage',no:'附件六',ic:'🗂',nm:'A4 格式一頁式匯整 PDF 表',q:'一張紙看完全家財務。',li:['資產、負債、收支、保障一頁看完','可列印 A4','適合放在家裡隨時看'],p:1200},
+{id:'pdf',no:'附件七',ic:'📄',nm:'健診分析原始報告 PDF',q:'想留存系統原始報告。',li:['保單健診系統產出之原始報告','下載留存，選讀'],p:800}];
+var BUNDS=[
+{id:'b_ret',nm:'退休安心組',d:'大小水庫時間軸＋逐年試算明細（PDF 1 份）＋A4 一頁式匯整 PDF 表',inc:['res','yearly','onepage'],p:5900},
+{id:'b_fam',nm:'全家溝通組',d:'藍圖簡報＋保障現況分析＋A4 一頁式匯整 PDF 表',inc:['deck','cover','onepage'],p:9600},
+{id:'b_all',nm:'完整七件組',d:'附件一～七全部（逐年試算 PDF 1 份），一次到位',inc:['annual','res','deck','cover','yearly','onepage','pdf'],p:19800,tag:'最划算'}];
+var cnt=document.getElementById('cnt'),tot=document.getElementById('tot'),orig=document.getElementById('orig'),sav=document.getElementById('sav'),lst=document.getElementById('lst'),pnl=document.getElementById('pnl'),nm=document.getElementById('nm'),tm=document.getElementById('tm'),nt=document.getElementById('nt');
+var bOpen=document.getElementById('open'),bCls=document.getElementById('cls'),bSend=document.getElementById('send'),bCopy=document.getElementById('copy');
+var sel={},bund=null,qty={yearly:1};
+function f(n){return n.toLocaleString('zh-TW')}
+function el(h){var d=document.createElement('div');d.innerHTML=h;return d.firstChild}
+var G=document.getElementById('items');
+ITEMS.forEach(function(it){
+ var c=el('<div class="it" data-id="'+it.id+'"><div class="top"><div class="ic">'+it.ic+'</div><div><div class="no">'+it.no+'</div><h3>'+it.nm+'</h3></div><div class="ck">✓</div></div><div class="q">'+it.q+'</div><ul>'+it.li.map(function(x){return '<li>'+x+'</li>'}).join('')+'</ul><div class="ft"><span class="pr">'+f(it.p)+'<small> 元'+(it.unit?'／'+it.unit:'')+'</small></span>'+(it.unit?'<span class="qt"><button data-d="-1">−</button><b>1</b> '+it.unit+'<button data-d="1">＋</button></span>':'')+'</div></div>');
+ c.onclick=function(e){if(e.target.dataset.d){e.stopPropagation();qty[it.id]=Math.max(1,Math.min(10,(qty[it.id]||1)+ +e.target.dataset.d));if(bund){bund=null;sel={}}sel[it.id]=true;render();return}if(bund){bund=null;sel={}}sel[it.id]=!sel[it.id];render()};G.appendChild(c)});
+var B=document.getElementById('bunds');
+BUNDS.forEach(function(b){var o=b.inc.reduce(function(s,i){return s+ITEMS.filter(function(x){return x.id==i})[0].p},0);b.o=o;
+ var c=el('<div class="bd" data-id="'+b.id+'">'+(b.tag?'<span class="tg">'+b.tag+'</span>':'')+'<h3>'+b.nm+'</h3><p>'+b.d+'</p><div class="pr">'+f(b.p)+'<s>'+f(o)+'</s></div><div class="sv">省 '+f(o-b.p)+' 元</div><button>選這個組合</button></div>');
+ c.onclick=function(){bund=(bund==b.id)?null:b.id;sel={};if(bund)b.inc.forEach(function(i){sel[i]=true});render()};B.appendChild(c)});
+var mem=document.getElementById('mem');mem.onchange=render;
+function calc(){var lines=[],tot=0,orig=0;
+ if(bund){var b=BUNDS.filter(function(x){return x.id==bund})[0];lines.push([b.nm+'（'+b.inc.length+' 件）',b.p]);tot=b.p;orig=b.o}
+ else{ITEMS.forEach(function(it){if(sel[it.id]){var q=it.unit?(qty[it.id]||1):1,p=(mem.checked?Math.round(it.p*0.8):it.p)*q;lines.push([it.no+' '+it.nm+(it.unit?' × '+q+' '+it.unit:'')+(mem.checked?'（會員 8 折）':''),p]);tot+=p;orig+=it.p*q}})}
+ return {lines:lines,tot:tot,orig:orig}}
+function render(){
+ document.querySelectorAll('.it').forEach(function(c){c.classList.toggle('on',!!sel[c.dataset.id]);var b=c.querySelector('.qt b');if(b)b.textContent=qty[c.dataset.id]||1});
+ document.querySelectorAll('.bd').forEach(function(c){c.classList.toggle('on',c.dataset.id==bund)});
+ var r=calc(),n=bund?1:Object.keys(sel).filter(function(k){return sel[k]}).length;
+ cnt.textContent=n;tot.textContent=f(r.tot);orig.textContent=r.orig>r.tot?f(r.orig):'';sav.textContent=r.orig>r.tot?'省 '+f(r.orig-r.tot):'';
+ var t='';r.lines.forEach(function(l){t+='<tr><td>'+l[0]+'</td><td>'+f(l[1])+'</td></tr>'});
+ t+=r.lines.length?'<tr class="tot"><td>合計</td><td>'+f(r.tot)+' 元</td></tr>':'<tr><td style="color:#999">還沒有選擇項目</td><td></td></tr>';lst.innerHTML=t}
+function txt(){var r=calc(),cc=(location.search.match(/[?&]c=([\w-]+)/)||[])[1],s='【客製化報告加購單】'+(cc?'（'+cc+'）':'')+'\n';r.lines.forEach(function(l){s+='・'+l[0]+'　'+f(l[1])+' 元\n'});
+ s+='合計：'+f(r.tot)+' 元\n稱呼：'+(nm.value||'（未填）')+'\n聯絡時段：'+tm.value+(nt.value?'\n補充：'+nt.value:'');return s}
+function toast(m){var t=document.getElementById('toast');t.textContent=m;t.style.display='block';setTimeout(function(){t.style.display='none'},1800)}
+bOpen.onclick=function(){pnl.classList.add('open')};bCls.onclick=function(){pnl.classList.remove('open')};
+pnl.onclick=function(e){if(e.target==pnl)pnl.classList.remove('open')};
+bSend.onclick=function(){if(!calc().lines.length){toast('請先選擇項目');return}window.open('https://line.me/R/oaMessage/@qpk4617k/?'+encodeURIComponent(txt()),'_blank')};
+bCopy.onclick=function(){var s=txt();(navigator.clipboard?navigator.clipboard.writeText(s):Promise.reject()).then(function(){toast('已複製')},function(){var a=document.createElement('textarea');a.value=s;document.body.appendChild(a);a.select();document.execCommand('copy');a.remove();toast('已複製')})};
+render();
+</script>
+</body></html>
