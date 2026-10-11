@@ -122,6 +122,27 @@ summary{cursor:pointer;font-weight:700;color:var(--brown2)}
 #odlg .bdy{padding:10px 14px;font-size:14px}
 
 table.mx{width:100%;min-width:660px;border-collapse:collapse;font-size:13.5px;margin:6px 0}
+/* 1011 方案比較版面優化 */
+table.mx{table-layout:fixed;min-width:760px}
+table.mx th:first-child,table.mx td.grp{width:64px}
+table.mx th:nth-child(2){width:26%}
+table.mx td.it{line-height:1.55;padding:8px 10px;font-size:14px}
+table.mx th{font-size:13px;padding:8px 4px}
+.mxhint{display:none;font-size:12.5px;color:#8A5E14;background:#FFF4DE;border-radius:8px;padding:4px 10px;margin:4px 0;text-align:center}
+@media (max-width:760px){
+ .mxhint{display:block}
+ .tscroll{position:relative;-webkit-overflow-scrolling:touch;border:1px solid #e5dccb;border-radius:8px}
+ table.mx{min-width:620px;font-size:12.5px;margin:0}
+ table.mx th:first-child,table.mx td.grp{display:none}
+ table.mx th:nth-child(2){width:120px}
+ table.mx th:nth-child(2),table.mx td.it{position:sticky;left:0;z-index:2;box-shadow:2px 0 4px rgba(0,0,0,.08)}
+ table.mx th:nth-child(2){background:#5E4A33;z-index:3}
+ table.mx td.it{font-size:12.5px;padding:7px 8px;line-height:1.45}
+ table.mx th{font-size:11.5px;padding:6px 2px}
+ table.mx td.st{font-size:15px;padding:6px 2px}
+ table.mx tr.fee td{font-size:12px;padding:6px 2px}
+ table.mx tr.fee td.it{background:#FFD98A}
+}
 table.mx th{background:#5E4A33;color:#fff;padding:7px 4px;font-weight:700;text-align:center;line-height:1.35;border:1px solid #5E4A33}
 table.mx td{border:1px solid #e5dccb;padding:6px 8px;text-align:center}
 table.mx td.grp{background:#FFEFD2;color:#5E4A33;font-weight:800;width:74px;letter-spacing:.05em}
@@ -339,14 +360,14 @@ details.tier td:last-child{font-weight:800;color:#A3182A}
 <section class="page">
 <div class="ph"><span class="arrow"></span><span class="bar"></span></div>
 <h2>方案比較</h2>
-<div class="tscroll"><table class="mx"><thead><tr><th>項目</th><th>內容</th><th>保單自己盤點<br>懶人包</th><th>保單<br>現況盤點</th><th>小綠芽 ABC<br>記帳 APP</th><th>風險需求問診<br>規劃建議</th><th>家庭<br>記帳陪跑</th><th>幸福財務<br>年度顧問</th></tr></thead><tbody>
+<div class="mxhint">👉 表格可以左右滑動，看全部方案</div><div class="tscroll"><table class="mx"><thead><tr><th>項目</th><th>內容</th><th>保單自己盤點<br>懶人包</th><th>保單<br>現況盤點</th><th>小綠芽 ABC<br>記帳 APP</th><th>風險需求問診<br>規劃建議</th><th>家庭<br>記帳陪跑</th><th>幸福財務<br>年度顧問</th></tr></thead><tbody>
 <tr class="g0"><td class="grp" rowspan="3">保單<br>整理</td><td class="it">自己整理保單的表格與工具</td><td class="st">★</td><td class="no"></td><td class="no"></td><td class="no"></td><td class="no"></td><td class="no"></td></tr>
 <tr><td class="it">協助跨公司調閱、核對保單 <span class="nt">註1</span></td><td class="no"></td><td class="st">★</td><td class="no"></td><td class="st">★</td><td class="no"></td><td class="st">★</td></tr>
 <tr><td class="it">保障報告＋保障圖＋健診摘要</td><td class="no"></td><td class="st">★</td><td class="no"></td><td class="st">★</td><td class="no"></td><td class="st">★</td></tr>
 <tr class="g0"><td class="grp" rowspan="3">規劃<br>建議</td><td class="it">60～90 分鐘深入聊聊</td><td class="no"></td><td class="no"></td><td class="no"></td><td class="st">★</td><td class="no"></td><td class="st">★</td></tr>
 <tr><td class="it">書面建議：先做什麼、預算怎麼排</td><td class="no"></td><td class="no"></td><td class="no"></td><td class="st">★</td><td class="no"></td><td class="st">★</td></tr>
 <tr><td class="it">30 天內有問題可以再問 2 次</td><td class="no"></td><td class="no"></td><td class="no"></td><td class="st">★</td><td class="no"></td><td class="st">★</td></tr>
-<tr class="g0"><td class="grp" rowspan="8">記帳<br>與陪跑</td><td class="it">每天自己記帳・帳戶管理（APP） <span class="nt">註4</span></td><td class="no"></td><td class="no"></td><td class="st">★</td><td class="no"></td><td class="no"></td><td class="no"></td></tr>
+<tr class="g0"><td class="grp" rowspan="7">記帳<br>與陪跑</td><td class="it">每天自己記帳・帳戶管理（APP） <span class="nt">註4</span></td><td class="no"></td><td class="no"></td><td class="st">★</td><td class="no"></td><td class="no"></td><td class="no"></td></tr>
 <tr><td class="it">金錢整理工作坊（送財務健康報告） <span class="nt">可另選購</span></td><td class="no"></td><td class="no"></td><td class="no"></td><td class="no"></td><td class="no"></td><td class="st">★</td></tr>
 <tr><td class="it">人生財富藍圖・財務模型試算</td><td class="no"></td><td class="no"></td><td class="no"></td><td class="no"></td><td class="no"></td><td class="st">★</td></tr>
 <tr><td class="it">調整後的保障與保費比較</td><td class="no"></td><td class="no"></td><td class="no"></td><td class="st">★</td><td class="no"></td><td class="st">★</td></tr>
