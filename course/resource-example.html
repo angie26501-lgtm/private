@@ -1,0 +1,254 @@
+<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex, nofollow">
+<title>財顧芸｜現有資源試算範例：一筆 100 萬，每月配息照顧家人</title><style>
+:root{--brown:#5E4A33;--gold:#E9A92A;--green:#2e8b57;--blue:#1E6FB8;--red:#A3182A;--muted:#6f6a62;--cream:#FFFBF1}
+*{box-sizing:border-box}body{margin:0;background:#F6F1E7;color:#2d2a26;font:15px/1.7 "Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif}
+.band{background:var(--green);color:#fff;font-size:13px;padding:6px 16px}
+main{max-width:920px;margin:0 auto;padding:16px 16px 40px}
+h1{color:var(--brown);font-size:23px;margin:6px 0 2px}.sub{color:var(--muted);font-size:13.5px}
+.card{background:#fff;border-radius:14px;padding:14px 16px;margin:14px 0;box-shadow:0 1px 4px rgba(0,0,0,.06)}
+h2{font-size:18px;color:var(--brown);margin:0 0 6px}h2 .n{display:inline-block;background:var(--gold);color:#fff;border-radius:50%;width:26px;height:26px;text-align:center;line-height:26px;font-size:14px;margin-right:6px}
+.q{margin:10px 0}.q label.t{display:block;font-weight:700;font-size:14.5px}.q small{color:var(--muted);font-size:12.5px;display:block}
+.q input[type=number],.q select{width:100%;max-width:320px;font-size:16px;padding:8px 10px;border:1.5px solid #d8cdb9;border-radius:8px;background:#fff}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:4px 18px}
+.pol{display:flex;gap:10px;align-items:flex-start;border:1.5px solid #eadfca;border-radius:12px;padding:10px 12px;margin:8px 0;background:var(--cream);cursor:pointer}
+.pol input{margin-top:5px;transform:scale(1.25)}.pol b{display:block}.pol small{display:block;color:var(--brown)}.pol em{display:block;font-style:normal;font-size:13px;color:var(--muted)}
+.pol.off{opacity:.6;cursor:default}
+.chips{display:flex;flex-wrap:wrap;gap:6px}.chips label{border:1.5px solid #d8cdb9;border-radius:999px;padding:4px 12px;font-size:14px;cursor:pointer;background:#fff}
+.chips input{margin-right:4px}
+.res{display:grid;grid-template-columns:1fr 1fr;gap:10px}.box{border-radius:12px;padding:12px;background:var(--cream);border:1.5px solid #eadfca}
+.box h3{margin:0 0 4px;font-size:15px;color:var(--brown)}.big{font-size:26px;font-weight:800}.keep .big{color:var(--green)}.sur .big{color:var(--blue)}
+table.t{width:100%;border-collapse:collapse;font-size:13.5px;margin-top:8px}table.t th,table.t td{border:1px solid #eadfca;padding:5px 6px;text-align:right}table.t th:first-child,table.t td:first-child{text-align:left}
+table.t thead th{background:#FFE7A8;color:var(--brown)}
+.alloc{display:flex;height:34px;border-radius:10px;overflow:hidden;margin:8px 0;font-size:12px;color:#fff;text-align:center}.alloc div{display:flex;align-items:center;justify-content:center;overflow:hidden;white-space:nowrap}
+.legend div{font-size:14px;margin:3px 0}.legend i{display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:6px;vertical-align:-1px}
+.hint{font-size:13px;color:var(--muted)}.warn{border:1.5px solid var(--red);color:var(--red);border-radius:10px;padding:8px 12px;font-size:13.5px;margin-top:12px}
+.empty{color:var(--muted);font-size:14px;padding:8px 0}
+.btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px}.btn{border:0;border-radius:10px;padding:10px 16px;font-size:15px;font-weight:700;cursor:pointer;text-decoration:none;display:inline-block}
+.btn.copy{background:var(--gold);color:#fff}.btn.line{background:#06C755;color:#fff}
+svg text{font-size:11px;fill:#6f6a62}
+.why{display:grid;grid-template-columns:1fr 1fr;gap:10px}.why div{border-left:5px solid #E9A92A;background:#FFFBF1;border-radius:10px;padding:8px 12px}.why b{display:block;color:#5E4A33}.why span{font-size:13.5px;color:#6f6a62}
+@media (max-width:760px){.why{grid-template-columns:1fr}}
+.plans{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:8px 0}.pl{border:1.5px solid #eadfca;border-radius:12px;padding:10px 12px;background:#fff}.pl b{display:block;color:#5E4A33}.pl span{font-size:13.5px;color:#6f6a62}.pl.rec{border-color:#E9A92A;background:#FFF8E6;box-shadow:0 0 0 2px #FFE1A0}.pl.rec b:after{content:"  ⭐ 建議先看";color:#b37400;font-size:12.5px}
+@media (max-width:760px){.plans{grid-template-columns:1fr}}
+.sign{text-align:center;font-size:13px;color:var(--muted);margin-top:18px}
+@media (max-width:760px){.grid2,.res{grid-template-columns:1fr}.big{font-size:22px}}
+.who{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:8px 0}.who div{background:#F6F2EA;border-radius:10px;padding:8px 10px}.who b{display:block;color:#5E4A33}.who span{font-size:13px;color:#6f6a62}
+.ch3{margin:18px 0 6px;color:#1F4E5F;font-size:17px}.small2{font-size:13px;color:#6f6a62;margin:8px 0}
+.ba{border:1px solid #e3ddd2;border-radius:14px;padding:12px 14px;margin:10px 0;background:#fff}.ba-h{display:flex;align-items:center;gap:8px;flex-wrap:wrap}.ba-h b{font-size:16px;color:#1F4E5F}.ba-h small{color:#8a8278;font-size:12.5px}.ba-n{display:inline-flex;width:24px;height:24px;border-radius:50%;background:#1F4E5F;color:#fff;align-items:center;justify-content:center;font-size:13px;font-weight:700}
+.ba-g{display:grid;grid-template-columns:1fr 36px 1fr;align-items:center;gap:6px;margin:10px 0}.ba-b,.ba-a{border-radius:12px;padding:10px;text-align:center}.ba-b{background:#F3F1EE}.ba-a{background:#EAF3F6;border:1px solid #cfe2ea}.ba-b small,.ba-a small{display:block;font-size:12px;color:#8a8278}.ba-a small{color:#1F4E5F;font-weight:700}.ba-b b,.ba-a b{display:block;font-size:30px;color:#9a9288;line-height:1.3}.ba-a b{color:#1F4E5F}.ba-b i,.ba-a i{font-style:normal;font-size:14px;margin-left:2px}.ba-b span,.ba-a span{font-size:12.5px;color:#6f6a62}.ba-ar{text-align:center;color:#3B8FA6;font-size:22px}
+.cbar{position:relative;display:flex;height:22px;border-radius:6px;overflow:visible;background:#EEF1F2;font-size:11.5px;color:#fff;font-weight:700}.cbar div{display:flex;align-items:center;justify-content:center;white-space:nowrap;overflow:hidden}.cbar div:first-child{border-radius:6px 0 0 6px}.redl{position:absolute;top:-3px;bottom:-3px;width:2px;background:#C0392B}
+.ba-r{text-align:right;font-size:12px;color:#C0392B;margin-top:3px}.ba-t{display:inline-block;margin-top:8px;background:#FFF1D6;color:#7a5410;border-radius:999px;padding:3px 12px;font-size:13px;font-weight:700}
+.tw2{overflow-x:auto;margin:10px 0}.ct td,.ct th{text-align:left!important;font-size:13.5px}.ct td:first-child{white-space:nowrap;color:#5E4A33}.ct td b{color:#1F4E5F}
+.roll{display:grid;grid-template-columns:repeat(8,1fr);gap:0;margin:12px 0;position:relative}.roll:before{content:"";position:absolute;left:4%;right:4%;top:15px;height:3px;background:#cfe2ea}.rn{position:relative;text-align:center;padding:0 4px}.rn b{display:inline-block;background:#fff;border:2px solid #3B8FA6;color:#1F4E5F;border-radius:999px;padding:3px 8px;font-size:13px;position:relative}.rn.on b{background:#C9973B;border-color:#C9973B;color:#fff}.rn span{display:block;font-weight:700;font-size:12.5px;color:#1F4E5F;margin-top:6px}.rn em{display:block;font-style:normal;font-size:12px;color:#6f6a62;margin-top:3px;line-height:1.45}
+.roll-q{background:#EAF3F6;border-radius:10px;padding:10px 14px;margin:8px 0}.roll-q b{display:block;color:#1F4E5F}.roll-q span{font-size:13.5px;color:#4a4640}
+.lnk{display:flex;flex-direction:column;gap:6px;margin:10px 0}.lnk a{display:block;background:#F6F2EA;border-left:4px solid #C9973B;border-radius:8px;padding:8px 12px;color:#5E4A33;text-decoration:none;font-weight:700;font-size:14px}.lnk a:hover{background:#FFF1D6}
+@media (max-width:760px){.who{grid-template-columns:1fr 1fr}.roll{grid-template-columns:1fr;gap:8px}.roll:before{left:22px;right:auto;top:6px;bottom:6px;width:3px;height:auto}.rn{display:grid;grid-template-columns:70px 1fr;text-align:left;align-items:start;gap:2px 8px}.rn b{grid-row:span 2;text-align:center}.rn span{margin-top:0}.ba-b b,.ba-a b{font-size:24px}.ba-g{grid-template-columns:1fr 24px 1fr}}
+.prd{margin:0 0 12px;background:#FFFBF1;border:1px solid #f1d9a6;border-radius:12px;padding:8px 12px}.prd summary{cursor:pointer;color:#5E4A33}.prt td:first-child,.prt th:first-child{text-align:left!important}.prt tr.sum td{font-weight:700;background:#FFF1D6}
+.rd{margin-top:10px;border-top:1px dashed #eadfca;padding-top:10px}.rd>b{color:#5E4A33}.rd-g{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:6px}.rd-g small{display:block;color:#8a8278;font-size:12.5px;margin-bottom:4px}.rd-g a{display:block;background:#F6F2EA;border-left:4px solid #C9973B;border-radius:8px;padding:7px 10px;margin:6px 0;color:#5E4A33;text-decoration:none;font-weight:700;font-size:14px}.rd-g a:hover{background:#FFF1D6}.rd-g em{font-style:normal;font-size:12px;background:#fff;border-radius:999px;padding:1px 8px;margin-right:6px;color:#8a5a00}.rd-g a span{display:block;font-weight:400;font-size:12px;color:#8a8278;margin-top:2px}
+@media (max-width:760px){.rd-g{grid-template-columns:1fr}}
+.gd-fab{position:fixed;right:16px;bottom:16px;z-index:90;border:0;border-radius:999px;background:#1F4E5F;color:#fff;font-weight:700;font-size:14.5px;padding:10px 16px;box-shadow:0 6px 18px rgba(0,0,0,.2);cursor:pointer}
+.gd-box{position:fixed;right:16px;bottom:70px;z-index:91;width:340px;max-width:calc(100vw - 32px);background:#fff;border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,.25);border-top:5px solid #E9A92A;overflow:hidden}
+.gd-h{display:flex;align-items:center;gap:8px;padding:10px 12px 4px}.gd-h b{color:#5E4A33;font-size:16px;flex:1}.gd-h span{font-size:12px;color:#8a8278}.gd-x{border:0;background:none;font-size:16px;cursor:pointer;color:#8a8278}
+.gd-b{padding:4px 14px 10px;font-size:14px;color:#4a4640;line-height:1.6}.gd-f{display:flex;justify-content:space-between;padding:8px 12px 12px;gap:8px}.gd-f button{border:1.5px solid #8B6F4E;background:#fff;color:#5E4A33;border-radius:999px;padding:6px 16px;font-size:14px;cursor:pointer}.gd-f button:disabled{opacity:.35}.gd-f .gd-nx{background:#E9A92A;border-color:#E9A92A;color:#fff;font-weight:700}
+.gd-on{outline:3px solid #E9A92A;outline-offset:4px;border-radius:14px;scroll-margin-top:16px;transition:outline-color .3s}
+@media (max-width:760px){.gd-box{left:12px;right:12px;width:auto;max-width:none;bottom:66px}.gd-fab{right:12px;bottom:12px}}
+@media print{.gd-fab,.gd-box{display:none!important}}
+.tw{position:relative}
+.pen{background:#F1F8FA;border:1px solid #cfe2ea;border-radius:12px;padding:10px 14px;margin:8px 0}.pen>b{display:block;color:#1F4E5F;margin-bottom:4px}.pen-r{display:flex;justify-content:space-between;gap:10px;border-bottom:1px dashed #cfe2ea;padding:4px 0;font-size:14px}.pen-r b{color:#1F4E5F;white-space:nowrap}.pen-r.sum b{color:#1F6F8B;font-size:16px}.pen-r.gap{border-bottom:0}.pen-r.gap b{color:#B0571A}.pen small,.curve>small{display:block;font-size:12.5px;color:#6f6a62;margin-top:6px}
+.curve{background:#F3F8EE;border-left:5px solid #2e8b57;border-radius:12px;padding:10px 14px;margin:12px 0}.curve>b{display:block;color:#245c3c;font-size:16px}.cv3{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:8px}.cv3 div{background:#fff;border-radius:10px;padding:8px 10px}.cv3 b{display:block;color:#245c3c;font-size:14px}.cv3 span{font-size:13px;color:#4a4640}
+.rn.on2 b{background:#2e8b57;border-color:#2e8b57;color:#fff}
+@media (max-width:760px){.cv3{grid-template-columns:1fr}}
+.goal{display:flex;flex-wrap:wrap;align-items:center;gap:4px 10px;background:#FFF8E6;border:1px dashed #E9A92A;border-radius:10px;padding:8px 12px;margin:10px 0 2px;font-size:13.5px;color:#4a4640}.goal>b{color:#7a5410}.goal span b{color:#B0571A;font-size:15px}.goal .gar{color:#C9973B;font-weight:700}
+.tie{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin:2px 0 8px;font-size:13px}.tie small{color:#8a8278;font-size:12.5px;margin-right:2px}
+.tie a{display:inline-flex;align-items:center;background:#FFF8E6;border:1px solid #f1d9a6;border-radius:999px;padding:3px 10px;color:#5E4A33;text-decoration:none;font-weight:700;font-size:13px}.tie a:hover{background:#FFF1D6}.tie a:after{content:" →";font-weight:400;margin-left:2px}
+.tie em{font-style:normal;font-size:11.5px;color:#8a5a00;background:#fff;border-radius:999px;padding:0 7px;margin-right:6px;border:1px solid #f1d9a6}
+.tie-ba{margin-top:6px}
+@media (min-width:1460px){.tie{position:absolute;top:0;left:calc(100% + 40px);width:250px;display:block;margin:0;background:#fff;border-radius:12px;padding:10px 12px;box-shadow:0 1px 4px rgba(0,0,0,.08);border-top:4px solid #E9A92A}.tie:before{content:"";position:absolute;left:-28px;top:16px;width:22px;border-top:2px dashed #E9A92A}.tie small{display:block;margin-bottom:4px}.tie a{display:block;border-radius:8px;border:0;border-left:4px solid #C9973B;background:#F6F2EA;padding:6px 9px;margin:6px 0;line-height:1.45}.tie em{display:inline-block;margin:0 0 2px}.tie-ba{left:calc(100% + 54px)}}
+@media print{.tie{position:static!important;width:auto!important}}
+.rs-top{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}.rs-top div{background:#EAF3F6;border-radius:10px;padding:10px;text-align:center}.rs-top b{display:block;color:#1F4E5F;font-size:17px}.rs-top span{font-size:12.5px;color:#6f6a62}
+.rs-flow{text-align:center;font-size:12.5px;color:#8a8278;margin:6px 0;border-top:1px solid #e3ddd2;line-height:0}.rs-flow span{background:#fff;padding:0 10px}
+.rs{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:14px}.rc{border:1px solid #dfe7ea;border-radius:12px;overflow:hidden;background:#fff;display:flex;flex-direction:column}
+.rc-h{background:var(--rc);color:#fff;padding:6px 10px}.rc-h small{display:block;font-size:11.5px;opacity:.85}.rc-h b{font-size:16px}.rc-s{background:var(--rb);font-size:12.5px;text-align:center;padding:4px;color:#4a4640}
+.vs{width:100%;max-width:170px;display:block;margin:6px auto 0}.rc-b{padding:6px 10px;flex:1}.rc-b>small{color:#8a8278;font-size:12px}.rc-b>b{display:block;font-size:17px;color:#3d3a36;border-bottom:1px dashed #e3ddd2;padding-bottom:4px}.rc-l{font-size:12.5px;color:var(--rc);font-weight:700;margin:4px 0}.rc-d{font-size:12.5px;color:#6f6a62;line-height:1.5}.rc-d span{color:#8a8278}
+.rc-f{margin:8px 10px 10px;background:var(--rc);color:#fff;border-radius:8px;text-align:center;font-size:13px;font-weight:700;padding:6px}
+.rs-bot{display:grid;grid-template-columns:3fr 1fr;gap:10px;margin-top:10px}.rs-bot>div{border-radius:10px;padding:10px 12px}.rs-b1{background:#E3EEF2}.rs-b2{background:#FFF6E3}.rs-bot b{display:block;color:#1F4E5F}.rs-b2 b{color:#7a5410}.rs-bot span{font-size:13px;color:#6f6a62}
+.card2{margin-top:18px;border-top:2px solid #eadfca;padding-top:6px}.sc-chips{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:8px 0}.sc-chips span{font-size:13px;color:#6f6a62}.sc-chips button{border:1.5px solid #1F6F8B;background:#fff;color:#1F4E5F;border-radius:999px;padding:6px 14px;font-size:14px;cursor:pointer}.sc-chips button.on{background:#1F6F8B;color:#fff}
+.sc3{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:10px 0}.sc{border:1.5px solid #e3ddd2;border-top:5px solid var(--sc);border-radius:12px;padding:10px 12px;background:#fff}.sc.best{background:#F1F8FA;box-shadow:0 0 0 2px #1F6F8B33}.sc>b{display:block;color:#3d3a36}.sc>small{font-size:12px;color:#8a8278}.sc-k{font-size:12.5px;color:#6f6a62;margin-top:6px}.sc-v{font-size:22px;font-weight:700;color:var(--sc)}.sc-v2{font-size:17px;font-weight:700;color:#3d3a36}.sc-n{font-size:12.5px;color:var(--sc);margin-top:4px}
+.amp{background:linear-gradient(90deg,#FFF4DC,#FFFBF1);border-left:5px solid #E9A92A;border-radius:10px;padding:10px 14px;margin:10px 0}.amp>b{display:block;color:#7a5410;font-size:16px}.amp span{font-size:14.5px;color:#4a4640}.amp span b{color:#B0571A}
+.bp{background:#13394A;color:#eef5f8;border-radius:14px;padding:14px 18px;margin-top:12px}.bp h3{margin:0 0 6px;color:#FFD98A}.bp ul{margin:4px 0 8px;padding-left:20px}.bp li{margin:3px 0;font-size:14px}.bp p{font-size:14px;margin:6px 0}.bp b{color:#FFD98A}
+@media (max-width:760px){.rs{grid-template-columns:1fr 1fr}.rs-bot,.sc3{grid-template-columns:1fr}}
+@media (max-width:420px){.rs{grid-template-columns:1fr 1fr;gap:8px}.rc-h b{font-size:14.5px}.rc-b>b{font-size:15px}}
+.retw{display:flex;align-items:center;gap:8px}.retw input{flex:1}.retu{color:#5E4A33;font-weight:700}.retc{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:8px 0 2px;font-size:13px;color:#6f6a62}.retc button{border:1px solid #E9A92A;background:#FFF8E6;color:#5E4A33;border-radius:999px;padding:4px 12px;font-size:13.5px;cursor:pointer}.retc button.on{background:#E9A92A;color:#fff}
+
+.hero{background:linear-gradient(135deg,#13394A,#1F6F8B);color:#fff;border-radius:16px;padding:18px 20px;margin:14px 0}.hero h1{margin:0 0 6px;font-size:24px;color:#FFD98A}.hero p{margin:4px 0;font-size:15px;opacity:.95}
+.next{background:#fff;border-radius:16px;padding:16px 18px;margin:14px 0;box-shadow:0 2px 10px rgba(94,74,51,.1)}.next h2{margin:0 0 6px;color:#5E4A33}.nx{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:8px}.nx a{display:block;text-decoration:none;border-radius:12px;padding:10px 12px;color:#fff}.nx a b{display:block;font-size:15.5px}.nx a span{font-size:13px;opacity:.92}
+.n1{background:#1F6F8B}.n2{background:#C9973B}.n3{background:#06C755}@media (max-width:760px){.nx{grid-template-columns:1fr}.hero h1{font-size:20px}}
+.vb{background:#2e8b57;color:#fff;font-size:13px;padding:6px 16px}
+.demo{background:#A3182A;color:#fff;text-align:center;font-size:13px;padding:4px}
+.inv{width:100%;border-collapse:collapse;font-size:14px;margin-top:6px}.inv th,.inv td{border-bottom:1px solid #eee3cf;padding:7px 6px;text-align:left;vertical-align:top}
+.inv thead th{background:#FFE7A8;color:var(--brown)}.inv td.r{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
+.inv .nm{display:inline-block;font-size:12px;border-radius:999px;padding:1px 8px;background:#EAF4EE;color:#2e7d4f;font-weight:700}
+.inv .nm.b{background:#E8F0FA;color:#1E6FB8}.inv .nm.g{background:#FFF1D6;color:#9a6a12}.inv .nm.r{background:#FBE9EA;color:#A3182A}
+.qg{display:grid;grid-template-columns:1fr 1fr;gap:4px 18px}
+.qg .q input{max-width:none}
+.cf{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:8px}
+.cfb{border-radius:12px;padding:12px;border:1.5px solid #eadfca;background:var(--cream)}
+.cfb h3{margin:0 0 6px;font-size:15px;color:var(--brown)}.cfb .big{font-size:26px;font-weight:800}
+.cfb.k .big{color:#6f6a62}.cfb.s .big{color:#1E6FB8}
+.flow{display:flex;height:30px;border-radius:8px;overflow:hidden;margin:6px 0;font-size:12px;color:#fff}
+.flow div{display:flex;align-items:center;justify-content:center;white-space:nowrap;overflow:hidden}
+.scb{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0}.scb button{font:inherit;font-size:13.5px;border:1.5px solid #d8cdb9;background:#fff;border-radius:999px;padding:5px 12px;cursor:pointer}
+.scb button.on{background:var(--gold);border-color:var(--gold);color:#fff;font-weight:700}
+.tf{border-left:4px solid var(--red);background:#FFF5F4;border-radius:8px;padding:8px 12px;font-size:13.5px;margin-top:10px}
+.tf b{color:var(--red)}
+.chk{list-style:none;padding:0;margin:6px 0;display:grid;grid-template-columns:1fr 1fr;gap:6px 14px}.chk li{font-size:14px;padding-left:24px;position:relative}
+.chk li:before{content:"☐";position:absolute;left:0;color:var(--gold);font-weight:700}
+.chk small{display:block;color:var(--muted);font-size:12.5px}
+@media (min-width:681px){.roll.r5{grid-template-columns:repeat(5,1fr)}}
+@media (max-width:680px){.qg,.cf,.chk{grid-template-columns:1fr}.inv{font-size:13px}}
+</style></head><body>
+<div class="vb">財顧芸｜現有資源試算範例 v1.0・2026/10/11（民國115年）</div>
+<div class="demo">範例畫面・人物與數字皆為示意（改編情境），非真實個人資料</div>
+<main>
+<div class="hero" id="g-hero"><h1>一筆 100 萬，讓它每月照顧家人</h1>
+<p>這是「現有資源試算」的範例：先把手上的資源<b>盤點清楚、每一筆取好名字</b>，再試算「保留舊保單」和「解約後改放配息水庫」，錢可以照顧到哪一年。</p>
+<p class="hint" style="color:#d7e8ee">改編情境：人物與數字皆為示意；只列規劃方向，不列商品內容；配息與報酬為試算假設，非保證。可以直接改下方的數字，看看結果怎麼變。</p></div>
+
+<div class="card" id="case"><h2>📖 51 歲的美玲老師</h2>
+<div class="who"><div><b>美玲・51 歲</b><span>公教人員，預計 53 歲退休、57 歲起領月退；女兒 18 歲，剛上大學</span></div>
+<div><b>一筆 100 萬</b><span>舊的還本型儲蓄保單準備解約，原本每年還本約 2.25 萬（每月約 1,875 元）</span></div>
+<div><b>女兒的保障</b><span>既有保費每年約 4 萬，2 年後降到約 1 萬；意外、標靶、大額自費還有空白</span></div>
+<div><b>心裡想的事</b><span>希望這 100 萬每月配息約 5,000，用來照顧女兒保障，不動薪水；退休到領月退中間的 4 年也要接得上</span></div></div>
+</div>
+
+<div class="card" id="g-inv"><h2><span class="n">1</span>資源盤點：先把每一筆錢取好名字</h2>
+<p class="hint">盤點不是只列金額，而是寫清楚「什麼時候能用」和「這筆錢要做什麼」。</p>
+<div style="overflow-x:auto"><table class="inv"><thead><tr><th>資源</th><th class="r">金額（示意）</th><th>什麼時候能用</th><th>這筆錢的名字</th></tr></thead><tbody>
+<tr><td>活存＋定存</td><td class="r">30 萬</td><td>隨時</td><td><span class="nm">水桶</span> 緊急預備金（約 6 個月生活費）</td></tr>
+<tr><td>舊還本型儲蓄保單（準備解約）</td><td class="r">約 100 萬</td><td>解約後 1～3 個月入帳</td><td><span class="nm b">配息水庫</span> 每月約 5,000，照顧女兒保障</td></tr>
+<tr><td>退休一次性給付</td><td class="r">100 萬（示意，以人事室試算為準）</td><td>53 歲退休時</td><td><span class="nm g">過渡水庫</span> 退休到月退之間 4 年的生活費</td></tr>
+<tr><td>月退休金</td><td class="r">每月 4.5 萬（示意，以人事室試算為準）</td><td>57 歲起終身</td><td><span class="nm g">長期水庫</span> 退休生活的主力</td></tr>
+<tr><td>女兒的既有保單（3 張）</td><td class="r">每年約 4 萬保費</td><td>2 張在 53 歲那年已繳費期滿</td><td><span class="nm">保障</span> 繳完後保障終身有效，每年多出約 3 萬空間</td></tr>
+<tr><td>自住房產</td><td class="r">—</td><td>不動用</td><td><span class="nm r">傳承</span> 日後再和專家一起談</td></tr>
+</tbody></table></div>
+<p class="hint" style="margin-top:6px">📌 盤點完會發現：這 100 萬<b>不必負責退休</b>（退休有一次性給付＋月退），所以可以放心讓它專心做一件事——每月照顧女兒的保障。</p>
+</div>
+
+<div class="card" id="g-q"><h2><span class="n">2</span>試算數字（可以直接修改）</h2>
+<div class="qg">
+<div class="q"><label class="t">目前每月收入（稅後，元）</label><input type="number" id="inc" value="65000"></div>
+<div class="q"><label class="t">目前每月生活支出（不含保費，元）</label><input type="number" id="exp" value="40000"></div>
+<div class="q"><label class="t">預計幾歲退休</label><input type="number" id="ret" value="53" min="51" max="65"><small>範例：53 歲</small></div>
+<div class="q"><label class="t">退休後每月生活費（元）</label><input type="number" id="rexp" value="38000"></div>
+<div class="q"><label class="t">月退休金（每月，元）</label><input type="number" id="pen" value="45000"><small>幾歲起領：<input type="number" id="penage" value="57" style="width:70px;display:inline-block;padding:4px 6px"> 歲</small></div>
+<div class="q"><label class="t">退休一次性給付（元）</label><input type="number" id="lump" value="1000000"></div>
+<div class="q"><label class="t">存款（元）</label><input type="number" id="cash" value="300000"></div>
+<div class="q"><label class="t">舊保單解約金（元）</label><input type="number" id="pv" value="1000000"><small>保留時每年還本：<input type="number" id="keepr" value="22500" style="width:90px;display:inline-block;padding:4px 6px"> 元</small></div>
+<div class="q"><label class="t">配息水庫假設年配息率（%）</label><input type="number" id="dy" value="6" step="0.5"><small>僅供試算；配息不保證，可能來自本金，淨值會波動</small></div>
+<div class="q"><label class="t">女兒保障（由您繳）</label><small>既有：每年 <input type="number" id="dp1" value="40000" style="width:90px;display:inline-block;padding:4px 6px"> 元，53 歲起降為 <input type="number" id="dp2" value="10000" style="width:80px;display:inline-block;padding:4px 6px"> 元<br>補強：每年 <input type="number" id="dp3" value="16000" style="width:80px;display:inline-block;padding:4px 6px"> 元（一年期，年增約 5%），由您繳到女兒 25 歲</small></div>
+<div class="q"><label class="t">物價上漲（%／年）</label><input type="number" id="inf" value="2" step="0.5"><small>月退每年調整：<input type="number" id="pinf" value="1" step="0.5" style="width:70px;display:inline-block;padding:4px 6px"> %（示意）</small></div>
+<div class="q"><label class="t">存款年利率（%）</label><input type="number" id="r0" value="1" step="0.5"></div>
+</div></div>
+
+<div class="card" id="g-res"><h2><span class="n">3</span>試算結果</h2>
+<div class="scb" id="g-sc"><span class="hint" style="align-self:center">🔍 情境：</span><button type="button" data-k="low">配息降到 4%</button><button type="button" data-k="drop">退休那年市場下跌 20%</button><button type="button" data-k="more">退休後每月多花 1 萬</button></div>
+<div id="res"></div></div>
+
+<div class="card" id="g-tl"><h2><span class="n">4</span>滾動式檢視：每年回頭看一次</h2>
+<div class="roll r5">
+<div class="rn"><b>51 歲</b><span>起點</span><em>解約金入帳、配息水庫開始；補強女兒保障</em></div>
+<div class="rn on2"><b>53 歲</b><span>退休</span><em>女兒 2 張保單已繳費期滿，每年多出約 3 萬配息空間</em></div>
+<div class="rn"><b>53～57</b><span>過渡期</span><em>一次性給付負責生活費，配息水庫不動本金</em></div>
+<div class="rn on"><b>57 歲</b><span>月退起領</span><em>長期水庫接手退休生活</em></div>
+<div class="rn"><b>女兒 25</b><span>交棒</span><em>補強保障交給女兒自己繳；配息可改為幫自己加薪</em></div>
+</div>
+<div class="roll-q"><b>每年檢視都會問這 5 題：</b><span>① 配息有沒有吃到本金？　② 水位到了嗎？　③ 人生目標有沒有變？　④ 市場與利率變了，閘門要不要調？　⑤ 保障跟得上家庭責任嗎？</span></div>
+</div>
+
+<div class="card" id="g-ck"><h2>🧾 換您盤點：先準備這些資料</h2>
+<ul class="chk"><li>存款、定存、外幣<small>活存與定存分開寫</small></li><li>投資（股票、基金、ETF）<small>目前市值即可</small></li>
+<li>保單現價（解約金）<small>保險公司 App 或客服可查</small></li><li>勞保／公保、退休金試算<small>勞保局 e 化服務、人事室</small></li>
+<li>貸款與每月還款<small>還有幾年</small></li><li>家人的保費由誰繳<small>繳到什麼時候</small></li>
+<li>近 3 年會用到的大筆支出<small>學費、換車、旅遊</small></li><li>房產與傳承的想法<small>先寫下來，日後再談</small></li></ul></div>
+
+<div class="next" id="next"><h2>🧭 換您了：三種開始的方式</h2><p class="hint">範例是別人的數字；您的保單、存款、收支不同，水庫的大小與放水時間也會不同。</p>
+<div class="nx"><a class="n1" href="https://lin.ee/oOvyuwU" target="_blank" rel="noopener"><b>💰 請芸琪開通我的現有資源試算</b><span>保單資料由芸琪帶入，您填收支與存款，3 分鐘看出自己的水庫</span></a>
+<a class="n2" href="https://angie26501-lgtm.github.io/private/course/service.html" target="_blank" rel="noopener"><b>📋 看服務方案與費用</b><span>保單檢視、規劃建議、年度顧問陪跑，依需要選擇</span></a>
+<a class="n3" href="https://lin.ee/oOvyuwU" target="_blank" rel="noopener"><b>💬 先聊聊，幫我盤點</b><span>不確定有哪些資源？把資料一起整理，再算資源怎麼分配</span></a></div>
+<p class="hint" style="margin-top:8px">想看另一個範例：<a href="blueprint-example.html">36 歲的小宇，同樣的收入讓每一筆錢都有工作 →</a></p></div>
+<div class="warn">⚠️ 本頁為情境範例，人物與數字為示意，配息與報酬為試算假設、非保證結果，不構成個別投資、保險、法律或稅務建議。解約前請先確認解約金、已繳保費與保障是否一併終止。</div>
+<div class="sign">財顧芸 陳芸琪｜資深顧問｜MDRT（2024–2025）｜RFC｜RFP｜RFA｜0918-800-852<br>🤖 本範例透過 AI 賦能應用整理，經顧問逐項核對</div>
+<button type="button" class="gd-fab" onclick="gdOpen(0)" aria-label="引導說明">🧭 引導說明</button>
+<div class="gd-box" id="gdBox" hidden><div class="gd-h"><b id="gdT"></b><span id="gdN"></span><button type="button" class="gd-x" onclick="gdClose()" aria-label="關閉">✕</button></div><div class="gd-b" id="gdB"></div><div class="gd-f"><button type="button" onclick="gdGo(-1)" id="gdP">上一步</button><button type="button" class="gd-nx" onclick="gdGo(1)" id="gdX">下一步</button></div></div>
+</main><script>
+function $(i){return document.getElementById(i)}
+function v(i){var x=parseFloat($(i).value);return isNaN(x)?0:x}
+function f(n){return Math.round(n).toLocaleString('zh-TW')}
+function wan(n){return (n<0?'－':'')+(Math.abs(n)/10000).toFixed(1)+' 萬'}
+var SC={};
+document.querySelectorAll('#g-sc button').forEach(function(b){b.onclick=function(){SC[b.dataset.k]=!SC[b.dataset.k];b.classList.toggle('on',SC[b.dataset.k]);calc()}});
+function sim(sur,o){var A0=51,L=o.cash,P=sur?o.pv:o.pv,rows=[],out=null,y;
+ for(var age=A0;age<=95;age++){var t=age-A0,fl=0,div=0;
+  if(age<o.ret)fl+=o.inc*12;else{if(age>=o.penage)fl+=o.pen*12*Math.pow(1+o.pinf,age-o.penage)}
+  if(age==o.ret)fl+=o.lump;
+  fl-=(age<o.ret?o.exp:o.rexp)*12*Math.pow(1+o.inf,t);
+  var dp=(age<o.ret?o.dp1:o.dp2);if(age<=74)fl-=dp;
+  if(age<=58)fl-=o.dp3*Math.pow(1.05,t);
+  if(sur){if(o.drop&&age==o.ret)P*=0.8;div=P*o.dy;fl+=div}else{fl+=o.keepr}
+  L=L*(1+(L>0?o.r0:0))+fl;
+  if(sur&&L<0&&P>0){var d=Math.min(P,-L);P-=d;L+=d}
+  rows.push({age:age,liq:L,pv:P,div:div,fl:fl});if(out===null&&L+(sur?P:o.pv)<0)out=age}
+ return {rows:rows,age:out}}
+function chart(a,b){var W=820,H=220,Pd=44,n=a.rows.length,xs=function(i){return Pd+(W-Pd-10)*i/(n-1)};
+ var vals=a.rows.map(function(r){return r.liq+r.pv}).concat(b.rows.map(function(r){return r.liq+r.pv}));
+ var mx=Math.max.apply(null,vals.concat([1])),mn=Math.min.apply(null,vals.concat([0]));var ys=function(x){return H-24-(H-40)*(x-mn)/(mx-mn||1)};
+ var p=function(r){return r.rows.map(function(z,i){return (i?'L':'M')+xs(i).toFixed(1)+' '+ys(z.liq+z.pv).toFixed(1)}).join(' ')};
+ var g='<svg viewBox="0 0 '+W+' '+H+'" width="100%" role="img" aria-label="資源走勢"><line x1="'+Pd+'" x2="'+(W-10)+'" y1="'+ys(0)+'" y2="'+ys(0)+'" stroke="#c9b48a" stroke-dasharray="4 3"/>';
+ a.rows.forEach(function(z,i){if(z.age%5==0)g+='<text x="'+xs(i)+'" y="'+(H-6)+'" text-anchor="middle" font-size="12">'+z.age+'歲</text>'});
+ g+='<text x="4" y="14" font-size="12">'+wan(mx)+'</text><path d="'+p(a)+'" fill="none" stroke="#9a9184" stroke-width="3"/><path d="'+p(b)+'" fill="none" stroke="#1E6FB8" stroke-width="3" stroke-dasharray="7 4"/></svg>';
+ return g+'<div class="hint">灰實線：保留舊保單｜藍虛線：解約後放配息水庫（存款＋水庫本金）</div>'}
+function calc(){var o={inc:v('inc'),exp:v('exp'),ret:Math.max(51,Math.min(65,Math.round(v('ret'))||53)),rexp:v('rexp'),pen:v('pen'),penage:v('penage')||57,lump:v('lump'),cash:v('cash'),pv:v('pv'),keepr:v('keepr'),
+  dy:(SC.low?4:v('dy'))/100,dp1:v('dp1'),dp2:v('dp2'),dp3:v('dp3'),inf:v('inf')/100,pinf:v('pinf')/100,r0:v('r0')/100,drop:!!SC.drop};
+ if(SC.more)o.rexp+=10000;
+ var K=sim(false,o),S=sim(true,o),m=o.pv*o.dy/12,mk=o.keepr/12;
+ var y1=o.dp1+o.dp3,y2=o.dp2+o.dp3*Math.pow(1.05,Math.max(0,o.ret-51)),cov1=m*12-y1,cov2=m*12-y2;
+ var at=function(r,a){for(var i=0;i<r.rows.length;i++)if(r.rows[i].age==a)return r.rows[i];return r.rows[r.rows.length-1]};
+ var ag=function(r){return r.age===null?'95 歲以上':r.age+' 歲'};var w8=function(x){return x<0?'已用完':'約 '+wan(x)};
+ var h='<div class="cf"><div class="cfb k"><h3>保留舊保單</h3><div class="big">每月約 '+f(mk)+' 元</div><div class="hint">保證還本；女兒保費要從薪水或存款另外支應</div></div>'
+  +'<div class="cfb s"><h3>解約後放配息水庫</h3><div class="big">每月約 '+f(m)+' 元</div><div class="hint">假設年配息 '+(o.dy*100).toFixed(1)+'%，非保證</div></div></div>';
+ var tot1=Math.max(y1,m*12),w1=function(x){return Math.max(0,x)/tot1*100};
+ h+='<h3 class="ch3" id="g-flow">💧 配息怎麼照顧女兒的保障</h3>';
+ [['53 歲以前',y1,o.dp1,cov1],['53 歲起',y2,o.dp2,cov2]].forEach(function(r){var tt=Math.max(r[1],m*12);
+  h+='<div style="font-size:14px;margin-top:6px"><b>'+r[0]+'</b>：一年配息約 '+f(m*12)+' 元，女兒保費約 '+f(r[1])+' 元 → '+(r[3]>=0?'<b style="color:#2e8b57">每年多出約 '+f(r[3])+' 元，存進水桶</b>':'<b style="color:#A3182A">每年差約 '+f(-r[3])+' 元，需從存款補</b>')+'</div>'
+  +'<div class="flow"><div style="width:'+(r[2]/tt*100)+'%;background:#8B6F4E">既有保費</div><div style="width:'+((r[1]-r[2])/tt*100)+'%;background:#E9A92A">補強</div>'+(r[3]>0?'<div style="width:'+(r[3]/tt*100)+'%;background:#2e8b57">多出 '+f(r[3])+'</div>':'')+'</div>'});
+ h+='<h3 class="ch3">📈 資源可以照顧到幾歲</h3><div class="cf"><div class="cfb k"><h3>保留舊保單</h3><div class="big">'+ag(K)+'</div><div class="hint">80 歲時 '+w8(at(K,80).liq+at(K,80).pv)+'</div></div>'
+  +'<div class="cfb s"><h3>解約後放配息水庫</h3><div class="big">'+ag(S)+'</div><div class="hint">80 歲時 '+w8(at(S,80).liq+at(S,80).pv)+'（水庫本金 '+w8(at(S,80).pv)+'）</div></div></div>'+chart(K,S);
+ var g1=at(S,o.ret),g2=at(S,Math.max(o.ret,o.penage-1));
+ h+='<h3 class="ch3">🌉 退休到月退的 '+Math.max(0,o.penage-o.ret)+' 年空窗</h3><p style="font-size:14px">退休時一次性給付 '+wan(o.lump)+' 進水桶；到 '+(o.penage-1)+' 歲時，存款約 <b>'+wan(g2.liq)+'</b>'+(g2.liq>=0?'，空窗期接得上，配息水庫本金不必動用。':'，<b style="color:#A3182A">空窗期接不上，需要提早安排</b>。')+'</p>';
+ h+='<div class="tf"><b>⚖️ 解約前要知道的取捨</b><br>舊保單是<b>保證</b>的還本；配息水庫的配息<b>不保證</b>，可能來自本金，淨值也會隨市場波動。'+(SC.drop?'退休那年下跌 20% 時，水庫本金與配息都會跟著變少，這也是為什麼要有「水桶」先撐著、不在低點賣出。':'')+'解約前也要先確認解約金、已繳保費，以及保障是否一併終止。</div>';
+ $('res').innerHTML=h}
+document.querySelectorAll('#g-q input').forEach(function(i){i.addEventListener('input',calc)});calc();
+var GD=[
+ ['👋 歡迎','這是「現有資源試算」的範例，約 3 分鐘看完。跟著下一步，看懂盤點、試算、結果怎麼讀。','#g-hero'],
+ ['🙋 美玲老師的起點','51 歲、一筆 100 萬舊保單解約金、女兒的保障還有空白；她希望每月配息約 5,000 照顧女兒。','#case'],
+ ['🧾 資源盤點','先列出每一筆資源：金額、什麼時候能用、這筆錢的名字。盤點完就知道，這 100 萬可以專心照顧女兒的保障。','#g-inv'],
+ ['✏️ 可以改數字','這一區的數字都可以直接改，例如配息率改成 5%、退休年齡改成 55 歲，下方結果會即時更新。','#g-q'],
+ ['💧 配息怎麼照顧女兒','上方比較每月現金流：保留舊保單約 1,875 元、配息水庫約 5,000 元。長條看配息付完女兒保費後，每年多出多少。','#res'],
+ ['🔍 情境按鈕','試試「配息降到 4%」「市場下跌 20%」「每月多花 1 萬」，看看結果怎麼變；再按一次取消。','#g-sc'],
+ ['⚖️ 解約前的取捨','保證還本換成不保證的配息，是取捨不是免費的午餐；所以要有水桶先撐著，並且每年檢視。','#res .tf'],
+ ['🔁 滾動式檢視','每年回頭看一次，第一題就是：配息有沒有吃到本金？','#g-tl'],
+ ['🧾 換您盤點','先準備這 8 項資料，芸琪幫您帶入保單、算出您自己的水庫。','#g-ck'],
+ ['🧭 換您了','範例是別人的數字。想知道您的資源怎麼分，從這三個方式開始。','#next']];
+var GI=0;
+function gdShow(){var g=GD[GI];document.querySelectorAll('.gd-on').forEach(function(e){e.classList.remove('gd-on')});
+ $('gdT').textContent=g[0];$('gdN').textContent=(GI+1)+'／'+GD.length;$('gdB').innerHTML=g[1];
+ $('gdP').disabled=GI==0;$('gdX').textContent=GI==GD.length-1?'完成':'下一步';
+ var e=document.querySelector(g[2]);if(e){e.classList.add('gd-on');e.scrollIntoView({behavior:'smooth',block:'start'})}}
+function gdOpen(i){GI=i||0;$('gdBox').hidden=false;gdShow()}
+function gdGo(d){if(GI+d>=GD.length){gdClose();return}GI=Math.max(0,GI+d);gdShow()}
+function gdClose(){$('gdBox').hidden=true;document.querySelectorAll('.gd-on').forEach(function(e){e.classList.remove('gd-on')});try{localStorage.setItem('res-ex-gd','1')}catch(e){}}
+(function(){var seen=null;try{seen=localStorage.getItem('res-ex-gd')}catch(e){}if(!seen)setTimeout(function(){gdOpen(0)},700)})();
+</script><!--nocopy:v1--><style>body.nocp{-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}body.nocp input,body.nocp textarea,body.nocp [contenteditable]{-webkit-user-select:text;user-select:text}</style><script>(function(){var d=document;function ok(t){t=t&&t.closest?t:(t&&t.parentElement);return t&&t.closest&&t.closest('input,textarea,select,[contenteditable],[data-allow-copy]')}
+function on(){d.body&&d.body.classList.add('nocp')}if(d.body)on();else d.addEventListener('DOMContentLoaded',on);
+['contextmenu','copy','cut','dragstart','selectstart'].forEach(function(t){d.addEventListener(t,function(e){if(!ok(e.target))e.preventDefault()},true)});
+d.addEventListener('keydown',function(e){var k=(e.key||'').toLowerCase(),m=e.ctrlKey||e.metaKey;if(ok(e.target)&&!e.shiftKey)return;if((m&&['c','x','a','s','u'].indexOf(k)>-1)||k=='f12'||(m&&e.shiftKey&&['i','j','c'].indexOf(k)>-1))e.preventDefault()},true)})();</script></body></html>
