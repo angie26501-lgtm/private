@@ -547,7 +547,8 @@ var PROD=[
  {card:3,opts:[{id:'acc_t',nm:'家庭記帳陪跑',v:'首次體驗 3 個月（個人，限一次）',p:3600},{id:'acc_q',nm:'家庭記帳陪跑',v:'季付（個人）',p:4200},{id:'acc_y',nm:'家庭記帳陪跑',v:'年付（個人）',p:15000},{id:'acc_f',nm:'家庭記帳陪跑',v:'家庭 月付 × 3 個月',p:5400}]},
  {card:5,opts:[{id:'abc',nm:'小綠芽 ABC 帳戶管理記帳 APP',v:'推出時通知我',p:0}]},
  {card:4,opts:[{id:'year_p',nm:'幸福財務年度顧問',v:'個人',p:39600,extra:1},{id:'year_f',nm:'幸福財務年度顧問',v:'家庭',p:59400,extra:1}]},
- {card:6,opts:[{id:'health',nm:'金錢整理工作坊',v:'實體課（送財務健康報告）',p:3600}]}];
+ {card:6,opts:[{id:'health',nm:'金錢整理工作坊',v:'實體課（送財務健康報告）',p:3600}]},
+ {card:9,opts:[{id:'ad1',nm:'客製化報告加購',v:'附件一 周年檢視報告書',p:8800},{id:'ad2',nm:'客製化報告加購',v:'附件二 大小水庫時間軸',p:3600},{id:'ad3',nm:'客製化報告加購',v:'附件三 藍圖簡報',p:6600},{id:'ad4',nm:'客製化報告加購',v:'附件四 保障現況分析',p:3600},{id:'ad5',nm:'客製化報告加購',v:'附件五 逐年試算 PDF（每份）',p:2400},{id:'ad6',nm:'客製化報告加購',v:'附件六 A4 一頁式匯整 PDF',p:1200},{id:'ad7',nm:'客製化報告加購',v:'附件七 健診原始報告 PDF',p:800},{id:'adb_ret',nm:'客製化報告加購',v:'退休安心組',p:5900},{id:'adb_fam',nm:'客製化報告加購',v:'全家溝通組',p:9600},{id:'adb_all',nm:'客製化報告加購',v:'完整七件組（附件一～七）',p:19800}]}];
 var OPT={};PROD.forEach(function(g){g.opts.forEach(function(o){OPT[o.id]=o})});
 var CART={};// id -> {extra:n}
 function f(n){return n.toLocaleString('en-US')}
@@ -558,6 +559,9 @@ function cartAdd(id){var g=grp(id);Object.keys(CART).forEach(function(k){if(k!==
  if(CART[id])delete CART[id];else CART[id]={extra:0};render();var b=document.getElementById('cartBtn');b.classList.remove('bump');void b.offsetWidth;b.classList.add('bump')}
 function ex(id,v){CART[id].extra=Math.max(0,parseInt(v,10)||0);render()}
 function tips(){var t=[],has=function(g){return Object.keys(CART).some(function(k){return grp(k)===g})};
+ var adS=Object.keys(CART).some(function(k){return /^ad[1-7]$/.test(k)}),adB=has('adb');
+ if((adS||adB)&&!(has('plan')||has('year')))t.push('客製化加購需以「規劃建議」或「年度顧問」的資料為基礎製作；已購買過的保戶可直接加購。年度顧問會員單項加購 8 折。');
+ if(adB&&adS)t.push('組合方案已包含部分單項，送出後芸琪會幫您核對，不會重複收費。');
  if(has('year')&&has('health'))t.push('年度顧問已包含金錢整理工作坊與財務健康報告，不用另外加選。');
  if(has('year')&&(has('plan')||has('acc')))t.push('年度顧問已包含「規劃建議」與「全年記帳陪跑」，不用另外加選。');
  if(has('year')&&has('rev'))t.push('年度顧問的規劃建議已包含保單現況盤點，可以不用另外加選。');
