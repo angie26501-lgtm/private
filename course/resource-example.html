@@ -86,7 +86,7 @@ svg text{font-size:11px;fill:#6f6a62}
 .vb{background:#2e8b57;color:#fff;font-size:13px;padding:6px 16px}
 .demo{background:#A3182A;color:#fff;text-align:center;font-size:13px;padding:4px}
 .inv{width:100%;border-collapse:collapse;font-size:14px;margin-top:6px}.inv th,.inv td{border-bottom:1px solid #eee3cf;padding:7px 6px;text-align:left;vertical-align:top}
-.inv thead th{background:#FFE7A8;color:var(--brown)}.inv td.r{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
+.inv thead th{background:#FFE7A8;color:var(--brown)}.inv th.r{text-align:right}.inv td.r{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
 .inv .nm{display:inline-block;font-size:12px;border-radius:999px;padding:1px 8px;background:#EAF4EE;color:#2e7d4f;font-weight:700}
 .inv .nm.b{background:#E8F0FA;color:#1E6FB8}.inv .nm.g{background:#FFF1D6;color:#9a6a12}.inv .nm.r{background:#FBE9EA;color:#A3182A}
 .qg{display:grid;grid-template-columns:1fr 1fr;gap:4px 18px}
@@ -107,7 +107,7 @@ svg text{font-size:11px;fill:#6f6a62}
 @media (min-width:681px){.roll.r5{grid-template-columns:repeat(5,1fr)}}
 @media (max-width:680px){.qg,.cf,.chk{grid-template-columns:1fr}.inv{font-size:13px}}
 </style></head><body>
-<div class="vb">財顧芸｜現有資源試算範例 v1.0・2026/10/11（民國115年）</div>
+<div class="vb">財顧芸｜現有資源試算範例 v1.1・2026/10/11（民國115年）</div>
 <div class="demo">範例畫面・人物與數字皆為示意（改編情境），非真實個人資料</div>
 <main>
 <div class="hero" id="g-hero"><h1>一筆 100 萬，讓它每月照顧家人</h1>
@@ -207,6 +207,20 @@ function chart(a,b){var W=820,H=220,Pd=44,n=a.rows.length,xs=function(i){return 
  a.rows.forEach(function(z,i){if(z.age%5==0)g+='<text x="'+xs(i)+'" y="'+(H-6)+'" text-anchor="middle" font-size="12">'+z.age+'歲</text>'});
  g+='<text x="4" y="14" font-size="12">'+wan(mx)+'</text><path d="'+p(a)+'" fill="none" stroke="#9a9184" stroke-width="3"/><path d="'+p(b)+'" fill="none" stroke="#1E6FB8" stroke-width="3" stroke-dasharray="7 4"/></svg>';
  return g+'<div class="hint">灰實線：保留舊保單｜藍虛線：解約後放配息水庫（存款＋水庫本金）</div>'}
+function cumBlock(K,S,o){var ck=0,cs=0,pts=[],ms=[1,5,10,20],tb='';
+ S.rows.forEach(function(r,i){ck+=o.keepr;cs+=r.div;pts.push([r.age,ck,cs]);});
+ var at=function(n){return pts[Math.min(n,pts.length)-1]};
+ ms.forEach(function(n){var p=at(n);tb+='<tr><td>領 '+n+' 年（'+p[0]+' 歲）</td><td class="r">'+f(p[1])+'</td><td class="r"><b>'+f(p[2])+'</b></td><td class="r" style="color:#2e8b57">＋'+f(p[2]-p[1])+'</td></tr>'});
+ var p80=pts.filter(function(p){return p[0]==80})[0];if(p80)tb+='<tr><td>領到 80 歲（共 '+(80-51+1)+' 年）</td><td class="r">'+f(p80[1])+'</td><td class="r"><b>'+f(p80[2])+'</b></td><td class="r" style="color:#2e8b57">＋'+f(p80[2]-p80[1])+'</td></tr>';
+ var W=820,H=200,Pd=50,n=pts.length,mx=Math.max(pts[n-1][1],pts[n-1][2],1),xs=function(i){return Pd+(W-Pd-10)*i/(n-1)},ys=function(v){return H-24-(H-40)*v/mx};
+ var g='<svg viewBox="0 0 '+W+' '+H+'" width="100%" role="img" aria-label="累積領取金額">';
+ pts.forEach(function(p,i){var bw=(W-Pd-10)/n*0.36;g+='<rect x="'+(xs(i)-bw)+'" y="'+ys(p[1])+'" width="'+bw+'" height="'+(H-24-ys(p[1]))+'" fill="#bdb4a6"/><rect x="'+xs(i)+'" y="'+ys(p[2])+'" width="'+bw+'" height="'+(H-24-ys(p[2]))+'" fill="#1E6FB8"/>';if(p[0]%5==0)g+='<text x="'+xs(i)+'" y="'+(H-6)+'" text-anchor="middle" font-size="12">'+p[0]+'歲</text>'});
+ g+='<text x="4" y="14" font-size="12">'+wan(mx)+'</text></svg>';
+ return '<h3 class="ch3" id="g-cum">💰 月現金流：每月領多少、累積領了多少</h3>'
+ +'<div class="cf"><div class="cfb k"><h3>保留舊保單・每月還本</h3><div class="big">'+f(o.keepr/12)+' 元</div><div class="hint">一年 '+f(o.keepr)+' 元，保證</div></div>'
+ +'<div class="cfb s"><h3>配息水庫・每月配息</h3><div class="big">'+f(S.rows[0].div/12)+' 元</div><div class="hint">一年 '+f(S.rows[0].div)+' 元，假設值、非保證</div></div></div>'
+ +'<div style="overflow-x:auto"><table class="inv" style="margin-top:8px"><thead><tr><th>累積領取</th><th class="r">保留舊保單</th><th class="r">配息水庫</th><th class="r">多領</th></tr></thead><tbody>'+tb+'</tbody></table></div>'
+ +g+'<div class="hint">灰柱：保留舊保單累積還本｜藍柱：配息水庫累積配息（依上方情境）。累積領取不含本金：舊保單本金保證保留；配息水庫本金會隨市場波動，被動用時配息跟著變少；舊保單還本年數依條款為準</div>'}
 function calc(){var o={inc:v('inc'),exp:v('exp'),ret:Math.max(51,Math.min(65,Math.round(v('ret'))||53)),rexp:v('rexp'),pen:v('pen'),penage:v('penage')||57,lump:v('lump'),cash:v('cash'),pv:v('pv'),keepr:v('keepr'),
   dy:(SC.low?4:v('dy'))/100,dp1:v('dp1'),dp2:v('dp2'),dp3:v('dp3'),inf:v('inf')/100,pinf:v('pinf')/100,r0:v('r0')/100,drop:!!SC.drop};
  if(SC.more)o.rexp+=10000;
@@ -221,6 +235,7 @@ function calc(){var o={inc:v('inc'),exp:v('exp'),ret:Math.max(51,Math.min(65,Mat
  [['53 歲以前',y1,o.dp1,cov1],['53 歲起',y2,o.dp2,cov2]].forEach(function(r){var tt=Math.max(r[1],m*12);
   h+='<div style="font-size:14px;margin-top:6px"><b>'+r[0]+'</b>：一年配息約 '+f(m*12)+' 元，女兒保費約 '+f(r[1])+' 元 → '+(r[3]>=0?'<b style="color:#2e8b57">每年多出約 '+f(r[3])+' 元，存進水桶</b>':'<b style="color:#A3182A">每年差約 '+f(-r[3])+' 元，需從存款補</b>')+'</div>'
   +'<div class="flow"><div style="width:'+(r[2]/tt*100)+'%;background:#8B6F4E">既有保費</div><div style="width:'+((r[1]-r[2])/tt*100)+'%;background:#E9A92A">補強</div>'+(r[3]>0?'<div style="width:'+(r[3]/tt*100)+'%;background:#2e8b57">多出 '+f(r[3])+'</div>':'')+'</div>'});
+ h+=cumBlock(K,S,o);
  h+='<h3 class="ch3">📈 資源可以照顧到幾歲</h3><div class="cf"><div class="cfb k"><h3>保留舊保單</h3><div class="big">'+ag(K)+'</div><div class="hint">80 歲時 '+w8(at(K,80).liq+at(K,80).pv)+'</div></div>'
   +'<div class="cfb s"><h3>解約後放配息水庫</h3><div class="big">'+ag(S)+'</div><div class="hint">80 歲時 '+w8(at(S,80).liq+at(S,80).pv)+'（水庫本金 '+w8(at(S,80).pv)+'）</div></div></div>'+chart(K,S);
  var g1=at(S,o.ret),g2=at(S,Math.max(o.ret,o.penage-1));
@@ -234,6 +249,7 @@ var GD=[
  ['🧾 資源盤點','先列出每一筆資源：金額、什麼時候能用、這筆錢的名字。盤點完就知道，這 100 萬可以專心照顧女兒的保障。','#g-inv'],
  ['✏️ 可以改數字','這一區的數字都可以直接改，例如配息率改成 5%、退休年齡改成 55 歲，下方結果會即時更新。','#g-q'],
  ['💧 配息怎麼照顧女兒','上方比較每月現金流：保留舊保單約 1,875 元、配息水庫約 5,000 元。長條看配息付完女兒保費後，每年多出多少。','#res'],
+ ['💰 月現金流累積領取','每月領多少、領了 1、5、10、20 年後累積多少：保留舊保單每月約 1,875 元，配息水庫每月約 5,000 元。','#g-cum'],
  ['🔍 情境按鈕','試試「配息降到 4%」「市場下跌 20%」「每月多花 1 萬」，看看結果怎麼變；再按一次取消。','#g-sc'],
  ['⚖️ 解約前的取捨','保證還本換成不保證的配息，是取捨不是免費的午餐；所以要有水桶先撐著，並且每年檢視。','#res .tf'],
  ['🔁 滾動式檢視','每年回頭看一次，第一題就是：配息有沒有吃到本金？','#g-tl'],
