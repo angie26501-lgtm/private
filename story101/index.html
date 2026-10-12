@@ -3881,5 +3881,24 @@ function startupGuide(){ let seen=false; try{ seen = localStorage.getItem(GKEY)=
   } else startupGuide();
 })();
 </script>
+<style id="nocopy-css">
+/* 防複製：一般內容不能反白選取；輸入框與文字框（分享文案、報名表）仍可正常選取複製 */
+body{-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
+input,textarea,[contenteditable="true"]{-webkit-user-select:text;user-select:text;-webkit-touch-callout:default}
+img{-webkit-user-drag:none;user-drag:none}
+</style>
+<script id="nocopy-js">
+(function(){
+  /* 防複製：停用右鍵選單、反白、複製／剪下、拖曳圖片與常見快捷鍵（輸入框內除外）。網站自己的「一鍵複製」按鈕不受影響 */
+  const ok = t => t && t.closest && t.closest("input,textarea,[contenteditable='true']");
+  const stop = e => { if(!ok(e.target)){ e.preventDefault(); return false; } };
+  ["contextmenu","selectstart","copy","cut","dragstart"].forEach(ev => document.addEventListener(ev, stop, true));
+  document.addEventListener("keydown", e => {
+    const k = (e.key||"").toLowerCase(), mod = e.ctrlKey || e.metaKey;
+    if(ok(e.target)) return;
+    if((mod && ["c","x","a","u","s"].includes(k)) || (mod && e.shiftKey && ["i","j","c"].includes(k)) || k === "f12"){ e.preventDefault(); }
+  }, true);
+})();
+</script>
 </body>
 </html>
