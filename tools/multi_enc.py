@@ -2,8 +2,8 @@
 """多組通行碼加密（母指令 §15／§21／§30）。
 
 一份內容用隨機 DEK 加密一次；每組通行碼各包一份 DEK（key slot），任一組都能解。
-- 通行碼順序固定：〔客戶, 教練一, 教練二, 顧問夥伴（Wader）〕，開啟紀錄依序記成「客戶／教練一／教練二／顧問夥伴」。
-- --ck：§30 雲華陀連結的客戶專屬金鑰檔（32 bytes）；只包進第 1 組（客戶）slot，教練 slot 不含。
+- 通行碼順序固定：〔客戶, 教練一, 教練二, 顧問夥伴（Wader）, 管理者（選填，顧問專屬）〕，開啟紀錄依序記成「客戶／教練一／教練二／顧問夥伴／管理者」。
+- --ck：§30 雲華陀連結的客戶專屬金鑰檔（32 bytes）；包進第 1 組（客戶）與第 5 組（管理者）slot，教練與顧問夥伴 slot 不含。
 - 外殼：tools/gate_shell_multi.html（含 §21 開啟紀錄、§15 教練聲明紅框、記住 30 天存 DEK）。
 
 用法：
@@ -51,7 +51,7 @@ def pack(payload, pws, ck=None):
     for j, pw in enumerate(pws):
         s, i = os.urandom(16), os.urandom(12)
         k = PBKDF2HMAC(algorithm=hashes.SHA256(), length=32, salt=s, iterations=ITER).derive(pw.encode())
-        wrapped = dek + ck if (ck and j == 0) else dek
+        wrapped = dek + ck if (ck and j in (0, 4)) else dek
         E["k"].append({"s": b64(s), "i": b64(i), "c": b64(AESGCM(k).encrypt(i, wrapped, None))})
     return E
 
