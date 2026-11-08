@@ -7,7 +7,7 @@
 - 外殼：tools/gate_shell_multi.html（含 §21 開啟紀錄、§15 教練聲明紅框、記住 30 天存 DEK）。
 
 用法：
-  python3 tools/multi_enc.py 明文報告.html 輸出.html --key xiaoan --log "保障現況分析｜xiaoan" 客戶碼 coach2026 coach2026b [--ck cloud_ck.bin]
+  python3 tools/multi_enc.py 明文報告.html 輸出.html --key xiaoan --log "保障現況分析｜xiaoan" 客戶碼 coach1012 coach1012b [--ck cloud_ck.bin]
 
 明文報告.html 需為 v4.12 以後格式：<body> 後是 <div id="gate">…</div>，之後是 <div id="app" hidden>…（加密內容）。
 """

@@ -17,11 +17,11 @@ try{if(window.__onUnlock)window.__onUnlock('')}catch(e){console.error(e)}
 try{var o=window.__amOk;if(o&&!o.__w){window.__amOk=async function(){await o.apply(this,arguments);try{if(document.body.classList.contains('advmode')&&window.__wSlot!==4)window.__wlog&&window.__wlog('顧問版開啟（'+(window.__wRole||'記住登入')+'→管理者密碼）')}catch(e){}};window.__amOk.__w=1}}catch(e){}}
 function ready(fn){if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',fn);else setTimeout(fn,0)}
 if(!(window.crypto&&crypto.subtle)){ready(function(){err('此瀏覽器不支援安全解密，請改用 Safari／Chrome 最新版開啟。')})}
-ready(function(){try{var s=JSON.parse(localStorage.getItem(K)||'null');if(s&&s.k&&s.exp>Date.now()){window.__wRole=s.r?s.r+"・記住登入":"";decWith(b64(s.k)).then(show).catch(function(){try{localStorage.removeItem(K)}catch(e){}})}}catch(e){}});
+ready(function(){try{var s=JSON.parse(localStorage.getItem(K)||'null');if(s&&s.k&&!s.c&&/^教練/.test(s.r||localStorage.getItem("wish-role")||"")){localStorage.removeItem(K);s=null}if(s&&s.k&&s.exp>Date.now()){window.__wRole=s.r?s.r+"・記住登入":"";decWith(b64(s.k)).then(show).catch(function(){try{localStorage.removeItem(K)}catch(e){}})}}catch(e){}});
 var busy=false;
 window.__gTry=async function(){if(busy)return;var cs=document.getElementById('gcons');if(cs&&!cs.checked){err('請先閱讀並勾選同意「個人資料保護告知」。');return}
 var pw=document.getElementById('gpw').value.replace(/\s+/g,'');if(!pw){err('請輸入通行碼。');return}
-busy=true;err('驗證中…');try{var dek=await dekFromPw(pw);var h=await decWith(dek);err('');try{if(document.getElementById('grem').checked)localStorage.setItem(K,JSON.stringify({k:bs(dek),exp:Date.now()+30*864e5,r:window.__wRole}))}catch(e){}
+busy=true;err('驗證中…');try{var dek=await dekFromPw(pw);var h=await decWith(dek);err('');try{if(document.getElementById('grem').checked)localStorage.setItem(K,JSON.stringify({k:bs(dek),exp:Date.now()+30*864e5,c:1,r:window.__wRole}))}catch(e){}
 show(h);if(window.__wSlot===4)setTimeout(function(){try{if(window.__advToggle&&!document.body.classList.contains('advmode')){window.__advToggle();var a=document.getElementById('am-pw');if(a){a.value=pw;window.__amOk&&window.__amOk()}}}catch(e){}},300)}catch(e){err('通行碼不正確，請再試一次。')}busy=false};
 window.__logout=function(){try{localStorage.removeItem(K)}catch(e){}location.reload()};
 })();</script><!--nocopy:v1--><style>body.nocp{-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}body.nocp input,body.nocp textarea,body.nocp [contenteditable]{-webkit-user-select:text;user-select:text}</style><script>(function(){var d=document;function ok(t){t=t&&t.closest?t:(t&&t.parentElement);return t&&t.closest&&t.closest('input,textarea,select,[contenteditable],[data-allow-copy]')}
