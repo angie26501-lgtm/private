@@ -455,7 +455,8 @@ button{font-family:inherit;cursor:pointer}
 .ask textarea{height:150px;font-size:14px;text-align:left}
 .need{position:fixed;inset:0;background:rgba(5,6,20,.82);display:none;place-items:center;z-index:27;padding:16px}
 .need.show{display:grid}
-.need .box{max-width:520px;width:100%;max-height:90vh;overflow:auto;background:linear-gradient(180deg,#2a2440,#141030);border:2px solid var(--gold);border-radius:18px;padding:20px 18px}
+.need .ndx{position:sticky;top:0;float:right;margin:-8px -6px 0 8px;width:36px;height:36px;border-radius:50%;border:1px solid var(--gold);background:#1b1735;color:var(--gold);font-size:20px;line-height:1;cursor:pointer;z-index:2}.need .ndx:hover{background:var(--gold);color:#1b1735}
+.need .box{position:relative;max-width:520px;width:100%;max-height:90vh;overflow:auto;background:linear-gradient(180deg,#2a2440,#141030);border:2px solid var(--gold);border-radius:18px;padding:20px 18px}
 .need h3{font-family:var(--serif);color:var(--gold2);font-size:21px;margin:0 0 2px;text-align:center}
 .need .gs{text-align:center;color:var(--sand2);font-size:13.5px;margin-bottom:8px}
 .sgin{width:100%;box-sizing:border-box;border-radius:10px;border:1px solid #4a4470;background:#14183a;color:var(--papyrus);padding:10px;font-size:15px;font-family:inherit}
@@ -532,6 +533,7 @@ footer{text-align:center;color:var(--sand2);font-size:12.5px;padding:24px 16px 4
 </div></div>
 <div class="ask" id="ask"><div class="box"><h3 id="askT"></h3><p id="askP"></p><div id="askF"></div><div class="acts" style="justify-content:center;margin-top:14px"><button class="btn" id="askOk">確定</button><button class="btn ghost" id="askNo">取消</button></div></div></div>
 <div class="need" id="need"><div class="box">
+  <button type="button" class="ndx" onclick="closeNeed()" aria-label="關閉" title="關閉">✕</button>
   <h3 id="ndH">📝 延伸學習・諮詢需求單</h3><div class="gs" id="ndS">勾一勾，幫你整理好需求，直接傳給顧問</div>
   <div id="ndBody"></div>
 </div></div>
@@ -3111,6 +3113,8 @@ function openNeed(){
   document.getElementById("need").classList.add("show");
 }
 function closeNeed(){ document.getElementById("need").classList.remove("show"); }
+document.addEventListener("click",function(e){ if(e.target&&e.target.id==="need") closeNeed(); });
+document.addEventListener("keydown",function(e){ if(e.key==="Escape"){ const n=document.getElementById("need"); if(n&&n.classList.contains("show")) closeNeed(); } });
 function needText(){
   const ts = [...document.querySelectorAll('input[name=ndt]:checked')].map(x=>NEED_TOPICS[+x.value][0]);
   const ws = [...document.querySelectorAll('input[name=ndw]:checked')].map(x=>x.value);
