@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW"><head><meta charset="utf-8">
+<meta name="googlebot" content="noindex, nofollow, noarchive">
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>財顧芸｜補教收入記錄</title>
+<style>
+:root{--navy:#0F4454;--gold:#C9A445;--brown:#5E4A33;--line:#e5dccb;--cream:#fbf7ef;--ok:#2e7d4f;--warn:#b26a00;--red:#A3182A;--ink:#2d2a26;--mut:#6f6a62}
+*{box-sizing:border-box}html,body{margin:0}
+body{background:#efe9df;color:var(--ink);font:15px/1.7 "Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;-webkit-text-size-adjust:100%}
+.wrap{max-width:980px;margin:16px auto;padding:0 12px 40px}
+.cover{background:linear-gradient(135deg,#0F4454,#123a47);color:#fff;border-radius:16px;padding:22px 24px}
+.cover .brand{color:#E8CF8A;letter-spacing:.16em;font-size:12.5px}
+.cover h1{font-family:"Noto Serif TC",serif;margin:6px 0 2px;font-size:24px}.cover .sub{color:#d9e4e7;font-size:14px}
+.card{background:#fff;border-radius:14px;padding:16px 18px;margin:14px 0;box-shadow:0 4px 18px rgba(0,0,0,.07)}
+h2{font-size:18px;color:var(--navy);margin:0 0 10px;border-left:5px solid var(--gold);padding-left:10px}
+label{display:block;font-size:13px;color:var(--mut)}
+input,select{width:100%;font:inherit;font-size:15px;padding:6px 8px;border:1px solid #cfc6b4;border-radius:8px;background:#fff;color:var(--ink)}
+input:focus,select:focus{outline:2px solid var(--gold);border-color:var(--gold)}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px 14px}
+.months{display:grid;grid-template-columns:repeat(4,1fr);gap:8px 12px;margin-top:10px}
+.mo{border:1px solid var(--line);border-radius:10px;padding:8px 10px;background:var(--cream)}
+.mo b{color:var(--brown);font-size:14px}.mo input{margin-top:4px}.mo input.r{font-size:13px;padding:4px 8px}
+.btn{font:inherit;font-size:14px;border:1px solid var(--navy);background:#fff;color:var(--navy);border-radius:18px;padding:5px 14px;cursor:pointer}
+.btn.main{background:var(--navy);color:#fff}
+.bar{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.hint{font-size:12.5px;color:var(--mut);margin:4px 0 0}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.k{background:var(--cream);border:1px solid var(--line);border-radius:12px;padding:10px 12px}
+.k small{display:block;color:var(--mut);font-size:12.5px}.k b{font-size:21px;color:var(--navy);font-variant-numeric:tabular-nums}
+.chart svg{display:block;width:100%;height:auto}
+.tw{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:14px;min-width:560px}
+th{background:var(--brown);color:#fff;font-weight:600;padding:6px 8px;text-align:right;white-space:nowrap}
+th:first-child{text-align:left}td{border-bottom:1px solid #eee;padding:6px 8px;text-align:right;font-variant-numeric:tabular-nums}
+td:first-child{text-align:left}td.l{text-align:left}
+.pos{color:var(--ok)}.neg{color:var(--red)}.tbd{color:#999}
+.hrow{display:grid;grid-template-columns:1fr 1.4fr 2fr auto;gap:8px;align-items:end;margin:4px 0}
+.hrow button{border:1px solid var(--line);background:#fff;border-radius:8px;padding:6px 10px;cursor:pointer;color:var(--red)}
+.note{background:#FFFBF1;border-left:4px solid var(--gold);border-radius:8px;padding:10px 14px;font-size:14px;margin-top:10px}
+.foot{font-size:12.5px;color:var(--mut);text-align:center;margin-top:18px}
+@media(max-width:720px){.grid,.kpis{grid-template-columns:1fr 1fr}.months{grid-template-columns:1fr 1fr}.hrow{grid-template-columns:1fr 1fr}.cover h1{font-size:21px}}
+@media print{.inp,.bar{display:none}.card{box-shadow:none;break-inside:avoid}}
+</style></head><body>
+<div class="wrap">
+<div class="cover"><div class="brand">財顧芸</div><h1>補教收入記錄</h1><div class="sub" id="who">逐月記下實際收到的補教收入，和編列數字對照，看出季節起伏</div></div>
+
+<div class="card inp"><h2>一、基本設定</h2>
+<div class="grid">
+<div><label>記錄名稱</label><input id="nm" placeholder="例：補教收入"></div>
+<div><label>年度（民國）</label><select id="yr"></select></div>
+<div><label>編列月額（元，可空白）</label><input id="bud" inputmode="numeric" placeholder="例：規劃書編列"></div>
+<div><label>編列來源</label><input id="bsrc" placeholder="例：115/09/30 規劃書"></div>
+</div>
+<div class="bar" style="margin-top:8px"><button class="btn" type="button" id="addY">＋ 新增年度</button><button class="btn" type="button" id="delY">刪除這個年度</button></div>
+</div>
+
+<div class="card inp"><h2>二、逐月實際收入</h2>
+<p class="hint" style="margin-top:-4px">還沒收到或尚未對帳的月份請留空，留空的月份不列入合計與月均。備註可寫時數、班別或來源檔名；<b>請不要填學生姓名</b>。</p>
+<div class="months" id="mos"></div>
+<div class="bar"><button class="btn main" type="button" id="go">重新計算</button><button class="btn" type="button" id="csv">下載記錄（CSV）</button><button class="btn" type="button" id="link">複製這份記錄的連結</button><button class="btn" type="button" id="reset">回到範例</button></div>
+<p class="hint" id="msg"></p>
+</div>
+
+<div class="card"><h2>三、這一年的情況</h2>
+<div class="kpis">
+<div class="k"><small>已記錄月份</small><b id="kN">—</b></div>
+<div class="k"><small>已記錄合計</small><b id="kS">—</b></div>
+<div class="k"><small>已記錄月均</small><b id="kA">—</b></div>
+<div class="k"><small>與編列累計差額</small><b id="kD">—</b></div>
+</div>
+<div class="chart" id="chart" style="margin-top:12px"></div>
+<div class="tw" style="margin-top:8px"><table id="mt"></table></div>
+<div class="note" id="seg"></div>
+</div>
+
+<div class="card"><h2>四、歷年對照</h2>
+<div class="tw"><table id="yt"></table></div>
+<div class="inp"><p class="hint">往年手上是全年數字（例如規劃書上的年度金額）時，可在這裡補上；有逐月記錄的年度會自動計算。</p>
+<div id="hist"></div><div class="bar" style="margin-top:6px"><button class="btn" type="button" id="addH">＋ 增加一筆往年全年數字</button></div></div>
+</div>
+
+<div class="foot">財顧芸 陳芸琪｜資深顧問｜0918-800-852<br>本頁為財務整理用途。資料只存在您的瀏覽器與連結網址 # 後面，不會傳到伺服器。</div>
+</div>
+
+<script>
+(function(){
+"use strict";
+var $=function(i){return document.getElementById(i)};
+var SAMPLE={nm:"範例補教收入",bud:100000,bsrc:"範例編列",years:{"115":{m:[60000,90000,110000,115000,105000,108000,150000,165000,null,null,null,null],r:[]}},hist:[["114",1100000,"範例：前一年全年"]]};
+var fmt=function(v){return Math.round(v).toLocaleString("en-US")};
+var num=function(s){s=String(s==null?"":s).replace(/[,\s元]/g,"");if(s==="")return null;var v=parseFloat(s);return isFinite(v)?v:null};
+var sg=function(v){return (v>0?"＋":v<0?"−":"")+fmt(Math.abs(v))};
+var D,cur;
+var KEY="fy-tutoring-v1";
+function save(){try{localStorage.setItem(KEY,JSON.stringify(D))}catch(e){}}
+function yearsSorted(){return Object.keys(D.years).sort(function(a,b){return a-b})}
+function fillYears(){var ys=yearsSorted();$("yr").innerHTML=ys.map(function(y){return '<option value="'+y+'">'+y+' 年</option>'}).join("");$("yr").value=cur}
+function buildMonths(){var Y=D.years[cur];var h=[];for(var i=0;i<12;i++){h.push('<div class="mo"><b>'+(i+1)+' 月</b><input class="v" data-i="'+i+'" inputmode="numeric" placeholder="待補"><input class="r" data-i="'+i+'" placeholder="備註"></div>')}
+  $("mos").innerHTML=h.join("");Array.prototype.forEach.call(document.querySelectorAll("#mos .v"),function(el){var v=Y.m[+el.dataset.i];el.value=v==null?"":fmt(v)});
+  Array.prototype.forEach.call(document.querySelectorAll("#mos .r"),function(el){el.value=(Y.r&&Y.r[+el.dataset.i])||""})}
+function hRow(a){a=a||["","",""];var r=document.createElement("div");r.className="hrow";r.innerHTML='<div><label>年度（民國）</label><input class="y" inputmode="numeric"></div><div><label>全年收入（元）</label><input class="v" inputmode="numeric"></div><div><label>來源／備註</label><input class="n"></div><button type="button">✕</button>';
+  r.querySelector(".y").value=a[0];r.querySelector(".v").value=a[1]?fmt(a[1]):"";r.querySelector(".n").value=a[2]||"";r.querySelector("button").onclick=function(){r.remove();read();run()};$("hist").appendChild(r)}
+function load(d){D=JSON.parse(JSON.stringify(d));D.years=D.years||{};D.hist=D.hist||[];if(!Object.keys(D.years).length)D.years[String(new Date().getFullYear()-1911)]={m:Array(12).fill(null),r:[]};
+  var ys=yearsSorted();cur=ys[ys.length-1];$("nm").value=D.nm||"";$("bud").value=D.bud?fmt(D.bud):"";$("bsrc").value=D.bsrc||"";
+  fillYears();buildMonths();$("hist").innerHTML="";D.hist.forEach(hRow)}
+function read(){D.nm=$("nm").value.trim();D.bud=num($("bud").value);D.bsrc=$("bsrc").value.trim();var Y=D.years[cur];
+  Array.prototype.forEach.call(document.querySelectorAll("#mos .v"),function(el){Y.m[+el.dataset.i]=num(el.value)});
+  Y.r=Array.prototype.map.call(document.querySelectorAll("#mos .r"),function(el){return el.value.trim()});
+  D.hist=Array.prototype.map.call($("hist").children,function(r){return [r.querySelector(".y").value.trim(),num(r.querySelector(".v").value),r.querySelector(".n").value.trim()]}).filter(function(x){return x[0]&&x[1]!=null})}
+function avg(a){var v=a.filter(function(x){return x!=null});return v.length?v.reduce(function(s,x){return s+x},0)/v.length:null}
+function run(){
+  read();save();var Y=D.years[cur],m=Y.m,bud=D.bud;
+  $("who").textContent=(D.nm||"補教收入")+"｜民國 "+cur+" 年";
+  var got=m.map(function(v,i){return [i,v]}).filter(function(x){return x[1]!=null});
+  var S=got.reduce(function(s,x){return s+x[1]},0);
+  $("kN").textContent=got.length+"／12";$("kS").textContent=fmt(S);$("kA").textContent=got.length?fmt(S/got.length):"—";
+  $("kD").textContent=bud?sg(S-bud*got.length):"未設編列";
+  // month table
+  var cum=0,rows=['<tr><th>月份</th><th>實際收到</th>'+(bud?'<th>編列</th><th>差額</th><th>累計差額</th>':'')+'<th>較上月</th><th style="text-align:left">備註</th></tr>'],prev=null;
+  for(var i=0;i<12;i++){var v=m[i];if(v!=null&&bud)cum+=v-bud;
+    rows.push('<tr><td>'+(i+1)+' 月</td><td'+(v==null?' class="tbd"':'')+'>'+(v==null?"待補":fmt(v))+'</td>'+(bud?'<td>'+fmt(bud)+'</td><td class="'+(v==null?"tbd":(v-bud>=0?"pos":"neg"))+'">'+(v==null?"—":sg(v-bud))+'</td><td class="'+(v==null?"tbd":(cum>=0?"pos":"neg"))+'">'+(v==null?"—":sg(cum))+'</td>':'')+'<td>'+(v!=null&&prev!=null?sg(v-prev):"—")+'</td><td class="l">'+esc((Y.r&&Y.r[i])||"")+'</td></tr>');
+    if(v!=null)prev=v}
+  rows.push('<tr style="font-weight:700"><td>已記錄合計</td><td>'+fmt(S)+'</td>'+(bud?'<td>'+fmt(bud*got.length)+'</td><td class="'+(S-bud*got.length>=0?"pos":"neg")+'">'+sg(S-bud*got.length)+'</td><td></td>':'')+'<td></td><td></td></tr>');
+  $("mt").innerHTML=rows.join("");
+  // chart
+  var mx=Math.max.apply(null,got.map(function(x){return x[1]}).concat([bud||0,1]));var step=Math.pow(10,Math.floor(Math.log10(mx/4)));[1,2,2.5,5,10].some(function(k){if(mx/(step*k)<=5){step*=k;return true}});var top=Math.ceil(mx/step)*step;
+  var X0=60,X1=625,Y0=200,Y1=20,bw=(X1-X0)/12,fy=function(v){return Y0-v/top*(Y0-Y1)};
+  var o=['<svg viewBox="0 0 640 250" role="img" aria-label="逐月補教收入">'];
+  for(var g=0;g<=top+1;g+=step)o.push('<line x1="'+X0+'" x2="'+X1+'" y1="'+fy(g).toFixed(1)+'" y2="'+fy(g).toFixed(1)+'" stroke="#ece6da"/><text x="'+(X0-8)+'" y="'+(fy(g)+4).toFixed(1)+'" text-anchor="end" font-size="11" fill="#6f6a62">'+(g>=10000?(g/10000)+"萬":g)+'</text>');
+  for(i=0;i<12;i++){var x=X0+i*bw+bw*.18,w=bw*.64,season=(i<2)?"#9fb7c0":(i===6||i===7)?"#C9A445":"#0F4454";
+    if(m[i]!=null){o.push('<rect x="'+x.toFixed(1)+'" y="'+fy(m[i]).toFixed(1)+'" width="'+w.toFixed(1)+'" height="'+(Y0-fy(m[i])).toFixed(1)+'" rx="3" fill="'+season+'"><title>'+(i+1)+' 月　'+fmt(m[i])+' 元</title></rect>');
+      if(w>26)o.push('<text x="'+(x+w/2).toFixed(1)+'" y="'+(fy(m[i])-4).toFixed(1)+'" text-anchor="middle" font-size="10" fill="#5E4A33">'+(m[i]/10000).toFixed(1)+'</text>')}
+    else o.push('<rect x="'+x.toFixed(1)+'" y="'+(Y0-14)+'" width="'+w.toFixed(1)+'" height="14" rx="3" fill="none" stroke="#c9c0ae" stroke-dasharray="3 3"><title>'+(i+1)+' 月　待補</title></rect>');
+    o.push('<text x="'+(X0+i*bw+bw/2).toFixed(1)+'" y="'+(Y0+16)+'" text-anchor="middle" font-size="11.5" fill="#5E4A33">'+(i+1)+'月</text>')}
+  if(bud)o.push('<line x1="'+X0+'" x2="'+X1+'" y1="'+fy(bud).toFixed(1)+'" y2="'+fy(bud).toFixed(1)+'" stroke="#A3182A" stroke-dasharray="6 4" stroke-width="1.5"/><text x="'+X1+'" y="'+(fy(bud)-5).toFixed(1)+'" text-anchor="end" font-size="11.5" fill="#A3182A">編列 '+fmt(bud)+'</text>');
+  o.push('<text x="'+X0+'" y="245" font-size="11" fill="#6f6a62">長條上方數字單位：萬元｜淺藍＝寒假月份（1–2 月）・金色＝暑假月份（7–8 月）・虛線框＝待補</text></svg>');
+  $("chart").innerHTML=o.join("");
+  // segments
+  var sgA=[["1～2 月（寒假、春節）",[0,1]],["3～6 月（學期中）",[2,3,4,5]],["7～8 月（暑假）",[6,7]],["9～12 月（學期中）",[8,9,10,11]]].map(function(z){var a=avg(z[1].map(function(i){return m[i]})),n=z[1].filter(function(i){return m[i]!=null}).length;return [z[0],a,n,z[1].length]});
+  var hi=got.length?got.reduce(function(a,b){return b[1]>a[1]?b:a}):null,lo=got.length?got.reduce(function(a,b){return b[1]<a[1]?b:a}):null;
+  $("seg").innerHTML='<b>分段月均</b><ul style="margin:4px 0;padding-left:20px">'+sgA.map(function(z){return '<li>'+z[0]+'：'+(z[1]==null?"待補":fmt(z[1])+" 元"+(z[2]<z[3]?"（已記錄 "+z[2]+"／"+z[3]+" 個月）":""))+'</li>'}).join("")+'</ul>'+(hi&&lo&&hi[0]!==lo[0]?'最高 '+(hi[0]+1)+' 月 '+fmt(hi[1])+' 元、最低 '+(lo[0]+1)+' 月 '+fmt(lo[1])+' 元，相差 '+(hi[1]/lo[1]).toFixed(2)+' 倍。單月起伏大時，不宜用任一單月推估全年。':'')+(bud&&got.length<12?'<div style="margin-top:6px">若待補月份照編列月額估：全年約 <b>'+fmt(S+bud*(12-got.length))+'</b> 元（試算假設）。</div>':'');
+  // year table
+  var Ys={};D.hist.forEach(function(h){Ys[h[0]]={v:h[1],src:h[2]||"全年數字",n:12}});
+  yearsSorted().forEach(function(y){var mm=D.years[y].m.filter(function(v){return v!=null});if(mm.length)Ys[y]={v:mm.reduce(function(s,x){return s+x},0),src:"逐月記錄"+(mm.length<12?"（"+mm.length+" 個月）":""),n:mm.length}});
+  var ks=Object.keys(Ys).sort(function(a,b){return a-b}),pv=null,yr=['<tr><th>年度</th><th>收入</th><th>月均</th><th>較前一年（月均）</th><th style="text-align:left">來源</th></tr>'];
+  ks.forEach(function(y){var z=Ys[y],a=z.v/z.n;yr.push('<tr><td>'+y+' 年</td><td>'+fmt(z.v)+'</td><td>'+fmt(a)+'</td><td class="'+(pv==null?"":(a-pv>=0?"pos":"neg"))+'">'+(pv==null?"—":sg(a-pv)+"（"+((a/pv-1)*100).toFixed(1)+"%）")+'</td><td class="l">'+esc(z.src)+'</td></tr>');pv=a});
+  $("yt").innerHTML=yr.join("");
+}
+function esc(t){return String(t).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
+function enc(s){return btoa(unescape(encodeURIComponent(JSON.stringify(s)))).replace(/\+/g,"-").replace(/\//g,"_").replace(/=+$/,"")}
+function dec(t){t=t.replace(/-/g,"+").replace(/_/g,"/");while(t.length%4)t+="=";return JSON.parse(decodeURIComponent(escape(atob(t))))}
+$("yr").onchange=function(){read();cur=$("yr").value;buildMonths();run()};
+$("addY").onclick=function(){read();var y=prompt("新增年度（民國）",String(+yearsSorted().slice(-1)[0]+1));if(!y||!/^\d{2,3}$/.test(y))return;if(!D.years[y])D.years[y]={m:Array(12).fill(null),r:[]};cur=y;fillYears();buildMonths();run()};
+$("delY").onclick=function(){if(yearsSorted().length<2){$("msg").textContent="至少保留一個年度";return}if(!confirm("刪除民國 "+cur+" 年的逐月記錄？"))return;delete D.years[cur];cur=yearsSorted().slice(-1)[0];fillYears();buildMonths();run()};
+$("addH").onclick=function(){hRow()};$("go").onclick=run;
+$("reset").onclick=function(){if(!confirm("回到範例會清掉這個瀏覽器裡的記錄，確定嗎？"))return;try{localStorage.removeItem(KEY)}catch(e){}history.replaceState(null,"",location.pathname);load(SAMPLE);run()};
+$("link").onclick=function(){read();var u=location.href.split("#")[0]+"#d="+enc(D);var done=function(){$("msg").textContent="已複製連結。資料存在網址 # 後面，不會傳到伺服器；請只分享給本人。"};
+  if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(u).then(done,function(){prompt("請複製這個連結",u)});else prompt("請複製這個連結",u)};
+$("csv").onclick=function(){read();var L=[["年度","月份","實際收到","編列","備註"]];yearsSorted().forEach(function(y){D.years[y].m.forEach(function(v,i){L.push([y,i+1,v==null?"":v,D.bud||"",(D.years[y].r&&D.years[y].r[i])||""])})});
+  D.hist.forEach(function(h){L.push([h[0],"全年",h[1],"",h[2]])});
+  var csv="﻿"+L.map(function(a){return a.map(function(x){x=String(x);return /[",\n]/.test(x)?'"'+x.replace(/"/g,'""')+'"':x}).join(",")}).join("\r\n");
+  var a=document.createElement("a");a.href=URL.createObjectURL(new Blob([csv],{type:"text/csv;charset=utf-8"}));a.download=(D.nm||"補教收入")+"-記錄.csv";document.body.appendChild(a);a.click();a.remove()};
+document.addEventListener("change",function(e){if(e.target.closest(".inp")&&e.target.id!=="yr")run()});
+var d=SAMPLE,fromLink=false;try{var mm=location.hash.match(/[#&]d=([^&]+)/);if(mm){d=dec(mm[1]);fromLink=true}}catch(e){}
+if(!fromLink){try{var s=localStorage.getItem(KEY);if(s)d=JSON.parse(s)}catch(e){}}
+else{KEY=KEY+"-"+(d.nm||"link")}
+load(d);run();
+})();
+</script>
+</body></html>

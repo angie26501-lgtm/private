@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW"><head><meta charset="utf-8">
+<meta name="googlebot" content="noindex, nofollow, noarchive">
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>財顧芸｜房貸本利攤試算</title>
+<style>
+:root{--navy:#0F4454;--gold:#C9A445;--brown:#5E4A33;--line:#e5dccb;--cream:#fbf7ef;--ok:#2e7d4f;--red:#A3182A;--ink:#2d2a26;--mut:#6f6a62}
+*{box-sizing:border-box}html,body{margin:0}
+body{background:#efe9df;color:var(--ink);font:15px/1.7 "Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;-webkit-text-size-adjust:100%}
+.wrap{max-width:980px;margin:16px auto;padding:0 12px 40px}
+.cover{background:linear-gradient(135deg,#0F4454,#123a47);color:#fff;border-radius:16px;padding:22px 24px}
+.cover .brand{color:#E8CF8A;letter-spacing:.16em;font-size:12.5px}
+.cover h1{font-family:"Noto Serif TC",serif;margin:6px 0 2px;font-size:24px}
+.cover .sub{color:#d9e4e7;font-size:14px}
+.card{background:#fff;border-radius:14px;padding:16px 18px;margin:14px 0;box-shadow:0 4px 18px rgba(0,0,0,.07)}
+h2{font-size:18px;color:var(--navy);margin:0 0 10px;border-left:5px solid var(--gold);padding-left:10px}
+h3{font-size:15px;color:var(--brown);margin:14px 0 6px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px 14px}
+label{display:block;font-size:13px;color:var(--mut)}
+input,select{width:100%;font:inherit;font-size:15px;padding:7px 9px;border:1px solid #cfc6b4;border-radius:8px;background:#fff;color:var(--ink)}
+input:focus,select:focus{outline:2px solid var(--gold);border-color:var(--gold)}
+.rows{display:flex;flex-direction:column;gap:6px}
+.row{display:grid;grid-template-columns:1fr 1fr 1.6fr auto;gap:8px;align-items:end}
+.row.two{grid-template-columns:1fr 1.4fr 1.6fr auto}
+.row button.x{border:1px solid var(--line);background:#fff;border-radius:8px;padding:7px 10px;cursor:pointer;color:var(--red)}
+.btn{font:inherit;font-size:14px;border:1px solid var(--navy);background:#fff;color:var(--navy);border-radius:18px;padding:5px 14px;cursor:pointer}
+.btn.main{background:var(--navy);color:#fff}
+.bar{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.hint{font-size:12.5px;color:var(--mut);margin:4px 0 0}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.k{background:var(--cream);border:1px solid var(--line);border-radius:12px;padding:10px 12px}
+.k small{display:block;color:var(--mut);font-size:12.5px}.k b{font-size:21px;color:var(--navy);font-variant-numeric:tabular-nums}
+.chart svg{display:block;width:100%;height:auto}
+.tw{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:14px;min-width:620px}
+th{background:var(--brown);color:#fff;font-weight:600;padding:6px 8px;text-align:right;white-space:nowrap}
+th:first-child,th:nth-child(2){text-align:left}
+td{border-bottom:1px solid #eee;padding:5px 8px;text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+td:first-child,td:nth-child(2){text-align:left}
+tr.ev td{background:#fff6e0}tr.fix td{background:#e9f3ee}
+details.yr{border:1px solid var(--line);border-radius:10px;margin:6px 0;overflow:hidden}
+details.yr>summary{cursor:pointer;padding:8px 12px;background:var(--cream);font-weight:700;color:var(--navy);display:flex;flex-wrap:wrap;gap:4px 16px;list-style:none}
+details.yr>summary::-webkit-details-marker{display:none}
+details.yr>summary:before{content:"＋";color:var(--gold)}details.yr[open]>summary:before{content:"－"}
+details.yr>summary span{font-weight:400;color:var(--mut);font-size:13.5px}
+.note{background:#FFFBF1;border-left:4px solid var(--gold);border-radius:8px;padding:10px 14px;font-size:14px;margin-top:10px}
+.foot{font-size:12.5px;color:var(--mut);text-align:center;margin-top:18px}
+.tag{display:inline-block;font-size:12px;border-radius:10px;padding:0 8px;margin-left:6px}
+.tag.ev{background:#fbe8c0;color:#8a5a00}.tag.fix{background:#d8ece1;color:var(--ok)}
+@media(max-width:720px){.grid{grid-template-columns:1fr 1fr}.kpis{grid-template-columns:1fr 1fr}.row,.row.two{grid-template-columns:1fr 1fr}.row .wide{grid-column:1/-1}.cover h1{font-size:21px}}
+@media print{.inp,.bar{display:none}.card{box-shadow:none;break-inside:avoid}details.yr{break-inside:avoid}}
+</style></head><body>
+<div class="wrap">
+<div class="cover"><div class="brand">財顧芸</div><h1>房貸本利攤試算</h1><div class="sub" id="who">輸入貸款條件，看每月還款、利息與本金餘額的變化</div></div>
+
+<div class="card inp"><h2>貸款條件</h2>
+<div class="grid">
+<div><label>貸款名稱</label><input id="nm" placeholder="例：自住房貸"></div>
+<div><label>貸款金額（元）</label><input id="amt" inputmode="numeric"></div>
+<div><label>相關開辦費用（元）</label><input id="fee" inputmode="numeric"></div>
+<div><label>還款起始日（第 1 期扣款日）</label><input id="st" type="date"></div>
+<div><label>貸款期數（月）</label><input id="n" inputmode="numeric"></div>
+<div><label>寬限期（月，只繳利息）</label><input id="gr" inputmode="numeric"></div>
+</div>
+
+<h3>利率（依期數分段）</h3>
+<div class="rows" id="rates"></div>
+<div class="bar" style="margin-top:6px"><button class="btn" type="button" id="addRate">＋ 增加利率分段</button></div>
+<p class="hint">第一段請從第 1 期開始。利率調整後，以「當時餘額、未還期數」重新計算月付。</p>
+
+<h3>提前還本（多還本金）</h3>
+<div class="rows" id="extras"></div>
+<div class="bar" style="margin-top:6px"><button class="btn" type="button" id="addExtra">＋ 增加一筆提前還本</button></div>
+<p class="hint">在該期正常扣款後另外還的本金。還款後期數不變、月付重新計算（與多數銀行做法相同；實際以銀行通知為準）。</p>
+
+<h3>依對帳單校正餘額</h3>
+<div class="rows" id="fixes"></div>
+<div class="bar" style="margin-top:6px"><button class="btn" type="button" id="addFix">＋ 增加一筆校正</button></div>
+<p class="hint">把某一期扣款後的本金餘額改成對帳單上的數字，之後各期由此往下算。</p>
+
+<div class="bar"><button class="btn main" type="button" id="go">重新試算</button><button class="btn" type="button" id="csv">下載明細（CSV，Excel 可開）</button><button class="btn" type="button" id="link">複製這組條件的連結</button><button class="btn" type="button" id="reset">回到範例</button></div>
+<p class="hint" id="msg"></p>
+</div>
+
+<div class="card"><h2>試算結果</h2>
+<div class="kpis">
+<div class="k"><small>目前月付（<span id="kNowLab">第 1 期</span>）</small><b id="kPay">—</b></div>
+<div class="k"><small>總還利息</small><b id="kInt">—</b></div>
+<div class="k"><small>總還款金額（含提前還本）</small><b id="kTot">—</b></div>
+<div class="k"><small>最後還款日</small><b id="kEnd">—</b></div>
+</div>
+<div class="kpis" style="margin-top:10px">
+<div class="k"><small>今天的本金餘額（推算）</small><b id="kBal">—</b></div>
+<div class="k"><small>已還期數／總期數</small><b id="kPaid">—</b></div>
+<div class="k"><small>提前還本合計</small><b id="kEx">—</b></div>
+<div class="k"><small>實際貸款利率（年，依第 1 期月付）</small><b id="kApr">—</b></div>
+</div>
+<div class="chart" id="chart" style="margin-top:12px"></div>
+<div class="note" id="sum"></div>
+</div>
+
+<div class="card"><h2>逐期明細</h2>
+<p class="hint" style="margin-top:-4px">依年度收合，點年份展開。<span class="tag ev">黃底</span>＝利率調整或提前還本；<span class="tag fix">綠底</span>＝依對帳單校正。</p>
+<div id="tbl"></div>
+</div>
+
+<div class="foot">財顧芸 陳芸琪｜資深顧問｜0918-800-852<br>本試算為財務整理用途，依輸入條件以本息均攤公式推算，實際金額以銀行對帳單與通知為準。</div>
+</div>
+
+<script>
+(function(){
+"use strict";
+var $=function(i){return document.getElementById(i)};
+var SAMPLE={nm:"範例房貸",amt:8000000,fee:0,st:"2024-01-15",n:360,gr:0,
+  rates:[[1,2.185]],extras:[],fixes:[]};
+var fmt=function(v){return Math.round(v).toLocaleString("en-US")};
+var num=function(s){s=String(s==null?"":s).replace(/[,\s元]/g,"");var v=parseFloat(s);return isFinite(v)?v:0};
+var roc=function(d){return (d.getFullYear()-1911)+"/"+("0"+(d.getMonth()+1)).slice(-2)+"/"+("0"+d.getDate()).slice(-2)};
+function addMonths(d,k){var y=d.getFullYear(),m=d.getMonth()+k,day=d.getDate();var last=new Date(y,m+1,0).getDate();return new Date(y,m,Math.min(day,last))}
+function rowEl(box,kind,a,b,c){
+  var r=document.createElement("div");r.className="row"+(kind==="rate"?"":" two");
+  var l1=kind==="rate"?"從第幾期起":"第幾期（扣款後）";
+  var l2=kind==="rate"?"年利率（%）":(kind==="extra"?"多還本金（元）":"對帳單本金餘額（元）");
+  r.innerHTML='<div><label>'+l1+'</label><input class="a" inputmode="numeric"></div><div><label>'+l2+'</label><input class="b" inputmode="decimal"></div><div class="wide"><label>備註</label><input class="c" placeholder="例：銀行調息、對帳單日期"></div><button class="x" type="button" title="刪除">✕</button>';
+  r.querySelector(".a").value=a==null?"":a;r.querySelector(".b").value=b==null?"":(kind==="rate"?b:fmt(b));r.querySelector(".c").value=c||"";
+  r.querySelector(".x").onclick=function(){r.remove();run()};
+  box.appendChild(r);
+}
+function readRows(box){return Array.prototype.map.call(box.children,function(r){return [Math.round(num(r.querySelector(".a").value)),num(r.querySelector(".b").value),r.querySelector(".c").value.trim()]}).filter(function(x){return x[0]>0})}
+function load(d){
+  $("nm").value=d.nm||"";$("amt").value=fmt(d.amt||0);$("fee").value=fmt(d.fee||0);$("st").value=d.st||"";$("n").value=d.n||"";$("gr").value=d.gr||0;
+  ["rates","extras","fixes"].forEach(function(k){$(k).innerHTML="";(d[k]||[]).forEach(function(x){rowEl($(k),k==="rates"?"rate":(k==="extras"?"extra":"fix"),x[0],x[1],x[2])})});
+  if(!$("rates").children.length)rowEl($("rates"),"rate",1,2,"");
+  $("who").textContent=d.nm?(d.nm+"｜本利攤試算"):"輸入貸款條件，看每月還款、利息與本金餘額的變化";
+}
+function state(){return {nm:$("nm").value.trim(),amt:num($("amt").value),fee:num($("fee").value),st:$("st").value,n:Math.round(num($("n").value)),gr:Math.round(num($("gr").value)),
+  rates:readRows($("rates")),extras:readRows($("extras")),fixes:readRows($("fixes"))}}
+function calc(s){
+  var rates=s.rates.slice().sort(function(a,b){return a[0]-b[0]});
+  var ex={},fx={},rn={};s.extras.forEach(function(e){ex[e[0]]=(ex[e[0]]||0)+e[1]});s.fixes.forEach(function(f){fx[f[0]]=f[1]});
+  rates.forEach(function(r){rn[r[0]]=r});
+  var st=new Date(s.st+"T00:00:00"),bal=s.amt,out=[],n=s.n,prevRate=null;
+  for(var k=1;k<=n&&bal>0.5;k++){
+    var y=0;rates.forEach(function(r){if(r[0]<=k)y=r[1]});
+    var r=y/100/12,rem=n-k+1,intr=bal*r,prin;
+    if(k<=s.gr)prin=0;
+    else{var pmt=r===0?bal/rem:bal*r/(1-Math.pow(1+r,-rem));prin=pmt-intr}
+    if(prin>bal)prin=bal;
+    var extra=Math.min(ex[k]||0,bal-prin);
+    bal=bal-prin-extra;
+    var fixed=null;if(fx[k]!=null){fixed=fx[k];bal=fixed}
+    out.push({k:k,d:addMonths(st,k-1),y:y,prin:prin,intr:intr,pay:prin+intr,extra:extra,bal:Math.max(bal,0),rateChg:(k>1&&prevRate!==null&&y!==prevRate),fixed:fixed,
+      memo:[(rn[k]&&k>1)?("利率 "+y+"%"+(rn[k][2]?"："+rn[k][2]:"")):"",extra?("提前還本 "+fmt(extra)):"",fixed!=null?("校正為對帳單餘額"):""].concat(s.extras.filter(function(e){return e[0]===k&&e[2]}).map(function(e){return e[2]}),s.fixes.filter(function(f){return f[0]===k&&f[2]}).map(function(f){return f[2]})).filter(Boolean).join("；")});
+    prevRate=y;
+  }
+  return out;
+}
+function apr(s,rows){if(!rows.length)return 0;var pv=s.amt-s.fee,pm=rows[0].pay,n=s.n,lo=0,hi=1;
+  if(pv<=0||pm<=0)return 0;for(var i=0;i<100;i++){var m=(lo+hi)/2,v=m===0?pm*n:pm*(1-Math.pow(1+m,-n))/m;if(v>pv)lo=m;else hi=m}return (lo+hi)/2*12*100}
+function chart(rows,s){
+  if(!rows.length){$("chart").innerHTML="";return}
+  var W=640,H=250,X0=70,X1=620,Y0=210,Y1=20,max=s.amt,t0=rows[0].d.getTime(),t1=rows[rows.length-1].d.getTime()||t0+1;
+  var step=Math.pow(10,Math.floor(Math.log10(max/4)));[1,2,2.5,5,10].some(function(m){if(max/(step*m)<=5){step*=m;return true}});
+  var top=Math.ceil(max/step)*step;
+  var fx=function(t){return X0+(t-t0)/((t1-t0)||1)*(X1-X0)},fy=function(v){return Y0-v/top*(Y0-Y1)};
+  var o=['<svg viewBox="0 0 '+W+' '+H+'" role="img" aria-label="本金餘額走勢">'];
+  for(var v=0;v<=top+1;v+=step){var yy=fy(v);o.push('<line x1="'+X0+'" x2="'+X1+'" y1="'+yy.toFixed(1)+'" y2="'+yy.toFixed(1)+'" stroke="#ece6da"/><text x="'+(X0-8)+'" y="'+(yy+4).toFixed(1)+'" text-anchor="end" font-size="11" fill="#6f6a62">'+(v>=10000?(v/10000)+"萬":v)+'</text>')}
+  var y0=rows[0].d.getFullYear(),y1=rows[rows.length-1].d.getFullYear(),gap=Math.max(1,Math.ceil((y1-y0+1)/8));
+  for(var yr=y0+1;yr<=y1;yr+=gap){var tx=fx(new Date(yr,0,1).getTime());o.push('<line x1="'+tx.toFixed(1)+'" x2="'+tx.toFixed(1)+'" y1="'+Y0+'" y2="'+(Y0+4)+'" stroke="#bfb5a3"/><text x="'+tx.toFixed(1)+'" y="'+(Y0+18)+'" text-anchor="middle" font-size="11" fill="#5E4A33">'+(yr-1911)+'</text>')}
+  var pts=[[fx(t0),fy(s.amt)]].concat(rows.map(function(r){return [fx(r.d.getTime()),fy(r.bal)]}));
+  var ps=pts.map(function(p){return p[0].toFixed(1)+","+p[1].toFixed(1)}).join(" ");
+  o.push('<polygon points="'+pts[0][0].toFixed(1)+','+Y0+' '+ps+' '+pts[pts.length-1][0].toFixed(1)+','+Y0+'" fill="#0F4454" opacity=".08"/><polyline points="'+ps+'" fill="none" stroke="#0F4454" stroke-width="2"/>');
+  rows.forEach(function(r){if(r.extra||r.fixed!=null){var x=fx(r.d.getTime()),y=fy(r.bal);o.push('<circle cx="'+x.toFixed(1)+'" cy="'+y.toFixed(1)+'" r="4.5" fill="#fff" stroke="'+(r.extra?"#A3182A":"#2e7d4f")+'" stroke-width="2"><title>第 '+r.k+' 期 '+roc(r.d)+'　'+(r.extra?"提前還本 "+fmt(r.extra)+" 元，":"")+'餘額 '+fmt(r.bal)+' 元</title></circle>');
+    if(r.extra)o.push('<text x="'+(x+8).toFixed(1)+'" y="'+(y-6).toFixed(1)+'" font-size="11.5" font-weight="700" fill="#A3182A">'+(r.d.getFullYear()-1911)+'/'+(r.d.getMonth()+1)+' 提前還本 '+fmt(r.extra/10000)+' 萬</text>')}});
+  var today=Date.now();if(today>t0&&today<t1){var tx2=fx(today);o.push('<line x1="'+tx2.toFixed(1)+'" x2="'+tx2.toFixed(1)+'" y1="'+Y1+'" y2="'+Y0+'" stroke="#C9A445" stroke-dasharray="4 3"/><text x="'+(tx2+4).toFixed(1)+'" y="'+(Y1+12)+'" font-size="11" fill="#8a6d1d">今天</text>')}
+  o.push('<text x="'+(pts[0][0]+6).toFixed(1)+'" y="'+(pts[0][1]-6).toFixed(1)+'" font-size="12" font-weight="700" fill="#0F4454">貸款 '+fmt(s.amt)+'</text></svg>');
+  $("chart").innerHTML=o.join("");
+}
+function table(rows){
+  var by={};rows.forEach(function(r){var y=r.d.getFullYear();(by[y]=by[y]||[]).push(r)});
+  var now=new Date(),h=[];
+  Object.keys(by).forEach(function(y){var rs=by[y],sp=0,si=0,se=0;rs.forEach(function(r){sp+=r.prin;si+=r.intr;se+=r.extra});
+    var open=(+y===now.getFullYear())?" open":"";
+    h.push('<details class="yr"'+open+'><summary>民國 '+(y-1911)+' 年<span>第 '+rs[0].k+'～'+rs[rs.length-1].k+' 期</span><span>還本 '+fmt(sp+se)+'</span><span>利息 '+fmt(si)+'</span><span>年底餘額 '+fmt(rs[rs.length-1].bal)+'</span></summary><div class="tw"><table><tr><th>期數</th><th>還款日期</th><th>年利率</th><th>還本金</th><th>還利息</th><th>月付總額</th><th>多還本金</th><th>本金餘額</th><th style="text-align:left">備註</th></tr>');
+    rs.forEach(function(r){h.push('<tr class="'+(r.fixed!=null?"fix":((r.extra||r.rateChg)?"ev":""))+'"><td>'+r.k+'</td><td>'+roc(r.d)+'</td><td>'+r.y.toFixed(5).replace(/0+$/,"").replace(/\.$/,"")+'%</td><td>'+fmt(r.prin)+'</td><td>'+fmt(r.intr)+'</td><td>'+fmt(r.pay)+'</td><td>'+(r.extra?fmt(r.extra):"")+'</td><td>'+fmt(r.bal)+'</td><td style="text-align:left">'+r.memo+'</td></tr>')});
+    h.push('</table></div></details>')});
+  $("tbl").innerHTML=h.join("");
+}
+var last={s:null,rows:[]};
+function run(){
+  var s=state(),msg=[];
+  if(s.amt<=0)msg.push("請輸入貸款金額");if(!s.st)msg.push("請選擇還款起始日");if(s.n<=0)msg.push("請輸入貸款期數");
+  if(s.rates.length&&Math.min.apply(null,s.rates.map(function(r){return r[0]}))!==1)msg.push("利率第一段請從第 1 期開始");
+  $("msg").textContent=msg.join("；");if(msg.length)return;
+  var rows=calc(s);last={s:s,rows:rows};
+  $("who").textContent=s.nm?(s.nm+"｜本利攤試算"):"輸入貸款條件，看每月還款、利息與本金餘額的變化";
+  var ti=0,tp=0,te=0;rows.forEach(function(r){ti+=r.intr;tp+=r.pay;te+=r.extra});
+  var now=new Date(),paid=rows.filter(function(r){return r.d<=now}),cur=paid.length?paid[paid.length-1]:null,nxt=rows[paid.length]||rows[rows.length-1];
+  $("kNowLab").textContent=nxt?("第 "+nxt.k+" 期"):"—";$("kPay").textContent=nxt?fmt(nxt.pay):"—";
+  $("kInt").textContent=fmt(ti);$("kTot").textContent=fmt(tp+te);$("kEnd").textContent=rows.length?roc(rows[rows.length-1].d):"—";
+  $("kBal").textContent=cur?fmt(cur.bal):fmt(s.amt);$("kPaid").textContent=paid.length+"／"+rows.length;$("kEx").textContent=fmt(te);$("kApr").textContent=apr(s,rows).toFixed(3)+"%";
+  var exTxt=s.extras.length?("；含提前還本 "+fmt(te)+" 元"):"";
+  $("sum").innerHTML="貸款 <b>"+fmt(s.amt)+"</b> 元、"+s.n+" 期（"+(s.n/12).toFixed(s.n%12?1:0)+" 年）"+(s.gr?"、寬限期 "+s.gr+" 個月":"")+exTxt+"。試算總利息約 <b>"+fmt(ti)+"</b> 元，最後一期為 "+(rows.length?roc(rows[rows.length-1].d):"—")+"。"+(cur?"截至今天已扣款 "+paid.length+" 期，本金餘額約 <b>"+fmt(cur.bal)+"</b> 元（推算）。":"");
+  chart(rows,s);table(rows);
+}
+function enc(s){return btoa(unescape(encodeURIComponent(JSON.stringify(s)))).replace(/\+/g,"-").replace(/\//g,"_").replace(/=+$/,"")}
+function dec(t){t=t.replace(/-/g,"+").replace(/_/g,"/");while(t.length%4)t+="=";return JSON.parse(decodeURIComponent(escape(atob(t))))}
+$("addRate").onclick=function(){rowEl($("rates"),"rate","","","")};
+$("addExtra").onclick=function(){rowEl($("extras"),"extra","","","")};
+$("addFix").onclick=function(){rowEl($("fixes"),"fix","","","")};
+$("go").onclick=run;
+$("reset").onclick=function(){history.replaceState(null,"",location.pathname);load(SAMPLE);run()};
+$("link").onclick=function(){var u=location.href.split("#")[0]+"#d="+enc(state());
+  var done=function(){$("msg").textContent="已複製連結。條件存在網址 # 後面，不會傳到伺服器；請只分享給本人。"};
+  if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(u).then(done,function(){prompt("請複製這個連結",u)});else prompt("請複製這個連結",u)};
+$("csv").onclick=function(){if(!last.rows.length)return;var L=[["期數","還款日期","年利率%","還本金","還利息","月付總額","多還本金","本金餘額","備註"]];
+  last.rows.forEach(function(r){L.push([r.k,roc(r.d),r.y,Math.round(r.prin),Math.round(r.intr),Math.round(r.pay),Math.round(r.extra),Math.round(r.bal),r.memo])});
+  var csv="﻿"+L.map(function(a){return a.map(function(x){x=String(x);return /[",\n]/.test(x)?'"'+x.replace(/"/g,'""')+'"':x}).join(",")}).join("\r\n");
+  var a=document.createElement("a");a.href=URL.createObjectURL(new Blob([csv],{type:"text/csv;charset=utf-8"}));a.download=(last.s.nm||"房貸")+"-本利攤明細.csv";document.body.appendChild(a);a.click();a.remove()};
+document.addEventListener("change",function(e){if(e.target.closest(".inp"))run()});
+var d=SAMPLE;try{var m=location.hash.match(/[#&]d=([^&]+)/);if(m)d=dec(m[1])}catch(e){d=SAMPLE}
+load(d);run();
+})();
+</script>
+</body></html>

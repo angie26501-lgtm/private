@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW"><head><meta charset="utf-8">
+<meta name="googlebot" content="noindex, nofollow, noarchive">
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>財顧芸｜投資型保單再平衡試算</title>
+<style>
+:root{--navy:#0F4454;--gold:#C9A445;--brown:#5E4A33;--line:#e5dccb;--cream:#fbf7ef;--ok:#2e7d4f;--warn:#b26a00;--red:#A3182A;--ink:#2d2a26;--mut:#6f6a62;--stk:#1E5A8E;--bnd:#2e7d4f;--cb:#8a6d1d}
+*{box-sizing:border-box}html,body{margin:0}
+body{background:#efe9df;color:var(--ink);font:15px/1.7 "Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;-webkit-text-size-adjust:100%}
+.wrap{max-width:980px;margin:16px auto;padding:0 12px 40px}
+.cover{background:linear-gradient(135deg,#0F4454,#123a47);color:#fff;border-radius:16px;padding:22px 24px}
+.cover .brand{color:#E8CF8A;letter-spacing:.16em;font-size:12.5px}
+.cover h1{font-family:"Noto Serif TC",serif;margin:6px 0 2px;font-size:24px}.cover .sub{color:#d9e4e7;font-size:14px}
+.card{background:#fff;border-radius:14px;padding:16px 18px;margin:14px 0;box-shadow:0 4px 18px rgba(0,0,0,.07)}
+h2{font-size:18px;color:var(--navy);margin:0 0 10px;border-left:5px solid var(--gold);padding-left:10px}
+h3{font-size:15px;color:var(--brown);margin:14px 0 6px}
+label{display:block;font-size:13px;color:var(--mut)}
+input,select{width:100%;font:inherit;font-size:15px;padding:6px 8px;border:1px solid #cfc6b4;border-radius:8px;background:#fff;color:var(--ink)}
+input:focus,select:focus{outline:2px solid var(--gold);border-color:var(--gold)}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px 14px}
+.hrow{display:grid;grid-template-columns:2.2fr 1fr 1fr 1.1fr 1.3fr .9fr auto;gap:6px;align-items:end;padding:6px 0;border-bottom:1px dashed #eee}
+.hrow button.x{border:1px solid var(--line);background:#fff;border-radius:8px;padding:6px 10px;cursor:pointer;color:var(--red)}
+.btn{font:inherit;font-size:14px;border:1px solid var(--navy);background:#fff;color:var(--navy);border-radius:18px;padding:5px 14px;cursor:pointer}
+.btn.main{background:var(--navy);color:#fff}
+.bar{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.hint{font-size:12.5px;color:var(--mut);margin:4px 0 0}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.k{background:var(--cream);border:1px solid var(--line);border-radius:12px;padding:10px 12px}
+.k small{display:block;color:var(--mut);font-size:12.5px}.k b{font-size:21px;color:var(--navy);font-variant-numeric:tabular-nums}
+.stack{display:flex;height:30px;border-radius:8px;overflow:hidden;font-size:12.5px;color:#fff;font-weight:700;margin:6px 0}
+.stack div{display:flex;align-items:center;justify-content:center;white-space:nowrap;overflow:hidden}
+.tgt{position:relative;height:16px;margin-top:-4px}.tgt i{position:absolute;top:0;width:2px;height:16px;background:var(--red)}.tgt span{position:absolute;top:0;font-size:11.5px;color:var(--red);transform:translateX(6px);white-space:nowrap}
+.tw{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:14px;min-width:560px}
+th{background:var(--brown);color:#fff;font-weight:600;padding:6px 8px;text-align:right;white-space:nowrap}
+th:first-child{text-align:left}td{border-bottom:1px solid #eee;padding:6px 8px;text-align:right;font-variant-numeric:tabular-nums}
+td:first-child{text-align:left}
+.pill{display:inline-block;font-size:12px;border-radius:10px;padding:0 9px;white-space:nowrap}
+.p-ok{background:#e3f2e8;color:var(--ok)}.p-ng{background:#fbe3e3;color:var(--red)}.p-tbd{background:#efefef;color:#666}.p-warn{background:#fff1d6;color:var(--warn)}
+.note{background:#FFFBF1;border-left:4px solid var(--gold);border-radius:8px;padding:10px 14px;font-size:14px;margin-top:10px}
+.note ul{margin:4px 0;padding-left:20px}
+.foot{font-size:12.5px;color:var(--mut);text-align:center;margin-top:18px}
+@media(max-width:720px){.grid{grid-template-columns:1fr 1fr}.kpis{grid-template-columns:1fr 1fr}.hrow{grid-template-columns:1fr 1fr}.hrow .nm{grid-column:1/-1}.cover h1{font-size:21px}}
+@media print{.inp,.bar{display:none}.card{box-shadow:none;break-inside:avoid}}
+</style></head><body>
+<div class="wrap">
+<div class="cover"><div class="brand">財顧芸</div><h1>投資型保單再平衡試算</h1><div class="sub" id="who">輸入目前持倉與再平衡規則，看比例是否在範圍內、偏離多少</div></div>
+
+<div class="card inp"><h2>一、目前持倉</h2>
+<div class="grid" style="grid-template-columns:2fr 1fr 1fr">
+<div><label>帳戶名稱</label><input id="nm" placeholder="例：變額年金"></div>
+<div><label>資料日期</label><input id="dt" placeholder="例：115/11/11"></div>
+<div><label>續期保費（每月，元）</label><input id="prem" inputmode="numeric"></div>
+</div>
+<div id="hold" style="margin-top:8px"></div>
+<div class="bar" style="margin-top:6px"><button class="btn" type="button" id="addH">＋ 增加一檔標的</button></div>
+<p class="hint">「產業」可留空（綜合型、債券型不用填）。「續期配置%」是每月續期保費投入各標的的比例，合計 100%。</p>
+</div>
+
+<div class="card inp"><h2>二、再平衡規則（留空＝待訂）</h2>
+<div class="grid">
+<div><label>目標股票占比（%）</label><input id="tS" inputmode="decimal" placeholder="待訂"></div>
+<div><label>可轉債歸類</label><select id="cb"><option value="">待訂（兩種都列）</option><option value="bond">算債券</option><option value="stock">算股票</option></select></div>
+<div><label>容許偏離（百分點）</label><input id="tol" inputmode="decimal" placeholder="待訂"></div>
+<div><label>單一標的上限（%）</label><input id="capH" inputmode="decimal" placeholder="待訂"></div>
+<div><label>單一產業上限（%）</label><input id="capI" inputmode="decimal" placeholder="待訂"></div>
+<div><label>單一外幣計價上限（%）</label><input id="capC" inputmode="decimal" placeholder="待訂"></div>
+<div><label>單次調整上限（占帳戶 %）</label><input id="capM" inputmode="decimal" placeholder="待訂"></div>
+<div><label>固定檢視月份</label><input id="mon" placeholder="待訂"></div>
+<div><label>提前檢視的條件</label><input id="trg" placeholder="待訂"></div>
+</div>
+<div class="bar"><button class="btn main" type="button" id="go">重新試算</button><button class="btn" type="button" id="csv">下載對照表（CSV）</button><button class="btn" type="button" id="link">複製這組資料的連結</button><button class="btn" type="button" id="reset">回到範例</button></div>
+<p class="hint" id="msg"></p>
+</div>
+
+<div class="card"><h2>三、目前比例</h2>
+<div class="kpis">
+<div class="k"><small>帳戶價值合計</small><b id="kT">—</b></div>
+<div class="k"><small>股票占比</small><b id="kS">—</b></div>
+<div class="k"><small>債券占比</small><b id="kB">—</b></div>
+<div class="k"><small>最大單一標的</small><b id="kH">—</b></div>
+</div>
+<div id="stk" style="margin-top:12px"></div>
+<div class="tw" style="margin-top:10px"><table id="ht"></table></div>
+</div>
+
+<div class="card"><h2>四、規則對照</h2>
+<div class="tw"><table id="rt"></table></div>
+<div class="note" id="mv"></div>
+</div>
+
+<div class="card"><h2>五、需要先想好的地方</h2><div id="cf"></div></div>
+
+<div class="foot">財顧芸 陳芸琪｜資深顧問｜0918-800-852<br>本試算為財務整理與紀律約定用途，不是投資建議；不推薦個別基金，不保證投資報酬。實際金額以保險公司資料為準。</div>
+</div>
+
+<script>
+(function(){
+"use strict";
+var $=function(i){return document.getElementById(i)};
+var TYPES={stock:"股票型",bond:"債券型",cb:"可轉債",cash:"貨幣／現金",other:"其他"};
+var SAMPLE={nm:"範例變額年金",dt:"",prem:10000,rule:{},
+ h:[["範例全球股票",400000,"stock","美元","",50],["範例美國股票",250000,"stock","美元","科技",30],["範例台灣股票",150000,"stock","新臺幣","",20],["範例投資等級債",200000,"bond","美元","",0],["範例可轉債",100000,"cb","美元","",0]]};
+var fmt=function(v){return Math.round(v).toLocaleString("en-US")};
+var pc=function(v){return (v*100).toFixed(1)+"%"};
+var num=function(s){s=String(s==null?"":s).replace(/[,\s元%]/g,"");if(s==="")return null;var v=parseFloat(s);return isFinite(v)?v:null};
+function hRow(a){
+  a=a||["",0,"stock","美元","",0];var r=document.createElement("div");r.className="hrow";
+  r.innerHTML='<div class="nm"><label>標的名稱</label><input class="n"></div><div><label>帳戶價值（元）</label><input class="v" inputmode="numeric"></div><div><label>類型</label><select class="t">'+Object.keys(TYPES).map(function(k){return '<option value="'+k+'">'+TYPES[k]+'</option>'}).join("")+'</select></div><div><label>計價幣別</label><input class="c" list="ccy"></div><div><label>產業（可空白）</label><input class="i"></div><div><label>續期配置%</label><input class="p" inputmode="decimal"></div><button class="x" type="button" title="刪除">✕</button>';
+  r.querySelector(".n").value=a[0];r.querySelector(".v").value=a[1]?fmt(a[1]):"";r.querySelector(".t").value=a[2];r.querySelector(".c").value=a[3];r.querySelector(".i").value=a[4]||"";r.querySelector(".p").value=a[5]||"";
+  r.querySelector(".x").onclick=function(){r.remove();run()};$("hold").appendChild(r);
+}
+var RK=["tS","cb","tol","capH","capI","capC","capM","mon","trg"];
+function load(d){$("nm").value=d.nm||"";$("dt").value=d.dt||"";$("prem").value=d.prem?fmt(d.prem):"";$("hold").innerHTML="";(d.h||[]).forEach(hRow);
+  var r=d.rule||{};RK.forEach(function(k){$(k).value=r[k]==null?"":r[k]})}
+function state(){var h=Array.prototype.map.call($("hold").children,function(r){return [r.querySelector(".n").value.trim(),num(r.querySelector(".v").value)||0,r.querySelector(".t").value,r.querySelector(".c").value.trim(),r.querySelector(".i").value.trim(),num(r.querySelector(".p").value)||0]}).filter(function(x){return x[0]||x[1]});
+  var rule={};RK.forEach(function(k){var v=$(k).value.trim();if(v!=="")rule[k]=v});
+  return {nm:$("nm").value.trim(),dt:$("dt").value.trim(),prem:num($("prem").value)||0,h:h,rule:rule}}
+var pill=function(s){return s===true?'<span class="pill p-ok">在範圍內</span>':s===false?'<span class="pill p-ng">超出</span>':s==="warn"?'<span class="pill p-warn">需留意</span>':'<span class="pill p-tbd">待訂</span>'};
+var last=null;
+function run(){
+  var s=state();last=s;$("msg").textContent="";
+  $("who").textContent=(s.nm?s.nm+"｜":"")+"再平衡試算"+(s.dt?"（資料日 "+s.dt+"）":"");
+  var T=s.h.reduce(function(a,x){return a+x[1]},0);if(!T){$("msg").textContent="請輸入至少一檔標的的帳戶價值";return}
+  var sum=function(f){return s.h.filter(f).reduce(function(a,x){return a+x[1]},0)};
+  var S0=sum(function(x){return x[2]==="stock"}),CB=sum(function(x){return x[2]==="cb"}),B0=sum(function(x){return x[2]==="bond"}),OT=T-S0-CB-B0;
+  var R=s.rule,tS=num(R.tS),tol=num(R.tol),capH=num(R.capH),capI=num(R.capI),capC=num(R.capC),capM=num(R.capM);
+  var cbMode=R.cb||"";
+  var S=cbMode==="stock"?S0+CB:S0,B=cbMode==="stock"?B0:B0+CB;
+  $("kT").textContent=fmt(T);
+  $("kS").textContent=cbMode?pc(S/T):(pc(S0/T)+"～"+pc((S0+CB)/T));
+  $("kB").textContent=cbMode?pc(B/T):(pc(B0/T)+"～"+pc((B0+CB)/T));
+  var big=s.h.slice().sort(function(a,b){return b[1]-a[1]})[0];$("kH").textContent=pc(big[1]/T);
+  // stack bar
+  var seg=[["股票型",S0,"var(--stk)"],["可轉債",CB,"var(--cb)"],["債券型",B0,"var(--bnd)"],["其他",OT,"#9a9a9a"]].filter(function(x){return x[1]>0});
+  var hs='<div class="stack">'+seg.map(function(x){return '<div style="width:'+(x[1]/T*100)+'%;background:'+x[2]+'" title="'+x[0]+' '+pc(x[1]/T)+'">'+x[0]+' '+pc(x[1]/T)+'</div>'}).join("")+'</div>';
+  if(tS!=null)hs+='<div class="tgt"><i style="left:'+tS+'%"></i><span style="left:'+tS+'%">目標股票 '+tS+'%</span></div>';
+  hs+='<p class="hint">'+(cbMode?"可轉債已依規則歸入"+(cbMode==="stock"?"股票":"債券")+"。":"可轉債歸類待訂，股票占比以「算債券～算股票」兩種口徑並列。")+'</p>';
+  $("stk").innerHTML=hs;
+  // holdings table
+  var pT=s.h.reduce(function(a,x){return a+x[5]},0);
+  $("ht").innerHTML='<tr><th>標的</th><th>類型</th><th>幣別</th><th>產業</th><th>帳戶價值</th><th>占比</th><th>續期配置</th></tr>'+s.h.map(function(x){return '<tr><td>'+esc(x[0])+'</td><td>'+TYPES[x[2]]+'</td><td>'+esc(x[3])+'</td><td>'+esc(x[4]||"—")+'</td><td>'+fmt(x[1])+'</td><td>'+pc(x[1]/T)+'</td><td>'+(x[5]?x[5]+"%":"—")+'</td></tr>'}).join("")+'<tr style="font-weight:700"><td>合計</td><td></td><td></td><td></td><td>'+fmt(T)+'</td><td>100%</td><td>'+(pT?pT+"%":"—")+'</td></tr>';
+  // groups
+  var grp=function(ix,skip){var g={};s.h.forEach(function(x){var k=x[ix];if(!k||(skip&&skip(k)))return;g[k]=(g[k]||0)+x[1]});return g};
+  var ind=grp(4),ccy=grp(3,function(k){return /臺幣|台幣|TWD/i.test(k)});
+  var top=function(g){var k=Object.keys(g).sort(function(a,b){return g[b]-g[a]})[0];return k?[k,g[k]]:null};
+  var tI=top(ind),tC=top(ccy);
+  // rules
+  var rows=[],dev=null,inTol=null;
+  if(tS!=null&&cbMode){dev=(S/T*100)-tS;inTol=tol!=null?Math.abs(dev)<=tol:null}
+  var sTxt=cbMode?pc(S/T):(pc(S0/T)+"（可轉債算債券）／"+pc((S0+CB)/T)+"（算股票）");
+  rows.push(["目標股債比",tS!=null?("股 "+tS+"%／債 "+(100-tS)+"%"):"待訂",sTxt,dev!=null?((dev>=0?"＋":"−")+Math.abs(dev).toFixed(1)+" 百分點"):"—",dev!=null&&tol!=null?inTol:null]);
+  rows.push(["可轉債歸類",cbMode?(cbMode==="stock"?"算股票":"算債券"):"待訂",pc(CB/T)+" 為可轉債","—",cbMode?true:null]);
+  rows.push(["容許偏離",tol!=null?tol+" 百分點":"待訂",dev!=null?Math.abs(dev).toFixed(1)+" 百分點":"—","—",dev!=null&&tol!=null?inTol:null]);
+  rows.push(["單一標的上限",capH!=null?capH+"%":"待訂",esc(big[0])+" "+pc(big[1]/T),capH!=null?diff(big[1]/T*100-capH):"—",capH!=null?big[1]/T*100<=capH:null]);
+  rows.push(["單一產業上限",capI!=null?capI+"%":"待訂",tI?esc(tI[0])+" "+pc(tI[1]/T):"未標產業",capI!=null&&tI?diff(tI[1]/T*100-capI):"—",capI!=null&&tI?tI[1]/T*100<=capI:(capI!=null?true:null)]);
+  rows.push(["單一外幣計價上限",capC!=null?capC+"%":"待訂",tC?esc(tC[0])+" "+pc(tC[1]/T):"無外幣",capC!=null&&tC?diff(tC[1]/T*100-capC):"—",capC!=null&&tC?tC[1]/T*100<=capC:(capC!=null?true:null)]);
+  var pS=s.h.filter(function(x){return x[2]==="stock"||(x[2]==="cb"&&cbMode==="stock")}).reduce(function(a,x){return a+x[5]},0);
+  rows.push(["續期保費配置",pT?("股票 "+pS+"%"):"未填",s.prem?("每月 "+fmt(s.prem)+" 元"):"—","—",(tS!=null&&pT)?(Math.abs(pS-tS)<=(tol||0)?true:"warn"):null]);
+  rows.push(["檢視頻率",R.mon?("每年 "+esc(R.mon)+" 月"):"待訂",R.trg?("提前："+esc(R.trg)):"提前條件待訂","—",R.mon?true:null]);
+  $("rt").innerHTML='<tr><th>規則</th><th>設定</th><th>目前</th><th>差距</th><th>判定</th></tr>'+rows.map(function(r){return '<tr><td>'+r[0]+'</td><td>'+r[1]+'</td><td>'+r[2]+'</td><td>'+r[3]+'</td><td>'+pill(r[4])+'</td></tr>'}).join("");
+  // move
+  var mv=[];
+  if(dev!=null){var amt=Math.abs(dev)/100*T;
+    mv.push("若調回目標股票 "+tS+"%：股票類需"+(dev>0?"減少":"增加")+"約 <b>"+fmt(amt)+"</b> 元，"+(dev>0?"轉入":"由")+"債券類"+(dev>0?"":"轉出")+"，調整規模占帳戶 <b>"+Math.abs(dev).toFixed(1)+"%</b>（推算）。");
+    if(tol!=null)mv.push(inTol?"目前偏離 "+Math.abs(dev).toFixed(1)+" 個百分點，在容許範圍 "+tol+" 個百分點內，依規則可以不調整。":"目前偏離超過容許範圍 "+tol+" 個百分點，依規則屬於可調整的情況。");
+    if(capM!=null&&Math.abs(dev)>0){var n=Math.ceil(Math.abs(dev)/capM);mv.push(Math.abs(dev)<=capM?"調整規模在單次上限 "+capM+"% 內。":"調整規模超過單次上限 "+capM+"%，依規則需分 <b>"+n+"</b> 次進行。")}
+  }else mv.push(tS==null?"目標股票占比待訂：訂定後，這裡會算出調回目標需要移動的金額與占帳戶比例。":"可轉債歸類待訂：訂定後才能判斷偏離多少。");
+  mv.push("把比例調回目標才叫再平衡；在股票之間換產業、或調高股票目標，屬於「產業調整」或「配置變更」，要分開標示。本試算不建議個別標的。");
+  $("mv").innerHTML=mv.map(function(x){return "<div>"+x+"</div>"}).join("");
+  // conflicts
+  var cf=[];
+  if(pT&&pT!==100)cf.push("續期配置合計為 "+pT+"%，不是 100%，請再核對。");
+  if(tS!=null&&pT&&pS>tS)cf.push("續期保費配置的股票比例（"+pS+"%）高於目標股票占比（"+tS+"%），每月扣款會持續把股票占比往上推，與目標方向相反。");
+  if(tS!=null&&pT&&pS<tS)cf.push("續期保費配置的股票比例（"+pS+"%）低於目標股票占比（"+tS+"%），每月扣款會持續把股票占比往下拉。");
+  if(tS==null&&pT&&(pS===100||pS===0))cf.push("續期保費 "+(pS===100?"全部配置在股票":"全部配置在股票以外")+"；目標股債比訂定時要一起看。");
+  if(!cbMode&&CB>0)cf.push("可轉債占 "+pc(CB/T)+"，歸類不同，股票占比相差 "+(CB/T*100).toFixed(1)+" 個百分點；容許偏離要在歸類定好後才判斷得了。");
+  if(tI&&capI==null)cf.push("最大產業為「"+esc(tI[0])+"」"+pc(tI[1]/T)+"，單一產業上限待訂。");
+  if(tC&&capC==null)cf.push("外幣計價以「"+esc(tC[0])+"」最多，占 "+pc(tC[1]/T)+"，外幣上限待訂。");
+  if(!cf.length)cf.push("目前沒有看到規則之間或規則與現況之間的矛盾。");
+  $("cf").innerHTML='<div class="note"><ul>'+cf.map(function(x){return "<li>"+x+"</li>"}).join("")+'</ul></div>';
+}
+function diff(v){return (v>0?"超出 ":"距上限 ")+Math.abs(v).toFixed(1)+" 百分點"}
+function esc(t){return String(t).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
+function enc(s){return btoa(unescape(encodeURIComponent(JSON.stringify(s)))).replace(/\+/g,"-").replace(/\//g,"_").replace(/=+$/,"")}
+function dec(t){t=t.replace(/-/g,"+").replace(/_/g,"/");while(t.length%4)t+="=";return JSON.parse(decodeURIComponent(escape(atob(t))))}
+$("addH").onclick=function(){hRow()};$("go").onclick=run;
+$("reset").onclick=function(){history.replaceState(null,"",location.pathname);load(SAMPLE);run()};
+$("link").onclick=function(){var u=location.href.split("#")[0]+"#d="+enc(state());var done=function(){$("msg").textContent="已複製連結。資料存在網址 # 後面，不會傳到伺服器；請只分享給本人。"};
+  if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(u).then(done,function(){prompt("請複製這個連結",u)});else prompt("請複製這個連結",u)};
+$("csv").onclick=function(){if(!last)return;var T=last.h.reduce(function(a,x){return a+x[1]},0);var L=[["標的","類型","幣別","產業","帳戶價值","占比%","續期配置%"]];
+  last.h.forEach(function(x){L.push([x[0],TYPES[x[2]],x[3],x[4],Math.round(x[1]),(x[1]/T*100).toFixed(2),x[5]])});
+  L.push([]);L.push(["規則","設定"]);RK.forEach(function(k){L.push([{tS:"目標股票%",cb:"可轉債歸類",tol:"容許偏離(百分點)",capH:"單一標的上限%",capI:"單一產業上限%",capC:"單一外幣上限%",capM:"單次調整上限%",mon:"固定檢視月份",trg:"提前檢視條件"}[k],last.rule[k]||"待訂"])});
+  var csv="﻿"+L.map(function(a){return a.map(function(x){x=String(x==null?"":x);return /[",\n]/.test(x)?'"'+x.replace(/"/g,'""')+'"':x}).join(",")}).join("\r\n");
+  var a=document.createElement("a");a.href=URL.createObjectURL(new Blob([csv],{type:"text/csv;charset=utf-8"}));a.download=(last.nm||"再平衡")+"-對照表.csv";document.body.appendChild(a);a.click();a.remove()};
+document.addEventListener("change",function(e){if(e.target.closest(".inp"))run()});
+var d=SAMPLE;try{var m=location.hash.match(/[#&]d=([^&]+)/);if(m)d=dec(m[1])}catch(e){d=SAMPLE}
+load(d);run();
+})();
+</script>
+<datalist id="ccy"><option value="美元"><option value="新臺幣"><option value="歐元"><option value="日圓"><option value="澳幣"><option value="人民幣"></datalist>
+</body></html>
