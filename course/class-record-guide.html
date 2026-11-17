@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive"><meta name="googlebot" content="noindex, nofollow, noarchive">
+<title>錄課上傳操作卡｜實體課補課影片</title>
+<style>
+:root{--navy:#1f3a5f;--amber:#e0a030;--bg:#f7f8fa;--line:#dde3ea;--ok:#2e8b57}
+*{box-sizing:border-box}
+body{margin:0;font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;background:var(--bg);color:#222;font-size:17px;line-height:1.6}
+header{background:var(--navy);color:#fff;padding:18px 16px 14px}
+header h1{margin:0;font-size:21px}
+header p{margin:4px 0 0;font-size:14px;opacity:.85}
+nav{display:flex;position:sticky;top:0;background:#fff;border-bottom:1px solid var(--line);z-index:5}
+nav button{flex:1;border:0;background:none;padding:13px 4px;font-size:15px;color:#555;border-bottom:3px solid transparent;font-family:inherit}
+nav button.on{color:var(--navy);font-weight:700;border-bottom-color:var(--amber)}
+main{max-width:640px;margin:0 auto;padding:14px}
+section{display:none}section.on{display:block}
+.card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin-bottom:12px}
+.card h2{margin:0 0 8px;font-size:18px;color:var(--navy)}
+.tip{font-size:14px;color:#666;margin:4px 0 0}
+label.chk{display:flex;gap:10px;align-items:flex-start;padding:10px 0;border-top:1px dashed var(--line);cursor:pointer}
+label.chk:first-of-type{border-top:0}
+label.chk input{width:22px;height:22px;margin-top:3px;accent-color:var(--ok);flex:none}
+label.chk.done span{color:#999;text-decoration:line-through}
+.prog{font-size:14px;color:var(--ok);font-weight:700;margin-bottom:6px}
+ol{padding-left:22px;margin:6px 0}ol li{margin:6px 0}
+.opt{border-left:4px solid var(--amber);padding:8px 12px;background:#fffaf0;border-radius:6px;margin:8px 0}
+.msg{background:#f1f5f9;border-radius:8px;padding:12px;white-space:pre-wrap;font-size:16px}
+.btn{display:inline-block;border:0;background:var(--navy);color:#fff;padding:10px 16px;border-radius:8px;font-size:15px;margin-top:8px;font-family:inherit}
+.btn.gray{background:#8a94a3}
+input.f{width:100%;padding:8px;font-size:16px;border:1px solid var(--line);border-radius:6px;margin:4px 0 8px;font-family:inherit}
+footer{text-align:center;font-size:13px;color:#888;padding:16px}
+</style>
+</head>
+<body>
+<header>
+<h1>📹 錄課上傳操作卡</h1>
+<p>實體教室錄影 → 上傳 → 給請假學生補課連結</p>
+</header>
+<nav>
+<button class="on" data-t="s1">① 上課前</button>
+<button data-t="s2">② 下課後</button>
+<button data-t="s3">③ 給連結</button>
+<button data-t="s4">④ 記帳</button>
+</nav>
+<main>
+
+<section id="s1" class="on">
+<div class="card">
+<h2>上課前檢查（約 3 分鐘）</h2>
+<div class="prog" id="p1"></div>
+<label class="chk"><input type="checkbox"><span><b>電量：</b>插著充電線錄，或電量 80% 以上</span></label>
+<label class="chk"><input type="checkbox"><span><b>容量：</b>設定 → 一般 → 儲存空間，剩餘 20GB 以上（1080p 約每小時 4～8GB）</span></label>
+<label class="chk"><input type="checkbox"><span><b>勿擾模式：</b>已開啟（避免來電、通知中斷錄影）</span></label>
+<label class="chk"><input type="checkbox"><span><b>位置：</b>腳架放教室後方或斜後方，畫面拍得到老師＋整面白板</span></label>
+<label class="chk"><input type="checkbox"><span><b>光線：</b>平板不要正對窗戶（逆光會拍成黑臉）</span></label>
+<label class="chk"><input type="checkbox"><span><b>麥克風：</b>領夾麥克風已夾好、接收器已插平板（若有）</span></label>
+<label class="chk"><input type="checkbox"><span><b>相機設定：</b>開「相機」→「錄影」→ 確認是<b>後鏡頭</b>（不會鏡像）、畫質 1080p</span></label>
+<button class="btn gray" onclick="resetChk('s1')">重設勾選</button>
+</div>
+<div class="card">
+<h2>開始上課</h2>
+<ol><li>按下紅色錄影鍵，看到計時開始跑</li><li>正常上課，不用管平板</li><li>下課按停止</li></ol>
+<p class="tip">💡 第一次使用：先錄 10 分鐘，下課看一下字和聲音清不清楚。</p>
+</div>
+</section>
+
+<section id="s2">
+<div class="card">
+<h2>下課後上傳</h2>
+<p class="tip">影片存在「照片」App 裡。檔案大，<b>一定要連 Wi-Fi</b> 再上傳。</p>
+<div class="opt">
+<b>做法 A｜YouTube「不公開」（最簡單）</b>
+<ol><li>開 YouTube App，登入自己的 Google 帳號</li><li>按下方「＋」→「上傳影片」→ 選剛錄的影片</li><li>標題例：<b>11/20 國二英文 補課</b></li><li>瀏覽權限選 <b>「不公開」</b> → 上傳</li><li>完成後按「分享」→「複製連結」</li></ol>
+<p class="tip">不公開＝搜尋不到，只有拿到連結的人能看（但連結可能被轉傳）。</p>
+</div>
+<div class="opt">
+<b>做法 B｜Google 雲端硬碟（較能防轉傳）</b>
+<ol><li>開「雲端硬碟」App → 按「＋」→「上傳」→ 選影片</li><li>上傳完，點影片旁「⋮」→「共用」</li><li>輸入付費學生或家長的 Gmail，權限選「檢視者」</li><li>按「傳送」（對方會收到通知）或「複製連結」</li></ol>
+<p class="tip">只有被加入的帳號能看，轉傳給別人也打不開。</p>
+</div>
+</div>
+</section>
+
+<section id="s3">
+<div class="card">
+<h2>收款後傳連結（LINE 訊息範本）</h2>
+<p class="tip">先確認收到補課費，再傳連結。填好下方欄位，按「複製訊息」貼到 LINE。</p>
+日期<input class="f" id="d" placeholder="例：11/20" oninput="mk()">
+課程<input class="f" id="c" placeholder="例：國二英文" oninput="mk()">
+觀看期限<input class="f" id="e" placeholder="例：11/30" oninput="mk()">
+影片連結<input class="f" id="u" placeholder="貼上 YouTube 或雲端硬碟連結" oninput="mk()">
+<div class="msg" id="m"></div>
+<button class="btn" onclick="cp()">複製訊息</button> <span id="ok" style="color:var(--ok);font-size:14px"></span>
+</div>
+</section>
+
+<section id="s4">
+<div class="card">
+<h2>記帳</h2>
+<ol><li>每筆補課費記進「補教收支」Excel</li><li>建議新增一欄 <b>「影片補課」</b>，和一般學費分開</li><li>月底看一下這項收入一個月有多少</li></ol>
+<p class="tip">分開記，之後評估「錄課補課」值不值得持續做會很清楚。</p>
+</div>
+</section>
+
+</main>
+<footer>財顧芸 陳芸琪 整理｜有問題隨時 LINE 我 😊</footer>
+<script>
+document.querySelectorAll('nav button').forEach(b=>b.onclick=()=>{document.querySelectorAll('nav button').forEach(x=>x.classList.toggle('on',x===b));document.querySelectorAll('section').forEach(s=>s.classList.toggle('on',s.id===b.dataset.t));scrollTo(0,0)});
+function upd(){const s=document.getElementById('s1'),c=s.querySelectorAll('input[type=checkbox]'),n=[...c].filter(x=>x.checked).length;c.forEach(x=>x.parentElement.classList.toggle('done',x.checked));document.getElementById('p1').textContent=n===c.length?'✅ 全部完成，可以開始錄了！':'已完成 '+n+' / '+c.length}
+document.querySelectorAll('#s1 input[type=checkbox]').forEach(x=>x.onchange=upd);
+function resetChk(id){document.querySelectorAll('#'+id+' input[type=checkbox]').forEach(x=>x.checked=false);upd()}
+function v(id,def){const t=document.getElementById(id).value.trim();return t||def}
+function mk(){document.getElementById('m').textContent='您好，這是 '+v('d','○/○')+' '+v('c','○○課')+' 的補課影片：\n'+v('u','（連結）')+'\n\n觀看期限到 '+v('e','○/○')+'，僅供個人補課使用，請勿轉傳，謝謝 🙏'}
+function cp(){const t=document.getElementById('m').textContent;const done=()=>{document.getElementById('ok').textContent='已複製 ✓';setTimeout(()=>document.getElementById('ok').textContent='',2000)};if(navigator.clipboard&&isSecureContext){navigator.clipboard.writeText(t).then(done)}else{const a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();document.execCommand('copy');a.remove();done()}}
+upd();mk();
+</script>
+</body>
+</html>
